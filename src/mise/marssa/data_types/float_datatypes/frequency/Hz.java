@@ -1,0 +1,29 @@
+package mise.marssa.data_types.float_datatypes.frequency;
+
+/**
+ * @author Alan
+ * @version 1.0
+ * @created 08-Jul-2011 09:53:24
+ */
+public class Hz extends AFrequency {
+
+	public Hz(float value) {
+		super(value);
+	}
+
+	public void finalize() throws Throwable {
+		super.finalize();
+	}
+
+	/**
+	 * Hz is the SI unit
+	 */
+	public float getHz() {
+		return value;
+	}
+
+	public float getKHz() {
+		return value / 1000;
+	}
+
+}
