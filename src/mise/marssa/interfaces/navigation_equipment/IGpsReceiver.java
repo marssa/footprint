@@ -33,11 +33,7 @@ public interface IGpsReceiver {
 
 	public DegreesInteger getElevation() throws NoConnection, NoValue;
 
-	public Float getHDOP() throws NoConnection, NoValue;
-
 	public Time getLocalZoneTime() throws NoConnection, NoValue;
-
-	public Float getPDOP() throws NoConnection, NoValue;
 
 	public Integer getSatelliteID() throws NoConnection, NoValue;
 
@@ -60,6 +56,11 @@ public interface IGpsReceiver {
 	public String getStatus() throws NoConnection, NoValue;
 
 	public Time getTime() throws NoConnection, NoValue;
-
+	
+	/**
+	 *Dilution of precision 
+	 */
 	public Float getVDOP() throws NoConnection, NoValue;
+	public Float getHDOP() throws NoConnection, NoValue;
+	public Float getPDOP() throws NoConnection, NoValue;
 }
