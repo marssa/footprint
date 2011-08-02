@@ -12,13 +12,10 @@ public abstract class ATime implements ITime{
 	/**
 	 * 
 	 */
-	//private static final long serialVersionUID = 1L;
-
 	protected long time;
 	
 	public ATime(long time) {
 		this.time = time;
-		//super(time);
 	}
 
 	public void finalize() throws Throwable {
