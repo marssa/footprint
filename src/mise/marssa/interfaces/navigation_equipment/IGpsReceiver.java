@@ -12,7 +12,7 @@ import mise.marssa.exceptions.NoConnection;
 import mise.marssa.exceptions.NoValue;
 
 /**
- * @author Alan
+ * @author Alan Grech
  * @version 1.0
  * @created 08-Jul-2011 09:53:24
  */

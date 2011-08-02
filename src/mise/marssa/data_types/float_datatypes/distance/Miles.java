@@ -1,7 +1,7 @@
 package mise.marssa.data_types.float_datatypes.distance;
 
 /**
- * @author alan.grech
+ * @author Alan Grech.grech
  * @version 1.0
  * @created 08-Jul-2011 09:53:29
  */

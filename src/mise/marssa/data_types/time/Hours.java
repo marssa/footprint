@@ -4,7 +4,7 @@
 package mise.marssa.data_types.time;
 
 /**
- * @author Alan
+ * @author Alan Grech
  *
  */
 public class Hours extends ATime {
