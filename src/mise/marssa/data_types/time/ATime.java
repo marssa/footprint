@@ -25,5 +25,8 @@ public abstract class ATime implements ITime{
 
 	}
 
-
+	@Override
+	public java.lang.String toString() {
+		return Long.toString(time);
+	}
 }
