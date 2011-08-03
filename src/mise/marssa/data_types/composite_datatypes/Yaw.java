@@ -3,7 +3,7 @@ package mise.marssa.data_types.composite_datatypes;
 import mise.marssa.data_types.float_datatypes.DegreesFloat;
 
 /**
- * @author Alan
+ * @author Alan Grech
  * @version 1.0
  * @created 08-Jul-2011 09:53:30
  */

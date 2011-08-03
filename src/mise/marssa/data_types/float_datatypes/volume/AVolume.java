@@ -1,3 +1,8 @@
+/**
+ * @author Warren Zahra
+ * @version 1.0
+ * @created 08-Jul-2011 09:53:23
+ */
 package mise.marssa.data_types.float_datatypes.volume;
 
 import mise.marssa.data_types.conversion_interfaces.IVolume;

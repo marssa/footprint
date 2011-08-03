@@ -7,7 +7,7 @@ import mise.marssa.data_types.integer_datatypes.Integer;
 import mise.marssa.exceptions.OutOfRange;
 
 /**
- * @author Alan
+ * @author Alan Grech
  * @version 1.0
  * @created 08-Jul-2011 09:53:25
  */
