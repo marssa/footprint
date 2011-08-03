@@ -32,9 +32,4 @@ public class Hours extends ATime {
 	public long getHour() {
 		return time;
 	}
-	
-	@Override
-	public java.lang.String toString() {
-		return "HHMMSSS: " + this.getHour() + ":" + this.getMinutes() + ":" + this.getSeconds();
-	}
 }

@@ -22,20 +22,16 @@ public class Minutes extends ATime {
 
 	@Override
 	public long getSeconds() {
-		// TODO Auto-generated method stub
 		return time * 60;
 	}
 
 	@Override
 	public long getMinutes() {
-		// TODO Auto-generated method stub
 		return time;
 	}
 
 	@Override
 	public long getHour() {
-		// TODO Auto-generated method stub
 		return time / 60;
 	}
-
 }

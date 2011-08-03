@@ -20,7 +20,7 @@ public class Integer {
 	public int getValue() {
 		return value;
 	}
-	
+
 	public java.lang.String toString() {
 		return java.lang.Integer.toString(value);
 	}

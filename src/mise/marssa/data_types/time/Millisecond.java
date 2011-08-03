@@ -32,9 +32,4 @@ public class Millisecond extends ATime{
 	public long getHour() {
 		return time / (1000*60*60);
 	}
-
-	@Override
-	public java.lang.String toString() {
-		return time + "ms";
-	}
 }

@@ -6,7 +6,7 @@ package mise.marssa;
 import mise.marssa.data_types.integer_datatypes.Integer;
 
 /**
- * @author Clayton
+ * @author Clayton Tabone
  *
  */
 public final class Constants {
