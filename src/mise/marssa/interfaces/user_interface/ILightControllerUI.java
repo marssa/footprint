@@ -1,6 +1,6 @@
 package mise.marssa.interfaces.user_interface;
 
-import mise.marssa.data_types.Boolean;
+import mise.marssa.data_types.MBoolean;
 
 /**
  * @author Alan Grech
@@ -9,8 +9,8 @@ import mise.marssa.data_types.Boolean;
  */
 public interface ILightControllerUI {
 
-	public Boolean getNavigationLightStatus();
+	public MBoolean getNavigationLightStatus();
 
-	public Boolean toggleNavigationLights();
+	public MBoolean toggleNavigationLights();
 
 }

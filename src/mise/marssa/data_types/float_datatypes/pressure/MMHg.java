@@ -1,8 +1,10 @@
 package mise.marssa.data_types.float_datatypes.pressure;
 
+import mise.marssa.exceptions.OutOfRange;
+
 public class MMHg extends APressure {
 
-	public MMHg(float value) {
+	public MMHg(float value) throws OutOfRange {
 		super(value);
 	}
 

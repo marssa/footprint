@@ -3,13 +3,13 @@
  */
 package mise.marssa;
 
-import mise.marssa.data_types.integer_datatypes.Integer;
+import mise.marssa.data_types.integer_datatypes.MInteger;
 
 /**
  * @author Clayton Tabone
  *
  */
 public final class Constants {
-	public final static Integer RETRY_AMOUNT = new Integer(5);
-	public final static Integer RETRY_INTERVAL = new Integer(5);
+	public final static MInteger RETRY_AMOUNT = new MInteger(5);
+	public final static MInteger RETRY_INTERVAL = new MInteger(5);
 }

@@ -1,8 +1,10 @@
 package mise.marssa.data_types.float_datatypes.speed;
 
+import mise.marssa.exceptions.OutOfRange;
+
 public class MPH extends ASpeed{
 	
-	public MPH(float value) {
+	public MPH(float value) throws OutOfRange {
 		super(value);
 	}
 

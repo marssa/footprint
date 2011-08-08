@@ -1,5 +1,7 @@
 package mise.marssa.data_types.float_datatypes.pressure;
 
+import mise.marssa.exceptions.OutOfRange;
+
 /**
  * milli bars
  * 
@@ -9,7 +11,7 @@ package mise.marssa.data_types.float_datatypes.pressure;
  */
 public class MBars extends APressure {
 
-	public MBars(float value) {
+	public MBars(float value) throws OutOfRange {
 		super(value);
 	}
 

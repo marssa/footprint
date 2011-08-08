@@ -5,7 +5,7 @@ package mise.marssa.data_types.integer_datatypes;
  * @version 1.0
  * @created 08-Jul-2011 09:53:24
  */
-public class DegreesInteger extends Integer {
+public class DegreesInteger extends MInteger {
 
 	public DegreesInteger(int value) {
 		super(value);

@@ -2,6 +2,7 @@ package mise.marssa.data_types.float_datatypes.frequency;
 
 import mise.marssa.data_types.float_datatypes.UnsignedFloat;
 import mise.marssa.data_types.conversion_interfaces.IFrequency;
+import mise.marssa.exceptions.OutOfRange;
 
 /**
  * @author Alan Grech
@@ -10,7 +11,7 @@ import mise.marssa.data_types.conversion_interfaces.IFrequency;
  */
 public abstract class AFrequency extends UnsignedFloat implements IFrequency {
 
-	public AFrequency(float value) {
+	public AFrequency(float value) throws OutOfRange {
 		super(value);
 	}
 

@@ -1,5 +1,7 @@
 package mise.marssa.data_types.float_datatypes.frequency;
 
+import mise.marssa.exceptions.OutOfRange;
+
 /**
  * @author Alan Grech
  * @version 1.0
@@ -7,7 +9,7 @@ package mise.marssa.data_types.float_datatypes.frequency;
  */
 public class KHz extends AFrequency {
 
-	public KHz(float value) {
+	public KHz(float value) throws OutOfRange {
 		super(value);
 	}
 

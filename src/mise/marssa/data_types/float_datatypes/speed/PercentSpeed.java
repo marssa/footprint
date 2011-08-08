@@ -1,5 +1,7 @@
 package mise.marssa.data_types.float_datatypes.speed;
 
+import mise.marssa.exceptions.OutOfRange;
+
 /**
  * @author Alan Grech
  * @version 1.0
@@ -7,7 +9,7 @@ package mise.marssa.data_types.float_datatypes.speed;
  */
 public class PercentSpeed extends ASpeed {
 
-	public PercentSpeed(float value) {
+	public PercentSpeed(float value) throws OutOfRange {
 		super(value);
 	}
 

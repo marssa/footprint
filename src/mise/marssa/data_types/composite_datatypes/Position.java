@@ -1,9 +1,9 @@
 package mise.marssa.data_types.composite_datatypes;
 
 import mise.marssa.data_types.integer_datatypes.DegreesInteger;
-import mise.marssa.data_types.integer_datatypes.Integer;
+import mise.marssa.data_types.integer_datatypes.MInteger;
 import mise.marssa.data_types.float_datatypes.DegreesFloat;
-import mise.marssa.data_types.float_datatypes.Float;
+import mise.marssa.data_types.float_datatypes.MFloat;
 
 /**
  * @author Alan Grech
@@ -13,10 +13,10 @@ import mise.marssa.data_types.float_datatypes.Float;
 public class Position {
 
 	private DegreesInteger degrees;
-	private Integer minutes;
-	private Float seconds;
+	private MInteger minutes;
+	private MFloat seconds;
 
-	public Position(DegreesInteger degrees, Integer minutes, Float seconds) {
+	public Position(DegreesInteger degrees, MInteger minutes, MFloat seconds) {
 		this.degrees = degrees;
 		this.minutes = minutes;
 		this.seconds = seconds;
@@ -27,17 +27,17 @@ public class Position {
 		this.degrees = new DegreesInteger((int) java.lang.Math.floor(degFloat));
 		
 		float minFloat = 60 * java.lang.Math.abs(degFloat - this.degrees.getValue());
-		this.minutes = new Integer((int) minFloat);
+		this.minutes = new MInteger((int) minFloat);
 		
 		float secFloat = 60 * (minFloat - this.minutes.getValue());
 		if (secFloat == 60) {
-			this.minutes = new Integer(this.minutes.getValue() + 1);
+			this.minutes = new MInteger(this.minutes.getValue() + 1);
 			secFloat = 0;
 		}
-		this.seconds = new Float(secFloat); 
+		this.seconds = new MFloat(secFloat); 
 		if (this.minutes.getValue() == 60) {
 			this.degrees = new DegreesInteger(this.degrees.getValue() + 1);
-			this.minutes = new Integer(0);
+			this.minutes = new MInteger(0);
 		}
 	}
 
@@ -49,11 +49,11 @@ public class Position {
 		return degrees;
 	}
 
-	public Integer getMinutes() {
+	public MInteger getMinutes() {
 		return minutes;
 	}
 
-	public Float getSeconds() {
+	public MFloat getSeconds() {
 		return seconds;
 	}
 

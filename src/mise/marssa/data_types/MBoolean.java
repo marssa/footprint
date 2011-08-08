@@ -5,19 +5,14 @@ package mise.marssa.data_types;
  * @version 1.0
  * @created 08-Jul-2011 09:53:24
  */
-public class Boolean {
+public class MBoolean {
 	protected boolean value;
 	
-	public Boolean(boolean value) {
+	public MBoolean(boolean value) {
 		this.value = value ;
-	}
-
-	public void finalize() throws Throwable {
-
 	}
 	
 	public boolean getValue() {
 		return value;
 	}
-	
 }

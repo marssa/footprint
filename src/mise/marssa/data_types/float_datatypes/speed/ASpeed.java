@@ -2,6 +2,7 @@ package mise.marssa.data_types.float_datatypes.speed;
 
 import mise.marssa.data_types.float_datatypes.UnsignedFloat;
 import mise.marssa.data_types.conversion_interfaces.ISpeed;
+import mise.marssa.exceptions.OutOfRange;
 
 /**
  * @author Alan Grech
@@ -10,7 +11,7 @@ import mise.marssa.data_types.conversion_interfaces.ISpeed;
  */
 public abstract class ASpeed extends UnsignedFloat implements ISpeed {
 
-	public ASpeed(float value) {
+	public ASpeed(float value) throws OutOfRange {
 		super(value);
 	}
 
@@ -38,8 +39,4 @@ public abstract class ASpeed extends UnsignedFloat implements ISpeed {
 		
 		else return 0; //need to be changed to an exception
 	}
-	
-	
-	
-	
 }

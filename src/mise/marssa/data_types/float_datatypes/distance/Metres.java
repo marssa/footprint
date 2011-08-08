@@ -1,5 +1,7 @@
 package mise.marssa.data_types.float_datatypes.distance;
 
+import mise.marssa.exceptions.OutOfRange;
+
 /**
  * Metres is the SI Unit
  * 
@@ -9,7 +11,7 @@ package mise.marssa.data_types.float_datatypes.distance;
  */
 public class Metres extends ADistance {
 
-	public Metres(float value) {
+	public Metres(float value) throws OutOfRange {
 		super(value);
 	}
 

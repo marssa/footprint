@@ -1,5 +1,7 @@
 package mise.marssa.data_types.float_datatypes.speed;
 
+import mise.marssa.exceptions.OutOfRange;
+
 /**
  * Meters per Second
  * 
@@ -9,9 +11,8 @@ package mise.marssa.data_types.float_datatypes.speed;
  */
 public class MPS extends ASpeed {
 
-	public MPS(float value) {
+	public MPS(float value) throws OutOfRange {
 		super(value);
-
 	}
 
 	public void finalize() throws Throwable {

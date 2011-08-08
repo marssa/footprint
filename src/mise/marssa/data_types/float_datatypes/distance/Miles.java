@@ -1,5 +1,7 @@
 package mise.marssa.data_types.float_datatypes.distance;
 
+import mise.marssa.exceptions.OutOfRange;
+
 /**
  * @author Alan Grech.grech
  * @version 1.0
@@ -7,7 +9,7 @@ package mise.marssa.data_types.float_datatypes.distance;
  */
 public class Miles extends ADistance {
 
-	public Miles(float value) {
+	public Miles(float value) throws OutOfRange {
 		super(value);
 	}
 

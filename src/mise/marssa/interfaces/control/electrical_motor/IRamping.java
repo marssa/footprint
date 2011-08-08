@@ -1,6 +1,6 @@
 package mise.marssa.interfaces.control.electrical_motor;
 
-import mise.marssa.data_types.float_datatypes.Float;
+import mise.marssa.data_types.float_datatypes.MFloat;
 
 /**
  * interface for ramping module
@@ -16,6 +16,6 @@ public interface IRamping {
 	 * @param newValue
 	 * @throws InterruptedException 
 	 */
-	public void rampTo(Float desiredValue) throws InterruptedException;
+	public void rampTo(MFloat desiredValue) throws InterruptedException;
 
 }

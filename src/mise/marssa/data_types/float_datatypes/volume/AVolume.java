@@ -7,10 +7,11 @@ package mise.marssa.data_types.float_datatypes.volume;
 
 import mise.marssa.data_types.conversion_interfaces.IVolume;
 import mise.marssa.data_types.float_datatypes.UnsignedFloat;
+import mise.marssa.exceptions.OutOfRange;
 
 public abstract class AVolume extends UnsignedFloat implements IVolume {
 	
-	public AVolume(float value) {
+	public AVolume(float value) throws OutOfRange {
 		super(value);
 	}
 

@@ -5,11 +5,11 @@ package mise.marssa.data_types.float_datatypes;
  * @version 1.0
  * @created 08-Jul-2011 09:53:24
  */
-public class Float {
+public class MFloat {
 
 	protected float value;
 
-	public Float(float value) {
+	public MFloat(float value) {
 		this.value = value;
 	}
 

@@ -5,11 +5,11 @@ package mise.marssa.data_types.integer_datatypes;
  * @version 1.0
  * @created 08-Jul-2011 09:53:24
  */
-public class Integer {
+public class MInteger {
 
 	protected int value;
 
-	public Integer(int value) {
+	public MInteger(int value) {
 		this.value = value;
 	}
 

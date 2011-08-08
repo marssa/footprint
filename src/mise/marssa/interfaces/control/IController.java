@@ -1,6 +1,6 @@
 package mise.marssa.interfaces.control;
 
-import mise.marssa.data_types.float_datatypes.Float;
+import mise.marssa.data_types.float_datatypes.MFloat;
 
 /**
  * @author Clayton
@@ -12,5 +12,5 @@ public interface IController {
 	 * 
 	 * @param value
 	 */
-	public void outputValue(Float value);
+	public void outputValue(MFloat value);
 }

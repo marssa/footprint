@@ -1,5 +1,7 @@
 package mise.marssa.data_types.float_datatypes.distance;
 
+import mise.marssa.exceptions.OutOfRange;
+
 /**
  * Kilometres
  * 
@@ -9,7 +11,7 @@ package mise.marssa.data_types.float_datatypes.distance;
  */
 public class KM extends ADistance {
 
-	public KM(float value) {
+	public KM(float value) throws OutOfRange {
 		super(value);
 	}
 

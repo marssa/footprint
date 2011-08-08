@@ -2,6 +2,7 @@ package mise.marssa.data_types.float_datatypes.pressure;
 
 import mise.marssa.data_types.float_datatypes.UnsignedFloat;
 import mise.marssa.data_types.conversion_interfaces.IPressure;
+import mise.marssa.exceptions.OutOfRange;
 
 /**
  * @author Alan Grech
@@ -10,7 +11,7 @@ import mise.marssa.data_types.conversion_interfaces.IPressure;
  */
 public abstract class APressure extends UnsignedFloat implements IPressure {
 
-	public APressure(float value) {
+	public APressure(float value) throws OutOfRange {
 		super(value);
 	}
 

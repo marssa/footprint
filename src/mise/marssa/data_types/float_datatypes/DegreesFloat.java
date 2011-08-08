@@ -5,14 +5,9 @@ package mise.marssa.data_types.float_datatypes;
  * @version 1.0
  * @created 08-Jul-2011 09:53:24
  */
-public class DegreesFloat extends Float {
+public class DegreesFloat extends MFloat {
 
 	public DegreesFloat(float value) {
 		super(value);
 	}
-
-	public void finalize() throws Throwable {
-		super.finalize();
-	}
-
 }

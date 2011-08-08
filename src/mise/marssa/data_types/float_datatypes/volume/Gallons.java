@@ -1,7 +1,9 @@
 package mise.marssa.data_types.float_datatypes.volume;
 
+import mise.marssa.exceptions.OutOfRange;
+
 public class Gallons extends AVolume {
-	public Gallons(float value) {
+	public Gallons(float value) throws OutOfRange {
 		super(value);
 	}
 
@@ -10,19 +12,16 @@ public class Gallons extends AVolume {
 	}
 	@Override
 	public float getLiters() {
-		// TODO Auto-generated method stub
 		return value * (float) 3.78541178 ;
 	}
 
 	@Override
 	public float getGallon() {
-		// TODO Auto-generated method stub
 		return value;
 	}
 
 	@Override
 	public float getImpGallon() {
-		// TODO Auto-generated method stub
 		return value * (float) 0.83267384 ;
 	}
 	

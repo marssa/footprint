@@ -1,5 +1,7 @@
 package mise.marssa.data_types.float_datatypes.speed;
 
+import mise.marssa.exceptions.OutOfRange;
+
 /**
  * @author Alan Grech
  * @version 1.0
@@ -9,7 +11,7 @@ package mise.marssa.data_types.float_datatypes.speed;
 
 public class Knots extends ASpeed {
 
-	public Knots(float value) {
+	public Knots(float value) throws OutOfRange {
 		super(value);
 	}
 
@@ -36,5 +38,4 @@ public class Knots extends ASpeed {
 	public float getMPS() {
 		return value * (float) 1.852 * 1000 / 3600;
 	}
-
 }

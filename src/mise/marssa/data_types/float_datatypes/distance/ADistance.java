@@ -2,6 +2,7 @@ package mise.marssa.data_types.float_datatypes.distance;
 
 import mise.marssa.data_types.conversion_interfaces.IDistance;
 import mise.marssa.data_types.float_datatypes.UnsignedFloat;
+import mise.marssa.exceptions.OutOfRange;
 
 /**
  * @author Lifebook
@@ -10,12 +11,11 @@ import mise.marssa.data_types.float_datatypes.UnsignedFloat;
  */
 public abstract class ADistance extends UnsignedFloat implements IDistance {
 
-	public ADistance(float value) {
+	public ADistance(float value) throws OutOfRange {
 		super(value);
 	}
 
 	public void finalize() throws Throwable {
 		super.finalize();
 	}
-
 }

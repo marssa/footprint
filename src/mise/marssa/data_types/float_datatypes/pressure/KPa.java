@@ -1,8 +1,10 @@
 package mise.marssa.data_types.float_datatypes.pressure;
 
+import mise.marssa.exceptions.OutOfRange;
+
 public class KPa extends APressure {
 
-	public KPa(float value) {
+	public KPa(float value) throws OutOfRange {
 		super(value);
 	}
 

@@ -1,13 +1,13 @@
 package mise.marssa.interfaces.navigation_equipment;
 
-import mise.marssa.data_types.Date;
+import mise.marssa.data_types.MDate;
 import mise.marssa.data_types.composite_datatypes.Coordinate;
 import mise.marssa.data_types.float_datatypes.DegreesFloat;
 import mise.marssa.data_types.float_datatypes.speed.Knots;
 import mise.marssa.data_types.integer_datatypes.DegreesInteger;
-import mise.marssa.data_types.integer_datatypes.Integer;
+import mise.marssa.data_types.integer_datatypes.MInteger;
 import mise.marssa.data_types.time.ATime;
-import mise.marssa.data_types.String;
+import mise.marssa.data_types.MString;
 import mise.marssa.exceptions.NoConnection;
 import mise.marssa.exceptions.NoValue;
 
@@ -29,17 +29,17 @@ public interface IGpsReceiver {
 
 	public Coordinate getCoordinate() throws NoConnection, NoValue;
 
-	public Date getDate() throws NoConnection, NoValue;
+	public MDate getDate() throws NoConnection, NoValue;
 
 	public DegreesInteger getElevation() throws NoConnection, NoValue;
 
 	public ATime getLocalZoneTime() throws NoConnection, NoValue;
 
-	public Integer getSatelliteID() throws NoConnection, NoValue;
+	public MInteger getSatelliteID() throws NoConnection, NoValue;
 
-	public Integer getSatelliteInView() throws NoConnection, NoValue;
+	public MInteger getSatelliteInView() throws NoConnection, NoValue;
 
-	public Integer getSatellitesInUse() throws NoConnection, NoValue;
+	public MInteger getSatellitesInUse() throws NoConnection, NoValue;
 
 	public Float getSignalSrength() throws NoConnection, NoValue;
 
@@ -53,7 +53,7 @@ public interface IGpsReceiver {
 	/**
 	 * Defining the status of the gps receiver. Ex- connected/trying to connect
 	 */
-	public String getStatus() throws NoConnection, NoValue;
+	public MString getStatus() throws NoConnection, NoValue;
 
 	public ATime getTime() throws NoConnection, NoValue;
 	

@@ -1,5 +1,7 @@
 package mise.marssa.data_types.float_datatypes.distance;
 
+import mise.marssa.exceptions.OutOfRange;
+
 /**
  * Nautical Miles - most widely used as distance measurement in nautical terms
  * This datatype shall be used for depths as well
@@ -9,7 +11,7 @@ package mise.marssa.data_types.float_datatypes.distance;
  */
 public class NM extends ADistance {
 
-	public NM(float value) {
+	public NM(float value) throws OutOfRange {
 		super(value);
 	}
 

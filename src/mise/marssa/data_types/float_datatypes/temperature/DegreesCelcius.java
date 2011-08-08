@@ -11,10 +11,6 @@ public class DegreesCelcius extends ATemperature {
 		super(value);
 	}
 
-	public void finalize() throws Throwable {
-		super.finalize();
-	}
-
 	public float getDegreesCelcius() {
 		return value;
 	}

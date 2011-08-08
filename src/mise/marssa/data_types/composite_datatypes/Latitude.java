@@ -2,8 +2,8 @@ package mise.marssa.data_types.composite_datatypes;
 
 import mise.marssa.data_types.integer_datatypes.DegreesInteger;
 import mise.marssa.data_types.float_datatypes.DegreesFloat;
-import mise.marssa.data_types.float_datatypes.Float;
-import mise.marssa.data_types.integer_datatypes.Integer;
+import mise.marssa.data_types.float_datatypes.MFloat;
+import mise.marssa.data_types.integer_datatypes.MInteger;
 import mise.marssa.exceptions.OutOfRange;
 
 /**
@@ -15,7 +15,7 @@ public class Latitude {
 
 	private Position latitude;
 
-	public Latitude(DegreesInteger degrees, Integer minutes, Float seconds) throws OutOfRange {
+	public Latitude(DegreesInteger degrees, MInteger minutes, MFloat seconds) throws OutOfRange {
 		if(degrees.getValue() < -90 && degrees.getValue() > 90)
 			throw new OutOfRange("Degrees value is out of the range -90 < degrees < 90");
 		if(minutes.getValue() < 0 && minutes.getValue() > 60)

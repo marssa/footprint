@@ -1,5 +1,7 @@
 package mise.marssa.data_types.float_datatypes.speed;
 
+import mise.marssa.exceptions.OutOfRange;
+
 /**
  * kilometres per hour
  * 
@@ -9,7 +11,7 @@ package mise.marssa.data_types.float_datatypes.speed;
  */
 public class KPH extends ASpeed {
 
-	public KPH(float value) {
+	public KPH(float value) throws OutOfRange {
 		super(value);
 	}
 

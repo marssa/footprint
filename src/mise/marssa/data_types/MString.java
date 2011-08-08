@@ -5,10 +5,10 @@ package mise.marssa.data_types;
  * @version 1.0
  * @created 08-Jul-2011 09:53:29
  */
-public class String {
+public class MString {
 	private java.lang.String contents;
 	
-	public String(java.lang.String contents) {
+	public MString(java.lang.String contents) {
 		this.contents = contents;
 	}
 
