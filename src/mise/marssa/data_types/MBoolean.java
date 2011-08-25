@@ -15,4 +15,5 @@ public class MBoolean {
 	public boolean getValue() {
 		return value;
 	}
+	
 }
