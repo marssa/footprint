@@ -8,5 +8,7 @@ package mise.marssa.interfaces.control.lighting;
  *
  */
 public interface ILightToggle {
+	
+	public void toggleLight();
 
 }
