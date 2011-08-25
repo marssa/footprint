@@ -6,17 +6,13 @@ package mise.marssa.data_types;
  * @created 08-Jul-2011 09:53:29
  */
 public class MString {
-	private java.lang.String contents;
+	private String contents;
 	
-	public MString(java.lang.String contents) {
+	public MString(String contents) {
 		this.contents = contents;
 	}
-
-	public void finalize() throws Throwable {
-
-	}
 	
-	public java.lang.String getContents() {
+	public String getContents() {
 		return contents;
 	}
 }

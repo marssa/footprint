@@ -1,4 +1,4 @@
-package mise.marssa.interfaces.control.electrical_motor;
+package mise.marssa.interfaces.control;
 
 import mise.marssa.data_types.float_datatypes.MFloat;
 
