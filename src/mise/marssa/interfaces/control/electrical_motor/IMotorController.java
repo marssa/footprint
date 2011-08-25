@@ -8,5 +8,7 @@ import mise.marssa.interfaces.control.IController;
  * @created 08-Jul-2011 09:53:24
  */
 public interface IMotorController extends IController{
+	
+	
 
 }

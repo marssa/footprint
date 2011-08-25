@@ -12,4 +12,5 @@ import mise.marssa.data_types.integer_datatypes.MInteger;
 public final class Constants {
 	public final static MInteger RETRY_AMOUNT = new MInteger(5);
 	public final static MInteger RETRY_INTERVAL = new MInteger(5);
+	public final static MInteger VALUE_OUTOFRANGE = new MInteger(0);
 }

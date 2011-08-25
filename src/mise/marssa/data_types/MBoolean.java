@@ -12,6 +12,16 @@ public class MBoolean {
 		this.value = value ;
 	}
 	
+	public void setValue(boolean newValue)
+	{
+		this.value = newValue;
+	}
+	
+	public void toggleValue()
+	{
+		this.value = !value;
+	}
+	
 	public boolean getValue() {
 		return value;
 	}
