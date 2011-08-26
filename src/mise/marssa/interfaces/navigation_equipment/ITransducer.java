@@ -9,7 +9,7 @@ import mise.marssa.data_types.float_datatypes.speed.Knots;
  * @version 1.0
  * @updated 08-Jul-2011 15:00:19
  */
-public interface ITransducers {
+public interface ITransducer {
 
 	public float getDepth();
 
