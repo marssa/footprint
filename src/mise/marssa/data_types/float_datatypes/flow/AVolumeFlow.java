@@ -3,7 +3,7 @@
  */
 package mise.marssa.data_types.float_datatypes.flow;
 
-import mise.marssa.data_types.conversion_interfaces.IFlow;
+import mise.marssa.data_types.conversion_interfaces.IVolumeFlow;
 import mise.marssa.data_types.float_datatypes.UnsignedFloat;
 import mise.marssa.exceptions.OutOfRange;
 
@@ -11,7 +11,7 @@ import mise.marssa.exceptions.OutOfRange;
  * @author Alan Grech
  *
  */
-public abstract class AVolumeFlow extends UnsignedFloat implements IFlow {
+public abstract class AVolumeFlow extends UnsignedFloat implements IVolumeFlow {
 
 	/**
 	 * 
