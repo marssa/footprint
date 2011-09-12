@@ -7,7 +7,7 @@ import mise.marssa.exceptions.OutOfRange;
 
 /**
  * @author Alan Grech
- * conversions for meters cubed per hour
+ * conversions for cubic meters per hour
  */
 public class MCPH extends AVolumeFlow {
 
