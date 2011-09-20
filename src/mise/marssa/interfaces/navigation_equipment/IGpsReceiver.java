@@ -11,6 +11,7 @@ import mise.marssa.data_types.time.ATime;
 import mise.marssa.data_types.MString;
 import mise.marssa.exceptions.NoConnection;
 import mise.marssa.exceptions.NoValue;
+import mise.marssa.exceptions.OutOfRange;
 
 /**
  * @author Alan Grech
@@ -28,7 +29,7 @@ public interface IGpsReceiver {
 	 */
 	public DegreesFloat getCOG() throws NoConnection, NoValue;
 
-	public Coordinate getCoordinate() throws NoConnection, NoValue;
+	public Coordinate getCoordinate() throws NoConnection, NoValue, OutOfRange;
 
 	public MDate getDate() throws NoConnection, NoValue;
 
@@ -51,7 +52,7 @@ public interface IGpsReceiver {
 
 	public Knots getSOG() throws NoConnection, NoValue;
 	
-	public MFloat getEPT() throws NoConnection, NoValue;   
+	public MFloat getEPT() throws NoConnection, NoValue, OutOfRange;   
 
 	/**
 	 * Defining the status of the gps receiver. Ex- connected/trying to connect

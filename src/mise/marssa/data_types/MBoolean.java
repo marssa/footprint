@@ -25,4 +25,8 @@ public class MBoolean {
 	public boolean getValue() {
 		return value;
 	}
+	
+	public String toString() {
+		return Boolean.toString(value);
+	}
 }
