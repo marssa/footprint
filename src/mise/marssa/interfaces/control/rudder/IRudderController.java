@@ -10,7 +10,8 @@ import mise.marssa.data_types.float_datatypes.MFloat;
  * @author Alan Grech
  *
  */
-public interface IRudder {
-	public void rotate(MBoolean direction) throws InterruptedException; 
+public interface IRudderController {
+	public void rotate(MBoolean direction) throws InterruptedException;
+
 	public MFloat getAngle(MFloat voltageValue);
 }

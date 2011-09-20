@@ -2,6 +2,7 @@ package mise.marssa.interfaces.navigation_equipment;
 
 import mise.marssa.data_types.composite_datatypes.Attitude;
 import mise.marssa.data_types.float_datatypes.DegreesFloat;
+import mise.marssa.data_types.float_datatypes.MFloat;
 
 /**
  * @author Alan Grech
@@ -21,7 +22,7 @@ public interface ICompass {
 
 	public DegreesFloat getMagneticHeading();
 
-	public Float getRateOfTurn();
+	public MFloat getRateOfTurn();
 
 	public DegreesFloat getTrueHeading();
 

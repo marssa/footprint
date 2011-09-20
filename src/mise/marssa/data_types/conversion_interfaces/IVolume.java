@@ -2,7 +2,7 @@ package mise.marssa.data_types.conversion_interfaces;
 
 public interface IVolume {
 	
-	float getLiters();
-	float getGallon();
-	float getImpGallon(); //Imperial Gallons
+	public float getLiters();
+	public float getGallon();
+	public float getImpGallon(); //Imperial Gallons
 }
