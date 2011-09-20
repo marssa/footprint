@@ -4,7 +4,7 @@ import mise.marssa.exceptions.OutOfRange;
 
 /**
  * @author Alan Grech
- * conversion for: meters cubed per second
+ * conversion for: mcubic meters per second
  */
 
 public class MCPS extends AVolumeFlow {

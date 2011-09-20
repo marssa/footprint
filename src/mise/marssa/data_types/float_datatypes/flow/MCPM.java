@@ -7,7 +7,7 @@ import mise.marssa.exceptions.OutOfRange;
 
 /**
  * @author Alan Grech
- *
+ * cubic meters per minute
  */
 public class MCPM extends AVolumeFlow {
 
