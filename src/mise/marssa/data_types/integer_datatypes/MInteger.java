@@ -1,7 +1,7 @@
 package mise.marssa.data_types.integer_datatypes;
 
 /**
- * @author Alan Grech Grech
+ * @author Alan Grech
  * @version 1.0
  * @created 08-Jul-2011 09:53:24
  */
