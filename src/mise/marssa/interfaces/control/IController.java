@@ -1,6 +1,8 @@
 package mise.marssa.interfaces.control;
 
 import mise.marssa.data_types.float_datatypes.MFloat;
+import mise.marssa.exceptions.ConfigurationError;
+import mise.marssa.exceptions.OutOfRange;
 
 /**
  * @author Clayton
@@ -11,6 +13,8 @@ public interface IController {
 	/**
 	 * 
 	 * @param value
+	 * @throws OutOfRange 
+	 * @throws ConfigurationError 
 	 */
-	public void outputValue(MFloat value);
+	public void outputValue(MFloat value) throws ConfigurationError, OutOfRange;
 }
