@@ -14,12 +14,20 @@ import mise.marssa.exceptions.OutOfRange;
 public interface IRamping {
 
 	/**
-	 * 
-	 * @param newValue
-	 * @throws InterruptedException 
-	 * @throws OutOfRange 
-	 * @throws ConfigurationError 
+	 * Ramps the output value from the current value to the desired value
+	 * @param desiredValue the value which is desired on the output
+	 * @throws InterruptedException
+	 * @throws ConfigurationError
+	 * @throws OutOfRange
 	 */
 	public void rampTo(MFloat desiredValue) throws InterruptedException, ConfigurationError, OutOfRange;
-
+	
+	/**
+	 * Get current value of the Ramping instance<br />
+	 * This is the same as the last value which was sent on the outputValue method of the IController Interface 
+	 * Note: The Ramping instance might not necessarily be in the idle state. If it is in the process of executing the rampTo method, the current value will be returned
+	 * @return the current value of the Ramping instance
+	 * @see mise.marssa.interfaces.control.IController
+	 */
+	public MFloat getCurrentValue();
 }
