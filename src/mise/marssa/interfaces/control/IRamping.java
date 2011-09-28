@@ -30,4 +30,10 @@ public interface IRamping {
 	 * @see mise.marssa.interfaces.control.IController
 	 */
 	public MFloat getCurrentValue();
+
+	void increase(MFloat incrementValue) throws InterruptedException,
+			ConfigurationError, OutOfRange;
+
+	void decrease(MFloat decrementValue) throws InterruptedException,
+			ConfigurationError, OutOfRange;
 }
