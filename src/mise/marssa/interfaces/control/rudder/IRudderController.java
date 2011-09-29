@@ -12,7 +12,7 @@ import mise.marssa.exceptions.NoConnection;
  *
  */
 public interface IRudderController {
-	public void rotate(MBoolean direction) throws InterruptedException;
+	public void rotate(MBoolean direction) throws InterruptedException, NoConnection;
 
 	public MFloat getAngle() throws NoConnection;
 }
