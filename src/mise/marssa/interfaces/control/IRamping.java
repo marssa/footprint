@@ -2,6 +2,7 @@ package mise.marssa.interfaces.control;
 
 import mise.marssa.data_types.float_datatypes.MFloat;
 import mise.marssa.exceptions.ConfigurationError;
+import mise.marssa.exceptions.NoConnection;
 import mise.marssa.exceptions.OutOfRange;
 
 /**
@@ -19,8 +20,9 @@ public interface IRamping {
 	 * @throws InterruptedException
 	 * @throws ConfigurationError
 	 * @throws OutOfRange
+	 * @throws NoConnection 
 	 */
-	public void rampTo(MFloat desiredValue) throws InterruptedException, ConfigurationError, OutOfRange;
+	public void rampTo(MFloat desiredValue) throws InterruptedException, ConfigurationError, OutOfRange, NoConnection;
 	
 	/**
 	 * Get current value of the Ramping instance<br />
@@ -32,8 +34,8 @@ public interface IRamping {
 	public MFloat getCurrentValue();
 
 	void increase(MFloat incrementValue) throws InterruptedException,
-			ConfigurationError, OutOfRange;
+			ConfigurationError, OutOfRange, NoConnection;
 
 	void decrease(MFloat decrementValue) throws InterruptedException,
-			ConfigurationError, OutOfRange;
+			ConfigurationError, OutOfRange, NoConnection;
 }

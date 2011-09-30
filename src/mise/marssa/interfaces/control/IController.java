@@ -2,6 +2,7 @@ package mise.marssa.interfaces.control;
 
 import mise.marssa.data_types.float_datatypes.MFloat;
 import mise.marssa.exceptions.ConfigurationError;
+import mise.marssa.exceptions.NoConnection;
 import mise.marssa.exceptions.OutOfRange;
 
 /**
@@ -26,14 +27,16 @@ public interface IController {
 	 * @param value the value which will be sent to the output port
 	 * @throws OutOfRange 
 	 * @throws ConfigurationError 
+	 * @throws NoConnection 
 	 */
-	public void outputValue(MFloat value) throws ConfigurationError, OutOfRange;
+	public void outputValue(MFloat value) throws ConfigurationError, OutOfRange, NoConnection;
 	
 	/**
 	 * Sets the polarity signal for Controllers which use it
 	 * @param polarity the polarity state. 
+	 * @throws NoConnection 
 	 */
-	void setPolaritySignal(Polarity polarity);
+	void setPolaritySignal(Polarity polarity) throws NoConnection;
 	
 	/**
 	 * Get the last value which was sent to the output port
