@@ -12,6 +12,11 @@ public class ConfigurationError extends Exception {
 	/**
 	 * 
 	 */
+	private static final long serialVersionUID = 1111380266759657231L;
+
+	/**
+	 * 
+	 */
 	public ConfigurationError() {
 		// TODO Auto-generated constructor stub
 	}

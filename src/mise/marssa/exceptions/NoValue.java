@@ -12,6 +12,11 @@ public class NoValue extends Exception {
 	/**
 	 * 
 	 */
+	private static final long serialVersionUID = -4850631179655443501L;
+
+	/**
+	 * 
+	 */
 	public NoValue() {
 		// TODO Auto-generated constructor stub
 	}

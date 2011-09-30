@@ -12,6 +12,11 @@ public class NoConnection extends Exception {
 	/**
 	 * 
 	 */
+	private static final long serialVersionUID = 1528634756088778218L;
+
+	/**
+	 * 
+	 */
 	public NoConnection() {
 		// TODO Auto-generated constructor stub
 	}

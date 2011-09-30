@@ -12,6 +12,11 @@ public class OutOfRange extends Exception {
 	/**
 	 * 
 	 */
+	private static final long serialVersionUID = 3261766963040487647L;
+
+	/**
+	 * 
+	 */
 	public OutOfRange() {
 		// TODO Auto-generated constructor stub
 	}
