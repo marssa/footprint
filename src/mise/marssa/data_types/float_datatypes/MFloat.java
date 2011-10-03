@@ -1,5 +1,9 @@
 package mise.marssa.data_types.float_datatypes;
 
+import mise.marssa.data_types.MString;
+import flexjson.JSON;
+import flexjson.JSONSerializer;
+
 /**
  * @author Alan Grech
  * @version 1.0
@@ -16,12 +20,16 @@ public class MFloat {
 	public void finalize() throws Throwable {
 
 	}
-
+	@JSON
 	public float getValue() {
 		return value;
 	}
 
 	public String toString() {
 		return java.lang.Float.toString(value);
+	}
+	public MString toJSON(){
+		MString JSON = new MString(new JSONSerializer().deepSerialize(this));
+		return JSON;
 	}
 }

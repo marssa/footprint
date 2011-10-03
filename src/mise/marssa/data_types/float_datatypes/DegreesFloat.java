@@ -10,4 +10,5 @@ public class DegreesFloat extends MFloat {
 	public DegreesFloat(float value) {
 		super(value);
 	}
+	
 }

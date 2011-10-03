@@ -1,5 +1,6 @@
 package mise.marssa.data_types.float_datatypes.pressure;
 
+import flexjson.JSON;
 import mise.marssa.exceptions.OutOfRange;
 
 public class KPa extends APressure {
@@ -26,6 +27,7 @@ public class KPa extends APressure {
 		return value* (float) 1000  ;
 	}
 
+	@JSON
 	@Override
 	public float getKPa() {
 		// TODO Auto-generated method stub

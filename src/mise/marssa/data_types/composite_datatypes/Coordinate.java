@@ -1,5 +1,9 @@
 package mise.marssa.data_types.composite_datatypes;
 
+import mise.marssa.data_types.MString;
+import flexjson.JSON;
+import flexjson.JSONSerializer;
+
 /**
  * @author Alan Grech
  * @version 1.0
@@ -18,17 +22,21 @@ public class Coordinate {
 	public void finalize() throws Throwable {
 
 	}
-
+	@JSON
 	public Latitude getLatitude() {
 		return latitude;
 	}
-
+	@JSON
 	public Longitude getLongitude() {
 		return longitude;
 	}
 
 	public java.lang.String toString() {
 		return "[" + latitude.toString() + ", " + longitude.toString() + "]";
+	}
+	public MString toJSON(){
+		MString JSON = new MString(new JSONSerializer().deepSerialize(this));
+		return JSON;
 	}
 
 }

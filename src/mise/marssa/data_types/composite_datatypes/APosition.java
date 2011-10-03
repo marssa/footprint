@@ -1,5 +1,7 @@
 package mise.marssa.data_types.composite_datatypes;
 
+import flexjson.JSONSerializer;
+import mise.marssa.data_types.MString;
 import mise.marssa.data_types.integer_datatypes.DegreesInteger;
 import mise.marssa.data_types.integer_datatypes.MInteger;
 import mise.marssa.data_types.float_datatypes.DegreesFloat;
@@ -10,20 +12,34 @@ import mise.marssa.data_types.float_datatypes.MFloat;
  * @version 1.0
  * @created 08-Jul-2011 09:53:29
  */
-public class Position {
+public abstract class APosition {
 
-	private DegreesInteger degrees;
-	private MInteger minutes;
-	private MFloat seconds;
+	protected DegreesInteger degrees;
+	protected MInteger minutes;
+	protected MFloat seconds;
+	protected DegreesFloat dms;
 
-	public Position(DegreesInteger degrees, MInteger minutes, MFloat seconds) {
+	public APosition(DegreesInteger degrees, MInteger minutes, MFloat seconds) {
 		this.degrees = degrees;
 		this.minutes = minutes;
 		this.seconds = seconds;
+		
+		// Do conversion
+		if (degrees.getValue()>0)
+		{
+		float convertedValue = (degrees.getValue()+(((minutes.getValue()*60)+(seconds.getValue()))/3600));
+		this.dms = new DegreesFloat(convertedValue);
+		}
+		else if (degrees.getValue() <0){
+			float convertedValue = (degrees.getValue()+(((minutes.getValue()*60)+(seconds.getValue()))/3600));
+			this.dms = new DegreesFloat(-convertedValue);
+			}
+			
 	}
 	
-	public Position(DegreesFloat degrees) {
+	public APosition(DegreesFloat degrees) {
 		float degFloat = degrees.getValue();
+		this.dms = degrees;
 		this.degrees = new DegreesInteger((int) java.lang.Math.floor(degFloat));
 		
 		float minFloat = 60 * java.lang.Math.abs(degFloat - this.degrees.getValue());
@@ -56,8 +72,13 @@ public class Position {
 	public MFloat getSeconds() {
 		return seconds;
 	}
-
-	public java.lang.String toString() {
-		return "[" + degrees + "\u00b0, " + minutes + "', " + seconds + "\"]";
+	
+	public MFloat getDMS(){
+		return dms;
+	}
+	
+	public MString toJSON(){
+		MString JSON = new MString(new JSONSerializer().deepSerialize(this));
+		return JSON;
 	}
 }

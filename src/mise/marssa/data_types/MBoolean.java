@@ -1,5 +1,8 @@
 package mise.marssa.data_types;
 
+import flexjson.JSON;
+import flexjson.JSONSerializer;
+
 /**
  * @author Alan Grech
  * @version 1.0
@@ -21,12 +24,16 @@ public class MBoolean {
 	{
 		this.value = !value;
 	}
-	
+	@JSON
 	public boolean getValue() {
 		return value;
 	}
 	
 	public String toString() {
 		return Boolean.toString(value);
+	}
+	public MString toJSON(){
+		MString JSON = new MString(new JSONSerializer().deepSerialize(this));
+		return JSON;
 	}
 }
