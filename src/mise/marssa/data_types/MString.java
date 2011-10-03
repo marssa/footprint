@@ -15,4 +15,8 @@ public class MString {
 	public String getContents() {
 		return contents;
 	}
+	
+	public String toString() {
+		return contents;
+	}
 }
