@@ -31,7 +31,7 @@ public abstract class APosition {
 		this.dms = new DegreesFloat(convertedValue);
 		}
 		else if (degrees.getValue() <0){
-			float convertedValue = (degrees.getValue()+(((minutes.getValue()*60)+(seconds.getValue()))/3600));
+			float convertedValue = -(degrees.getValue()+(((minutes.getValue()*60)+(seconds.getValue()))/3600));
 			this.dms = new DegreesFloat(-convertedValue);
 			}
 			
@@ -78,7 +78,7 @@ public abstract class APosition {
 	}
 	
 	public MString toJSON(){
-		MString JSON = new MString(new JSONSerializer().deepSerialize(this));
+		MString JSON = new MString(new JSONSerializer().exclude("value").deepSerialize(this));
 		return JSON;
 	}
 }
