@@ -1,8 +1,6 @@
 package mise.marssa.data_types.composite_datatypes;
 
-import flexjson.JSON;
-import flexjson.JSONSerializer;
-import mise.marssa.data_types.MString;
+
 import mise.marssa.data_types.float_datatypes.DegreesFloat;
 import mise.marssa.data_types.float_datatypes.MFloat;
 import mise.marssa.data_types.integer_datatypes.DegreesInteger;
@@ -32,7 +30,7 @@ public class Longitude extends APosition {
 		super (degrees);
 		if(degrees.getValue() < -180 && degrees.getValue() > 180)
 			throw new OutOfRange("Degrees value is out of the range -180 < degrees < 180");
-		//this.longitude = new APosition(degrees);
+		
 	}
 
 

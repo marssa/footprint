@@ -1,5 +1,7 @@
 package mise.marssa.data_types.time;
 
+import flexjson.JSONSerializer;
+import mise.marssa.data_types.MString;
 import mise.marssa.data_types.conversion_interfaces.ITime;
 
 /**
@@ -26,4 +28,8 @@ public abstract class ATime implements ITime{
 	public java.lang.String toString() {
 		return "HHMMSSS: " + this.getHour() + ":" + this.getMinutes() + ":" + this.getSeconds();
 	};
+	public MString toJSON(){
+		MString JSON = new MString(new JSONSerializer().exclude("value").deepSerialize(this));
+		return JSON;
+	}
 }

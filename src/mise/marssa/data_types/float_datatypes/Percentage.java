@@ -1,5 +1,7 @@
 package mise.marssa.data_types.float_datatypes;
 
+import flexjson.JSONSerializer;
+import mise.marssa.data_types.MString;
 import mise.marssa.exceptions.OutOfRange;
 
 /**
@@ -13,5 +15,9 @@ public class Percentage extends MFloat {
 		super(value);
 		if((value < -100f) || (value > 100f))
 			throw new OutOfRange();
+	}
+	public MString toJSON(){
+		MString JSON = new MString(new JSONSerializer().exclude("value").deepSerialize(this));
+		return JSON;
 	}
 }

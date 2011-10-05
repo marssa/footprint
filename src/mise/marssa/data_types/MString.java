@@ -1,5 +1,7 @@
 package mise.marssa.data_types;
 
+import flexjson.JSONSerializer;
+
 /**
  * @author Alan Grech
  * @version 1.0
@@ -18,5 +20,9 @@ public class MString {
 	
 	public String toString() {
 		return contents;
+	}
+	public MString toJSON(){
+		MString JSON = new MString(new JSONSerializer().exclude("value").deepSerialize(this));
+		return JSON;
 	}
 }

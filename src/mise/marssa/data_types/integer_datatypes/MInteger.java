@@ -29,7 +29,7 @@ public class MInteger {
 		return java.lang.Integer.toString(value);
 	}
 	public MString toJSON(){
-		MString JSON = new MString(new JSONSerializer().deepSerialize(this));
+		MString JSON = new MString(new JSONSerializer().exclude("value").deepSerialize(this));
 		return JSON;
 	}
 }

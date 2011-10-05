@@ -1,7 +1,5 @@
 package mise.marssa.data_types.float_datatypes.distance;
 
-import flexjson.JSONSerializer;
-import mise.marssa.data_types.MString;
 import mise.marssa.exceptions.OutOfRange;
 
 /**
@@ -20,7 +18,6 @@ public class KM extends ADistance {
 	public void finalize() throws Throwable {
 		super.finalize();
 	}
-	
 	
 	public float getKM() {
 		return this.value;

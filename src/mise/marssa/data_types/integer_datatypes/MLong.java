@@ -1,5 +1,8 @@
 package mise.marssa.data_types.integer_datatypes;
 
+import mise.marssa.data_types.MString;
+import flexjson.JSONSerializer;
+
 /**
  * @author Clayton Tabone
  * @version 1.0
@@ -23,5 +26,9 @@ public class MLong {
 
 	public java.lang.String toString() {
 		return java.lang.Long.toString(value);
+	}
+	public MString toJSON(){
+		MString JSON = new MString(new JSONSerializer().exclude("value").deepSerialize(this));
+		return JSON;
 	}
 }

@@ -1,5 +1,7 @@
 package mise.marssa.data_types.float_datatypes.distance;
 
+import flexjson.JSONSerializer;
+import mise.marssa.data_types.MString;
 import mise.marssa.data_types.conversion_interfaces.IDistance;
 import mise.marssa.data_types.float_datatypes.UnsignedFloat;
 import mise.marssa.exceptions.OutOfRange;
@@ -18,4 +20,5 @@ public abstract class ADistance extends UnsignedFloat implements IDistance {
 	public void finalize() throws Throwable {
 		super.finalize();
 	}
+	
 }

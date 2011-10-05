@@ -5,6 +5,8 @@
  */
 package mise.marssa.data_types.float_datatypes.volume;
 
+import flexjson.JSONSerializer;
+import mise.marssa.data_types.MString;
 import mise.marssa.data_types.conversion_interfaces.IVolume;
 import mise.marssa.data_types.float_datatypes.UnsignedFloat;
 import mise.marssa.exceptions.OutOfRange;
@@ -19,4 +21,8 @@ public abstract class AVolume extends UnsignedFloat implements IVolume {
 		super.finalize();
 	}
 
+	public MString toJSON(){
+		MString JSON = new MString(new JSONSerializer().exclude("value").deepSerialize(this));
+		return JSON;
+	}
 }

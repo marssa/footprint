@@ -1,5 +1,7 @@
 package mise.marssa.data_types;
 
+import flexjson.JSONSerializer;
+
 /**
  * @author Alan Grech
  * @version 1.0
@@ -14,6 +16,10 @@ public class MDate extends java.util.Date {
 
 	public MDate(long date) {
 		super(date);
+	}
+	public MString toJSON(){
+		MString JSON = new MString(new JSONSerializer().exclude("value").deepSerialize(this));
+		return JSON;
 	}
 		
 }

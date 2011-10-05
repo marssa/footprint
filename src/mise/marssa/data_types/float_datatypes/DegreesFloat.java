@@ -1,5 +1,8 @@
 package mise.marssa.data_types.float_datatypes;
 
+import mise.marssa.data_types.MString;
+import flexjson.JSONSerializer;
+
 /**
  * @author Alan Grech
  * @version 1.0
@@ -9,6 +12,10 @@ public class DegreesFloat extends MFloat {
 
 	public DegreesFloat(float value) {
 		super(value);
+	}
+	public MString toJSON(){
+		MString JSON = new MString(new JSONSerializer().exclude("value").deepSerialize(this));
+		return JSON;
 	}
 	
 }
