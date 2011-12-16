@@ -8,10 +8,39 @@
 	<packaging>bundle</packaging>
 
 	<name>MARSSA Footprint OSGi Bundle</name>
+	<url>http://www.marsec-xl-projects.org/projects/footprint</url>
+	<description>This project was created specifically for the design and development of the MARSSA footprint which will run on each MARSSA node.</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
+
+	<organization>
+		<name>MI-SE@MALTA Foundation</name>
+		<url>http://www.marsec-xl.org/</url>
+	</organization>
+
+	<scm>
+		<url>git@github.com:marssa/footprint.git</url>
+		<connection>ssh</connection>
+	</scm>
+
+	<issueManagement>
+		<system>Redmine</system>
+		<url>http://www.marsec-xl-projects.org/projects/footprint</url>
+	</issueManagement>
+
+	<!-- This stub section is only needed in older versions of Maven -->
+	<distributionManagement>
+		<repository>
+			<id>repo</id>
+			<url>https://raw.github.com/marssa/marssa-mvn-repo/master/releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshot-repo</id>
+			<url>https://raw.github.com/marssa/marssa-mvn-repo/master/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
 
 	<dependencies>
 		<dependency>
@@ -183,18 +212,4 @@
 			</build>
 		</profile>
 	</profiles>
-	<organization>
-		<name>MI-SE@MALTA Foundation</name>
-	</organization>
-	<!-- This stub section is only needed in older versions of Maven -->
-	<distributionManagement>
-		<repository>
-			<id>repo</id>
-			<url>https://raw.github.com/marssa/marssa-mvn-repo/master/releases</url>
-		</repository>
-		<snapshotRepository>
-			<id>snapshot-repo</id>
-			<url>https://raw.github.com/marssa/marssa-mvn-repo/master/snapshots</url>
-		</snapshotRepository>
-	</distributionManagement>
 </project>
