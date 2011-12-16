@@ -40,6 +40,14 @@
 					</instructions>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>2.5</version>
+				<configuration>
+					<altDeploymentRepository>footprint::default::file:../marssa-mvn-repo/snapshots</altDeploymentRepository>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
@@ -53,11 +61,9 @@
 					<version>3.0.7</version>
 					<scope>provided</scope>
 				</dependency>
-				<!-- To include a shell:
-				<dependency> <groupId>org.apache.felix</groupId> 
+				<!-- To include a shell: <dependency> <groupId>org.apache.felix</groupId> 
 					<artifactId>org.apache.felix.gogo.shell</artifactId> <version>0.6.1</version> 
-				</dependency>
-				-->
+					</dependency> -->
 			</dependencies>
 			<build>
 				<plugins>
@@ -180,4 +186,15 @@
 	<organization>
 		<name>MI-SE@MALTA Foundation</name>
 	</organization>
+	<!-- This stub section is only needed in older versions of Maven -->
+	<distributionManagement>
+		<repository>
+			<id>repo</id>
+			<url>https://raw.github.com/marssa/marssa-mvn-repo/master/releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshot-repo</id>
+			<url>https://raw.github.com/marssa/marssa-mvn-repo/master/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
 </project>
