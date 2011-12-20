@@ -18,4 +18,8 @@ public abstract class AImpedance extends MFloat {
 	abstract public float getKOhms();
 	abstract public float getMOhms();
 
+	@Override
+	public String toString() {
+		return "Impedance in " + this.getClass().getSimpleName() + " = " + value;
+	}
 }

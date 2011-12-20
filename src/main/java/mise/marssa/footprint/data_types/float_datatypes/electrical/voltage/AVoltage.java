@@ -16,5 +16,10 @@ public abstract class AVoltage extends MFloat {
 	
 	abstract public float getVolts();
 	abstract public float getMilliVolts();
+	
+	@Override
+	public String toString() {
+		return "Voltage in " + this.getClass().getSimpleName() + " = " + value;
+	}
 }
 

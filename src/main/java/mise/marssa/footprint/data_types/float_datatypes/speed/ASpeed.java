@@ -45,4 +45,9 @@ public abstract class ASpeed extends UnsignedFloat {
 		
 		else return 0; //need to be changed to an exception
 	}
+	
+	@Override
+	public String toString() {
+		return "Speed in " + this.getClass().getSimpleName() + " = " + value;
+	}
 }

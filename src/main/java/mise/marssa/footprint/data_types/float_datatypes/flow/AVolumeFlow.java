@@ -16,7 +16,6 @@ public abstract class AVolumeFlow extends UnsignedFloat {
 	 * 
 	 */
 	public AVolumeFlow(float value) throws OutOfRange{
-		
 		super(value);
 	}
 	
@@ -75,4 +74,9 @@ public abstract class AVolumeFlow extends UnsignedFloat {
 	abstract public float getCFPH();
 	
 	//TODO US & UK gallons
+	
+	@Override
+	public String toString() {
+		return "Volume Flow in " + this.getClass().getSimpleName() + " = " + value;
+	}
 }

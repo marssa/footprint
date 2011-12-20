@@ -28,4 +28,9 @@ public abstract class ATemperature extends MFloat {
 		MString JSON = new MString(new JSONSerializer().exclude("value").deepSerialize(this));
 		return JSON;
 	}
+	
+	@Override
+	public String toString() {
+		return "Temperature in " + this.getClass().getSimpleName() + " = " + value;
+	}
 }

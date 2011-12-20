@@ -29,4 +29,9 @@ public abstract class AVolume extends UnsignedFloat {
 		MString JSON = new MString(new JSONSerializer().exclude("value").deepSerialize(this));
 		return JSON;
 	}
+	
+	@Override
+	public String toString() {
+		return "Volume in " + this.getClass().getSimpleName() + " = " + value;
+	}
 }

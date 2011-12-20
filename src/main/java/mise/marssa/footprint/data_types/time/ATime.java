@@ -26,8 +26,9 @@ public abstract class ATime {
 
 	@Override
 	public java.lang.String toString() {
-		return "HHMMSSS: " + this.getHour() + ":" + this.getMinutes() + ":" + this.getSeconds();
-	};
+		return "HHMMSSS: " + (int)Math.floor(getHour()) + ":" + (int)Math.floor(getMinutes()) % 60 + ":" + getSeconds() % 60;
+	}
+	
 	public MString toJSON(){
 		MString JSON = new MString(new JSONSerializer().exclude("value").deepSerialize(this));
 		return JSON;

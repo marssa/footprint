@@ -20,4 +20,9 @@ public abstract class AFrequency extends UnsignedFloat {
 	abstract public float getHz();
 
 	abstract public float getKHz();
+	
+	@Override
+	public String toString() {
+		return "Frequency in " + this.getClass().getSimpleName() + " = " + value;
+	}
 }
