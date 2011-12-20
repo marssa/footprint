@@ -17,9 +17,8 @@ public class MDate extends java.util.Date {
 	public MDate(long date) {
 		super(date);
 	}
-	public MString toJSON(){
-		MString JSON = new MString(new JSONSerializer().exclude("value").deepSerialize(this));
-		return JSON;
+
+	public MString toJSON() {
+		return new MString(new JSONSerializer().deepSerialize(this));
 	}
-		
 }

@@ -11,25 +11,28 @@ import mise.marssa.footprint.data_types.float_datatypes.UnsignedFloat;
 import mise.marssa.footprint.exceptions.OutOfRange;
 
 public abstract class AVolume extends UnsignedFloat {
-	
+
 	public AVolume(float value) throws OutOfRange {
 		super(value);
 	}
 
 	abstract public float getLiters();
+
 	abstract public float getGallon();
-	
+
 	/**
 	 * Imperial Gallons
+	 * 
 	 * @return
 	 */
 	abstract public float getImpGallon();
-	
-	public MString toJSON(){
-		MString JSON = new MString(new JSONSerializer().exclude("value").deepSerialize(this));
+
+	public MString toJSON() {
+		MString JSON = new MString(new JSONSerializer().exclude("value")
+				.deepSerialize(this));
 		return JSON;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Volume in " + this.getClass().getSimpleName() + " = " + value;

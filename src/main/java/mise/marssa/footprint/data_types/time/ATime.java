@@ -14,23 +14,28 @@ public abstract class ATime {
 	 * 
 	 */
 	protected long time;
-	
+
 	public ATime(long time) {
 		this.time = time;
 	}
-	
+
 	abstract public long getMilliseconds();
+
 	abstract public long getSeconds();
+
 	abstract public long getMinutes();
+
 	abstract public long getHour();
 
 	@Override
 	public java.lang.String toString() {
-		return "HHMMSSS: " + (int)Math.floor(getHour()) + ":" + (int)Math.floor(getMinutes()) % 60 + ":" + getSeconds() % 60;
+		return "HHMMSSS: " + (int) Math.floor(getHour()) + ":"
+				+ (int) Math.floor(getMinutes()) % 60 + ":" + getSeconds() % 60;
 	}
-	
-	public MString toJSON(){
-		MString JSON = new MString(new JSONSerializer().exclude("value").deepSerialize(this));
+
+	public MString toJSON() {
+		MString JSON = new MString(new JSONSerializer().exclude("value")
+				.deepSerialize(this));
 		return JSON;
 	}
 }
