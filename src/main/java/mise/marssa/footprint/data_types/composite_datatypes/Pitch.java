@@ -1,5 +1,7 @@
 package mise.marssa.footprint.data_types.composite_datatypes;
 
+import flexjson.JSONSerializer;
+import mise.marssa.footprint.data_types.MString;
 import mise.marssa.footprint.data_types.float_datatypes.DegreesFloat;
 
 /**
@@ -26,5 +28,10 @@ public class Pitch {
 
 	public java.lang.String toString() {
 		return "";
+	}
+	
+	public MString toJSON() {
+		MString JSON = new MString(new JSONSerializer().deepSerialize(this));
+		return JSON;
 	}
 }

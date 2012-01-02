@@ -14,4 +14,5 @@ public class UnsignedFloat extends MFloat {
 		if(value < 0f)
 			throw new OutOfRange();
 	}
+	
 }
