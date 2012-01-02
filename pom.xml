@@ -21,10 +21,37 @@
 	</organization>
 
 	<scm>
-		<url>git@github.com:marssa/footprint.git</url>
-		<connection>ssh</connection>
-		<developerConnection>Clayton Tabone, Warren Zahra, Amanda Fenech, Alan Grech</developerConnection>
+		<url>https://github.com/marssa/footprint</url>
+		<connection>git://github.com/marssa/footprint.git</connection>
+		<developerConnection>scm:git:git@github.com:marssa/footprint.git</developerConnection>
 	</scm>
+
+	<developers>
+		<developer>
+			<email>taboneclayton@gmail.com</email>
+			<name>Clayton Tabone</name>
+			<url>https://github.com/taboneclayton</url>
+			<id>taboneclayton</id>
+		</developer>
+		<developer>
+			<email>warren.zahra@marsec-xl.org</email>
+			<name>Warren Zahra</name>
+			<url>https://github.com/warrenzahra</url>
+			<id>warrenzahra</id>
+		</developer>
+		<developer>
+			<email>amanda.fenech@marsec-xl.org</email>
+			<name>Amanda Fenech</name>
+			<url>https://github.com/Adnama</url>
+			<id>Adnama</id>
+		</developer>
+		<developer>
+			<email>alangrech@gmail.com</email>
+			<name>Alan Grech</name>
+			<url>https://github.com/alangrech</url>
+			<id>alangrech</id>
+		</developer>
+	</developers>
 
 	<issueManagement>
 		<system>Redmine</system>
