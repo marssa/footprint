@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:include/>
+	<xs:element name="AMassFlow" type="AMassFlow"/>
+	<xs:complexType name="AMassFlow" abstract="true">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="AVolumeFlow" type="AVolumeFlow"/>
+	<xs:complexType name="AVolumeFlow" abstract="true">
+		<xs:complexContent>
+			<xs:extension base="UnsignedFloat">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="CFPH" type="CFPH"/>
+	<xs:complexType name="CFPH">
+		<xs:complexContent>
+			<xs:extension base="AVolumeFlow">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="CFPM" type="CFPM"/>
+	<xs:complexType name="CFPM">
+		<xs:complexContent>
+			<xs:extension base="AVolumeFlow">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="CFPS" type="CFPS"/>
+	<xs:complexType name="CFPS">
+		<xs:complexContent>
+			<xs:extension base="AVolumeFlow">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="LPH" type="LPH"/>
+	<xs:complexType name="LPH">
+		<xs:complexContent>
+			<xs:extension base="AVolumeFlow">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="LPM" type="LPM"/>
+	<xs:complexType name="LPM">
+		<xs:complexContent>
+			<xs:extension base="AVolumeFlow">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="LPS" type="LPS"/>
+	<xs:complexType name="LPS">
+		<xs:complexContent>
+			<xs:extension base="AVolumeFlow">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="MCPH" type="MCPH"/>
+	<xs:complexType name="MCPH">
+		<xs:complexContent>
+			<xs:extension base="AVolumeFlow">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="MCPM" type="MCPM"/>
+	<xs:complexType name="MCPM">
+		<xs:complexContent>
+			<xs:extension base="AVolumeFlow">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="MCPS" type="MCPS"/>
+	<xs:complexType name="MCPS">
+		<xs:complexContent>
+			<xs:extension base="AVolumeFlow">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

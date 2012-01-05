@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:include/>
+	<xs:element name="ADistance" type="ADistance"/>
+	<xs:complexType name="ADistance" abstract="true">
+		<xs:complexContent>
+			<xs:extension base="UnsignedFloat">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="KM" type="KM"/>
+	<xs:complexType name="KM">
+		<xs:annotation>
+			<xs:documentation>Kilometres </xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ADistance">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="Metres" type="Metres"/>
+	<xs:complexType name="Metres">
+		<xs:annotation>
+			<xs:documentation>Metres is the SI Unit </xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ADistance">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="Miles" type="Miles"/>
+	<xs:complexType name="Miles">
+		<xs:complexContent>
+			<xs:extension base="ADistance">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="NM" type="NM"/>
+	<xs:complexType name="NM">
+		<xs:annotation>
+			<xs:documentation>Nautical Miles - most widely used as distance measurement in nautical terms This datatype shall be used for depths as well</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ADistance">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

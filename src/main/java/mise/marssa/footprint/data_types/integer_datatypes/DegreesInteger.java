@@ -20,9 +20,6 @@ public class DegreesInteger extends MInteger {
 	public void finalize() throws Throwable {
 		super.finalize();
 	}
-	public MString toJSON(){
-		MString JSON = new MString(new JSONSerializer().exclude("value").deepSerialize(this));
-		return JSON;
-	}
+	
 
 }

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="ATime" type="ATime"/>
+	<xs:complexType name="ATime" abstract="true">
+		<xs:sequence>
+			<xs:element name="time" type="xs:long" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Hours" type="Hours"/>
+	<xs:complexType name="Hours">
+		<xs:complexContent>
+			<xs:extension base="ATime">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="Millisecond" type="Millisecond"/>
+	<xs:complexType name="Millisecond">
+		<xs:complexContent>
+			<xs:extension base="ATime">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="Minutes" type="Minutes"/>
+	<xs:complexType name="Minutes">
+		<xs:complexContent>
+			<xs:extension base="ATime">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="Seconds" type="Seconds"/>
+	<xs:complexType name="Seconds">
+		<xs:complexContent>
+			<xs:extension base="ATime">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

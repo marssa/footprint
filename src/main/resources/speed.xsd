@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:include/>
+	<xs:element name="ASpeed" type="ASpeed"/>
+	<xs:complexType name="ASpeed" abstract="true">
+		<xs:complexContent>
+			<xs:extension base="UnsignedFloat">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="Knots" type="Knots"/>
+	<xs:complexType name="Knots">
+		<xs:complexContent>
+			<xs:extension base="ASpeed">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="KPH" type="KPH"/>
+	<xs:complexType name="KPH">
+		<xs:annotation>
+			<xs:documentation>Kilometres per hour </xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ASpeed">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="MPH" type="MPH"/>
+	<xs:complexType name="MPH">
+		<xs:complexContent>
+			<xs:extension base="ASpeed">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="MPS" type="MPS"/>
+	<xs:complexType name="MPS">
+		<xs:annotation>
+			<xs:documentation>Meters per Second </xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ASpeed">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="PercentSpeed" type="PercentSpeed"/>
+	<xs:complexType name="PercentSpeed">
+		<xs:complexContent>
+			<xs:extension base="ASpeed">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

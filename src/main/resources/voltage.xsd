@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:include/>
+	<xs:element name="AVoltage" type="AVoltage"/>
+	<xs:complexType name="AVoltage" abstract="true">
+		<xs:complexContent>
+			<xs:extension base="MFloat">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="MilliVolts" type="MilliVolts"/>
+	<xs:complexType name="MilliVolts">
+		<xs:complexContent>
+			<xs:extension base="AVoltage">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="Volts" type="Volts"/>
+	<xs:complexType name="Volts">
+		<xs:complexContent>
+			<xs:extension base="AVoltage">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

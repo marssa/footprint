@@ -34,7 +34,7 @@ public class MLong {
 		return java.lang.Long.toString(value);
 	}
 	public MString toJSON(){
-		MString JSON = new MString(new JSONSerializer().exclude("value").deepSerialize(this));
+		MString JSON = new MString(new JSONSerializer().deepSerialize(this));
 		return JSON;
 	}
 }

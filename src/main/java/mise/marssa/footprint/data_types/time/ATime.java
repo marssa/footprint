@@ -39,8 +39,7 @@ public abstract class ATime {
 	}
 
 	public MString toJSON() {
-		MString JSON = new MString(new JSONSerializer().exclude("value")
-				.deepSerialize(this));
+		MString JSON = new MString(new JSONSerializer().deepSerialize(this));
 		return JSON;
 	}
 }
