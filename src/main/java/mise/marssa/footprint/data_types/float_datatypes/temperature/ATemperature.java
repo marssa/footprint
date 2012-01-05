@@ -24,8 +24,8 @@ public abstract class ATemperature extends MFloat {
 	 */
 	abstract public float getKelvin();
 	
-	public MString toJSON(){
-		MString JSON = new MString(new JSONSerializer().exclude("value").deepSerialize(this));
-		return JSON;
+	@Override
+	public String toString() {
+		return "Temperature in " + this.getClass().getSimpleName() + " = " + value;
 	}
 }

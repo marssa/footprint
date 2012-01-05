@@ -7,9 +7,9 @@ package mise.marssa.footprint.data_types.time;
  * @author Lifebook
  *
  */
-public class Millisecond extends ATime{
+public class Milliseconds extends ATime{
 
-	public Millisecond(long time) {
+	public Milliseconds(long time) {
 		super(time);
 	}
 

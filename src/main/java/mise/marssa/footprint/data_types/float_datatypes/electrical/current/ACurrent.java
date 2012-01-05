@@ -16,4 +16,9 @@ public abstract class ACurrent extends MFloat {
 	
 	abstract public float getAmps();
 	abstract public float getMilliAmps();
+	
+	@Override
+	public String toString() {
+		return "Current in " + this.getClass().getSimpleName() + " = " + value;
+	}
 }

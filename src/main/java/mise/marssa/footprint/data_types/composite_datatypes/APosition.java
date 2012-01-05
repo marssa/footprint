@@ -23,34 +23,35 @@ public abstract class APosition {
 		this.degrees = degrees;
 		this.minutes = minutes;
 		this.seconds = seconds;
-		
+
 		// Do conversion
-		if (degrees.getValue()>0)
-		{
-		float convertedValue = (degrees.getValue()+(((minutes.getValue()*60)+(seconds.getValue()))/3600));
-		this.dms = new DegreesFloat(convertedValue);
-		}
-		else if (degrees.getValue() <0){
-			float convertedValue = -(degrees.getValue()+(((minutes.getValue()*60)+(seconds.getValue()))/3600));
+		if (degrees.getValue() > 0) {
+			float convertedValue = (degrees.getValue() + (((minutes.getValue() * 60) + (seconds
+					.getValue())) / 3600));
+			this.dms = new DegreesFloat(convertedValue);
+		} else if (degrees.getValue() < 0) {
+			float convertedValue = -(degrees.getValue() + (((minutes.getValue() * 60) + (seconds
+					.getValue())) / 3600));
 			this.dms = new DegreesFloat(-convertedValue);
-			}
-			
+		}
+
 	}
-	
+
 	public APosition(DegreesFloat degrees) {
 		float degFloat = degrees.getValue();
 		this.dms = degrees;
 		this.degrees = new DegreesInteger((int) java.lang.Math.floor(degFloat));
-		
-		float minFloat = 60 * java.lang.Math.abs(degFloat - this.degrees.getValue());
+
+		float minFloat = 60 * java.lang.Math.abs(degFloat
+				- this.degrees.getValue());
 		this.minutes = new MInteger((int) minFloat);
-		
+
 		float secFloat = 60 * (minFloat - this.minutes.getValue());
 		if (secFloat == 60) {
 			this.minutes = new MInteger(this.minutes.getValue() + 1);
 			secFloat = 0;
 		}
-		this.seconds = new MFloat(secFloat); 
+		this.seconds = new MFloat(secFloat);
 		if (this.minutes.getValue() == 60) {
 			this.degrees = new DegreesInteger(this.degrees.getValue() + 1);
 			this.minutes = new MInteger(0);
@@ -72,13 +73,13 @@ public abstract class APosition {
 	public MFloat getSeconds() {
 		return seconds;
 	}
-	
-	public MFloat getDMS(){
+
+	public MFloat getDMS() {
 		return dms;
 	}
-	
-	public MString toJSON(){
-		MString JSON = new MString(new JSONSerializer().exclude("value").deepSerialize(this));
+
+	public MString toJSON() {
+		MString JSON = new MString(new JSONSerializer().deepSerialize(this));
 		return JSON;
 	}
 }

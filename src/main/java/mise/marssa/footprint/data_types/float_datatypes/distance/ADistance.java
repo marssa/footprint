@@ -1,6 +1,7 @@
 package mise.marssa.footprint.data_types.float_datatypes.distance;
 
 import mise.marssa.footprint.data_types.float_datatypes.UnsignedFloat;
+import mise.marssa.footprint.exceptions.NoTypeEnforced;
 import mise.marssa.footprint.exceptions.OutOfRange;
 
 /**
@@ -27,4 +28,9 @@ public abstract class ADistance extends UnsignedFloat {
 	 * @return
 	 */
 	abstract public float getFathoms();
+	
+	@Override
+	public String toString() {
+		return "Distance in " + this.getClass().getSimpleName() + " = " + value;
+	}
 }

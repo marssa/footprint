@@ -17,5 +17,9 @@ public abstract class APower extends MFloat {
 	abstract public float getWatts();
 	abstract public float getKWatts();
 	abstract public float getMWatts();
-
+	
+	@Override
+	public String toString() {
+		return "Power in " + this.getClass().getSimpleName() + " = " + value;
+	}
 }

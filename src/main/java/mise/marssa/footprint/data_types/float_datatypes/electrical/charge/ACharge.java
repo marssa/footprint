@@ -28,4 +28,9 @@ public abstract class ACharge extends MFloat {
 	abstract public float getmAh();
 	
 	abstract public float getColoumbs();
+	
+	@Override
+	public String toString() {
+		return "Charge in " + this.getClass().getSimpleName() + " = " + value;
+	}
 }

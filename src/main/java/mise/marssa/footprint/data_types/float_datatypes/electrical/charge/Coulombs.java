@@ -7,9 +7,9 @@ package mise.marssa.footprint.data_types.float_datatypes.electrical.charge;
  * @author Alan Grech
  *
  */
-public class Coloumbs extends ACharge {
+public class Coulombs extends ACharge {
 
-	public Coloumbs(float value) {
+	public Coulombs(float value) {
 		super(value);
 	}
 

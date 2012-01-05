@@ -34,4 +34,9 @@ public abstract class APressure extends UnsignedFloat {
 	abstract public float getMMHg();
 	
 	abstract public float getPSI();
+	
+	@Override
+	public String toString() {
+		return "Pressure in " + this.getClass().getSimpleName() + " = " + value;
+	}
 }

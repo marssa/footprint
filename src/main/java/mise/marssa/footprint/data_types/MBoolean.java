@@ -10,30 +10,29 @@ import flexjson.JSONSerializer;
  */
 public class MBoolean {
 	protected boolean value;
-	
+
 	public MBoolean(boolean value) {
-		this.value = value ;
+		this.value = value;
 	}
-	
-	public void setValue(boolean newValue)
-	{
+
+	public void setValue(boolean newValue) {
 		this.value = newValue;
 	}
-	
-	public void toggleValue()
-	{
+
+	public void toggleValue() {
 		this.value = !value;
 	}
+
 	@JSON
 	public boolean getValue() {
 		return value;
 	}
-	
+
 	public String toString() {
 		return Boolean.toString(value);
 	}
-	public MString toJSON(){
-		MString JSON = new MString(new JSONSerializer().exclude("value").deepSerialize(this));
-		return JSON;
+
+	public MString toJSON() {
+		return new MString(new JSONSerializer().deepSerialize(this));
 	}
 }
