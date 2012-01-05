@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:include/>
+	<xs:element name="APower" type="APower"/>
+	<xs:complexType name="APower" abstract="true">
+		<xs:complexContent>
+			<xs:extension base="MFloat">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="KWatts" type="KWatts"/>
+	<xs:complexType name="KWatts">
+		<xs:complexContent>
+			<xs:extension base="APower">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="MWatts" type="MWatts"/>
+	<xs:complexType name="MWatts">
+		<xs:complexContent>
+			<xs:extension base="APower">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="Watts" type="Watts"/>
+	<xs:complexType name="Watts">
+		<xs:complexContent>
+			<xs:extension base="APower">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

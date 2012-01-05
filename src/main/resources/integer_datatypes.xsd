@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="DegreesInteger" type="DegreesInteger"/>
+	<xs:complexType name="DegreesInteger">
+		<xs:complexContent>
+			<xs:extension base="MInteger">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="MInteger" type="MInteger"/>
+	<xs:complexType name="MInteger">
+		<xs:sequence>
+			<xs:element name="value" type="xs:int" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="MLong" type="MLong"/>
+	<xs:complexType name="MLong">
+		<xs:sequence>
+			<xs:element name="value" type="xs:long" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Percentage" type="Percentage"/>
+	<xs:complexType name="Percentage">
+		<xs:complexContent>
+			<xs:extension base="MInteger">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

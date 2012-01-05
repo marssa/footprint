@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:include/>
+	<xs:include/>
+	<xs:element name="APosition" type="APosition"/>
+	<xs:complexType name="APosition" abstract="true">
+		<xs:sequence>
+			<xs:element name="degrees" type="DegreesInteger" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dms" type="DegreesFloat" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="minutes" type="MInteger" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="seconds" type="MFloat" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="degrees" type="DegreesInteger" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dms" type="DegreesFloat" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="minutes" type="MInteger" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="seconds" type="MFloat" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Attitude" type="Attitude"/>
+	<xs:complexType name="Attitude">
+		<xs:sequence>
+			<xs:element name="pitch" type="Pitch" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="roll" type="Roll" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="yaw" type="Yaw" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="pitch" type="Pitch" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="roll" type="Roll" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="yaw" type="Yaw" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Coordinate" type="Coordinate"/>
+	<xs:complexType name="Coordinate">
+		<xs:sequence>
+			<xs:element name="latitude" type="Latitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="longitude" type="Longitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="latitude" type="Latitude" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="longitude" type="Longitude" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Latitude" type="Latitude"/>
+	<xs:complexType name="Latitude">
+		<xs:complexContent>
+			<xs:extension base="APosition">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="Longitude" type="Longitude"/>
+	<xs:complexType name="Longitude">
+		<xs:complexContent>
+			<xs:extension base="APosition">
+				<xs:sequence>
+					<xs:element name="longitude" type="APosition" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="longitude" type="APosition" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="Pitch" type="Pitch"/>
+	<xs:complexType name="Pitch">
+		<xs:sequence>
+			<xs:element name="Pitch" type="DegreesFloat" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Pitch" type="DegreesFloat" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Roll" type="Roll"/>
+	<xs:complexType name="Roll">
+		<xs:sequence>
+			<xs:element name="Roll" type="DegreesFloat" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Roll" type="DegreesFloat" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Yaw" type="Yaw"/>
+	<xs:complexType name="Yaw">
+		<xs:sequence>
+			<xs:element name="Yaw" type="DegreesFloat" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Yaw" type="DegreesFloat" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

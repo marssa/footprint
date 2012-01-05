@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:include/>
+	<xs:element name="AImpedance" type="AImpedance"/>
+	<xs:complexType name="AImpedance" abstract="true">
+		<xs:complexContent>
+			<xs:extension base="MFloat">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="KOhms" type="KOhms"/>
+	<xs:complexType name="KOhms">
+		<xs:complexContent>
+			<xs:extension base="AImpedance">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="MOhms" type="MOhms"/>
+	<xs:complexType name="MOhms">
+		<xs:complexContent>
+			<xs:extension base="AImpedance">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="Ohms" type="Ohms"/>
+	<xs:complexType name="Ohms">
+		<xs:complexContent>
+			<xs:extension base="AImpedance">
+				<xs:sequence/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>
