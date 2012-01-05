@@ -9,11 +9,9 @@ import flexjson.JSONSerializer;
  */
 public class MDate extends java.util.Date {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
+	//TODO See how an XML element can be added for the date
 	public MDate(long date) {
 		super(date);
 	}

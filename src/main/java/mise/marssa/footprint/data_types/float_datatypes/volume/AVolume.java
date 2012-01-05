@@ -5,11 +5,15 @@
  */
 package mise.marssa.footprint.data_types.float_datatypes.volume;
 
+import javax.xml.bind.annotation.XmlType;
+
 import flexjson.JSONSerializer;
 import mise.marssa.footprint.data_types.MString;
+import mise.marssa.footprint.data_types.TypeFactory;
 import mise.marssa.footprint.data_types.float_datatypes.UnsignedFloat;
 import mise.marssa.footprint.exceptions.OutOfRange;
 
+@XmlType(name = "AVolume", factoryClass = TypeFactory.class, factoryMethod = "getAVolumeInstance")
 public abstract class AVolume extends UnsignedFloat {
 
 	public AVolume(float value) throws OutOfRange {

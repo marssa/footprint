@@ -1,9 +1,16 @@
 package mise.marssa.footprint.data_types.time;
 
+import javax.xml.bind.annotation.XmlType;
+
+import mise.marssa.footprint.data_types.TypeFactory;
+
+
+
 /**
  * @author Alan Grech
  *
  */
+@XmlType(name = "Seconds", factoryClass = TypeFactory.class, factoryMethod = "getSecondsInstance")
 public class Seconds extends ATime {
 
 	public Seconds(long time) {

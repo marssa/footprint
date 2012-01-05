@@ -3,12 +3,19 @@
  */
 package mise.marssa.footprint.data_types.time;
 
+import javax.xml.bind.annotation.XmlType;
+
+import mise.marssa.footprint.data_types.TypeFactory;
+
+
+
 /**
  * @author Lifebook
  *
  */
+@XmlType(name = "Milliseconds", factoryClass = TypeFactory.class, factoryMethod = "getMillisecondsInstance")
 public class Milliseconds extends ATime{
-
+	
 	public Milliseconds(long time) {
 		super(time);
 	}

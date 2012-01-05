@@ -1,6 +1,10 @@
 package mise.marssa.footprint.data_types.integer_datatypes;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
+
 import mise.marssa.footprint.data_types.MString;
+import mise.marssa.footprint.data_types.TypeFactory;
 import flexjson.JSONSerializer;
 
 /**
@@ -8,8 +12,10 @@ import flexjson.JSONSerializer;
  * @version 1.0
  * @created 22-Sep-2011 13:45:20
  */
+@XmlType(name = "MLong", factoryClass = TypeFactory.class, factoryMethod = "getMLongInstance")
 public class MLong {
 
+	@XmlElement
 	protected long value;
 
 	public MLong(long value) {

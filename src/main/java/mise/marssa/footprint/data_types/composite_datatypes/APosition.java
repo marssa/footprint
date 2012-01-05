@@ -14,6 +14,7 @@ import mise.marssa.footprint.data_types.integer_datatypes.MInteger;
  */
 public abstract class APosition {
 
+	// TODO Remove one of the internal representations
 	protected DegreesInteger degrees;
 	protected MInteger minutes;
 	protected MFloat seconds;

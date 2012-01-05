@@ -1,5 +1,7 @@
 package mise.marssa.footprint.data_types;
 
+import javax.xml.bind.annotation.XmlElement;
+
 import flexjson.JSONSerializer;
 
 /**
@@ -8,6 +10,7 @@ import flexjson.JSONSerializer;
  * @created 08-Jul-2011 09:53:29
  */
 public class MString {
+	@XmlElement
 	private String contents;
 
 	public MString(String contents) {

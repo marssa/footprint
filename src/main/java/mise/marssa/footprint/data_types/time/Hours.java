@@ -3,12 +3,19 @@
  */
 package mise.marssa.footprint.data_types.time;
 
+import javax.xml.bind.annotation.XmlType;
+
+import mise.marssa.footprint.data_types.TypeFactory;
+
+
+
 /**
  * @author Alan Grech
- *
+ * 
  */
+@XmlType(name = "Hours", factoryClass = TypeFactory.class, factoryMethod = "getHoursInstance")
 public class Hours extends ATime {
-	
+
 	public Hours(long time) {
 		super(time);
 	}
@@ -27,7 +34,7 @@ public class Hours extends ATime {
 	public long getMinutes() {
 		return time * 60;
 	}
-	
+
 	@Override
 	public long getHour() {
 		return time;

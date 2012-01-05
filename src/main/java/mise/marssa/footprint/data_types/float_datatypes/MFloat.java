@@ -1,5 +1,7 @@
 package mise.marssa.footprint.data_types.float_datatypes;
 
+import javax.xml.bind.annotation.XmlElement;
+
 import mise.marssa.footprint.data_types.MString;
 import flexjson.JSON;
 import flexjson.JSONSerializer;
@@ -11,6 +13,7 @@ import flexjson.JSONSerializer;
  */
 public class MFloat {
 
+	@XmlElement
 	protected float value;
 
 	public MFloat(float value) {
