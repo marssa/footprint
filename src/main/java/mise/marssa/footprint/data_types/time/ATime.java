@@ -1,20 +1,36 @@
 package mise.marssa.footprint.data_types.time;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
+
 import flexjson.JSONSerializer;
 import mise.marssa.footprint.data_types.MString;
+import mise.marssa.footprint.data_types.TypeFactory;
 
 /**
  * @author Alan Grech
  * @version 1.0
  * @created 08-Jul-2011 09:53:29
  */
+@XmlType(name = "ATime", factoryClass = TypeFactory.class, factoryMethod = "getATimeInstance")
 public abstract class ATime {
 
+<<<<<<< HEAD
+	
+	
 	/**
 	 * 
 	 */
 	protected long time;
-
+	
+	
+=======
+	@XmlElement
+	protected long time;
+	
+	private ATime() { }
+>>>>>>> e6793184edce20f79824528fc623171fa3c16425
+	
 	public ATime(long time) {
 		this.time = time;
 	}

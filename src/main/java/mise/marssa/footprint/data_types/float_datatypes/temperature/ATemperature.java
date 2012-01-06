@@ -1,7 +1,10 @@
 package mise.marssa.footprint.data_types.float_datatypes.temperature;
 
+import javax.xml.bind.annotation.XmlType;
+
 import flexjson.JSONSerializer;
 import mise.marssa.footprint.data_types.MString;
+import mise.marssa.footprint.data_types.TypeFactory;
 import mise.marssa.footprint.data_types.float_datatypes.MFloat;
 
 /**
@@ -9,6 +12,7 @@ import mise.marssa.footprint.data_types.float_datatypes.MFloat;
  * @version 1.0
  * @created 08-Jul-2011 09:53:23
  */
+@XmlType(name = "ATemperature", factoryClass = TypeFactory.class, factoryMethod = "getATemperatureInstance")
 public abstract class ATemperature extends MFloat {
 
 	public ATemperature(float value) {

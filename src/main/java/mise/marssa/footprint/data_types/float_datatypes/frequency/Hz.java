@@ -1,5 +1,8 @@
 package mise.marssa.footprint.data_types.float_datatypes.frequency;
 
+import javax.xml.bind.annotation.XmlType;
+
+import mise.marssa.footprint.data_types.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
 
 /**
@@ -7,6 +10,7 @@ import mise.marssa.footprint.exceptions.OutOfRange;
  * @version 1.0
  * @created 08-Jul-2011 09:53:24
  */
+@XmlType(name = "Hz", factoryClass = TypeFactory.class, factoryMethod = "getHzInstance")
 public class Hz extends AFrequency {
 
 	public Hz(float value) throws OutOfRange {

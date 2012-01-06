@@ -3,12 +3,16 @@
  */
 package mise.marssa.footprint.data_types.float_datatypes.flow;
 
+import javax.xml.bind.annotation.XmlType;
+
+import mise.marssa.footprint.data_types.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
 
 /**
  * @author Alan Grech
  * conversions for: cubic foot per minute
  */
+@XmlType(name = "CFPM", factoryClass = TypeFactory.class, factoryMethod = "getCFPMInstance")
 public class CFPM extends AVolumeFlow {
 
 	public CFPM(float value) throws OutOfRange {

@@ -1,5 +1,8 @@
 package mise.marssa.footprint.data_types.integer_datatypes;
 
+import javax.xml.bind.annotation.XmlType;
+
+import mise.marssa.footprint.data_types.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
 
 /**
@@ -7,6 +10,7 @@ import mise.marssa.footprint.exceptions.OutOfRange;
  * @version 1.0
  * @created 08-Jul-2011 09:53:29
  */
+@XmlType(name = "Percentage", factoryClass = TypeFactory.class, factoryMethod = "getPercentageInstance")
 public class Percentage extends MInteger {
 
 	public Percentage(int value) throws OutOfRange {

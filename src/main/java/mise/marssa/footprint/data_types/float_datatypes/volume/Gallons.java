@@ -1,7 +1,11 @@
 package mise.marssa.footprint.data_types.float_datatypes.volume;
 
+import javax.xml.bind.annotation.XmlType;
+
+import mise.marssa.footprint.data_types.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
 
+@XmlType(name = "Gallons", factoryClass = TypeFactory.class, factoryMethod = "getGallonsInstance")
 public class Gallons extends AVolume {
 	public Gallons(float value) throws OutOfRange {
 		super(value);

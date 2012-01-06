@@ -17,6 +17,7 @@ import flexjson.JSONSerializer;
 @XmlType(name = "APosition", factoryClass = TypeFactory.class, factoryMethod = "getAPositionInstance")
 public abstract class APosition {
 
+	// TODO Remove one of the internal representations
 	protected DegreesInteger degrees;
 	protected MInteger minutes;
 	protected MFloat seconds;
