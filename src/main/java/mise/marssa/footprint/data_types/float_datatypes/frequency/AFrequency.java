@@ -1,5 +1,8 @@
 package mise.marssa.footprint.data_types.float_datatypes.frequency;
 
+import javax.xml.bind.annotation.XmlType;
+
+import mise.marssa.footprint.data_types.TypeFactory;
 import mise.marssa.footprint.data_types.float_datatypes.UnsignedFloat;
 import mise.marssa.footprint.exceptions.OutOfRange;
 
@@ -8,6 +11,7 @@ import mise.marssa.footprint.exceptions.OutOfRange;
  * @version 1.0
  * @created 08-Jul-2011 09:53:23
  */
+@XmlType(name = "AFrequency", factoryClass = TypeFactory.class, factoryMethod = "getAFrequencyInstance")
 public abstract class AFrequency extends UnsignedFloat {
 
 	public AFrequency(float value) throws OutOfRange {

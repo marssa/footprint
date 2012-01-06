@@ -1,5 +1,8 @@
 package mise.marssa.footprint.data_types.float_datatypes.flow;
 
+import javax.xml.bind.annotation.XmlType;
+
+import mise.marssa.footprint.data_types.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
 
 /**
@@ -7,6 +10,7 @@ import mise.marssa.footprint.exceptions.OutOfRange;
  * conversion for: litres per second
  */
 
+@XmlType(name = "LPS", factoryClass = TypeFactory.class, factoryMethod = "getLPSInstance")
 public class LPS extends AVolumeFlow {
 
 	public LPS(float value) throws OutOfRange {

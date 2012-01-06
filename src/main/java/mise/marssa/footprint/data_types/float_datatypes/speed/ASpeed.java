@@ -8,6 +8,7 @@ import mise.marssa.footprint.exceptions.OutOfRange;
  * @version 1.0
  * @created 08-Jul-2011 09:53:23
  */
+
 public abstract class ASpeed extends UnsignedFloat {
 
 	public ASpeed(float value) throws OutOfRange {

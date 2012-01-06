@@ -3,6 +3,9 @@
  */
 package mise.marssa.footprint.data_types.float_datatypes.flow;
 
+import javax.xml.bind.annotation.XmlType;
+
+import mise.marssa.footprint.data_types.TypeFactory;
 import mise.marssa.footprint.data_types.float_datatypes.UnsignedFloat;
 import mise.marssa.footprint.exceptions.OutOfRange;
 
@@ -10,6 +13,7 @@ import mise.marssa.footprint.exceptions.OutOfRange;
  * @author Alan Grech
  *
  */
+@XmlType(name = "AVolumeFlow", factoryClass = TypeFactory.class, factoryMethod = "getAVolumeFlowInstance")
 public abstract class AVolumeFlow extends UnsignedFloat {
 
 	/**
