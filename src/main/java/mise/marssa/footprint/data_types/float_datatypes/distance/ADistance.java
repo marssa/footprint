@@ -2,6 +2,7 @@ package mise.marssa.footprint.data_types.float_datatypes.distance;
 
 import javax.xml.bind.annotation.XmlType;
 
+import mise.marssa.footprint.data_types.TypeFactory;
 import mise.marssa.footprint.data_types.float_datatypes.UnsignedFloat;
 import mise.marssa.footprint.exceptions.OutOfRange;
 

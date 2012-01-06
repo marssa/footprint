@@ -1,12 +1,11 @@
 package mise.marssa.footprint.data_types.float_datatypes;
 
-<<<<<<< HEAD
-import javax.xml.bind.annotation.XmlType;
-=======
+
 import javax.xml.bind.annotation.XmlElement;
->>>>>>> e6793184edce20f79824528fc623171fa3c16425
+import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.data_types.MString;
+import mise.marssa.footprint.data_types.TypeFactory;
 import flexjson.JSON;
 import flexjson.JSONSerializer;
 

@@ -15,21 +15,16 @@ import mise.marssa.footprint.data_types.TypeFactory;
 @XmlType(name = "ATime", factoryClass = TypeFactory.class, factoryMethod = "getATimeInstance")
 public abstract class ATime {
 
-<<<<<<< HEAD
+
 	
 	
 	/**
 	 * 
 	 */
-	protected long time;
-	
-	
-=======
+
 	@XmlElement
 	protected long time;
 	
-	private ATime() { }
->>>>>>> e6793184edce20f79824528fc623171fa3c16425
 	
 	public ATime(long time) {
 		this.time = time;
