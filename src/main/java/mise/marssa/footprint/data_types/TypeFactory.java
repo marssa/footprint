@@ -282,7 +282,7 @@ public class TypeFactory {
 		return new Coordinate(new Latitude(new DegreesFloat (0)),new Longitude(new DegreesFloat (0)));
 	}
 	
-	public static Latitude getLattitudeInstance() throws OutOfRange {
+	public static Latitude getLatitudeInstance() throws OutOfRange {
 		return new Latitude(new DegreesFloat (0));
 	}
 	
@@ -305,8 +305,7 @@ public class TypeFactory {
 	/**
 	 * DataTypes
 	 */
-	
-	
+		
 	public static DegreesFloat getDegreesFloatInstance() throws OutOfRange {
 		return new DegreesFloat(0);
 	}
