@@ -10,15 +10,11 @@ import mise.marssa.footprint.data_types.MString;
  */
 public abstract class ATime {
 
-	
-	
 	/**
 	 * 
 	 */
 	protected long time;
-	
-	
-	
+
 	public ATime(long time) {
 		this.time = time;
 	}

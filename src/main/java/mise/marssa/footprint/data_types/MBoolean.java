@@ -1,9 +1,7 @@
 package mise.marssa.footprint.data_types;
 
-import javax.xml.bind.annotation.XmlType;
-
-import flexjson.JSON;
-import flexjson.JSONSerializer;
+import javax.xml.bind.annotation.XmlElement;
+import flexjson.JSON;import flexjson.JSONSerializer;
 
 /**
  * @author Alan Grech
@@ -12,12 +10,16 @@ import flexjson.JSONSerializer;
  */
 @XmlType(name = "MBoolean", factoryClass = TypeFactory.class, factoryMethod = "getMBooleanInstance")
 public class MBoolean {
+	@XmlElement
 	protected boolean value;
-
+	
 	public MBoolean(boolean value) {
 		this.value = value;
 	}
 
+	public MBoolean newMBoolean() {
+		return new MBoolean(false);
+	}
 	public void setValue(boolean newValue) {
 		this.value = newValue;
 	}

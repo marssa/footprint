@@ -1,7 +1,5 @@
 package mise.marssa.footprint.data_types;
 
-import javax.xml.bind.annotation.XmlType;
-
 import flexjson.JSONSerializer;
 
 /**
@@ -9,14 +7,11 @@ import flexjson.JSONSerializer;
  * @version 1.0
  * @created 08-Jul-2011 09:53:24
  */
-@XmlType(name = "MDate", factoryClass = TypeFactory.class, factoryMethod = "getMDateInstance")
 public class MDate extends java.util.Date {
 
 	/**
 	 * 
 	 */
-	
-	
 	private static final long serialVersionUID = 1L;
 
 	public MDate(long date) {
