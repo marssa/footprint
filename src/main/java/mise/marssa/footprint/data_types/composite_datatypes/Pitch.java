@@ -1,5 +1,6 @@
 package mise.marssa.footprint.data_types.composite_datatypes;
 
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.data_types.MString;
@@ -25,7 +26,7 @@ public class Pitch {
 	public void finalize() throws Throwable {
 
 	}
-
+	@XmlElement
 	public DegreesFloat getPitch() {
 		return Pitch;
 	}

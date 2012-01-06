@@ -1,6 +1,6 @@
 package mise.marssa.footprint.interfaces.navigation_equipment;
 
-import mise.marssa.footprint.data_types.float_datatypes.Percentage;
+import mise.marssa.footprint.data_types.float_datatypes.PercentageFloat;
 import mise.marssa.footprint.data_types.float_datatypes.speed.Knots;
 import mise.marssa.footprint.data_types.integer_datatypes.DegreesInteger;
 
@@ -17,7 +17,7 @@ public interface IWeatherInstrument {
 
 	public Knots getGustSpeed();
 
-	public Percentage getHumidity();
+	public PercentageFloat getHumidity();
 
 	public Float getPressure();
 

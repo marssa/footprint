@@ -1,5 +1,8 @@
 package mise.marssa.footprint.data_types.float_datatypes.speed;
 
+import javax.xml.bind.annotation.XmlType;
+
+import mise.marssa.footprint.data_types.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
 
 /**
@@ -8,7 +11,7 @@ import mise.marssa.footprint.exceptions.OutOfRange;
  * @created 08-Jul-2011 09:53:25
  */
 
-
+@XmlType(name = "Knots", factoryClass = TypeFactory.class, factoryMethod = "getKnotsInstance")
 public class Knots extends ASpeed {
 
 	public Knots(float value) throws OutOfRange {

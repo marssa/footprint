@@ -1,5 +1,6 @@
 package mise.marssa.footprint.data_types.composite_datatypes;
 
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.data_types.MString;
@@ -27,10 +28,12 @@ public class Coordinate {
 
 	}
 	@JSON
+	@XmlElement
 	public Latitude getLatitude() {
 		return latitude;
 	}
 	@JSON
+	@XmlElement
 	public Longitude getLongitude() {
 		return longitude;
 	}

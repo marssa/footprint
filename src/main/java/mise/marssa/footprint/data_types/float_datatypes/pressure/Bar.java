@@ -1,5 +1,8 @@
 package mise.marssa.footprint.data_types.float_datatypes.pressure;
 
+import javax.xml.bind.annotation.XmlType;
+
+import mise.marssa.footprint.data_types.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
 
 /**
@@ -7,6 +10,7 @@ import mise.marssa.footprint.exceptions.OutOfRange;
  * @version 1.0
  * @created 08-Jul-2011 09:53:24
  */
+@XmlType(name = "Bar", factoryClass = TypeFactory.class, factoryMethod = "getBarInstance")
 public class Bar extends APressure {
 
 	public Bar(float value) throws OutOfRange {

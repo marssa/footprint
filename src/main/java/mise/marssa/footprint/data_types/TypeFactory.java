@@ -2,7 +2,7 @@
  * 
  */
 package mise.marssa.footprint.data_types;
-
+import mise.marssa.footprint.data_types.integer_datatypes.*;
 import mise.marssa.footprint.data_types.composite_datatypes.APosition;
 import mise.marssa.footprint.data_types.composite_datatypes.Attitude;
 import mise.marssa.footprint.data_types.composite_datatypes.Coordinate;
@@ -13,7 +13,7 @@ import mise.marssa.footprint.data_types.composite_datatypes.Roll;
 import mise.marssa.footprint.data_types.composite_datatypes.Yaw;
 import mise.marssa.footprint.data_types.float_datatypes.DegreesFloat;
 import mise.marssa.footprint.data_types.float_datatypes.MFloat;
-import mise.marssa.footprint.data_types.float_datatypes.Percentage;
+import mise.marssa.footprint.data_types.float_datatypes.PercentageFloat;
 import mise.marssa.footprint.data_types.float_datatypes.UnsignedFloat;
 import mise.marssa.footprint.data_types.float_datatypes.distance.ADistance;
 import mise.marssa.footprint.data_types.float_datatypes.distance.KM;
@@ -72,6 +72,9 @@ import mise.marssa.footprint.data_types.float_datatypes.volume.AVolume;
 import mise.marssa.footprint.data_types.float_datatypes.volume.Gallons;
 import mise.marssa.footprint.data_types.float_datatypes.volume.ImpGallons;
 import mise.marssa.footprint.data_types.float_datatypes.volume.Litres;
+import mise.marssa.footprint.data_types.integer_datatypes.DegreesInteger;
+import mise.marssa.footprint.data_types.integer_datatypes.MInteger;
+import mise.marssa.footprint.data_types.integer_datatypes.MLong;
 import mise.marssa.footprint.data_types.time.ATime;
 import mise.marssa.footprint.data_types.time.Hours;
 import mise.marssa.footprint.data_types.time.Milliseconds;
@@ -271,35 +274,35 @@ public class TypeFactory {
 	 */
 	
 	public static APosition getAPositionInstance() throws OutOfRange {
-		return new Latitude(new DegreesFloat (0));
+		return new Latitude(getDegreesFloatInstance());
 	}
 	
 	public static Attitude getAttitudeInstance() throws OutOfRange {
-		return new Attitude(new Pitch(new DegreesFloat (0)), new Roll(new DegreesFloat (0)), new Yaw(new DegreesFloat (0)));
+		return new Attitude(getPitchInstance(), getRollInstance(), getYawInstance());
 	}
 	
 	public static Coordinate getCoordinateInstance() throws OutOfRange {
-		return new Coordinate(new Latitude(new DegreesFloat (0)),new Longitude(new DegreesFloat (0)));
+		return new Coordinate(getLatitudeInstance(),getLongitudeInstance());
 	}
 	
-	public static Latitude getLattitudeInstance() throws OutOfRange {
-		return new Latitude(new DegreesFloat (0));
+	public static Latitude getLatitudeInstance() throws OutOfRange {
+		return new Latitude(getDegreesFloatInstance());
 	}
 	
 	public static Longitude getLongitudeInstance() throws OutOfRange {
-		return new Longitude(new DegreesFloat (0));
+		return new Longitude(getDegreesFloatInstance());
 	}
 	
 	public static Pitch getPitchInstance() throws OutOfRange {
-		return new Pitch(new DegreesFloat (0));
+		return new Pitch(getDegreesFloatInstance());
 	}
 	
 	public static Roll getRollInstance() throws OutOfRange {
-		return new Roll(new DegreesFloat (0));
+		return new Roll(getDegreesFloatInstance());
 	}
 	
 	public static Yaw getYawInstance() throws OutOfRange {
-		return new Yaw(new DegreesFloat (0));
+		return new Yaw(getDegreesFloatInstance());
 	}
 	
 	/**
@@ -314,8 +317,8 @@ public class TypeFactory {
 	public static MFloat getMFloatInstance() throws OutOfRange {
 		return new MFloat(0);
 	}
-	public static Percentage getPercentageInstance() throws OutOfRange {
-		return new Percentage(0);
+	public static PercentageFloat getPercentageFloatInstance() throws OutOfRange {
+		return new PercentageFloat(0);
 	}
 	public static UnsignedFloat getUnsignedFloatInstance() throws OutOfRange {
 		return new UnsignedFloat(0);
@@ -411,5 +414,22 @@ public class TypeFactory {
 		return new Watts(0);
 	}
 
+	/**
+	 * Integer DataTypes
+	 */
 
+	public static DegreesInteger getDegreesIntegerInstance() throws OutOfRange {
+		return new DegreesInteger(0);
+	}
+	
+	public static MInteger getMIntegerInstance() throws OutOfRange {
+		return new MInteger(0);
+	}
+	public static MLong getMLongInstance() throws OutOfRange {
+		return new MLong(0);
+	}
+	public static PercentageInteger getPercentageIntegerInstance() throws OutOfRange {
+		return new PercentageInteger(0);
+	}
+	
 }

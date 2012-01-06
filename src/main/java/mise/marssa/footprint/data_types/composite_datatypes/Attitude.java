@@ -1,5 +1,6 @@
 package mise.marssa.footprint.data_types.composite_datatypes;
 
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.data_types.MString;
@@ -11,7 +12,7 @@ import flexjson.JSONSerializer;
  * @version 1.0
  * @created 08-Jul-2011 09:53:23
  */
-@XmlType(name = "Attitiude", factoryClass = TypeFactory.class, factoryMethod = "getAttitiudeInstance")
+@XmlType(name = "Attitude", factoryClass = TypeFactory.class, factoryMethod = "getAttitudeInstance")
 public class Attitude {
 
 	private Pitch pitch;
@@ -27,15 +28,15 @@ public class Attitude {
 	public void finalize() throws Throwable {
 
 	}
-
+	@XmlElement
 	public Pitch getPitch() {
 		return pitch;
 	}
-
+	@XmlElement
 	public Roll getRoll() {
 		return roll;
 	}
-
+	@XmlElement
 	public Yaw getYaw() {
 		return yaw;
 	}

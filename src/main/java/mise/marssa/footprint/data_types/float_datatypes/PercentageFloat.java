@@ -12,10 +12,10 @@ import flexjson.JSONSerializer;
  * @version 1.0
  * @created 08-Jul-2011 09:53:29
  */
-@XmlType(name = "Percentage", factoryClass = TypeFactory.class, factoryMethod = "getPercentageInstance")
-public class Percentage extends MFloat {
+@XmlType(name = "PercentageFloat", factoryClass = TypeFactory.class, factoryMethod = "getPercentageFloatInstance")
+public class PercentageFloat extends MFloat {
 
-	public Percentage(float value) throws OutOfRange {
+	public PercentageFloat(float value) throws OutOfRange {
 		super(value);
 		if((value < -100f) || (value > 100f))
 			throw new OutOfRange();

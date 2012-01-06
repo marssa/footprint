@@ -12,7 +12,7 @@ import mise.marssa.footprint.exceptions.OutOfRange;
  * @version 1.0
  * @updated 08-Jul-2011 15:00:20
  */
-@XmlType(name = "Km", factoryClass = TypeFactory.class, factoryMethod = "getKmInstance")
+@XmlType(name = "KM", factoryClass = TypeFactory.class, factoryMethod = "getKMInstance")
 public class KM extends ADistance {
 
 	public KM(float value) throws OutOfRange {

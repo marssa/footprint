@@ -13,16 +13,14 @@ import flexjson.JSONSerializer;
  */
 @XmlType(name = "MBoolean", factoryClass = TypeFactory.class, factoryMethod = "getMBooleanInstance")
 public class MBoolean {
-	@XmlElement
+	
 	protected boolean value;
 	
 	public MBoolean(boolean value) {
 		this.value = value;
 	}
 
-	public MBoolean newMBoolean() {
-		return new MBoolean(false);
-	}
+	
 	public void setValue(boolean newValue) {
 		this.value = newValue;
 	}
@@ -32,6 +30,7 @@ public class MBoolean {
 	}
 
 	@JSON
+	@XmlElement
 	public boolean getValue() {
 		return value;
 	}

@@ -9,7 +9,7 @@ import mise.marssa.footprint.data_types.TypeFactory;
  * @version 1.0
  * @created 08-Jul-2011 09:53:24
  */
-@XmlType(name = "DegreesCelsius", factoryClass = TypeFactory.class, factoryMethod = "getDegreesCelsiusInstance")
+@XmlType(name = "DegreesCelcius", factoryClass = TypeFactory.class, factoryMethod = "getDegreesCelciusInstance")
 public class DegreesCelcius extends ATemperature {
 
 	public DegreesCelcius(float value) {

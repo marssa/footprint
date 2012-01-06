@@ -11,7 +11,7 @@ import mise.marssa.footprint.data_types.TypeFactory;
  * @author Alan Grech
  *
  */
-@XmlType(name = "ACoulombs", factoryClass = TypeFactory.class, factoryMethod = "getACoulombsInstance")
+@XmlType(name = "Coulombs", factoryClass = TypeFactory.class, factoryMethod = "getCoulombsInstance")
 public class Coulombs extends ACharge {
 
 	public Coulombs(float value) {
