@@ -3,7 +3,6 @@
  */
 package mise.marssa.footprint.data_types;
 
-<<<<<<< HEAD
 import mise.marssa.footprint.data_types.composite_datatypes.APosition;
 import mise.marssa.footprint.data_types.composite_datatypes.Attitude;
 import mise.marssa.footprint.data_types.composite_datatypes.Coordinate;
@@ -36,7 +35,6 @@ import mise.marssa.footprint.data_types.float_datatypes.electrical.power.APower;
 import mise.marssa.footprint.data_types.float_datatypes.electrical.power.KWatts;
 import mise.marssa.footprint.data_types.float_datatypes.electrical.power.MWatts;
 import mise.marssa.footprint.data_types.float_datatypes.electrical.power.Watts;
-=======
 import mise.marssa.footprint.data_types.float_datatypes.electrical.voltage.AVoltage;
 import mise.marssa.footprint.data_types.float_datatypes.electrical.voltage.MilliVolts;
 import mise.marssa.footprint.data_types.float_datatypes.electrical.voltage.Volts;
@@ -50,7 +48,6 @@ import mise.marssa.footprint.data_types.float_datatypes.flow.LPS;
 import mise.marssa.footprint.data_types.float_datatypes.flow.MCPH;
 import mise.marssa.footprint.data_types.float_datatypes.flow.MCPM;
 import mise.marssa.footprint.data_types.float_datatypes.flow.MCPS;
->>>>>>> 37f22a9aff3e1f13ad5945b2d40080c49607a21d
 import mise.marssa.footprint.data_types.float_datatypes.frequency.AFrequency;
 import mise.marssa.footprint.data_types.float_datatypes.frequency.Hz;
 import mise.marssa.footprint.data_types.float_datatypes.frequency.KHz;
@@ -91,37 +88,39 @@ public class TypeFactory {
 	public static Hours getHoursInstance() {
 		return new Hours(100l);
 	}
-	
+
 	public static Minutes getMinutesInstance() {
 		return new Minutes(100l);
 	}
-	
+
 	public static Seconds getSecondsInstance() {
 		return new Seconds(100l);
 	}
-	
+
 	public static Milliseconds getMillisecondsInstance() {
 		return new Milliseconds(100l);
 	}
-	
+
 	public static ATime getATimeInstance() {
 		return new Milliseconds(100l);
 	}
-	
+
 	//Voltage
 	public static AVoltage getAVoltageInstance() {
 		return new Volts(100l);
 	}
-	
+
 	public static MilliVolts getMilliVoltsInstance() {
 		return new MilliVolts(100l);
 	}
-	
+
 	public static Volts getVoltsInstance() {
 		return new Volts(100l);
 	}
-	
-	//Frequency
+
+	/**
+	 * Frequency
+	 */
 	public static AFrequency getAFrequencyInstance() throws OutOfRange {
 		return new Hz(100l);
 	}
@@ -131,8 +130,126 @@ public class TypeFactory {
 	public static KHz getKHzInstance() throws OutOfRange {
 		return new KHz(100l);
 	}
-	
-<<<<<<< HEAD
+
+	/**
+	 * Flow
+	 */
+
+	/* TODO mass flow datatypes
+	public static AMassFlow getAMassFlowInstance() throws OutOfRange {
+		return new (100l);
+	}*/
+
+	public static AVolumeFlow getAVolumeFlowInstance() throws OutOfRange {
+		return new CFPH(100l);
+	}
+	public static CFPH getCFPHInstance() throws OutOfRange {
+		return new CFPH(100l);
+	}
+	public static CFPM getCFPMInstance() throws OutOfRange {
+		return new CFPM(100l);
+	}
+	public static CFPS getCFPSInstance() throws OutOfRange {
+		return new CFPS(100l);
+	}
+	public static LPH getLPHInstance() throws OutOfRange {
+		return new LPH(100l);
+	}
+	public static LPM getLPMInstance() throws OutOfRange {
+		return new LPM(100l);
+	}
+	public static LPS getLPSInstance() throws OutOfRange {
+		return new LPS(100l);
+	}
+	public static MCPH getMCPHInstance() throws OutOfRange {
+		return new MCPH(100l);
+	}
+	public static MCPM getMCPMInstance() throws OutOfRange {
+		return new MCPM(100l);
+	}
+	public static MCPS getMCPSInstance() throws OutOfRange {
+		return new MCPS(100l);
+	}
+
+	/**
+	 * Pressure
+	 */
+	public static APressure getAPressureInstance() throws OutOfRange {
+		return new Bar(100l);
+	}
+	public static Bar getBarInstance() throws OutOfRange {
+		return new Bar(100l);
+	}
+	public static KPa getKPaInstance() throws OutOfRange {
+		return new KPa(100l);
+	}
+	public static MBars getMBarsInstance() throws OutOfRange {
+		return new MBars(100l);
+	}
+	public static MMHg getMMHgInstance() throws OutOfRange {
+		return new MMHg(100l);
+	}
+	public static Pascals getPascalsInstance() throws OutOfRange {
+		return new Pascals(100l);
+	}
+	public static PSI getPSIInstance() throws OutOfRange {
+		return new PSI(100l);
+	}
+
+	/**
+	 * Speed
+	 */
+	public static ASpeed getASpeedInstance() throws OutOfRange {
+		return new Knots(100l);
+	}
+	public static  Knots getKnotsInstance() throws OutOfRange {
+		return new Knots(100l);
+	}
+	public static KPH getKPHInstance() throws OutOfRange {
+		return new KPH(100l);
+	}
+	public static MPH getMPHInstance() throws OutOfRange {
+		return new MPH(100l);
+	}
+	public static MPS getMPSInstance() throws OutOfRange {
+		return new MPS(100l);
+	}
+	public static PercentSpeed getPercentSpeedInstance() throws OutOfRange {
+		return new PercentSpeed(100l);
+	}
+
+	/**
+	 * Temperature
+	 */
+	public static ATemperature getATemperatureInstance() throws OutOfRange {
+		return new DegreesCelcius(100l);
+	}
+	public static  DegreesCelcius getDegreesCelciusInstance() throws OutOfRange {
+		return new DegreesCelcius(100l);
+	}
+	public static Fahrenheit getFahrenheitInstance() throws OutOfRange {
+		return new Fahrenheit(100l);
+	}
+	public static Kelvin getKelvinInstance() throws OutOfRange {
+		return new Kelvin(100l);
+	}
+
+	/**
+	 * Volume
+	 */
+	public static AVolume getAVolumeInstance() throws OutOfRange {
+		return new Litres(100l);
+	}
+	public static  Gallons getGallonsInstance() throws OutOfRange {
+		return new Gallons(100l);
+	}
+	public static ImpGallons getImpGallonsInstance() throws OutOfRange {
+		return new ImpGallons(100l);
+	}
+	public static Litres getLitresInstance() throws OutOfRange {
+		return new Litres(100l);
+	}
+
 	/**
 	 * Native DataTypes
 	 */
@@ -293,118 +410,6 @@ public class TypeFactory {
 	public static Watts getWattsInstance() throws OutOfRange {
 		return new Watts(0);
 	}
-	
-=======
-	//Flow
-	
-	/* TODO mass flow datatypes
-	public static AMassFlow getAMassFlowInstance() throws OutOfRange {
-		return new (100l);
-	}*/
-	
-	public static AVolumeFlow getAVolumeFlowInstance() throws OutOfRange {
-		return new CFPH(100l);
-	}
-	public static CFPH getCFPHInstance() throws OutOfRange {
-		return new CFPH(100l);
-	}
-	public static CFPM getCFPMInstance() throws OutOfRange {
-		return new CFPM(100l);
-	}
-	public static CFPS getCFPSInstance() throws OutOfRange {
-		return new CFPS(100l);
-	}
-	public static LPH getLPHInstance() throws OutOfRange {
-		return new LPH(100l);
-	}
-	public static LPM getLPMInstance() throws OutOfRange {
-		return new LPM(100l);
-	}
-	public static LPS getLPSInstance() throws OutOfRange {
-		return new LPS(100l);
-	}
-	public static MCPH getMCPHInstance() throws OutOfRange {
-		return new MCPH(100l);
-	}
-	public static MCPM getMCPMInstance() throws OutOfRange {
-		return new MCPM(100l);
-	}
-	public static MCPS getMCPSInstance() throws OutOfRange {
-		return new MCPS(100l);
-	}
-	
-	//Pressure
-	public static APressure getAPressureInstance() throws OutOfRange {
-		return new Bar(100l);
-	}
-	public static Bar getBarInstance() throws OutOfRange {
-		return new Bar(100l);
-	}
-	public static KPa getKPaInstance() throws OutOfRange {
-		return new KPa(100l);
-	}
-	public static MBars getMBarsInstance() throws OutOfRange {
-		return new MBars(100l);
-	}
-	public static MMHg getMMHgInstance() throws OutOfRange {
-		return new MMHg(100l);
-	}
-	public static Pascals getPascalsInstance() throws OutOfRange {
-		return new Pascals(100l);
-	}
-	public static PSI getPSIInstance() throws OutOfRange {
-		return new PSI(100l);
-	}
-	
-	//Speed
-	public static ASpeed getASpeedInstance() throws OutOfRange {
-		return new Knots(100l);
-	}
-	public static  Knots getKnotsInstance() throws OutOfRange {
-		return new Knots(100l);
-	}
-	public static KPH getKPHInstance() throws OutOfRange {
-		return new KPH(100l);
-	}
-	public static MPH getMPHInstance() throws OutOfRange {
-		return new MPH(100l);
-	}
-	public static MPS getMPSInstance() throws OutOfRange {
-		return new MPS(100l);
-	}
-	public static PercentSpeed getPercentSpeedInstance() throws OutOfRange {
-		return new PercentSpeed(100l);
-	}
-	
-	//Temperature
-	public static ATemperature getATemperatureInstance() throws OutOfRange {
-		return new DegreesCelcius(100l);
-	}
-	public static  DegreesCelcius getDegreesCelciusInstance() throws OutOfRange {
-		return new DegreesCelcius(100l);
-	}
-	public static Fahrenheit getFahrenheitInstance() throws OutOfRange {
-		return new Fahrenheit(100l);
-	}
-	public static Kelvin getKelvinInstance() throws OutOfRange {
-		return new Kelvin(100l);
-	}
-	
-	//Volume
-	public static AVolume getAVolumeInstance() throws OutOfRange {
-		return new Litres(100l);
-	}
-	public static  Gallons getGallonsInstance() throws OutOfRange {
-		return new Gallons(100l);
-	}
-	public static ImpGallons getImpGallonsInstance() throws OutOfRange {
-		return new ImpGallons(100l);
-	}
-	public static Litres getLitresInstance() throws OutOfRange {
-		return new Litres(100l);
-	}
-	
-	
 
->>>>>>> 37f22a9aff3e1f13ad5945b2d40080c49607a21d
+
 }
