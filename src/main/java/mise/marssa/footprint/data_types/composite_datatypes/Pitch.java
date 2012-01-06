@@ -1,5 +1,7 @@
 package mise.marssa.footprint.data_types.composite_datatypes;
 
+import javax.xml.bind.annotation.XmlType;
+
 import flexjson.JSONSerializer;
 import mise.marssa.footprint.data_types.MString;
 import mise.marssa.footprint.data_types.float_datatypes.DegreesFloat;
@@ -9,6 +11,7 @@ import mise.marssa.footprint.data_types.float_datatypes.DegreesFloat;
  * @version 1.0
  * @created 08-Jul-2011 09:53:29
  */
+@XmlType(name = "Pitch", factoryClass = TypeFactory.class, factoryMethod = "getPitchInstance")
 public class Pitch {
 
 	private DegreesFloat Pitch;

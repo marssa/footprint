@@ -5,7 +5,7 @@ package mise.marssa.footprint.data_types.time;
  *
  */
 public class Seconds extends ATime {
-
+	
 	public Seconds(long time) {
 		super(time);
 	}

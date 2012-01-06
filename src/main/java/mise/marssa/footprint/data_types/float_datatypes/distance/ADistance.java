@@ -1,7 +1,8 @@
 package mise.marssa.footprint.data_types.float_datatypes.distance;
 
+import javax.xml.bind.annotation.XmlType;
+
 import mise.marssa.footprint.data_types.float_datatypes.UnsignedFloat;
-import mise.marssa.footprint.exceptions.NoTypeEnforced;
 import mise.marssa.footprint.exceptions.OutOfRange;
 
 /**
@@ -9,6 +10,7 @@ import mise.marssa.footprint.exceptions.OutOfRange;
  * @version 1.0
  * @created 08-Jul-2011 09:53:23
  */
+@XmlType(name = "ADistance", factoryClass = TypeFactory.class, factoryMethod = "getADistanceInstance")
 public abstract class ADistance extends UnsignedFloat {
 
 	public ADistance(float value) throws OutOfRange {

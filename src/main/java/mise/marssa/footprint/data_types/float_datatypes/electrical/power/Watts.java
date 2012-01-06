@@ -3,11 +3,14 @@
  */
 package mise.marssa.footprint.data_types.float_datatypes.electrical.power;
 
+import javax.xml.bind.annotation.XmlType;
+
 
 /**
  * @author Warren Zahra
  *
  */
+@XmlType(name = "Watts", factoryClass = TypeFactory.class, factoryMethod = "getWattsInstance")
 public class Watts extends APower {
 
 	public Watts(float value) {

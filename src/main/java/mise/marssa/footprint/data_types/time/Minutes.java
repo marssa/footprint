@@ -8,7 +8,7 @@ package mise.marssa.footprint.data_types.time;
  *
  */
 public class Minutes extends ATime {
-
+	
 	public Minutes(long time) {
 		super(time);
 	}

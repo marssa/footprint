@@ -3,10 +3,13 @@
  */
 package mise.marssa.footprint.data_types.float_datatypes.electrical.charge;
 
+import javax.xml.bind.annotation.XmlType;
+
 /**
  * @author Alan Grech
  *
  */
+@XmlType(name = "mAh", factoryClass = TypeFactory.class, factoryMethod = "getmAhInstance")
 public class mAh extends ACharge {
 
 	public mAh(float value) {

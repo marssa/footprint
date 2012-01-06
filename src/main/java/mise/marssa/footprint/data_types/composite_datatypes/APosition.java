@@ -1,17 +1,20 @@
 package mise.marssa.footprint.data_types.composite_datatypes;
 
-import flexjson.JSONSerializer;
+import javax.xml.bind.annotation.XmlType;
+
 import mise.marssa.footprint.data_types.MString;
 import mise.marssa.footprint.data_types.float_datatypes.DegreesFloat;
 import mise.marssa.footprint.data_types.float_datatypes.MFloat;
 import mise.marssa.footprint.data_types.integer_datatypes.DegreesInteger;
 import mise.marssa.footprint.data_types.integer_datatypes.MInteger;
+import flexjson.JSONSerializer;
 
 /**
  * @author Alan Grech
  * @version 1.0
  * @created 08-Jul-2011 09:53:29
  */
+@XmlType(name = "APosition", factoryClass = TypeFactory.class, factoryMethod = "getAPositionInstance")
 public abstract class APosition {
 
 	protected DegreesInteger degrees;

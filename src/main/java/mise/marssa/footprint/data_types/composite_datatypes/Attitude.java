@@ -1,5 +1,7 @@
 package mise.marssa.footprint.data_types.composite_datatypes;
 
+import javax.xml.bind.annotation.XmlType;
+
 import mise.marssa.footprint.data_types.MString;
 import flexjson.JSONSerializer;
 
@@ -8,6 +10,7 @@ import flexjson.JSONSerializer;
  * @version 1.0
  * @created 08-Jul-2011 09:53:23
  */
+@XmlType(name = "Attitiude", factoryClass = TypeFactory.class, factoryMethod = "getAttitiudeInstance")
 public class Attitude {
 
 	private Pitch pitch;

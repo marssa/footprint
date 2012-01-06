@@ -1,6 +1,8 @@
 package mise.marssa.footprint.data_types.composite_datatypes;
 
 
+import javax.xml.bind.annotation.XmlType;
+
 import mise.marssa.footprint.data_types.float_datatypes.DegreesFloat;
 import mise.marssa.footprint.data_types.float_datatypes.MFloat;
 import mise.marssa.footprint.data_types.integer_datatypes.DegreesInteger;
@@ -12,6 +14,7 @@ import mise.marssa.footprint.exceptions.OutOfRange;
  * @version 1.0
  * @created 08-Jul-2011 09:53:25
  */
+@XmlType(name = "Latitude", factoryClass = TypeFactory.class, factoryMethod = "getLatitudeInstance")
 public class Latitude extends APosition {
 
 	//private APosition latitude;

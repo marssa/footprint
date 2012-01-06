@@ -3,10 +3,13 @@
  */
 package mise.marssa.footprint.data_types.float_datatypes.electrical.voltage;
 
+import javax.xml.bind.annotation.XmlType;
+
 /**
  * @author Alan Grech
  *
  */
+@XmlType(name = "Volts", factoryClass = TypeFactory.class, factoryMethod = "getVoltsInstance")
 public class Volts extends AVoltage {
 
 	public Volts(float value) {

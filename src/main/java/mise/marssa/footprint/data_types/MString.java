@@ -1,5 +1,7 @@
 package mise.marssa.footprint.data_types;
 
+import javax.xml.bind.annotation.XmlType;
+
 import flexjson.JSONSerializer;
 
 /**
@@ -7,6 +9,7 @@ import flexjson.JSONSerializer;
  * @version 1.0
  * @created 08-Jul-2011 09:53:29
  */
+@XmlType(name = "MString", factoryClass = TypeFactory.class, factoryMethod = "getMStringInstance")
 public class MString {
 	private String contents;
 

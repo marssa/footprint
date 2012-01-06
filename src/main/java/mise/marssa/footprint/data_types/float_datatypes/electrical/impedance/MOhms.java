@@ -3,10 +3,13 @@
  */
 package mise.marssa.footprint.data_types.float_datatypes.electrical.impedance;
 
+import javax.xml.bind.annotation.XmlType;
+
 /**
  * @author Warren Zahra
  *
  */
+@XmlType(name = "MOhms", factoryClass = TypeFactory.class, factoryMethod = "getMOhmsInstance")
 public class MOhms extends AImpedance{
 
 	public MOhms(float value) {

@@ -1,5 +1,7 @@
 package mise.marssa.footprint.data_types.float_datatypes.distance;
 
+import javax.xml.bind.annotation.XmlType;
+
 import mise.marssa.footprint.exceptions.OutOfRange;
 
 /**
@@ -9,6 +11,7 @@ import mise.marssa.footprint.exceptions.OutOfRange;
  * @version 1.0
  * @updated 08-Jul-2011 15:00:20
  */
+@XmlType(name = "Km", factoryClass = TypeFactory.class, factoryMethod = "getKmInstance")
 public class KM extends ADistance {
 
 	public KM(float value) throws OutOfRange {

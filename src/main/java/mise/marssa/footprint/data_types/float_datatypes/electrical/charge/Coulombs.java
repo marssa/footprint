@@ -3,10 +3,13 @@
  */
 package mise.marssa.footprint.data_types.float_datatypes.electrical.charge;
 
+import javax.xml.bind.annotation.XmlType;
+
 /**
  * @author Alan Grech
  *
  */
+@XmlType(name = "ACoulombs", factoryClass = TypeFactory.class, factoryMethod = "getACoulombsInstance")
 public class Coulombs extends ACharge {
 
 	public Coulombs(float value) {

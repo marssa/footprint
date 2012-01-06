@@ -3,10 +3,13 @@
  */
 package mise.marssa.footprint.data_types.float_datatypes.electrical.impedance;
 
+import javax.xml.bind.annotation.XmlType;
+
 /**
  * @author Warren Zahra
  *
  */
+@XmlType(name = "Ohms", factoryClass = TypeFactory.class, factoryMethod = "getOhmsInstance")
 public class Ohms extends AImpedance {
 
 	public Ohms(float value) {
