@@ -1,5 +1,8 @@
 package mise.marssa.footprint.data_types.float_datatypes.speed;
 
+import javax.xml.bind.annotation.XmlType;
+
+import mise.marssa.footprint.data_types.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
 
 /**
@@ -9,6 +12,8 @@ import mise.marssa.footprint.exceptions.OutOfRange;
  * @version 1.0
  * @created 08-Jul-2011 09:53:25
  */
+
+@XmlType(name = "KPH", factoryClass = TypeFactory.class, factoryMethod = "getKPHInstance")
 public class KPH extends ASpeed {
 
 	public KPH(float value) throws OutOfRange {
