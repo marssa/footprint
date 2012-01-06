@@ -21,6 +21,11 @@ import mise.marssa.footprint.data_types.float_datatypes.speed.MPS;
 import mise.marssa.footprint.data_types.float_datatypes.speed.PercentSpeed;
 import mise.marssa.footprint.data_types.float_datatypes.temperature.ATemperature;
 import mise.marssa.footprint.data_types.float_datatypes.temperature.DegreesCelcius;
+import mise.marssa.footprint.data_types.float_datatypes.temperature.Fahrenheit;
+import mise.marssa.footprint.data_types.float_datatypes.temperature.Kelvin;
+import mise.marssa.footprint.data_types.float_datatypes.volume.Gallons;
+import mise.marssa.footprint.data_types.float_datatypes.volume.ImpGallons;
+import mise.marssa.footprint.data_types.float_datatypes.volume.Litres;
 import mise.marssa.footprint.data_types.time.ATime;
 import mise.marssa.footprint.data_types.time.Hours;
 import mise.marssa.footprint.data_types.time.Milliseconds;
@@ -56,7 +61,7 @@ public class TypeFactory {
 		return new Milliseconds(100l);
 	}
 	
-	//Frequenecy
+	//Frequency
 	public static AFrequency getAFrequencyInstance() throws OutOfRange {
 		return new Hz(100l);
 	}
@@ -125,5 +130,21 @@ public class TypeFactory {
 	public static Kelvin getKelvinInstance() throws OutOfRange {
 		return new Kelvin(100l);
 	}
+	
+	//Volume
+	public static AVolume getAVolumeInstance() throws OutOfRange {
+		return new Litres(100l);
+	}
+	public static  Gallons getGallonsInstance() throws OutOfRange {
+		return new Gallons(100l);
+	}
+	public static ImpGallons getImpGallonsInstance() throws OutOfRange {
+		return new ImpGallons(100l);
+	}
+	public static Litres getLitresInstance() throws OutOfRange {
+		return new Litres(100l);
+	}
+	
+	
 
 }
