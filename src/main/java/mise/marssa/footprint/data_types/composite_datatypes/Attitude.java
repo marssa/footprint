@@ -3,6 +3,7 @@ package mise.marssa.footprint.data_types.composite_datatypes;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.data_types.MString;
+import mise.marssa.footprint.data_types.TypeFactory;
 import flexjson.JSONSerializer;
 
 /**

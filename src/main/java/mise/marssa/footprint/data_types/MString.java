@@ -1,10 +1,8 @@
 package mise.marssa.footprint.data_types;
 
-<<<<<<< HEAD
-import javax.xml.bind.annotation.XmlType;
-=======
+
 import javax.xml.bind.annotation.XmlElement;
->>>>>>> e6793184edce20f79824528fc623171fa3c16425
+import javax.xml.bind.annotation.XmlType;
 
 import flexjson.JSONSerializer;
 

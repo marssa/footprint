@@ -3,21 +3,11 @@
  */
 package mise.marssa.footprint.data_types.time;
 
-<<<<<<< HEAD
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.datatype.XMLGregorianCalendar;
-=======
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.data_types.TypeFactory;
 
-
-
->>>>>>> e6793184edce20f79824528fc623171fa3c16425
 /**
  * @author Alan Grech
  * 

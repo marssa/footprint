@@ -1,7 +1,10 @@
 package mise.marssa.footprint.data_types;
 
 import javax.xml.bind.annotation.XmlElement;
-import flexjson.JSON;import flexjson.JSONSerializer;
+import javax.xml.bind.annotation.XmlType;
+
+import flexjson.JSON;
+import flexjson.JSONSerializer;
 
 /**
  * @author Alan Grech

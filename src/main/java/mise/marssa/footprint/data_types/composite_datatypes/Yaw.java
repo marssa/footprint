@@ -2,9 +2,10 @@ package mise.marssa.footprint.data_types.composite_datatypes;
 
 import javax.xml.bind.annotation.XmlType;
 
-import flexjson.JSONSerializer;
 import mise.marssa.footprint.data_types.MString;
+import mise.marssa.footprint.data_types.TypeFactory;
 import mise.marssa.footprint.data_types.float_datatypes.DegreesFloat;
+import flexjson.JSONSerializer;
 
 /**
  * @author Alan Grech

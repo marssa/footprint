@@ -5,6 +5,8 @@ package mise.marssa.footprint.data_types.float_datatypes.electrical.impedance;
 
 import javax.xml.bind.annotation.XmlType;
 
+import mise.marssa.footprint.data_types.TypeFactory;
+
 /**
  * @author Warren Zahra
  *
