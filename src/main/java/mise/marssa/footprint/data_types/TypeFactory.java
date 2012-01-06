@@ -3,6 +3,16 @@
  */
 package mise.marssa.footprint.data_types;
 
+import mise.marssa.footprint.data_types.float_datatypes.flow.AVolumeFlow;
+import mise.marssa.footprint.data_types.float_datatypes.flow.CFPH;
+import mise.marssa.footprint.data_types.float_datatypes.flow.CFPM;
+import mise.marssa.footprint.data_types.float_datatypes.flow.CFPS;
+import mise.marssa.footprint.data_types.float_datatypes.flow.LPH;
+import mise.marssa.footprint.data_types.float_datatypes.flow.LPM;
+import mise.marssa.footprint.data_types.float_datatypes.flow.LPS;
+import mise.marssa.footprint.data_types.float_datatypes.flow.MCPH;
+import mise.marssa.footprint.data_types.float_datatypes.flow.MCPM;
+import mise.marssa.footprint.data_types.float_datatypes.flow.MCPS;
 import mise.marssa.footprint.data_types.float_datatypes.frequency.AFrequency;
 import mise.marssa.footprint.data_types.float_datatypes.frequency.Hz;
 import mise.marssa.footprint.data_types.float_datatypes.frequency.KHz;
@@ -23,6 +33,7 @@ import mise.marssa.footprint.data_types.float_datatypes.temperature.ATemperature
 import mise.marssa.footprint.data_types.float_datatypes.temperature.DegreesCelcius;
 import mise.marssa.footprint.data_types.float_datatypes.temperature.Fahrenheit;
 import mise.marssa.footprint.data_types.float_datatypes.temperature.Kelvin;
+import mise.marssa.footprint.data_types.float_datatypes.volume.AVolume;
 import mise.marssa.footprint.data_types.float_datatypes.volume.Gallons;
 import mise.marssa.footprint.data_types.float_datatypes.volume.ImpGallons;
 import mise.marssa.footprint.data_types.float_datatypes.volume.Litres;
@@ -32,8 +43,6 @@ import mise.marssa.footprint.data_types.time.Milliseconds;
 import mise.marssa.footprint.data_types.time.Minutes;
 import mise.marssa.footprint.data_types.time.Seconds;
 import mise.marssa.footprint.exceptions.OutOfRange;
-
-
 
 /**
  * @author Clayton Tabone
@@ -73,6 +82,42 @@ public class TypeFactory {
 	}
 	
 	//Flow
+	
+	/* TODO mass flow datatypes
+	public static AMassFlow getAMassFlowInstance() throws OutOfRange {
+		return new (100l);
+	}*/
+	
+	public static AVolumeFlow getAVolumeFlowInstance() throws OutOfRange {
+		return new CFPH(100l);
+	}
+	public static CFPH getCFPHInstance() throws OutOfRange {
+		return new CFPH(100l);
+	}
+	public static CFPM getCFPMInstance() throws OutOfRange {
+		return new CFPM(100l);
+	}
+	public static CFPS getCFPSInstance() throws OutOfRange {
+		return new CFPS(100l);
+	}
+	public static LPH getLPHInstance() throws OutOfRange {
+		return new LPH(100l);
+	}
+	public static LPM getLPMInstance() throws OutOfRange {
+		return new LPM(100l);
+	}
+	public static LPS getLPSInstance() throws OutOfRange {
+		return new LPS(100l);
+	}
+	public static MCPH getMCPHInstance() throws OutOfRange {
+		return new MCPH(100l);
+	}
+	public static MCPM getMCPMInstance() throws OutOfRange {
+		return new MCPM(100l);
+	}
+	public static MCPS getMCPSInstance() throws OutOfRange {
+		return new MCPS(100l);
+	}
 	
 	//Pressure
 	public static APressure getAPressureInstance() throws OutOfRange {
