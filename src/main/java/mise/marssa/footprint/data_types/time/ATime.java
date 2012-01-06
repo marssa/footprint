@@ -1,3 +1,4 @@
+
 package mise.marssa.footprint.data_types.time;
 
 import javax.xml.bind.annotation.XmlElement;

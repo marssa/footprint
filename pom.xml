@@ -143,8 +143,7 @@
 						${project}
 					</project>
 					<destdir>${project.build.directory}/generated/schemas</destdir>
-					<srcdir>${project.build.sourceDirectory}/mise/marssa/footprint/data_types/</srcdir>
-					<schemas>datatypes.xsd</schemas>
+					<srcdir>${project.build.sourceDirectory}/mise/marssa/footprint/data_types/</srcdir>									
 					<verbose>true</verbose>
 				</configuration>
 				<dependencies>
