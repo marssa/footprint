@@ -3,6 +3,9 @@
  */
 package mise.marssa.footprint.data_types;
 
+import mise.marssa.footprint.data_types.float_datatypes.electrical.voltage.AVoltage;
+import mise.marssa.footprint.data_types.float_datatypes.electrical.voltage.MilliVolts;
+import mise.marssa.footprint.data_types.float_datatypes.electrical.voltage.Volts;
 import mise.marssa.footprint.data_types.float_datatypes.flow.AVolumeFlow;
 import mise.marssa.footprint.data_types.float_datatypes.flow.CFPH;
 import mise.marssa.footprint.data_types.float_datatypes.flow.CFPM;
@@ -68,6 +71,19 @@ public class TypeFactory {
 	
 	public static ATime getATimeInstance() {
 		return new Milliseconds(100l);
+	}
+	
+	//Voltage
+	public static AVoltage getAVoltageInstance() {
+		return new Volts(100l);
+	}
+	
+	public static MilliVolts getMilliVoltsInstance() {
+		return new MilliVolts(100l);
+	}
+	
+	public static Volts getVoltsInstance() {
+		return new Volts(100l);
 	}
 	
 	//Frequency
