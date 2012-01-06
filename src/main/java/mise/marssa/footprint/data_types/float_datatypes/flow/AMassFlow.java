@@ -6,7 +6,7 @@ import mise.marssa.footprint.data_types.TypeFactory;
 import mise.marssa.footprint.data_types.float_datatypes.UnsignedFloat;
 import mise.marssa.footprint.exceptions.OutOfRange;
 
-@XmlType(name = "AMassFlow", factoryClass = TypeFactory.class, factoryMethod = "getAMassFlowInstance")
+@XmlType(name = "AMassFlow", factoryClass = TypeFactory.class, factoryMethod = "getAMassflowInstance")
 public abstract class AMassFlow extends UnsignedFloat {
 	
 	//TODO Define AMassFlow methods

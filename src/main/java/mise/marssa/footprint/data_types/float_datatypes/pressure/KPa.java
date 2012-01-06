@@ -1,12 +1,8 @@
 package mise.marssa.footprint.data_types.float_datatypes.pressure;
 
-import javax.xml.bind.annotation.XmlType;
-
 import flexjson.JSON;
-import mise.marssa.footprint.data_types.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
 
-@XmlType(name = "KPa", factoryClass = TypeFactory.class, factoryMethod = "getKPaInstance")
 public class KPa extends APressure {
 
 	public KPa(float value) throws OutOfRange {

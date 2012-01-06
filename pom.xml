@@ -143,7 +143,7 @@
 						${project}
 					</project>
 					<destdir>${project.build.directory}${file.separator}generated${file.separator}schemas</destdir>
-					<srcdir>${project.build.sourceDirectory}${file.separator}mise${file.separator}marssa${file.separator}footprint${file.separator}data_types${file.separator}</srcdir>
+					<srcdir>${project.build.sourceDirectory}${file.separator}mise${file.separator}marssa${file.separator}footprint${file.separator}data_types${file.separator}time${file.separator}</srcdir>
 					<verbose>true</verbose>
 				</configuration>
 				<dependencies>

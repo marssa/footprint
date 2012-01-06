@@ -1,8 +1,5 @@
 package mise.marssa.footprint.data_types.float_datatypes.speed;
 
-import javax.xml.bind.annotation.XmlType;
-
-import mise.marssa.footprint.data_types.TypeFactory;
 import mise.marssa.footprint.data_types.float_datatypes.UnsignedFloat;
 import mise.marssa.footprint.exceptions.OutOfRange;
 
@@ -12,7 +9,6 @@ import mise.marssa.footprint.exceptions.OutOfRange;
  * @created 08-Jul-2011 09:53:23
  */
 
-@XmlType(name = "ASpeed", factoryClass = TypeFactory.class, factoryMethod = "getASpeedInstance")
 public abstract class ASpeed extends UnsignedFloat {
 
 	public ASpeed(float value) throws OutOfRange {
