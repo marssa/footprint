@@ -137,8 +137,7 @@
 					<project>
 						${project}
 					</project>
-					<!--<destdir>${project.build.directory}/generated/schemas</destdir> -->
-					<destdir>${project.build.sourceDirectory}/../resources/schemas</destdir>
+					<destdir>${project.build.directory}/generated/schemas</destdir>
 					<srcdir>${project.build.sourceDirectory}/mise/marssa/footprint/data_types/</srcdir>
 					<verbose>true</verbose>
 				</configuration>
