@@ -97,11 +97,6 @@
 			<artifactId>jaxb-impl</artifactId>
 			<version>2.2</version>
 		</dependency>
-		<dependency>
-			<groupId>com.sun.xml.bind</groupId>
-			<artifactId>jaxb-xjc</artifactId>
-			<version>2.2</version>
-		</dependency>
 	</dependencies>
 
 	<build>
@@ -142,9 +137,9 @@
 					<project>
 						${project}
 					</project>
-					<destdir>${project.build.directory}/generated/schemas</destdir>
+					<!--<destdir>${project.build.directory}/generated/schemas</destdir> -->
+					<destdir>${project.build.sourceDirectory}/../resources/schemas</destdir>
 					<srcdir>${project.build.sourceDirectory}/mise/marssa/footprint/data_types/</srcdir>
-					<schemas>datatypes.xsd</schemas>
 					<verbose>true</verbose>
 				</configuration>
 				<dependencies>
@@ -163,12 +158,23 @@
 						<artifactId>jaxb-impl</artifactId>
 						<version>2.2</version>
 					</dependency>
-					<dependency>
-						<groupId>com.sun.xml.bind</groupId>
-						<artifactId>jaxb-xjc</artifactId>
-						<version>2.2</version>
-					</dependency>
 				</dependencies>
+			</plugin>
+			<plugin>
+				<artifactId>maven-remote-resources-plugin</artifactId>
+				<version>1.2.1</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>bundle</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<includes>
+						<include>**/*.xsd</include>
+					</includes>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
