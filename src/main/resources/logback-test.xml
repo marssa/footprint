@@ -1,0 +1,30 @@
+
+<configuration>
+
+	<appender name="DB" class="mise.marssa.footprint.logger.MDBAppender">
+		<!-- <dbNameResolver class="chapters.DBAppender.MyDBNameResolver" /> -->
+		<connectionSource class="ch.qos.logback.core.db.DataSourceConnectionSource">
+			<dataSource class="com.mchange.v2.c3p0.ComboPooledDataSource">
+				<driverClass>com.mysql.jdbc.Driver</driverClass>
+				<jdbcUrl>jdbc:mysql://192.168.2.103:3306/realpromise</jdbcUrl>
+				<user>realpromiseuser</user>
+				<password>realpromise</password>
+			</dataSource>
+		</connectionSource>
+	</appender>
+
+	<appender name="LOGGINGFILE" class="ch.qos.logback.core.FileAppender">
+		<file>target/logging.log</file>
+		<append>true</append>
+		<encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+			<layout class="mise.marssa.footprint.logger.MySampleLayout" />
+		</encoder>
+	</appender>
+
+	<root level="DEBUG">
+		<appender-ref ref="DB" />
+		<appender-ref ref="LOGGINGFILE" />
+	</root>
+	
+</configuration>
+
