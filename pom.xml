@@ -12,6 +12,7 @@
 	<description>This project was created specifically for the design and development of the MARSSA footprint which will run on each MARSSA node.</description>
 
 	<properties>
+		<javaVersion>1.6</javaVersion>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
@@ -82,6 +83,7 @@
 			<artifactId>flexjson</artifactId>
 			<version>2.0</version>
 		</dependency>
+<<<<<<< HEAD
 		<dependency>
 			<groupId>javax.xml.bind</groupId>
 			<artifactId>jaxb-api</artifactId>
@@ -114,21 +116,64 @@
 			<artifactId>c3p0</artifactId>
 			<version>0.9.1.2</version>
 		</dependency>
+=======
+>>>>>>> 99395973f4c8af72cf45f5a7698407cf3d12b05f
 	</dependencies>
 
 	<build>
 		<plugins>
+			<!-- Specify Java compiler version -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>${javaVersion}</source>
+					<target>${javaVersion}</target>
+				</configuration>
+			</plugin>
+
+			<!-- Bundle artifact as OSGi bundle -->
 			<plugin>
 				<groupId>org.apache.felix</groupId>
 				<artifactId>maven-bundle-plugin</artifactId>
-				<version>2.2.0</version>
+				<version>2.3.6</version>
 				<extensions>true</extensions>
 				<configuration>
 					<instructions>
 						<Bundle-Activator>mise.marssa.footprint.Activator</Bundle-Activator>
+						<!-- Add maven directory to list of resources since this contains the remote-resources.xml file -->
+						<Include-Resource>{maven-resources},META-INF/maven'='target/classes/META-INF/maven/</Include-Resource>
+						<excludeDependencies>false</excludeDependencies>
+						<Embed-Dependency>*</Embed-Dependency>
 					</instructions>
 				</configuration>
+				<executions>
+					<execution>
+						<id>install-bundle</id>
+						<phase>install</phase>
+						<goals>
+							<goal>install</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>install-dependencies</id>
+						<phase>install</phase>
+						<goals>
+							<goal>deploy-file</goal>
+						</goals>
+						<configuration>
+							<url>file:C:\\Users\\LifeBookS760\\.m2\\repository</url>
+							<groupId>net.sf.flexjson</groupId>
+							<artifactId>flexjson</artifactId>
+							<version>2.0</version>
+							<packaging>bundle</packaging>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
+
+			<!-- Deploy to alternate repository for github -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-deploy-plugin</artifactId>
@@ -137,6 +182,8 @@
 					<altDeploymentRepository>footprint::default::file:../../git/marssa-mvn-repo/snapshots</altDeploymentRepository>
 				</configuration>
 			</plugin>
+
+			<!-- Generate XML Schema from MARSSA datatypes Java classes -->
 			<plugin>
 				<groupId>com.sun.tools.jxc.maven2</groupId>
 				<artifactId>maven-jaxb-schemagen-plugin</artifactId>
@@ -154,16 +201,17 @@
 					<project>
 						${project}
 					</project>
-					<destdir>${project.build.directory}/generated/schemas</destdir>
-					<srcdir>${project.build.sourceDirectory}/mise/marssa/footprint/data_types/</srcdir>									
+					<destdir>${basedir}/src/main/resources/generated/schemas</destdir>
+					<srcdir>${project.build.sourceDirectory}/mise/marssa/footprint/datatypes/</srcdir>
+					<schemas>
+						<schema>
+							<namespace>mise.marssa.footprint.datatypes</namespace>
+							<file>marssa.xsd</file>
+						</schema>
+					</schemas>
 					<verbose>true</verbose>
 				</configuration>
 				<dependencies>
-					<dependency>
-						<groupId>javax.xml.bind</groupId>
-						<artifactId>jaxb-api</artifactId>
-						<version>2.2</version>
-					</dependency>
 					<dependency>
 						<groupId>com.sun.xml.bind</groupId>
 						<artifactId>jaxb-xjc</artifactId>
@@ -174,14 +222,91 @@
 						<artifactId>jaxb-impl</artifactId>
 						<version>2.2</version>
 					</dependency>
+				</dependencies>
+			</plugin>
+
+			<!-- Package resources as remote resources inside the packaged bundle -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-remote-resources-plugin</artifactId>
+				<version>1.2.1</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>bundle</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<includes>
+						<include>**/*.xsd</include>
+						<include>**/README</include>
+					</includes>
+				</configuration>
+				<dependencies>
 					<dependency>
-						<groupId>com.sun.xml.bind</groupId>
-						<artifactId>jaxb-xjc</artifactId>
-						<version>2.2</version>
+						<groupId>ch.qos.logback</groupId>
+						<artifactId>logback-classic</artifactId>
+						<version>1.0.0</version>
 					</dependency>
 				</dependencies>
 			</plugin>
 		</plugins>
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											com.sun.tools.jxc.maven2
+										</groupId>
+										<artifactId>
+											maven-jaxb-schemagen-plugin
+										</artifactId>
+										<versionRange>
+											[1.2,)
+										</versionRange>
+										<goals>
+											<goal>generate</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											org.apache.maven.plugins
+										</groupId>
+										<artifactId>
+											maven-remote-resources-plugin
+										</artifactId>
+										<versionRange>
+											[1.2.1,)
+										</versionRange>
+										<goals>
+											<goal>bundle</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 	</build>
 
 	<profiles>

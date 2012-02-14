@@ -1,0 +1,631 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="mise.marssa.footprint.datatypes" xmlns:tns="mise.marssa.footprint.datatypes" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:complexType name="MBoolean">
+    <xs:sequence>
+      <xs:element name="value" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="MDate">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="MString">
+    <xs:sequence>
+      <xs:element name="contents" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="typeFactory">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="APosition" abstract="true">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="Attitude">
+    <xs:sequence>
+      <xs:element name="pitch" type="tns:Pitch" minOccurs="0"/>
+      <xs:element name="roll" type="tns:Roll" minOccurs="0"/>
+      <xs:element name="yaw" type="tns:Yaw" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Pitch">
+    <xs:sequence>
+      <xs:element name="pitch" type="tns:DegreesFloat" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="DegreesFloat">
+    <xs:complexContent>
+      <xs:extension base="tns:MFloat">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="MFloat">
+    <xs:sequence>
+      <xs:element name="value" type="xs:float"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Roll">
+    <xs:sequence>
+      <xs:element name="roll" type="tns:DegreesFloat" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Yaw">
+    <xs:sequence>
+      <xs:element name="yaw" type="tns:DegreesFloat" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Coordinate">
+    <xs:sequence>
+      <xs:element name="latitude" type="tns:Latitude" minOccurs="0"/>
+      <xs:element name="longitude" type="tns:Longitude" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Latitude">
+    <xs:complexContent>
+      <xs:extension base="tns:APosition">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="Longitude">
+    <xs:complexContent>
+      <xs:extension base="tns:APosition">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="PercentageFloat">
+    <xs:complexContent>
+      <xs:extension base="tns:MFloat">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="UnsignedFloat">
+    <xs:complexContent>
+      <xs:extension base="tns:MFloat">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ADistance" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="tns:UnsignedFloat">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="KM">
+    <xs:complexContent>
+      <xs:extension base="tns:ADistance">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="Metres">
+    <xs:complexContent>
+      <xs:extension base="tns:ADistance">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="Miles">
+    <xs:complexContent>
+      <xs:extension base="tns:ADistance">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="Nm">
+    <xs:complexContent>
+      <xs:extension base="tns:ADistance">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ACharge" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="tns:MFloat">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="Ah">
+    <xs:complexContent>
+      <xs:extension base="tns:ACharge">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="Coulombs">
+    <xs:complexContent>
+      <xs:extension base="tns:ACharge">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mAh">
+    <xs:complexContent>
+      <xs:extension base="tns:ACharge">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ACurrent" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="tns:MFloat">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="Amps">
+    <xs:complexContent>
+      <xs:extension base="tns:ACurrent">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="MilliAmps">
+    <xs:complexContent>
+      <xs:extension base="tns:ACurrent">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="AImpedance" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="tns:MFloat">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="KOhms">
+    <xs:complexContent>
+      <xs:extension base="tns:AImpedance">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="MOhms">
+    <xs:complexContent>
+      <xs:extension base="tns:AImpedance">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="Ohms">
+    <xs:complexContent>
+      <xs:extension base="tns:AImpedance">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="APower" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="tns:MFloat">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="KWatts">
+    <xs:complexContent>
+      <xs:extension base="tns:APower">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="MWatts">
+    <xs:complexContent>
+      <xs:extension base="tns:APower">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="Watts">
+    <xs:complexContent>
+      <xs:extension base="tns:APower">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="AVoltage" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="tns:MFloat">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="MilliVolts">
+    <xs:complexContent>
+      <xs:extension base="tns:AVoltage">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="Volts">
+    <xs:complexContent>
+      <xs:extension base="tns:AVoltage">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="AVolumeFlow" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="tns:UnsignedFloat">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="CFPH">
+    <xs:complexContent>
+      <xs:extension base="tns:AVolumeFlow">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="CFPM">
+    <xs:complexContent>
+      <xs:extension base="tns:AVolumeFlow">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="CFPS">
+    <xs:complexContent>
+      <xs:extension base="tns:AVolumeFlow">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="LPH">
+    <xs:complexContent>
+      <xs:extension base="tns:AVolumeFlow">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="LPM">
+    <xs:complexContent>
+      <xs:extension base="tns:AVolumeFlow">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="LPS">
+    <xs:complexContent>
+      <xs:extension base="tns:AVolumeFlow">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="MCPH">
+    <xs:complexContent>
+      <xs:extension base="tns:AVolumeFlow">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="MCPM">
+    <xs:complexContent>
+      <xs:extension base="tns:AVolumeFlow">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="MCPS">
+    <xs:complexContent>
+      <xs:extension base="tns:AVolumeFlow">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="AFrequency" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="tns:UnsignedFloat">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="Hz">
+    <xs:complexContent>
+      <xs:extension base="tns:AFrequency">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="KHz">
+    <xs:complexContent>
+      <xs:extension base="tns:AFrequency">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="APressure" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="tns:UnsignedFloat">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="Bar">
+    <xs:complexContent>
+      <xs:extension base="tns:APressure">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="KPa">
+    <xs:complexContent>
+      <xs:extension base="tns:APressure">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="MBars">
+    <xs:complexContent>
+      <xs:extension base="tns:APressure">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="MMHg">
+    <xs:complexContent>
+      <xs:extension base="tns:APressure">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="PSI">
+    <xs:complexContent>
+      <xs:extension base="tns:APressure">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="Pascals">
+    <xs:complexContent>
+      <xs:extension base="tns:APressure">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ASpeed" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="tns:UnsignedFloat">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="KPH">
+    <xs:complexContent>
+      <xs:extension base="tns:ASpeed">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="Knots">
+    <xs:complexContent>
+      <xs:extension base="tns:ASpeed">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="MPH">
+    <xs:complexContent>
+      <xs:extension base="tns:ASpeed">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="MPS">
+    <xs:complexContent>
+      <xs:extension base="tns:ASpeed">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="PercentSpeed">
+    <xs:complexContent>
+      <xs:extension base="tns:ASpeed">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ATemperature" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="tns:MFloat">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="DegreesCelcius">
+    <xs:complexContent>
+      <xs:extension base="tns:ATemperature">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="Fahrenheit">
+    <xs:complexContent>
+      <xs:extension base="tns:ATemperature">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="Kelvin">
+    <xs:complexContent>
+      <xs:extension base="tns:ATemperature">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="AVolume" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="tns:UnsignedFloat">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="Gallons">
+    <xs:complexContent>
+      <xs:extension base="tns:AVolume">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ImpGallons">
+    <xs:complexContent>
+      <xs:extension base="tns:AVolume">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="Litres">
+    <xs:complexContent>
+      <xs:extension base="tns:AVolume">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="DegreesInteger">
+    <xs:complexContent>
+      <xs:extension base="tns:MInteger">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="MInteger">
+    <xs:sequence>
+      <xs:element name="value" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="MLong">
+    <xs:sequence>
+      <xs:element name="value" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="PercentageInteger">
+    <xs:complexContent>
+      <xs:extension base="tns:MInteger">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ATime" abstract="true">
+    <xs:sequence>
+      <xs:element name="time" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Hours">
+    <xs:complexContent>
+      <xs:extension base="tns:ATime">
+        <xs:sequence>
+          <xs:element name="seconds" type="xs:long"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="Milliseconds">
+    <xs:complexContent>
+      <xs:extension base="tns:ATime">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="Minutes">
+    <xs:complexContent>
+      <xs:extension base="tns:ATime">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="Seconds">
+    <xs:complexContent>
+      <xs:extension base="tns:ATime">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

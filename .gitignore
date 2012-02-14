@@ -27,3 +27,4 @@ local.properties
 
 # Maven target folder
 target/
+/src/main/resources/schemas/schema1.xsd
