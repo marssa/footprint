@@ -83,7 +83,6 @@
 			<artifactId>flexjson</artifactId>
 			<version>2.0</version>
 		</dependency>
-<<<<<<< HEAD
 		<dependency>
 			<groupId>javax.xml.bind</groupId>
 			<artifactId>jaxb-api</artifactId>
@@ -116,8 +115,6 @@
 			<artifactId>c3p0</artifactId>
 			<version>0.9.1.2</version>
 		</dependency>
-=======
->>>>>>> 99395973f4c8af72cf45f5a7698407cf3d12b05f
 	</dependencies>
 
 	<build>
