@@ -1,7 +1,7 @@
 package mise.marssa.footprint.interfaces.engine;
 
-import mise.marssa.footprint.data_types.float_datatypes.MFloat;
-import mise.marssa.footprint.data_types.float_datatypes.flow.AVolumeFlow;
+import mise.marssa.footprint.datatypes.decimal.MFloat;
+import mise.marssa.footprint.datatypes.decimal.flow.AVolumeFlow;
 
 /**
  * @author Alan Grech
