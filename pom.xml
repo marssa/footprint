@@ -71,6 +71,9 @@
 		</snapshotRepository>
 	</distributionManagement>
 
+	<!-- No additional repositories are required yet -->
+	<repositories></repositories>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.apache.felix</groupId>
@@ -83,7 +86,7 @@
 			<artifactId>flexjson</artifactId>
 			<version>2.0</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
@@ -96,16 +99,15 @@
 			<version>1.0.0</version>
 		</dependency>
 
-		<!-- MYSql connector -->
-
+		<!-- MySQL connector -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.18</version>
 		</dependency>
 
-		<!-- Connection Pooling for less execution time for logging in database -->
-
+		<!-- Library for connection Pooling for less execution time for logging 
+			in database -->
 		<dependency>
 			<groupId>c3p0</groupId>
 			<artifactId>c3p0</artifactId>
@@ -135,7 +137,8 @@
 				<configuration>
 					<instructions>
 						<Bundle-Activator>mise.marssa.footprint.Activator</Bundle-Activator>
-						<!-- Add maven directory to list of resources since this contains the remote-resources.xml file -->
+						<!-- Add maven directory to list of resources since this contains the 
+							remote-resources.xml file -->
 						<Include-Resource>{maven-resources},META-INF/maven'='target/classes/META-INF/maven/</Include-Resource>
 						<excludeDependencies>false</excludeDependencies>
 						<Embed-Dependency>*</Embed-Dependency>
@@ -156,7 +159,7 @@
 							<goal>deploy-file</goal>
 						</goals>
 						<configuration>
-							<url>file:C:\\Users\\LifeBook\\.m2\\repository</url>
+							<url>file:C:\\Users\\LifeBookS760\\.m2\\repository</url>
 							<groupId>net.sf.flexjson</groupId>
 							<artifactId>flexjson</artifactId>
 							<version>2.0</version>
