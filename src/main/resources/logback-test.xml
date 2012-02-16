@@ -21,7 +21,7 @@
 		</encoder>
 	</appender>
 
-	<root level="DEBUG">
+	<root level="TRACE">
 		<appender-ref ref="DB" />
 		<appender-ref ref="LOGGINGFILE" />
 	</root>

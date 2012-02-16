@@ -2,8 +2,13 @@ package mise.marssa.footprint.datatypes.decimal;
 
 import javax.xml.bind.annotation.XmlType;
 
+import org.slf4j.LoggerFactory;
+
+import ch.qos.logback.classic.Logger;
+
 import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
+import mise.marssa.footprint.logger.MMarker;
 
 /**
  * @author Alan Grech
@@ -13,10 +18,11 @@ import mise.marssa.footprint.exceptions.OutOfRange;
 @XmlType(name = "UnsignedFloat", factoryClass = TypeFactory.class, factoryMethod = "getUnsignedFloatInstance")
 public class UnsignedFloat extends MFloat {
 
+	private static Logger UnsignedFloat = (Logger) LoggerFactory.getLogger("UnsignedFloat");
 	public UnsignedFloat(float value) throws OutOfRange {
 		super(value);
 		if(value < 0f)
-			throw new OutOfRange();
+			UnsignedFloat.debug(MMarker.EXCEPTION,"Value received is out of range",new OutOfRange());
 	}
 	
 }

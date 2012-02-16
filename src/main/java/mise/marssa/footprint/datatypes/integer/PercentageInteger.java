@@ -2,8 +2,13 @@ package mise.marssa.footprint.datatypes.integer;
 
 import javax.xml.bind.annotation.XmlType;
 
+import org.slf4j.LoggerFactory;
+
+import ch.qos.logback.classic.Logger;
+
 import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
+import mise.marssa.footprint.logger.MMarker;
 
 /**
  * @author Alan Grech
@@ -13,10 +18,11 @@ import mise.marssa.footprint.exceptions.OutOfRange;
 @XmlType(name = "PercentageInteger", factoryClass = TypeFactory.class, factoryMethod = "getPercentageIntegerInstance")
 public class PercentageInteger extends MInteger {
 
+	private static Logger PercentageInteger = (Logger) LoggerFactory.getLogger("PercentageInteger");
 	public PercentageInteger(int value) throws OutOfRange {
 		super(value);
 		if((value < -100f) || (value > 100f))
-			throw new OutOfRange();
+			PercentageInteger.debug(MMarker.EXCEPTION,"Value received is out of range",new OutOfRange());
 	}
 
 	public void finalize() throws Throwable {

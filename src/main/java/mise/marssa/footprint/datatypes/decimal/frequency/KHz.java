@@ -2,8 +2,13 @@ package mise.marssa.footprint.datatypes.decimal.frequency;
 
 import javax.xml.bind.annotation.XmlType;
 
+import org.slf4j.LoggerFactory;
+
+import ch.qos.logback.classic.Logger;
+
 import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
+import mise.marssa.footprint.logger.MMarker;
 
 /**
  * @author Alan Grech
@@ -13,6 +18,7 @@ import mise.marssa.footprint.exceptions.OutOfRange;
 @XmlType(name = "KHz", factoryClass = TypeFactory.class, factoryMethod = "getKHzInstance")
 public class KHz extends AFrequency {
 
+	static Logger KHz = (Logger) LoggerFactory.getLogger("KHz");
 	public KHz(float value) throws OutOfRange {
 		super(value);
 	}
@@ -22,11 +28,13 @@ public class KHz extends AFrequency {
 	 */
 	@Override
 	public float getHz() {
+		KHz.trace(MMarker.GETTER,"Converting from KHz to Hz : {}",value * 1000);
 		return value * 1000;
 	}
 
 	@Override
 	public float getKHz() {
+		KHz.trace(MMarker.GETTER,"Getting KHz: {}",value);
 		return value;
 	}
 }
