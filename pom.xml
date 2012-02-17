@@ -164,20 +164,7 @@
 							<goal>install</goal>
 						</goals>
 					</execution>
-					<execution>
-						<id>install-dependencies</id>
-						<phase>install</phase>
-						<goals>
-							<goal>deploy-file</goal>
-						</goals>
-						<configuration>
-							<url>file:C:\\Users\\LifeBookS760\\.m2\\repository</url>
-							<groupId>net.sf.flexjson</groupId>
-							<artifactId>flexjson</artifactId>
-							<version>2.0</version>
-							<packaging>bundle</packaging>
-						</configuration>
-					</execution>
+					
 				</executions>
 			</plugin>
 
