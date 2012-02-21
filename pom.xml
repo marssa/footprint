@@ -164,7 +164,7 @@
 							<goal>install</goal>
 						</goals>
 					</execution>
-					
+
 				</executions>
 			</plugin>
 
