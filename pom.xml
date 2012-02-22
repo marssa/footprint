@@ -142,18 +142,7 @@
 						<Include-Resource>{maven-resources},META-INF/maven'='target/classes/META-INF/maven/</Include-Resource>
 						<excludeDependencies>false</excludeDependencies>
 						<Embed-Dependency>*;scope=compile|runtime;inline=false;</Embed-Dependency>
-						<Import-Package>!groovy.lang,!javax.jms,!javax.mail,!javax.mail.internet,!jav
-							ax.management,!javax.naming,!javax.naming.spi,!javax.net,!javax.net.ssl,!jav
-							ax.servlet,!javax.servlet.http,!javax.sql,!javax.transaction.xa,!javax.xml.
-							bind.annotation,!javax.xml.parsers,!javax.xml.stream,!javax.xml.transform,!
-							javax.xml.transform.dom,!javax.xml.transform.sax,!javax.xml.transform.sta
-							x,!javax.xml.transform.stream,!org.apache.log4j,!org.codehaus.groovy.contr
-							ol,!org.codehaus.groovy.reflection,!org.codehaus.groovy.runtime,!org.codeh
-							aus.groovy.runtime.callsite,!org.codehaus.groovy.runtime.typehandling,!or
-							g.codehaus.janino,!org.jboss.resource.adapter.jdbc,!org.jboss.resource.ad
-							apter.jdbc.vendor,org.osgi.framework;version="[1.5,2)",!org.slf4j;versio
-							n="[1.6,2)",!org.slf4j.helpers;version="[1.6,2)",!org.slf4j.spi;version="
-							[1.6,2)",!org.w3c.dom,!org.xml.sax,!org.xml.sax.helpers,!sun.reflect,*</Import-Package>
+						<Import-Package></Import-Package>
 					</instructions>
 				</configuration>
 				<executions>
@@ -164,7 +153,16 @@
 							<goal>install</goal>
 						</goals>
 					</execution>
-
+					<execution>
+						<id>index-repository</id>
+						<phase>install</phase>
+						<goals>
+							<goal>index</goal>
+						</goals>
+						<configuration>
+							<urlTemplate>maven</urlTemplate>
+						</configuration>
+					</execution>
 				</executions>
 			</plugin>
 
