@@ -18,6 +18,7 @@ public class MInteger {
 
 	@XmlElement
 	protected int value;
+	public MInteger(){}
 
 	public MInteger(int value) {
 		this.value = value;

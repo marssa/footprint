@@ -23,6 +23,7 @@ public class MString {
 	@XmlElement
 	private String contents;
 
+	public MString(){}
 	public MString(String contents) {
 		this.contents = contents;
 	}
@@ -31,8 +32,8 @@ public class MString {
 	//	MString.trace(MMarker.GETTER,"Getting contents \"{}\"",contents);
 		return contents;
 	}
-
-	public String toString() {
+	
+    public String toString() {
 		//MString.trace(MMarker.GETTER,"Getting string as a String \"{}\"",contents);
 		return contents;
 	}

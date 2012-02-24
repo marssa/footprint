@@ -201,7 +201,71 @@
 					<schemas>
 						<schema>
 							<namespace>mise.marssa.footprint.datatypes</namespace>
-							<file>marssa.xsd</file>
+							<file>datatypes.xsd</file>
+						</schema>
+						<schema>
+							<namespace>mise.marssa.footprint.datatypes.composite</namespace>
+							<file>datatypes.composite.xsd</file>
+						</schema>
+						<schema>
+							<namespace>mise.marssa.footprint.datatypes.decimal</namespace>
+							<file>datatypes.decimal.xsd</file>
+						</schema>
+						<schema>
+							<namespace>mise.marssa.footprint.datatypes.decimal.distance</namespace>
+							<file>datatypes.decimal.distance.xsd</file>
+						</schema>
+						<schema>
+							<namespace>mise.marssa.footprint.datatypes.decimal.electrical.charge</namespace>
+							<file>datatypes.decimal.electrical.charge.xsd</file>
+						</schema>
+						<schema>
+							<namespace>mise.marssa.footprint.datatypes.decimal.electrical.impedance</namespace>
+							<file>datatypes.decimal.electrical.impedance.xsd</file>
+						</schema>
+						<schema>
+							<namespace>mise.marssa.footprint.datatypes.decimal.electrical.power</namespace>
+							<file>datatypes.decimal.electrical.power.xsd</file>
+						</schema>
+						<schema>
+							<namespace>mise.marssa.footprint.datatypes.decimal.electrical.voltage</namespace>
+							<file>datatypes.decimal.electrical.voltage.xsd</file>
+						</schema>
+						<schema>
+							<namespace>mise.marssa.footprint.datatypes.decimal.electrical.current</namespace>
+							<file>datatypes.decimal.electrical.current.xsd</file>
+						</schema>
+						<schema>
+							<namespace>mise.marssa.footprint.datatypes.decimal.flow</namespace>
+							<file>datatypes.decimal.flow.xsd</file>
+						</schema>
+						<schema>
+							<namespace>mise.marssa.footprint.datatypes.decimal.frequency</namespace>
+							<file>datatypes.decimal.frequenecy.xsd</file>
+						</schema>
+						<schema>
+							<namespace>mise.marssa.footprint.datatypes.decimal.pressure</namespace>
+							<file>datatypes.decimal.pressure.xsd</file>
+						</schema>
+						<schema>
+							<namespace>mise.marssa.footprint.datatypes.decimal.speed</namespace>
+							<file>datatypes.decimal.speed.xsd</file>
+						</schema>
+						<schema>
+							<namespace>mise.marssa.footprint.datatypes.decimal.temperature</namespace>
+							<file>datatypes.decimal.temperature.xsd</file>
+						</schema>
+						<schema>
+							<namespace>mise.marssa.footprint.datatypes.decimal.volume</namespace>
+							<file>datatypes.decimal.volume.xsd</file>
+						</schema>
+						<schema>
+							<namespace>mise.marssa.footprint.datatypes.integer</namespace>
+							<file>datatypes.integer.xsd</file>
+						</schema>
+						<schema>
+							<namespace>mise.marssa.footprint.datatypes.time</namespace>
+							<file>datatypes.time.xsd</file>
 						</schema>
 					</schemas>
 					<verbose>true</verbose>

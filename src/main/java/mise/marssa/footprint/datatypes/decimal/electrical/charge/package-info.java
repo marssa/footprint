@@ -5,6 +5,6 @@
 // Generated on: 2012.01.04 at 01:53:55 PM CET 
 //
 
-@javax.xml.bind.annotation.XmlSchema (namespace = "mise.marssa.footprint.datatypes")
+@javax.xml.bind.annotation.XmlSchema (namespace = "mise.marssa.footprint.datatypes.decimal.electrical.charge")
 package mise.marssa.footprint.datatypes.decimal.electrical.charge;
 
