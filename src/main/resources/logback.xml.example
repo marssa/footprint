@@ -1,14 +1,14 @@
-
+<!-- Sample Logback configuration file -->
+<!-- Rename this file to logback.xml -->
 <configuration>
 
 	<appender name="DB" class="mise.marssa.footprint.logger.MDBAppender">
-		<!-- <dbNameResolver class="chapters.DBAppender.MyDBNameResolver" /> -->
 		<connectionSource class="ch.qos.logback.core.db.DataSourceConnectionSource">
 			<dataSource class="com.mchange.v2.c3p0.ComboPooledDataSource">
 				<driverClass>com.mysql.jdbc.Driver</driverClass>
-				<jdbcUrl>jdbc:mysql://192.168.2.103:3306/realpromise</jdbcUrl>
-				<user>realpromiseuser</user>
-				<password>realpromise</password>
+				<!--<jdbcUrl>jdbc:mysql://HOSTNAME:3306/DATABASE_NAME</jdbcUrl>-->
+				<!--<user>USERNAME</user>-->
+				<!--<password>PASSWORD</password>-->
 			</dataSource>
 		</connectionSource>
 	</appender>
