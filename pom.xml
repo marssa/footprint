@@ -142,7 +142,6 @@
 						<Include-Resource>{maven-resources},META-INF/maven'='target/classes/META-INF/maven/</Include-Resource>
 						<excludeDependencies>false</excludeDependencies>
 						<Embed-Dependency>*;scope=compile|runtime;inline=false;</Embed-Dependency>
-						<Import-Package></Import-Package>
 					</instructions>
 				</configuration>
 				<executions>
