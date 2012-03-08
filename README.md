@@ -1,10 +1,12 @@
 MARSSA Footprint
 ================
 
-This Maven project contains the MARSSA footprint which is the base of every MARSSA implementation.
-
-__by the MARSEC-XL Foundation __
 [![Build Status](https://secure.travis-ci.org/marssa/footprint.png)](http://travis-ci.org/marssa/footprint)
+
+__by the [MARSEC-XL Foundation](http://www.marsec-xl.org/)__
+
+This Maven project contains the MARSSA footprint which is the base of every MARSSA implementation. Visit [www.marssa.org](http://www.marssa.org/) for more information.
+
 
 Description
 -----------
