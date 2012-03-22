@@ -3,6 +3,7 @@
  */
 package mise.marssa.footprint.datatypes.decimal.electrical.voltage;
 
+import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
 import org.slf4j.LoggerFactory;
@@ -17,6 +18,7 @@ import mise.marssa.footprint.logger.MMarker;
  *
  */
 @XmlType(name = "MilliVolts", factoryClass = TypeFactory.class, factoryMethod = "getMilliVoltsInstance")
+@Entity
 public class MilliVolts extends AVoltage {
 
 	private static Logger MilliVolts = (Logger) LoggerFactory.getLogger("MilliVolts");

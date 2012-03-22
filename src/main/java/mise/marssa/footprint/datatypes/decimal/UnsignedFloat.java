@@ -1,5 +1,6 @@
 package mise.marssa.footprint.datatypes.decimal;
 
+import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
 import org.slf4j.LoggerFactory;
@@ -16,6 +17,7 @@ import mise.marssa.footprint.logger.MMarker;
  * @created 08-Jul-2011 09:53:29
  */
 @XmlType(name = "UnsignedFloat", factoryClass = TypeFactory.class, factoryMethod = "getUnsignedFloatInstance")
+@Entity
 public class UnsignedFloat extends MFloat {
 
 	private static Logger UnsignedFloat = (Logger) LoggerFactory.getLogger("UnsignedFloat");

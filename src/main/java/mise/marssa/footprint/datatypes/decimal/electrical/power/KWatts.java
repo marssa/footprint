@@ -3,6 +3,7 @@
  */
 package mise.marssa.footprint.datatypes.decimal.electrical.power;
 
+import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
 import org.slf4j.LoggerFactory;
@@ -17,6 +18,7 @@ import mise.marssa.footprint.logger.MMarker;
  *
  */
 @XmlType(name = "KWatts", factoryClass = TypeFactory.class, factoryMethod = "getKWattsInstance")
+@Entity
 public class KWatts extends APower{
 
 	private static Logger KWatts = (Logger) LoggerFactory.getLogger("KWatts");

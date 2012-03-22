@@ -3,6 +3,7 @@
  */
 package mise.marssa.footprint.datatypes.decimal.flow;
 
+import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
 import org.slf4j.LoggerFactory;
@@ -18,6 +19,7 @@ import mise.marssa.footprint.logger.MMarker;
  * conversions for cubic meters per hour
  */
 @XmlType(name = "MCPH", factoryClass = TypeFactory.class, factoryMethod = "getMCPHInstance")
+@Entity
 public class MCPH extends AVolumeFlow {
 
 	private static Logger MCPH = (Logger) LoggerFactory.getLogger("MCPH");

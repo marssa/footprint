@@ -3,6 +3,7 @@
  */
 package mise.marssa.footprint.datatypes.decimal.electrical.charge;
 
+import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
 import org.slf4j.LoggerFactory;
@@ -17,6 +18,7 @@ import mise.marssa.footprint.logger.MMarker;
  *
  */
 @XmlType(name = "mAh", factoryClass = TypeFactory.class, factoryMethod = "getmAhInstance")
+@Entity
 public class mAh extends ACharge {
 	private static Logger mAh = (Logger) LoggerFactory.getLogger("mAh");
 

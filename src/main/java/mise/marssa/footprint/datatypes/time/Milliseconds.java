@@ -3,6 +3,7 @@
  */
 package mise.marssa.footprint.datatypes.time;
 
+import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
 import org.slf4j.LoggerFactory;
@@ -19,6 +20,7 @@ import mise.marssa.footprint.logger.MMarker;
  *
  */
 @XmlType(name = "Milliseconds", factoryClass = TypeFactory.class, factoryMethod = "getMillisecondsInstance")
+@Entity
 public class Milliseconds extends ATime{
 	
 	private static Logger MilliSeconds = (Logger) LoggerFactory.getLogger("MilliSeconds");

@@ -1,5 +1,6 @@
 package mise.marssa.footprint.datatypes.decimal.flow;
 
+import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
 import org.slf4j.LoggerFactory;
@@ -15,6 +16,7 @@ import mise.marssa.footprint.logger.MMarker;
  * conversion for: mcubic meters per second
  */
 @XmlType(name = "MCPS", factoryClass = TypeFactory.class, factoryMethod = "getMCPSInstance")
+@Entity
 public class MCPS extends AVolumeFlow {
 
 	private static Logger MCPS = (Logger) LoggerFactory.getLogger("MCPS");

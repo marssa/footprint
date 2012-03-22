@@ -1,5 +1,6 @@
 package mise.marssa.footprint.datatypes.decimal.temperature;
 
+import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
 import org.slf4j.LoggerFactory;
@@ -15,6 +16,7 @@ import mise.marssa.footprint.logger.MMarker;
  * @created 08-Jul-2011 09:53:24
  */
 @XmlType(name = "Fahrenheit", factoryClass = TypeFactory.class, factoryMethod = "getFahrenheitInstance")
+@Entity
 public class Fahrenheit extends ATemperature {
 
 	private static Logger Fahrenheit = (Logger) LoggerFactory.getLogger("Fahrenheit");

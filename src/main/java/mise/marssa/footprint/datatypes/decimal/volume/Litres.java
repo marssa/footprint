@@ -1,5 +1,6 @@
 package mise.marssa.footprint.datatypes.decimal.volume;
 
+import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
 import org.slf4j.LoggerFactory;
@@ -11,6 +12,7 @@ import mise.marssa.footprint.exceptions.OutOfRange;
 import mise.marssa.footprint.logger.MMarker;
 
 @XmlType(name = "Litres", factoryClass = TypeFactory.class, factoryMethod = "getLitresInstance")
+@Entity
 public class Litres extends AVolume {
 
 	private static Logger Litres = (Logger) LoggerFactory.getLogger("Litres");

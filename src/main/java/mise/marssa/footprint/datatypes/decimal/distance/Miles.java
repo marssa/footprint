@@ -1,5 +1,7 @@
 package mise.marssa.footprint.datatypes.decimal.distance;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
 import org.slf4j.LoggerFactory;
@@ -16,6 +18,8 @@ import mise.marssa.footprint.logger.MMarker;
  * @created 08-Jul-2011 09:53:29
  */
 @XmlType(name = "Miles", factoryClass = TypeFactory.class, factoryMethod = "getMilesInstance")
+@Entity
+
 public class Miles extends ADistance {
 
 	private static Logger Miles = (Logger) LoggerFactory.getLogger("Miles");

@@ -1,5 +1,6 @@
 package mise.marssa.footprint.datatypes.decimal.pressure;
 
+import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
 import org.slf4j.LoggerFactory;
@@ -18,6 +19,7 @@ import mise.marssa.footprint.logger.MMarker;
  * @created 08-Jul-2011 09:53:29
  */
 @XmlType(name = "MBars", factoryClass = TypeFactory.class, factoryMethod = "getMBarsInstance")
+@Entity
 public class MBars extends APressure {
 
 	private static Logger MBars = (Logger) LoggerFactory.getLogger("MBars");

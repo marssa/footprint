@@ -1,5 +1,6 @@
 package mise.marssa.footprint.datatypes.decimal.speed;
 
+import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
 import org.slf4j.LoggerFactory;
@@ -19,6 +20,7 @@ import mise.marssa.footprint.logger.MMarker;
  */
 
 @XmlType(name = "KPH", factoryClass = TypeFactory.class, factoryMethod = "getKPHInstance")
+@Entity
 public class KPH extends ASpeed {
 
 	private static Logger KPH = (Logger) LoggerFactory.getLogger("KPH");

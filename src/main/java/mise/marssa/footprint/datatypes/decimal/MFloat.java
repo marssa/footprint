@@ -1,8 +1,16 @@
 package mise.marssa.footprint.datatypes.decimal;
 
-
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
+
+import org.hibernate.annotations.GenericGenerator;
 
 import mise.marssa.footprint.datatypes.MString;
 import mise.marssa.footprint.datatypes.TypeFactory;
@@ -15,18 +23,37 @@ import flexjson.JSONSerializer;
  * @created 08-Jul-2011 09:53:24
  */
 @XmlType(name = "MFloat", factoryClass = TypeFactory.class, factoryMethod = "getMFloatInstance")
+@Entity
+@Inheritance(strategy=javax.persistence.InheritanceType.TABLE_PER_CLASS)
 public class MFloat {
 
 	@XmlElement
 	protected float value;
+	
+	private MFloat(){}
 
 	public MFloat(float value) {
 		this.value = value;
+	}
+	
+	@Id
+	@Column(name = "id")	
+	@GeneratedValue(generator="increment")
+	@GenericGenerator(name="increment", strategy = "increment")
+	Long id;
+
+	public Long getId() {
+		return id;
+	}
+
+	private void setId(Long id) {
+		this.id = id;
 	}
 
 	public void finalize() throws Throwable {
 
 	}
+
 	@JSON
 	public float getValue() {
 		return value;
@@ -35,8 +62,12 @@ public class MFloat {
 	public String toString() {
 		return java.lang.Float.toString(value);
 	}
-	public MString toJSON(){
+
+	public MString toJSON() {
 		MString JSON = new MString(new JSONSerializer().deepSerialize(this));
 		return JSON;
 	}
+
+	
+
 }

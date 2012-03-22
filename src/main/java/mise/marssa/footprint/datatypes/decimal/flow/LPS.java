@@ -1,5 +1,6 @@
 package mise.marssa.footprint.datatypes.decimal.flow;
 
+import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
 import org.slf4j.LoggerFactory;
@@ -16,6 +17,7 @@ import mise.marssa.footprint.logger.MMarker;
  */
 
 @XmlType(name = "LPS", factoryClass = TypeFactory.class, factoryMethod = "getLPSInstance")
+@Entity
 public class LPS extends AVolumeFlow {
 
 	private static Logger LPS = (Logger) LoggerFactory.getLogger("LPS");

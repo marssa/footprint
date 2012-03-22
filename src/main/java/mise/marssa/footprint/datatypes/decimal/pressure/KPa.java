@@ -1,5 +1,6 @@
 package mise.marssa.footprint.datatypes.decimal.pressure;
 
+import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
 import org.slf4j.LoggerFactory;
@@ -12,6 +13,7 @@ import mise.marssa.footprint.logger.MMarker;
 import flexjson.JSON;
 
 @XmlType(name = "KPa", factoryClass = TypeFactory.class, factoryMethod = "getKPaInstance")
+@Entity
 public class KPa extends APressure {
 
 	private static Logger KPa = (Logger) LoggerFactory.getLogger("Kpa");

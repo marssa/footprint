@@ -3,6 +3,7 @@
  */
 package mise.marssa.footprint.datatypes.decimal.flow;
 
+import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
 import org.slf4j.LoggerFactory;
@@ -18,6 +19,7 @@ import mise.marssa.footprint.logger.MMarker;
  * conversion for: litres per minute
  */
 @XmlType(name = "LPM", factoryClass = TypeFactory.class, factoryMethod = "getLPMInstance")
+@Entity
 public class LPM extends AVolumeFlow{
 
 	private static Logger LPM = (Logger) LoggerFactory.getLogger("LPM");

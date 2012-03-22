@@ -3,6 +3,7 @@
  */
 package mise.marssa.footprint.datatypes.decimal.electrical.impedance;
 
+import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
 import org.slf4j.LoggerFactory;
@@ -17,6 +18,7 @@ import mise.marssa.footprint.logger.MMarker;
  *
  */
 @XmlType(name = "Ohms", factoryClass = TypeFactory.class, factoryMethod = "getOhmsInstance")
+@Entity
 public class Ohms extends AImpedance {
 
 	private static Logger Ohms = (Logger) LoggerFactory.getLogger("Ohms");

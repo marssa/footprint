@@ -1,5 +1,6 @@
 package mise.marssa.footprint.datatypes.decimal.speed;
 
+import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
 import org.slf4j.LoggerFactory;
@@ -15,6 +16,7 @@ import mise.marssa.footprint.exceptions.OutOfRange;
  * @created 08-Jul-2011 09:53:29
  */
 @XmlType(name = "PercentSpeed", factoryClass = TypeFactory.class, factoryMethod = "getPercentSpeedInstance")
+@Entity
 public class PercentSpeed extends ASpeed {
 //TODO whole class
 	private static Logger PercentSpeed = (Logger) LoggerFactory.getLogger("PercentSpeed");

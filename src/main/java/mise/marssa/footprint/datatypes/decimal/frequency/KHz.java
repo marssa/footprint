@@ -1,5 +1,6 @@
 package mise.marssa.footprint.datatypes.decimal.frequency;
 
+import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
 import org.slf4j.LoggerFactory;
@@ -16,6 +17,7 @@ import mise.marssa.footprint.logger.MMarker;
  * @created 08-Jul-2011 09:53:25
  */
 @XmlType(name = "KHz", factoryClass = TypeFactory.class, factoryMethod = "getKHzInstance")
+@Entity
 public class KHz extends AFrequency {
 
 	static Logger KHz = (Logger) LoggerFactory.getLogger("KHz");
