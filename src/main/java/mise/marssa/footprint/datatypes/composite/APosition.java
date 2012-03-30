@@ -15,6 +15,10 @@
  */
 package mise.marssa.footprint.datatypes.composite;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.MString;
@@ -36,6 +40,7 @@ import flexjson.JSONSerializer;
  * @created 08-Jul-2011 09:53:29
  */
 @XmlType(name = "APosition", factoryClass = TypeFactory.class, factoryMethod = "getAPositionInstance")
+
 public abstract class APosition {
 	static Logger APosition = (Logger) LoggerFactory.getLogger("APosition");
 	// TODO Remove one of the internal representations
@@ -62,6 +67,7 @@ public abstract class APosition {
 		}
 
 	}
+	
 
 	public APosition(DegreesFloat degrees) {
 		//APosition.trace(MMarker.CONSTRUCTOR,"Constructor created with  Degrees:\"{}f\".", degrees);
@@ -114,4 +120,5 @@ public abstract class APosition {
 		MString JSON = new MString(new JSONSerializer().deepSerialize(this));
 		return JSON;
 	}
+	
 }

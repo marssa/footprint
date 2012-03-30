@@ -16,6 +16,8 @@
 package mise.marssa.footprint.datatypes.composite;
 
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
@@ -36,6 +38,7 @@ import ch.qos.logback.classic.Logger;
  * @created 08-Jul-2011 09:53:25
  */
 @XmlType(name = "Latitude", factoryClass = TypeFactory.class, factoryMethod = "getLatitudeInstance")
+
 public class Latitude extends APosition {
 
 	//private APosition latitude;

@@ -43,6 +43,7 @@ public class Metres extends ADistance {
 
 	private static Logger Metres = (Logger) LoggerFactory.getLogger("Metres");
 	
+
 	public Metres(float value) throws OutOfRange {
 		super(value);
 	}

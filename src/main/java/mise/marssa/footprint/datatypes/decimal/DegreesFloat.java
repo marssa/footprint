@@ -15,6 +15,8 @@
  */
 package mise.marssa.footprint.datatypes.decimal;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.MString;
@@ -27,6 +29,7 @@ import flexjson.JSONSerializer;
  * @created 08-Jul-2011 09:53:24
  */
 @XmlType(name = "DegreesFloat", factoryClass = TypeFactory.class, factoryMethod = "getDegreesFloatInstance")
+@Entity
 public class DegreesFloat extends MFloat {
 
 	public DegreesFloat(float value) {
