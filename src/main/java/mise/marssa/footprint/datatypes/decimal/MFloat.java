@@ -39,7 +39,6 @@ import flexjson.JSONSerializer;
  */
 @XmlType(name = "MFloat", factoryClass = TypeFactory.class, factoryMethod = "getMFloatInstance")
 @Entity
-@Inheritance(strategy=javax.persistence.InheritanceType.TABLE_PER_CLASS)
 public class MFloat {
 
 	@XmlElement
@@ -68,8 +67,13 @@ public class MFloat {
 	public void finalize() throws Throwable {
 
 	}
-
+		
+	public float setValue(float value) {
+		return value;
+	}
+	
 	@JSON
+	@Column(name = "Meters")
 	public float getValue() {
 		return value;
 	}

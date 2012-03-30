@@ -78,17 +78,5 @@ public class Metres extends ADistance {
 		return value * (float) 0.546806649;
 	}
 	
-	@Id
-	@Column(name = "id")	
-	@GeneratedValue(generator="increment")
-	@GenericGenerator(name="increment", strategy = "increment")
-	Long id;
-
-	public Long getId() {
-		return id;
-	}
-
-	private void setId(Long id) {
-		this.id = id;
-	}
+	
 }
