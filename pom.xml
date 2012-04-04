@@ -266,7 +266,7 @@
 						</schema>
 						<schema>
 							<namespace>mise.marssa.footprint.datatypes.decimal.frequency</namespace>
-							<file>datatypes.decimal.frequenecy.xsd</file>
+							<file>datatypes.decimal.frequency.xsd</file>
 						</schema>
 						<schema>
 							<namespace>mise.marssa.footprint.datatypes.decimal.pressure</namespace>
