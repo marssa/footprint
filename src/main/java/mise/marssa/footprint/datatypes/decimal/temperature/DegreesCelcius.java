@@ -15,15 +15,12 @@
  */
 package mise.marssa.footprint.datatypes.decimal.temperature;
 
+import static javax.measure.unit.SI.CELSIUS;
+
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
-import mise.marssa.footprint.logger.MMarker;
-
-import org.slf4j.LoggerFactory;
-
-import ch.qos.logback.classic.Logger;
 
 /**
  * @author Alan Grech
@@ -34,30 +31,12 @@ import ch.qos.logback.classic.Logger;
 @Entity
 public class DegreesCelcius extends ATemperature {
 
-	private static Logger DegreesCelcius = (Logger) LoggerFactory.getLogger("DegreesCelcius");
-
-	public DegreesCelcius(float value) {
-		super(value);
-	}
-
-	@Override
-	public float getDegreesCelcius() {
-		DegreesCelcius.trace(MMarker.GETTER,"Getting DegreesCelcius: {}",value);
-		return value;
-	}
-
-	@Override
-	public float getFahrenheit() {
-		DegreesCelcius.trace(MMarker.GETTER,"Converting from DegreeCelcius to Fahrenheit : {}",(value * 9f / 5f) + 32f);
-		return (value * 9f / 5f) + 32f;
-	}
-
 	/**
-	 * Kelvin is the SI Unit
+	 * 
 	 */
-	@Override
-	public float getKelvin() {
-		DegreesCelcius.trace(MMarker.GETTER,"Converting from DegreesCelcius to Kelvin : {}",value + 273.15f);
-		return value + 273.15f;
+	private static final long serialVersionUID = -6389649969115417896L;
+
+	public DegreesCelcius(double value) {
+		super(value, CELSIUS);
 	}
 }

@@ -19,7 +19,7 @@ import mise.marssa.footprint.datatypes.MDate;
 import mise.marssa.footprint.datatypes.MString;
 import mise.marssa.footprint.datatypes.composite.Coordinate;
 import mise.marssa.footprint.datatypes.decimal.DegreesFloat;
-import mise.marssa.footprint.datatypes.decimal.MFloat;
+import mise.marssa.footprint.datatypes.decimal.MDecimal;
 import mise.marssa.footprint.datatypes.decimal.speed.Knots;
 import mise.marssa.footprint.datatypes.integer.DegreesInteger;
 import mise.marssa.footprint.datatypes.integer.MInteger;
@@ -58,16 +58,16 @@ public interface IGpsReceiver {
 
 	public MInteger getSatellitesInUse() throws NoConnection, NoValue;
 
-	public MFloat getSignalSrength() throws NoConnection, NoValue;
+	public MDecimal getSignalSrength() throws NoConnection, NoValue;
 
 	/**
 	 * Signal to Noise Ratio - dB (decibels)
 	 */
-	public MFloat getSNR() throws NoConnection, NoValue;
+	public MDecimal getSNR() throws NoConnection, NoValue;
 
 	public Knots getSOG() throws NoConnection, NoValue;
 	
-	public MFloat getEPT() throws NoConnection, NoValue, OutOfRange;   
+	public MDecimal getEPT() throws NoConnection, NoValue, OutOfRange;   
 
 	/**
 	 * Defining the status of the gps receiver. Ex- connected/trying to connect
@@ -79,7 +79,7 @@ public interface IGpsReceiver {
 	/**
 	 *Dilution of precision 
 	 */
-	public MFloat getVDOP() throws NoConnection, NoValue;
-	public MFloat getHDOP() throws NoConnection, NoValue;
-	public MFloat getPDOP() throws NoConnection, NoValue;
+	public MDecimal getVDOP() throws NoConnection, NoValue;
+	public MDecimal getHDOP() throws NoConnection, NoValue;
+	public MDecimal getPDOP() throws NoConnection, NoValue;
 }

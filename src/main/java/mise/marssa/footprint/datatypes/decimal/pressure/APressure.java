@@ -15,11 +15,26 @@
  */
 package mise.marssa.footprint.datatypes.decimal.pressure;
 
+import static javax.measure.unit.NonSI.BAR;
+import static javax.measure.unit.NonSI.INCH;
+import static javax.measure.unit.NonSI.MILLIMETER_OF_MERCURY;
+import static javax.measure.unit.NonSI.POUND;
+import static javax.measure.unit.SI.KILO;
+import static javax.measure.unit.SI.MILLI;
+import static javax.measure.unit.SI.PASCAL;
+
+import javax.measure.quantity.Pressure;
+import javax.measure.unit.Unit;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
-import mise.marssa.footprint.datatypes.decimal.UnsignedFloat;
+import mise.marssa.footprint.datatypes.decimal.MDecimal;
+import mise.marssa.footprint.datatypes.decimal.UnsignedDecimal;
 import mise.marssa.footprint.exceptions.OutOfRange;
+import mise.marssa.footprint.logger.MMarker;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author Alan Grech
@@ -28,35 +43,98 @@ import mise.marssa.footprint.exceptions.OutOfRange;
  */
 
 @XmlType(name = "APressure", factoryClass = TypeFactory.class, factoryMethod = "getAPressureInstance")
-public abstract class APressure extends UnsignedFloat {
-
-	public APressure(float value) throws OutOfRange {
-		super(value);
-	}
-	
-	abstract public float getBars();
+public abstract class APressure extends UnsignedDecimal {
 
 	/**
-	 * get Millibars
+	 * 
 	 */
-	abstract public float getMBars();
+	private static final long serialVersionUID = 3126239243549374073L;
+
+	private static Logger logger = (Logger) LoggerFactory
+			.getLogger(APressure.class.getName());
+
+	private Unit<Pressure> currentUnit;
+
+	/**
+	 * Pounds per square Inch unit
+	 * 
+	 * @see javax.measure.quantity.Pressure
+	 */
+	protected static final Unit<Pressure> PSI = POUND.divide(INCH.times(INCH))
+			.asType(Pressure.class);
+
+	public APressure(double value, Unit<Pressure> unit) throws OutOfRange {
+		super(value);
+		this.currentUnit = unit;
+	}
+
+	public MDecimal getBars() {
+		MDecimal result = new MDecimal(currentUnit.getConverterTo(BAR).convert(
+				doubleValue()));
+		logger.trace(MMarker.GETTER, "Converting from {} to Bars : {}",
+				currentUnit, result);
+		return result;
+	}
+
+	/**
+	 * get millibars
+	 */
+	public MDecimal getMBars() {
+		MDecimal result = new MDecimal(currentUnit.getConverterTo(MILLI(BAR))
+				.convert(doubleValue()));
+		logger.trace(MMarker.GETTER, "Converting from {} to milli Bars : {}",
+				currentUnit, result);
+		return result;
+	}
 
 	/**
 	 * Pascals is the SI unit equivalent to N/m^2
 	 */
-	abstract public float getPa();
-	
-	abstract public float getKPa(); //Kilo Pascals
-	
+	public MDecimal getPa() {
+		MDecimal result = new MDecimal(currentUnit.getConverterTo(PASCAL)
+				.convert(doubleValue()));
+		logger.trace(MMarker.GETTER, "Converting from {} to Pascals : {}",
+				currentUnit, result);
+		return result;
+	}
+
 	/**
-	 * get Millimetres Mercury;
+	 * get Kilo Pascals
+	 * 
+	 * @return
 	 */
-	abstract public float getMMHg();
-	
-	abstract public float getPSI();
-	
+	public MDecimal getKPa() {
+		MDecimal result = new MDecimal(currentUnit.getConverterTo(KILO(PASCAL))
+				.convert(doubleValue()));
+		logger.trace(MMarker.GETTER, "Converting from {} to Kilo Pascals : {}",
+				currentUnit, result);
+		return result;
+	}
+
+	/**
+	 * get millimetres Mercury
+	 */
+	public MDecimal getMMHg() {
+		MDecimal result = new MDecimal(currentUnit.getConverterTo(
+				MILLIMETER_OF_MERCURY).convert(doubleValue()));
+		logger.trace(MMarker.GETTER,
+				"Converting from {} to millimetres of Mecrcury : {}",
+				currentUnit, result);
+		return result;
+	}
+
+	public MDecimal getPSI() {
+		MDecimal result = new MDecimal(currentUnit.getConverterTo(PSI).convert(
+				doubleValue()));
+		logger.trace(MMarker.GETTER,
+				"Converting from {} to Pounds per square Inch : {}",
+				currentUnit, result);
+		return result;
+	}
+
 	@Override
 	public String toString() {
-		return "Pressure in " + this.getClass().getSimpleName() + " = " + value;
+		return "Pressure in " + this.getClass().getSimpleName() + " = "
+				+ super.toString();
 	}
 }

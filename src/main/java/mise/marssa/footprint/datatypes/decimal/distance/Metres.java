@@ -15,25 +15,18 @@
  */
 package mise.marssa.footprint.datatypes.decimal.distance;
 
-import javax.persistence.Column;
+import static javax.measure.unit.SI.METRE;
+
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
-import mise.marssa.footprint.logger.MMarker;
-
-import org.hibernate.annotations.GenericGenerator;
-import org.slf4j.LoggerFactory;
-
-import ch.qos.logback.classic.Logger;
 
 /**
- * Metres is the SI Unit
+ * Meters is the SI Unit
  * 
- * @author Lifebook
+ * @author Clayton Tabone
  * @version 1.0
  * @updated 08-Jul-2011 15:00:22
  */
@@ -41,43 +34,12 @@ import ch.qos.logback.classic.Logger;
 @Entity
 public class Metres extends ADistance {
 
-	private static Logger Metres = (Logger) LoggerFactory.getLogger("Metres");
-	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 665365156720252593L;
 
-	public Metres(float value) throws OutOfRange {
-		super(value);
+	public Metres(double value) throws OutOfRange {
+		super(value, METRE);
 	}
-
-	@Override
-	public float getKM() {
-		Metres.trace(MMarker.GETTER,"Converting from Metres to Km: {}",value / 1000);
-		return value / 1000;
-	}
-
-	@Override
-	@Column(name = "Meters")	
-	public float getMetres() {
-		Metres.trace(MMarker.GETTER,"Getting Metres: {}",value);
-		return value;
-	}
-
-	@Override
-	public float getMiles() {
-		Metres.trace(MMarker.GETTER,"Converting from Metres to Miles: {}",value * (float) 0.000621371192);
-		return value * (float) 0.000621371192;
-	}
-
-	@Override
-	public float getNM() {		
-		Metres.trace(MMarker.GETTER,"Converting from Metres to NMiles: {}",value * (float) 0.000539956803);
-		return value * (float) 0.000539956803;
-	}
-
-	@Override
-	public float getFathoms() {
-		Metres.trace(MMarker.GETTER,"Converting from Metres to Fathoms: {}",value * (float) 0.546806649);
-		return value * (float) 0.546806649;
-	}
-	
-	
 }

@@ -15,7 +15,6 @@
  */
 package mise.marssa.footprint.datatypes.decimal;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
@@ -30,14 +29,21 @@ import flexjson.JSONSerializer;
  */
 @XmlType(name = "DegreesFloat", factoryClass = TypeFactory.class, factoryMethod = "getDegreesFloatInstance")
 @Entity
-public class DegreesFloat extends MFloat {
+public class DegreesFloat extends MDecimal {
 
-	public DegreesFloat(float value) {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6725449434062082433L;
+
+	public DegreesFloat(double value) {
 		super(value);
 	}
-	public MString toJSON(){
-		MString JSON = new MString(new JSONSerializer().exclude("value").deepSerialize(this));
+
+	public MString toJSON() {
+		MString JSON = new MString(new JSONSerializer().exclude("value")
+				.deepSerialize(this));
 		return JSON;
 	}
-	
+
 }

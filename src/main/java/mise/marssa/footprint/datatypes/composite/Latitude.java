@@ -16,13 +16,11 @@
 package mise.marssa.footprint.datatypes.composite;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.datatypes.decimal.DegreesFloat;
-import mise.marssa.footprint.datatypes.decimal.MFloat;
+import mise.marssa.footprint.datatypes.decimal.MDecimal;
 import mise.marssa.footprint.datatypes.integer.DegreesInteger;
 import mise.marssa.footprint.datatypes.integer.MInteger;
 import mise.marssa.footprint.exceptions.OutOfRange;
@@ -43,13 +41,13 @@ public class Latitude extends APosition {
 
 	//private APosition latitude;
 	private static Logger Latitude = (Logger) LoggerFactory.getLogger("Latitude");
-	public Latitude(DegreesInteger degrees, MInteger minutes, MFloat seconds) throws OutOfRange {
+	public Latitude(DegreesInteger degrees, MInteger minutes, MDecimal seconds) throws OutOfRange {
 		super(degrees, minutes, seconds);
 		if(degrees.getValue() < -90 && degrees.getValue() > 90)
 			Latitude.debug(MMarker.EXCEPTION,"Degrees value is out of range -90 < degrees < 90",new OutOfRange());
 		if(minutes.getValue() < 0 && minutes.getValue() > 60)
 			Latitude.debug(MMarker.EXCEPTION,"Minutes value is out of range 0 < minutes < 60",new OutOfRange());
-		if(seconds.getValue() < 0 && seconds.getValue() > 60)
+		if(seconds.doubleValue() < 0 && seconds.doubleValue() > 60)
 			Latitude.debug(MMarker.EXCEPTION,"Seconds value is out of range 60 < minutes < 60",new OutOfRange());
 			
 		
@@ -57,7 +55,7 @@ public class Latitude extends APosition {
 	
 	public Latitude(DegreesFloat degrees) throws OutOfRange {
 		super(degrees);
-		if(degrees.getValue() < -90 && degrees.getValue() > 90)
+		if(degrees.doubleValue() < -90 && degrees.doubleValue() > 90)
 			Latitude.debug(MMarker.EXCEPTION,"Degrees value is out of range -90 < minutes < 90",new OutOfRange());	
 	}
 

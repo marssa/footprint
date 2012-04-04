@@ -35,7 +35,7 @@ import flexjson.JSONSerializer;
  */
 @XmlType(name = "PercentageFloat", factoryClass = TypeFactory.class, factoryMethod = "getPercentageFloatInstance")
 @Entity
-public class PercentageFloat extends MFloat {
+public class PercentageFloat extends MDecimal {
 	private static Logger PercentageFloat = (Logger) LoggerFactory.getLogger("PercentageFloat");
 	public PercentageFloat(float value) throws OutOfRange {
 		super(value);

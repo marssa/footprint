@@ -30,7 +30,7 @@ import mise.marssa.footprint.exceptions.OutOfRange;
  */
 public interface IDepthSensor {
 	
-	public ADistance getDepthMetres() throws OutOfRange;
+	public ADistance getDepthMeters() throws OutOfRange;
 	public ATemperature getTemperatureDegrees() throws OutOfRange;
 	
 }

@@ -15,7 +15,7 @@
  */
 package mise.marssa.footprint.interfaces.engine;
 
-import mise.marssa.footprint.datatypes.decimal.MFloat;
+import mise.marssa.footprint.datatypes.decimal.MDecimal;
 import mise.marssa.footprint.datatypes.decimal.flow.AVolumeFlow;
 
 /**
@@ -25,7 +25,7 @@ import mise.marssa.footprint.datatypes.decimal.flow.AVolumeFlow;
 
 public interface IEngine {
 	
-	public MFloat getRPM();
+	public MDecimal getRPM();
 	
 	public AVolumeFlow getFuelFlowRate();
 	

@@ -18,45 +18,27 @@
  */
 package mise.marssa.footprint.datatypes.decimal.electrical.impedance;
 
+import static javax.measure.unit.SI.OHM;
+
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
-import mise.marssa.footprint.logger.MMarker;
-
-import org.slf4j.LoggerFactory;
-
-import ch.qos.logback.classic.Logger;
 
 /**
  * @author Warren Zahra
- *
+ * 
  */
 @XmlType(name = "Ohms", factoryClass = TypeFactory.class, factoryMethod = "getOhmsInstance")
 @Entity
 public class Ohms extends AImpedance {
 
-	private static Logger Ohms = (Logger) LoggerFactory.getLogger("Ohms");
-	public Ohms(float value) {
-		super(value);
-	}
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6931184410205642153L;
 
-	@Override
-	public float getOhms() {
-		Ohms.trace(MMarker.GETTER,"Getting Ohms: {}",value);
-		return value;
+	public Ohms(double value) {
+		super(value, OHM);
 	}
-
-	@Override
-	public float getKOhms() {
-		Ohms.trace(MMarker.GETTER,"Converting from Ohms to KOhms : {}",value / 1000);
-		return (value/1000);
-	}
-
-	@Override
-	public float getMOhms() {
-		Ohms.trace(MMarker.GETTER,"Converting from Ohms to MOhms : {}",value / 1000000);
-		return (value/1000000);
-	}
-
 }

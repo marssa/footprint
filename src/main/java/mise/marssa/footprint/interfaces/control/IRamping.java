@@ -15,7 +15,7 @@
  */
 package mise.marssa.footprint.interfaces.control;
 
-import mise.marssa.footprint.datatypes.decimal.MFloat;
+import mise.marssa.footprint.datatypes.decimal.MDecimal;
 import mise.marssa.footprint.exceptions.ConfigurationError;
 import mise.marssa.footprint.exceptions.NoConnection;
 import mise.marssa.footprint.exceptions.OutOfRange;
@@ -37,7 +37,7 @@ public interface IRamping {
 	 * @throws OutOfRange
 	 * @throws NoConnection 
 	 */
-	public void rampTo(MFloat desiredValue) throws InterruptedException, ConfigurationError, OutOfRange, NoConnection;
+	public void rampTo(MDecimal desiredValue) throws InterruptedException, ConfigurationError, OutOfRange, NoConnection;
 	
 	/**
 	 * Get current value of the Ramping instance<br />
@@ -46,11 +46,11 @@ public interface IRamping {
 	 * @return the current value of the Ramping instance
 	 * @see mise.marssa.footprint.interfaces.control.IController
 	 */
-	public MFloat getCurrentValue();
+	public MDecimal getCurrentValue();
 
-	void increase(MFloat incrementValue) throws InterruptedException,
+	void increase(MDecimal incrementValue) throws InterruptedException,
 			ConfigurationError, OutOfRange, NoConnection;
 
-	void decrease(MFloat decrementValue) throws InterruptedException,
+	void decrease(MDecimal decrementValue) throws InterruptedException,
 			ConfigurationError, OutOfRange, NoConnection;
 }

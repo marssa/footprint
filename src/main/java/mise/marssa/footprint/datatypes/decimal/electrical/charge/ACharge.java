@@ -18,38 +18,97 @@
  */
 package mise.marssa.footprint.datatypes.decimal.electrical.charge;
 
+import static javax.measure.unit.NonSI.HOUR;
+import static javax.measure.unit.SI.AMPERE;
+import static javax.measure.unit.SI.COULOMB;
+import static javax.measure.unit.SI.MILLI;
+
+import javax.measure.quantity.ElectricCharge;
+import javax.measure.unit.Unit;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
-import mise.marssa.footprint.datatypes.decimal.MFloat;
+import mise.marssa.footprint.datatypes.decimal.MDecimal;
+import mise.marssa.footprint.logger.MMarker;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author Alan Grech
- *
+ * 
  */
 @XmlType(name = "ACharge", factoryClass = TypeFactory.class, factoryMethod = "getAChargeInstance")
-public abstract class ACharge extends MFloat {
+public abstract class ACharge extends MDecimal {
 
-	public ACharge(float value) {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -750203926399246080L;
+
+	private static Logger logger = (Logger) LoggerFactory
+			.getLogger(ACharge.class.getName());
+
+	private Unit<ElectricCharge> currentUnit;
+
+	/**
+	 * Ampere-hour unit
+	 * 
+	 * @see javax.measure.quantity.ElectricCharge
+	 */
+	protected static final Unit<ElectricCharge> AMPERE_HOUR = AMPERE.times(HOUR).asType(ElectricCharge.class);
+
+	/**
+	 * Milli Ampere-hour unit
+	 * 
+	 * @see javax.measure.quantity.ElectricCharge
+	 */
+	protected static final Unit<ElectricCharge> MILLI_AMPERE_HOUR = MILLI(
+			AMPERE).times(HOUR).asType(ElectricCharge.class);
+
+	public ACharge(double value, Unit<ElectricCharge> unit) {
 		super(value);
+		this.currentUnit = unit;
 	}
-	
+
 	/**
 	 * Ampere-hours
+	 * 
 	 * @return
 	 */
-	abstract public float getAh();
-	
+	public MDecimal getAh() {
+		MDecimal result = new MDecimal(currentUnit.getConverterTo(AMPERE_HOUR)
+				.convert(doubleValue()));
+		logger.trace(MMarker.GETTER, "Converting from {} to Ampere hours : {}",
+				currentUnit, result);
+		return result;
+	}
+
 	/**
 	 * Milli Ampere-hours
+	 * 
 	 * @return
 	 */
-	abstract public float getmAh();
-	
-	abstract public float getColoumbs();
-	
+	public MDecimal getmAh() {
+		MDecimal result = new MDecimal(currentUnit.getConverterTo(
+				MILLI_AMPERE_HOUR).convert(doubleValue()));
+		logger.trace(MMarker.GETTER,
+				"Converting from {} to milli Ampere hours : {}", currentUnit,
+				result);
+		return result;
+	}
+
+	public MDecimal getCoulombs() {
+		MDecimal result = new MDecimal(currentUnit.getConverterTo(COULOMB)
+				.convert(doubleValue()));
+		logger.trace(MMarker.GETTER, "Converting from {} to Coulombs : {}",
+				currentUnit, result);
+		return result;
+	}
+
 	@Override
 	public String toString() {
-		return "Charge in " + this.getClass().getSimpleName() + " = " + value;
+		return "Charge in " + this.getClass().getSimpleName() + " = "
+				+ super.toString();
 	}
 }

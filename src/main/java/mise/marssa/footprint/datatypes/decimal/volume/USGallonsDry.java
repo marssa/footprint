@@ -13,7 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package mise.marssa.footprint.datatypes.decimal.speed;
+package mise.marssa.footprint.datatypes.decimal.volume;
+
+import static javax.measure.unit.NonSI.GALLON_DRY_US;
 
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
@@ -21,45 +23,16 @@ import javax.xml.bind.annotation.XmlType;
 import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
 
-import org.slf4j.LoggerFactory;
-
-import ch.qos.logback.classic.Logger;
-
-/**
- * @author Alan Grech
- * @version 1.0
- * @created 08-Jul-2011 09:53:29
- */
-@XmlType(name = "PercentSpeed", factoryClass = TypeFactory.class, factoryMethod = "getPercentSpeedInstance")
+@XmlType(name = "USGallonsDry", factoryClass = TypeFactory.class, factoryMethod = "getUSGallonsDryInstance")
 @Entity
-public class PercentSpeed extends ASpeed {
-//TODO whole class
-	private static Logger PercentSpeed = (Logger) LoggerFactory.getLogger("PercentSpeed");
-
-	public PercentSpeed(float value) throws OutOfRange {
-		super(value);
-	}
-
-	@Override
-	public float getKnots() {
-		return 0;
-	}
-
-	@Override
-	public float getKPH() {
-		return 0;
-	}
-	
-	@Override
-	public float getMPH(){
-		return 0;
-	}
+public class USGallonsDry extends AVolume {
 
 	/**
-	 * get metres per second
+	 * 
 	 */
-	@Override
-	public float getMPS() {
-		return 0;
+	private static final long serialVersionUID = -5169297003410377325L;
+
+	public USGallonsDry(double value) throws OutOfRange {
+		super(value, GALLON_DRY_US);
 	}
 }

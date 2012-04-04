@@ -18,39 +18,28 @@
  */
 package mise.marssa.footprint.datatypes.decimal.electrical.voltage;
 
+import static javax.measure.unit.SI.MILLI;
+import static javax.measure.unit.SI.VOLT;
+
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
-import mise.marssa.footprint.logger.MMarker;
-
-import org.slf4j.LoggerFactory;
-
-import ch.qos.logback.classic.Logger;
 
 /**
  * @author Alan Grech
- *
+ * 
  */
 @XmlType(name = "MilliVolts", factoryClass = TypeFactory.class, factoryMethod = "getMilliVoltsInstance")
 @Entity
 public class MilliVolts extends AVoltage {
 
-	private static Logger MilliVolts = (Logger) LoggerFactory.getLogger("MilliVolts");
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -329945614755034187L;
 
-	public MilliVolts(float value) {
-		super(value);
-	}
-
-	@Override
-	public float getVolts() {
-		MilliVolts.trace(MMarker.GETTER,"Converting from MilliVolts to Volts : {}",value / 1000f);
-		return value / 1000f;
-	}
-
-	@Override
-	public float getMilliVolts() {
-		MilliVolts.trace(MMarker.GETTER,"Getting MilliVolts: {}",value);
-		return value;
+	public MilliVolts(double value) {
+		super(value, MILLI(VOLT));
 	}
 }

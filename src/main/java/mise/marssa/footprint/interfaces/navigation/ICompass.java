@@ -17,7 +17,7 @@ package mise.marssa.footprint.interfaces.navigation;
 
 import mise.marssa.footprint.datatypes.composite.Attitude;
 import mise.marssa.footprint.datatypes.decimal.DegreesFloat;
-import mise.marssa.footprint.datatypes.decimal.MFloat;
+import mise.marssa.footprint.datatypes.decimal.MDecimal;
 
 /**
  * @author Alan Grech
@@ -37,7 +37,7 @@ public interface ICompass {
 
 	public DegreesFloat getMagneticHeading();
 
-	public MFloat getRateOfTurn();
+	public MDecimal getRateOfTurn();
 
 	public DegreesFloat getTrueHeading();
 

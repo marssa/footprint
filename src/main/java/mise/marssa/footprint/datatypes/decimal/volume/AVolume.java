@@ -20,32 +20,84 @@
  */
 package mise.marssa.footprint.datatypes.decimal.volume;
 
+import static javax.measure.unit.NonSI.GALLON_DRY_US;
+import static javax.measure.unit.NonSI.GALLON_LIQUID_US;
+import static javax.measure.unit.NonSI.GALLON_UK;
+import static javax.measure.unit.NonSI.LITRE;
+
+import javax.measure.quantity.Volume;
+import javax.measure.unit.Unit;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
-import mise.marssa.footprint.datatypes.decimal.UnsignedFloat;
+import mise.marssa.footprint.datatypes.decimal.MDecimal;
+import mise.marssa.footprint.datatypes.decimal.UnsignedDecimal;
 import mise.marssa.footprint.exceptions.OutOfRange;
+import mise.marssa.footprint.logger.MMarker;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @XmlType(name = "AVolume", factoryClass = TypeFactory.class, factoryMethod = "getAVolumeInstance")
-public abstract class AVolume extends UnsignedFloat {
+public abstract class AVolume extends UnsignedDecimal {
 
-	public AVolume(float value) throws OutOfRange {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5927631230519898723L;
+
+	private static Logger logger = (Logger) LoggerFactory
+			.getLogger(AVolume.class.getName());
+
+	private Unit<Volume> currentUnit;
+
+	public AVolume(double value, Unit<Volume> unit) throws OutOfRange {
 		super(value);
 	}
 
-	abstract public float getLiters();
+	public MDecimal getLitres() {
+		MDecimal result = new MDecimal(currentUnit.getConverterTo(LITRE)
+				.convert(doubleValue()));
+		logger.trace(MMarker.GETTER, "Converting from {} to Litres : {}",
+				currentUnit, result);
+		return result;
+	}
 
-	abstract public float getGallon();
+	public MDecimal getUSGallonsDry() {
+		MDecimal result = new MDecimal(currentUnit
+				.getConverterTo(GALLON_DRY_US).convert(doubleValue()));
+		logger.trace(MMarker.GETTER,
+				"Converting from {} to US Gallons (dry) : {}", currentUnit,
+				result);
+		return result;
+	}
+
+	public MDecimal getUSGallonsLiquid() {
+		MDecimal result = new MDecimal(currentUnit.getConverterTo(
+				GALLON_LIQUID_US).convert(doubleValue()));
+		logger.trace(MMarker.GETTER,
+				"Converting from {} to US Gallons (liquid) : {}", currentUnit,
+				result);
+		return result;
+	}
 
 	/**
 	 * Imperial Gallons
 	 * 
 	 * @return
 	 */
-	abstract public float getImpGallon();
+	public MDecimal getImpGallon() {
+		MDecimal result = new MDecimal(currentUnit.getConverterTo(GALLON_UK)
+				.convert(doubleValue()));
+		logger.trace(MMarker.GETTER,
+				"Converting from {} to Imperial Gallons : {}", currentUnit,
+				result);
+		return result;
+	}
 
 	@Override
 	public String toString() {
-		return "Volume in " + this.getClass().getSimpleName() + " = " + value;
+		return "Volume in " + this.getClass().getSimpleName() + " = "
+				+ super.toString();
 	}
 }

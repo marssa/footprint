@@ -15,7 +15,7 @@
  */
 package mise.marssa.footprint.interfaces.control;
 
-import mise.marssa.footprint.datatypes.decimal.MFloat;
+import mise.marssa.footprint.datatypes.decimal.MDecimal;
 import mise.marssa.footprint.exceptions.ConfigurationError;
 import mise.marssa.footprint.exceptions.NoConnection;
 import mise.marssa.footprint.exceptions.OutOfRange;
@@ -44,7 +44,7 @@ public interface IController {
 	 * @throws ConfigurationError 
 	 * @throws NoConnection 
 	 */
-	public void outputValue(MFloat value) throws ConfigurationError, OutOfRange, NoConnection;
+	public void outputValue(MDecimal value) throws ConfigurationError, OutOfRange, NoConnection;
 	
 	/**
 	 * Sets the polarity signal for Controllers which use it
@@ -57,5 +57,5 @@ public interface IController {
 	 * Get the last value which was sent to the output port
 	 * @return last value which was sent to the output port
 	 */
-	public MFloat getValue();
+	public MDecimal getValue();
 }

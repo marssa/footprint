@@ -13,27 +13,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package mise.marssa.footprint.datatypes.decimal.pressure;
+package mise.marssa.footprint.datatypes.decimal.distance;
 
-import static javax.measure.unit.SI.KILO;
-import static javax.measure.unit.SI.PASCAL;
-
-import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
 
-@XmlType(name = "KPa", factoryClass = TypeFactory.class, factoryMethod = "getKPaInstance")
-@Entity
-public class KPa extends APressure {
+/**
+ * @author Clayton Tabone
+ * 
+ */
+@XmlType(name = "Fathoms", factoryClass = TypeFactory.class, factoryMethod = "getFathomsInstance")
+public class Fathoms extends ADistance {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -1148884182037221338L;
+	private static final long serialVersionUID = -2840670099433499514L;
 
-	public KPa(double value) throws OutOfRange {
-		super(value, KILO(PASCAL));
+	/**
+	 * @param value
+	 * @throws OutOfRange
+	 */
+	public Fathoms(double value) throws OutOfRange {
+		super(value, FATHOM);
 	}
 }

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package mise.marssa.footprint.datatypes.decimal.volume;
+package mise.marssa.footprint.datatypes.decimal;
 
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
@@ -26,30 +26,28 @@ import org.slf4j.LoggerFactory;
 
 import ch.qos.logback.classic.Logger;
 
-@XmlType(name = "Gallons", factoryClass = TypeFactory.class, factoryMethod = "getGallonsInstance")
+/**
+ * @author Alan Grech
+ * @version 1.0
+ * @created 08-Jul-2011 09:53:29
+ */
+@XmlType(name = "UnsignedDecimal", factoryClass = TypeFactory.class, factoryMethod = "getUnsignedDecimalInstance")
 @Entity
-public class Gallons extends AVolume {
-	private static Logger Gallons = (Logger) LoggerFactory.getLogger("Gallons");
+public class UnsignedDecimal extends MDecimal {
 
-	public Gallons(float value) throws OutOfRange {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2643170038537925526L;
+
+	private static Logger logger = (Logger) LoggerFactory
+			.getLogger("UnsignedFloat");
+
+	public UnsignedDecimal(double value) throws OutOfRange {
 		super(value);
+		if (value < 0)
+			logger.debug(MMarker.EXCEPTION, "Value received is out of range",
+					new OutOfRange());
 	}
 
-	@Override
-	public float getLiters() {
-		Gallons.trace(MMarker.GETTER,"Converting from Gallons to Litres : {}",value * (float) 3.78541178 );
-		return value * (float) 3.78541178 ;
-	}
-
-	@Override
-	public float getGallon() {
-		Gallons.trace(MMarker.GETTER,"Getting Gallons: {}",value);
-		return value;
-	}
-
-	@Override
-	public float getImpGallon() {
-		Gallons.trace(MMarker.GETTER,"Converting from Gallons to ImpGallon : {}",value * (float) 0.83267384);
-		return value * (float) 0.83267384 ;
-	}
 }

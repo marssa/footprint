@@ -18,44 +18,27 @@
  */
 package mise.marssa.footprint.datatypes.decimal.electrical.charge;
 
+import static javax.measure.unit.SI.COULOMB;
+
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
-import mise.marssa.footprint.logger.MMarker;
-
-import org.slf4j.LoggerFactory;
-
-import ch.qos.logback.classic.Logger;
 
 /**
  * @author Alan Grech
- *
+ * 
  */
 @XmlType(name = "Coulombs", factoryClass = TypeFactory.class, factoryMethod = "getCoulombsInstance")
 @Entity
 public class Coulombs extends ACharge {
 
-	private static Logger Coulombs = (Logger) LoggerFactory.getLogger("Coulombs");
-	public Coulombs(float value) {
-		super(value);
-	}
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2570753972423764454L;
 
-	@Override
-	public float getAh() {
-		Coulombs.trace(MMarker.GETTER,"Converting from Coulombs to Ah : {}",value / (float) 3.6);
-		return value / 3600;
-	}
-
-	@Override
-	public float getmAh() {
-		Coulombs.trace(MMarker.GETTER,"Converting from Coulombs to mAh : {}",value / (float) 3.6);
-		return value / (float) 3.6;
-	}
-
-	@Override
-	public float getColoumbs() {
-		Coulombs.trace(MMarker.GETTER,"Getting Coulombs: {}",value);
-		return value;
+	public Coulombs(double value) {
+		super(value, COULOMB);
 	}
 }

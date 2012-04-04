@@ -15,16 +15,13 @@
  */
 package mise.marssa.footprint.datatypes.decimal.distance;
 
+import static javax.measure.unit.SI.KILOMETRE;
+
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
-import mise.marssa.footprint.logger.MMarker;
-
-import org.slf4j.LoggerFactory;
-
-import ch.qos.logback.classic.Logger;
 
 /**
  * Kilometres
@@ -36,44 +33,13 @@ import ch.qos.logback.classic.Logger;
 @XmlType(name = "KM", factoryClass = TypeFactory.class, factoryMethod = "getKMInstance")
 @Entity
 public class KM extends ADistance {
-
-	private static Logger Km = (Logger) LoggerFactory.getLogger("Km");
-
 	
-	public KM(float value) throws OutOfRange {
-		super(value);
-	}
-	
-	
-	@Override
-	public float getKM() {
-		Km.trace(MMarker.GETTER,"Getting Km: {}",value);
-		return this.value;
-	}
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1716282958949178181L;
 
-	@Override
-	public float getMetres() {
-		Km.trace(MMarker.GETTER,"Converting from Km to Metres : {}",value * 1000);
-		return value * 1000;
+	public KM(double value) throws OutOfRange {
+		super(value, KILOMETRE);
 	}
-
-	@Override
-	public float getMiles() {
-		Km.trace(MMarker.GETTER,"Converting from Km to Miles : {}",value * (float) 0.621371192);
-		return value * (float) 0.621371192;
-	}
-
-	@Override
-	public float getNM() {
-		Km.trace(MMarker.GETTER,"Converting from Km to NMiles : {}",value * (float) 0.539956);
-		return value * (float) 0.539956;
-	}
-
-	@Override
-	public float getFathoms() {
-		Km.trace(MMarker.GETTER,"Converting from Km to Fathoms : {}",value * (float) 546.806649);
-		return value * (float) 546.806649;
-	}
-	
-	
 }

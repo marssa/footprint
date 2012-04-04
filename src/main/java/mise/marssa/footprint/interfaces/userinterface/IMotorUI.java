@@ -15,7 +15,7 @@
  */
 package mise.marssa.footprint.interfaces.userinterface;
 
-import mise.marssa.footprint.datatypes.decimal.speed.PercentSpeed;
+import mise.marssa.footprint.datatypes.decimal.PercentageFloat;
 
 /**
  * @author Alan Grech
@@ -24,12 +24,12 @@ import mise.marssa.footprint.datatypes.decimal.speed.PercentSpeed;
  */
 public interface IMotorUI {
 
-	public PercentSpeed getMotorSpeed();
+	public PercentageFloat getMotorSpeed();
 
 	/**
 	 * 
 	 * @param desiredMotorSpeed
 	 */
-	public void setMotorSpeed(PercentSpeed desiredMotorSpeed);
+	public void setMotorSpeed(PercentageFloat desiredMotorSpeed);
 
 }

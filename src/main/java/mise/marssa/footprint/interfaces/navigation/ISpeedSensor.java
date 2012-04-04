@@ -32,7 +32,7 @@ import mise.marssa.footprint.exceptions.OutOfRange;
  */
 public interface ISpeedSensor {
 	public ASpeed getSpeedKnots() throws OutOfRange;
-	public ADistance getDepthMetres() throws OutOfRange;
+	public ADistance getDepthMeters() throws OutOfRange;
 	public ATemperature getTemperature();
 	public DegreesFloat getDegreesMagnetic() throws OutOfRange;
 	public DegreesFloat getDegreesTrue() throws OutOfRange;

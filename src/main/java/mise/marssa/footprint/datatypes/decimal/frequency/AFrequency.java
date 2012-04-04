@@ -15,11 +15,21 @@
  */
 package mise.marssa.footprint.datatypes.decimal.frequency;
 
+import static javax.measure.unit.SI.HERTZ;
+import static javax.measure.unit.SI.KILO;
+
+import javax.measure.quantity.Frequency;
+import javax.measure.unit.Unit;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
-import mise.marssa.footprint.datatypes.decimal.UnsignedFloat;
+import mise.marssa.footprint.datatypes.decimal.MDecimal;
+import mise.marssa.footprint.datatypes.decimal.UnsignedDecimal;
 import mise.marssa.footprint.exceptions.OutOfRange;
+import mise.marssa.footprint.logger.MMarker;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author Alan Grech
@@ -27,21 +37,46 @@ import mise.marssa.footprint.exceptions.OutOfRange;
  * @created 08-Jul-2011 09:53:23
  */
 @XmlType(name = "AFrequency", factoryClass = TypeFactory.class, factoryMethod = "getAFrequencyInstance")
-public abstract class AFrequency extends UnsignedFloat {
+public abstract class AFrequency extends UnsignedDecimal {
 
-	public AFrequency(float value) throws OutOfRange {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8282804797176048249L;
+
+	private static Logger logger = (Logger) LoggerFactory
+			.getLogger(AFrequency.class.getName());
+
+	private Unit<Frequency> currentUnit;
+
+	public AFrequency(double value, Unit<Frequency> unit) throws OutOfRange {
 		super(value);
+		this.currentUnit = unit;
 	}
-	
+
 	/**
 	 * Hz is the SI unit
 	 */
-	abstract public float getHz();
+	public MDecimal getHz() {
+		MDecimal result = new MDecimal(currentUnit.getConverterTo(HERTZ)
+				.convert(doubleValue()));
+		logger.trace(MMarker.GETTER, "Converting from {} to Hertz : {}",
+				currentUnit, result);
+		return result;
+	}
 
-	abstract public float getKHz();
-	
+	public MDecimal getKHz() {
+		MDecimal result = new MDecimal(currentUnit.getConverterTo(KILO(HERTZ))
+				.convert(doubleValue()));
+		logger.trace(MMarker.GETTER, "Converting from {} to Kilo Hertz : {}",
+				currentUnit, result);
+		return result;
+
+	}
+
 	@Override
 	public String toString() {
-		return "Frequency in " + this.getClass().getSimpleName() + " = " + value;
+		return "Frequency in " + this.getClass().getSimpleName() + " = "
+				+ super.toString();
 	}
 }
