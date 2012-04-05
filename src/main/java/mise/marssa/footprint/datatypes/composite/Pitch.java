@@ -41,6 +41,7 @@ public class Pitch {
 	public void finalize() throws Throwable {
 
 	}
+
 	@XmlElement
 	public DegreesFloat getPitch() {
 		return Pitch;
@@ -49,7 +50,7 @@ public class Pitch {
 	public java.lang.String toString() {
 		return "";
 	}
-	
+
 	public MString toJSON() {
 		MString JSON = new MString(new JSONSerializer().deepSerialize(this));
 		return JSON;

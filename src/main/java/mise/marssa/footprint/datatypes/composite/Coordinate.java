@@ -19,14 +19,20 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.MString;
 import mise.marssa.footprint.datatypes.TypeFactory;
+import mise.marssa.footprint.datatypes.time.MTimeStamp;
 import mise.marssa.footprint.logger.MMarker;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.GenericGenerator;
 import org.slf4j.LoggerFactory;
 
@@ -41,42 +47,56 @@ import flexjson.JSONSerializer;
  */
 @XmlType(name = "Coordinate", factoryClass = TypeFactory.class, factoryMethod = "getCoordinateInstance")
 @Entity
-@Table(name="Coordinate")
+@Table(name = "Coordinate")
 public class Coordinate {
-	
-	private static Logger Coordinate = (Logger) LoggerFactory.getLogger("Coordinate");
-	@Column(name="Latitude")
+
+	private static Logger Coordinate = (Logger) LoggerFactory
+			.getLogger("Coordinate");
+
+	@ManyToOne
+	@Cascade({ CascadeType.SAVE_UPDATE })
 	private Latitude latitude;
-	@Column(name="Latitude")
+
+	@ManyToOne
+	@Cascade({ CascadeType.SAVE_UPDATE })
 	private Longitude longitude;
+
+	@ManyToOne
+	@Cascade({ CascadeType.SAVE_UPDATE })
+	MTimeStamp time;
 
 	public Coordinate(Latitude latitude, Longitude longitude) {
 		this.latitude = latitude;
 		this.longitude = longitude;
-		Coordinate.trace(MMarker.CONSTRUCTOR,"Constructor created with  Latitude:\"{}\", Longitude:\"{}\"", latitude.toString(),longitude.toString());
+		Coordinate.trace(MMarker.CONSTRUCTOR,
+				"Constructor created with  Latitude:\"{}\", Longitude:\"{}\"",
+				latitude.toString(), longitude.toString());
 	}
 
 	public void finalize() throws Throwable {
 
 	}
+
 	@JSON
 	@XmlElement
 	public Latitude getLatitude() {
-		Coordinate.trace(MMarker.GETTER,"Getting Latitude: {}.",latitude.toString());
+		Coordinate.trace(MMarker.GETTER, "Getting Latitude: {}.",
+				latitude.toString());
 		return latitude;
 	}
-	
+
 	@JSON
 	@XmlElement
 	public Longitude getLongitude() {
-		Coordinate.trace(MMarker.GETTER,"Getting Longitude: {}.",longitude.toString());
+		Coordinate.trace(MMarker.GETTER, "Getting Longitude: {}.",
+				longitude.toString());
 		return longitude;
 	}
-	
+
 	@Id
-	@Column(name = "id")	
-	@GeneratedValue(generator="increment")
-	@GenericGenerator(name="increment", strategy = "increment")
+	@Column(name = "id")
+	@GeneratedValue(generator = "increment")
+	@GenericGenerator(name = "increment", strategy = "increment")
 	Long id;
 
 	public Long getId() {
@@ -87,11 +107,20 @@ public class Coordinate {
 		this.id = id;
 	}
 
+	public MTimeStamp getTimeStamp() {
+		return this.time;
+	}
+
+	public void setTimeStamp(MTimeStamp time) {
+		this.time = time;
+	}
+
 	public java.lang.String toString() {
-		Coordinate.trace(MMarker.GETTER,"Getting Coordinate as a String");
+		Coordinate.trace(MMarker.GETTER, "Getting Coordinate as a String");
 		return "[" + latitude.toString() + ", " + longitude.toString() + "]";
 	}
-	public MString toJSON(){
+
+	public MString toJSON() {
 		MString JSON = new MString(new JSONSerializer().deepSerialize(this));
 		return JSON;
 	}

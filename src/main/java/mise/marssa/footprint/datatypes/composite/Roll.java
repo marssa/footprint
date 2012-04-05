@@ -40,6 +40,7 @@ public class Roll {
 	public void finalize() throws Throwable {
 
 	}
+
 	@XmlElement
 	public DegreesFloat getRoll() {
 		return Roll;
@@ -48,7 +49,7 @@ public class Roll {
 	public java.lang.String toString() {
 		return "";
 	}
-	
+
 	public MString toJSON() {
 		MString JSON = new MString(new JSONSerializer().deepSerialize(this));
 		return JSON;

@@ -37,13 +37,15 @@ import flexjson.JSONSerializer;
  */
 @XmlType(name = "ATime", factoryClass = TypeFactory.class, factoryMethod = "getATimeInstance")
 @Entity
-@Inheritance(strategy=javax.persistence.InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = javax.persistence.InheritanceType.TABLE_PER_CLASS)
 public abstract class ATime {
 
 	@XmlElement
 	protected long time;
-	
-	
+
+	protected ATime() {
+	}
+
 	public ATime(long time) {
 		this.time = time;
 	}
@@ -55,11 +57,11 @@ public abstract class ATime {
 	abstract public long getMinutes();
 
 	abstract public long getHour();
-	
+
 	@Id
-	@Column(name = "id")	
-	@GeneratedValue(generator="increment")
-	@GenericGenerator(name="increment", strategy = "increment")
+	@Column(name = "id")
+	@GeneratedValue(generator = "increment")
+	@GenericGenerator(name = "increment", strategy = "increment")
 	Long id;
 
 	public Long getId() {

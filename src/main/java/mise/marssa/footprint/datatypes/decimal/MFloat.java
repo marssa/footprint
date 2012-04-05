@@ -38,24 +38,24 @@ import flexjson.JSONSerializer;
  */
 @XmlType(name = "MFloat", factoryClass = TypeFactory.class, factoryMethod = "getMFloatInstance")
 @Entity
-@Inheritance(strategy=javax.persistence.InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = javax.persistence.InheritanceType.TABLE_PER_CLASS)
 public class MFloat {
 
-	@XmlElement
 	protected float value;
-	
-	private MFloat(){}
+
+	protected MFloat() {
+	}
 
 	public MFloat(float value) {
 		this.value = value;
 	}
-	
-	@Id
-	@Column(name = "id")	
-	@GeneratedValue(generator="increment")
-	@GenericGenerator(name="increment", strategy = "increment")
+
 	Long id;
 
+	@Id
+	@Column(name = "id")
+	@GeneratedValue(generator = "increment")
+	@GenericGenerator(name = "increment", strategy = "increment")
 	public Long getId() {
 		return id;
 	}
@@ -67,13 +67,13 @@ public class MFloat {
 	public void finalize() throws Throwable {
 
 	}
-		
+
 	public float setValue(float value) {
 		return value;
 	}
-	
+
 	@JSON
-	//@Column(name = "Meters")
+	@XmlElement
 	public float getValue() {
 		return value;
 	}
@@ -86,7 +86,5 @@ public class MFloat {
 		MString JSON = new MString(new JSONSerializer().deepSerialize(this));
 		return JSON;
 	}
-
-	
 
 }

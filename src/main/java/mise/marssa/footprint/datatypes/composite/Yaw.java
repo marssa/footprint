@@ -40,6 +40,7 @@ public class Yaw {
 	public void finalize() throws Throwable {
 
 	}
+
 	@XmlElement
 	public DegreesFloat getYaw() {
 		return Yaw;
@@ -48,7 +49,7 @@ public class Yaw {
 	public java.lang.String toString() {
 		return "";
 	}
-	
+
 	public MString toJSON() {
 		MString JSON = new MString(new JSONSerializer().deepSerialize(this));
 		return JSON;

@@ -15,6 +15,7 @@
  */
 package mise.marssa.footprint.datatypes.integer;
 
+import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
@@ -25,7 +26,10 @@ import mise.marssa.footprint.datatypes.TypeFactory;
  * @created 08-Jul-2011 09:53:24
  */
 @XmlType(name = "DegreesInteger", factoryClass = TypeFactory.class, factoryMethod = "getDegreesIntegerInstance")
+@Entity
 public class DegreesInteger extends MInteger {
+	protected DegreesInteger() {
+	}
 
 	public DegreesInteger(int value) {
 		super(value);
@@ -34,6 +38,5 @@ public class DegreesInteger extends MInteger {
 	public void finalize() throws Throwable {
 		super.finalize();
 	}
-	
 
 }
