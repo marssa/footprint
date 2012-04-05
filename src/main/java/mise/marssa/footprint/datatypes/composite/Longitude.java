@@ -20,7 +20,7 @@ import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.datatypes.decimal.DegreesFloat;
-import mise.marssa.footprint.datatypes.decimal.MFloat;
+import mise.marssa.footprint.datatypes.decimal.MDecimal;
 import mise.marssa.footprint.datatypes.integer.DegreesInteger;
 import mise.marssa.footprint.datatypes.integer.MInteger;
 import mise.marssa.footprint.exceptions.OutOfRange;
@@ -39,12 +39,15 @@ import ch.qos.logback.classic.Logger;
 @Entity
 public class Longitude extends APosition {
 	private APosition longitude;
+
 	private static Logger Longitude = (Logger) LoggerFactory
 			.getLogger("Longitude");
 
-	public Longitude(DegreesInteger degrees, MInteger minutes, MFloat seconds)
+	public Longitude(DegreesInteger degrees, MInteger minutes, MDecimal seconds)
 			throws OutOfRange {
+
 		super(degrees, minutes, seconds);
+
 		if (degrees.getValue() < -180 && degrees.getValue() > 180)
 			Longitude.debug(MMarker.EXCEPTION,
 					"Degrees value is out of range -180 < degrees < 180",
@@ -53,7 +56,7 @@ public class Longitude extends APosition {
 			Longitude.debug(MMarker.EXCEPTION,
 					"Degrees value is out of range 0 < degrees < 60",
 					new OutOfRange());
-		if (seconds.getValue() < 0 && seconds.getValue() > 60)
+		if (seconds.doubleValue() < 0 && seconds.doubleValue() > 60)
 			Longitude.debug(MMarker.EXCEPTION,
 					"Degrees value is out of range 60 < degrees < 60",
 					new OutOfRange());
@@ -61,7 +64,7 @@ public class Longitude extends APosition {
 
 	public Longitude(DegreesFloat degrees) throws OutOfRange {
 		super(degrees);
-		if (degrees.getValue() < -180 && degrees.getValue() > 180)
+		if (degrees.doubleValue() < -180 && degrees.doubleValue() > 180)
 			Longitude.debug(MMarker.EXCEPTION,
 					"Degrees value is out of range -180 < degrees < 180",
 					new OutOfRange());

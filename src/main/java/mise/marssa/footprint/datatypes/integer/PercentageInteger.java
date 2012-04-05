@@ -35,11 +35,14 @@ import ch.qos.logback.classic.Logger;
 @Entity
 public class PercentageInteger extends MInteger {
 
-	private static Logger PercentageInteger = (Logger) LoggerFactory.getLogger("PercentageInteger");
+	private static Logger PercentageInteger = (Logger) LoggerFactory
+			.getLogger("PercentageInteger");
+
 	public PercentageInteger(int value) throws OutOfRange {
 		super(value);
-		if((value < -100f) || (value > 100f))
-			PercentageInteger.debug(MMarker.EXCEPTION,"Value received is out of range",new OutOfRange());
+		if ((value < -100f) || (value > 100f))
+			PercentageInteger.debug(MMarker.EXCEPTION,
+					"Value received is out of range", new OutOfRange());
 	}
 
 	public void finalize() throws Throwable {

@@ -33,34 +33,37 @@ import flexjson.JSONSerializer;
  */
 @XmlType(name = "MBoolean", factoryClass = TypeFactory.class, factoryMethod = "getMBooleanInstance")
 public class MBoolean {
-	private static Logger MBoolean = (Logger) LoggerFactory.getLogger("MBoolean");
+	private static Logger MBoolean = (Logger) LoggerFactory
+			.getLogger("MBoolean");
 	protected boolean value;
-	
+
 	public MBoolean(boolean value) {
-		MBoolean.trace(MMarker.CONSTRUCTOR,"Constructor created with Value:\"{}\".",value);
+		MBoolean.trace(MMarker.CONSTRUCTOR,
+				"Constructor created with Value:\"{}\".", value);
 		this.value = value;
 	}
 
-	
 	public void setValue(boolean newValue) {
-		MBoolean.trace(MMarker.SETTER,"Setting MBoolean value to \"{}\".",newValue);
+		MBoolean.trace(MMarker.SETTER, "Setting MBoolean value to \"{}\".",
+				newValue);
 		this.value = newValue;
 	}
 
 	public void toggleValue() {
 		this.value = !value;
-		MBoolean.trace(MMarker.SETTER,"Value toggled to \"{}\".",value);
+		MBoolean.trace(MMarker.SETTER, "Value toggled to \"{}\".", value);
 	}
 
 	@JSON
 	@XmlElement
 	public boolean getValue() {
-		MBoolean.trace(MMarker.GETTER,"Getting value: \"{}\"",value);
+		MBoolean.trace(MMarker.GETTER, "Getting value: \"{}\"", value);
 		return value;
 	}
 
 	public String toString() {
-		MBoolean.trace(MMarker.GETTER,"Getting value as a String: \"{}\"",value);
+		MBoolean.trace(MMarker.GETTER, "Getting value as a String: \"{}\"",
+				value);
 		return Boolean.toString(value);
 	}
 

@@ -20,7 +20,7 @@ package mise.marssa.footprint.exceptions;
 
 /**
  * @author Clayton
- *
+ * 
  */
 public class NoConnection extends Exception {
 

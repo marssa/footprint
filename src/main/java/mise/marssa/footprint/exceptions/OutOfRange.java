@@ -20,7 +20,7 @@ package mise.marssa.footprint.exceptions;
 
 /**
  * @author Clayton
- *
+ * 
  */
 public class OutOfRange extends Exception {
 

@@ -15,16 +15,13 @@
  */
 package mise.marssa.footprint.datatypes.decimal.speed;
 
+import static javax.measure.unit.SI.METERS_PER_SECOND;
+
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
-import mise.marssa.footprint.logger.MMarker;
-
-import org.slf4j.LoggerFactory;
-
-import ch.qos.logback.classic.Logger;
 
 /**
  * Meters per Second
@@ -40,36 +37,12 @@ import ch.qos.logback.classic.Logger;
 @Entity
 public class MPS extends ASpeed {
 
-	private static Logger MPS = (Logger) LoggerFactory.getLogger("MPS");
-
-	public MPS(float value) throws OutOfRange {
-		super(value);
-	}
-
-	@Override
-	public float getKnots() {
-		MPS.trace(MMarker.GETTER,"Converting from MPS to Knots : {}",value * (float) 1.9438444924406);
-		return value * (float) 1.9438444924406;
-	}
-
-	@Override
-	public float getKPH() {
-		MPS.trace(MMarker.GETTER,"Converting from MPS to KPH : {}",value * 3600 / 1000);
-		return value * 3600 / 1000;
-	}
-
-	@Override
-	public float getMPH(){
-		MPS.trace(MMarker.GETTER,"Converting from MPS to MPH : {}",value * (float) ((3600.0/1000.0) * (50.0/80.0)));
-		return value * (float) ((3600.0/1000.0) * (50.0/80.0));
-	}
 	/**
-	 * get metres per second. m/s is the SI unit but knots is more widely used
-	 * as a nautical term
+	 * 
 	 */
-	@Override
-	public float getMPS() {
-		MPS.trace(MMarker.GETTER,"Getting MPS: {}",value);
-		return value;
+	private static final long serialVersionUID = -6403670007216732140L;
+
+	public MPS(double value) throws OutOfRange {
+		super(value, METERS_PER_SECOND);
 	}
 }

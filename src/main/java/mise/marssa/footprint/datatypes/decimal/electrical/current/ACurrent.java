@@ -18,26 +18,60 @@
  */
 package mise.marssa.footprint.datatypes.decimal.electrical.current;
 
+import static javax.measure.unit.SI.MILLI;
+import static javax.measure.unit.SI.AMPERE;
+
+import javax.measure.quantity.ElectricCurrent;
+import javax.measure.unit.Unit;
 import javax.xml.bind.annotation.XmlType;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import mise.marssa.footprint.datatypes.TypeFactory;
-import mise.marssa.footprint.datatypes.decimal.MFloat;
+import mise.marssa.footprint.datatypes.decimal.MDecimal;
+import mise.marssa.footprint.logger.MMarker;
 
 /**
  * @author Alan Grech
- *
+ * 
  */
 @XmlType(name = "ACurrent", factoryClass = TypeFactory.class, factoryMethod = "getACurrentInstance")
-public abstract class ACurrent extends MFloat {
-	public ACurrent (float value) {
+public abstract class ACurrent extends MDecimal {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8993349717007960067L;
+
+	private static Logger logger = (Logger) LoggerFactory
+			.getLogger(ACurrent.class.getName());
+
+	private Unit<ElectricCurrent> currentUnit;
+
+	public ACurrent(double value, Unit<ElectricCurrent> unit) {
 		super(value);
+		this.currentUnit = unit;
 	}
-	
-	abstract public float getAmps();
-	abstract public float getMilliAmps();
-	
+
+	public MDecimal getAmps() {
+		MDecimal result = new MDecimal(currentUnit.getConverterTo(AMPERE)
+				.convert(doubleValue()));
+		logger.trace(MMarker.GETTER, "Converting from {} to Amps : {}",
+				currentUnit, result);
+		return result;
+	}
+
+	public MDecimal getMilliAmps() {
+		MDecimal result = new MDecimal(currentUnit
+				.getConverterTo(MILLI(AMPERE)).convert(doubleValue()));
+		logger.trace(MMarker.GETTER, "Converting from {} to milli Amps : {}",
+				currentUnit, result);
+		return result;
+	}
+
 	@Override
 	public String toString() {
-		return "Current in " + this.getClass().getSimpleName() + " = " + value;
+		return "Current in " + this.getClass().getSimpleName() + " = "
+				+ super.toString();
 	}
 }

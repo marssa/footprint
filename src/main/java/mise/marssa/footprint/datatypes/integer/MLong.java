@@ -37,7 +37,7 @@ import flexjson.JSONSerializer;
  */
 @XmlType(name = "MLong", factoryClass = TypeFactory.class, factoryMethod = "getMLongInstance")
 @Entity
-@Inheritance(strategy=javax.persistence.InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = javax.persistence.InheritanceType.TABLE_PER_CLASS)
 public class MLong {
 
 	@XmlElement
@@ -54,11 +54,11 @@ public class MLong {
 	public long getValue() {
 		return value;
 	}
-	
+
 	@Id
-	@Column(name = "id")	
-	@GeneratedValue(generator="increment")
-	@GenericGenerator(name="increment", strategy = "increment")
+	@Column(name = "id")
+	@GeneratedValue(generator = "increment")
+	@GenericGenerator(name = "increment", strategy = "increment")
 	Long id;
 
 	public Long getId() {
@@ -72,7 +72,8 @@ public class MLong {
 	public java.lang.String toString() {
 		return java.lang.Long.toString(value);
 	}
-	public MString toJSON(){
+
+	public MString toJSON() {
 		MString JSON = new MString(new JSONSerializer().deepSerialize(this));
 		return JSON;
 	}

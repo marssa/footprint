@@ -15,31 +15,28 @@
  */
 package mise.marssa.footprint.datatypes.decimal.distance;
 
-import static javax.measure.unit.SI.KILOMETRE;
-
-import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
 
 /**
- * Kilometres
+ * @author Clayton Tabone
  * 
- * @author Lifebook
- * @version 1.0
- * @updated 08-Jul-2011 15:00:20
  */
-@XmlType(name = "KM", factoryClass = TypeFactory.class, factoryMethod = "getKMInstance")
-@Entity
-public class KM extends ADistance {
+@XmlType(name = "Fathoms", factoryClass = TypeFactory.class, factoryMethod = "getFathomsInstance")
+public class Fathoms extends ADistance {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -1716282958949178181L;
+	private static final long serialVersionUID = -2840670099433499514L;
 
-	public KM(double value) throws OutOfRange {
-		super(value, KILOMETRE);
+	/**
+	 * @param value
+	 * @throws OutOfRange
+	 */
+	public Fathoms(double value) throws OutOfRange {
+		super(value, FATHOM);
 	}
 }

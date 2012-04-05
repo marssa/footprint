@@ -15,12 +15,13 @@
  */
 package mise.marssa.footprint.datatypes.decimal;
 
+import java.math.BigDecimal;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.MString;
@@ -28,7 +29,6 @@ import mise.marssa.footprint.datatypes.TypeFactory;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import flexjson.JSON;
 import flexjson.JSONSerializer;
 
 /**
@@ -36,26 +36,30 @@ import flexjson.JSONSerializer;
  * @version 1.0
  * @created 08-Jul-2011 09:53:24
  */
-@XmlType(name = "MFloat", factoryClass = TypeFactory.class, factoryMethod = "getMFloatInstance")
+@XmlType(name = "MDecimal", factoryClass = TypeFactory.class, factoryMethod = "getMDecimalInstance")
 @Entity
 @Inheritance(strategy = javax.persistence.InheritanceType.TABLE_PER_CLASS)
-public class MFloat {
+public class MDecimal extends BigDecimal {
 
-	protected float value;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 241201800992014889L;
 
-	protected MFloat() {
+	private MDecimal() {
+		super(0);
 	}
 
-	public MFloat(float value) {
-		this.value = value;
+	public MDecimal(double value) {
+		super(value);
 	}
-
-	Long id;
 
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(generator = "increment")
 	@GenericGenerator(name = "increment", strategy = "increment")
+	Long id;
+
 	public Long getId() {
 		return id;
 	}
@@ -68,23 +72,11 @@ public class MFloat {
 
 	}
 
-	public float setValue(float value) {
+	public double setValue(double value) {
 		return value;
-	}
-
-	@JSON
-	@XmlElement
-	public float getValue() {
-		return value;
-	}
-
-	public String toString() {
-		return java.lang.Float.toString(value);
 	}
 
 	public MString toJSON() {
-		MString JSON = new MString(new JSONSerializer().deepSerialize(this));
-		return JSON;
+		return new MString(new JSONSerializer().deepSerialize(this));
 	}
-
 }

@@ -21,22 +21,23 @@ import ch.qos.logback.core.LayoutBase;
 
 public class MySampleLayout extends LayoutBase<ILoggingEvent> {
 
-  public String doLayout(ILoggingEvent event) {
-    StringBuffer sbuf = new StringBuffer(128);
-    java.sql.Timestamp  sqlDate = new java.sql.Timestamp(event.getTimeStamp());
-    sbuf.append(sqlDate+"\t");
-    sbuf.append(" [");
-    sbuf.append(event.getThreadName());
-    sbuf.append("] ");
-    sbuf.append(" ");
-    sbuf.append(event.getLevel()+"\t");
-    sbuf.append(" ");    
-    sbuf.append(event.getLoggerName()+"\t");
-    sbuf.append(" - ");
-    sbuf.append(event.getFormattedMessage()+"\t - ");
-    sbuf.append(event.getMarker());
-    sbuf.append(CoreConstants.LINE_SEPARATOR);
-    
-    return sbuf.toString();
-  }
+	public String doLayout(ILoggingEvent event) {
+		StringBuffer sbuf = new StringBuffer(128);
+		java.sql.Timestamp sqlDate = new java.sql.Timestamp(
+				event.getTimeStamp());
+		sbuf.append(sqlDate + "\t");
+		sbuf.append(" [");
+		sbuf.append(event.getThreadName());
+		sbuf.append("] ");
+		sbuf.append(" ");
+		sbuf.append(event.getLevel() + "\t");
+		sbuf.append(" ");
+		sbuf.append(event.getLoggerName() + "\t");
+		sbuf.append(" - ");
+		sbuf.append(event.getFormattedMessage() + "\t - ");
+		sbuf.append(event.getMarker());
+		sbuf.append(CoreConstants.LINE_SEPARATOR);
+
+		return sbuf.toString();
+	}
 }

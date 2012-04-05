@@ -18,27 +18,68 @@
  */
 package mise.marssa.footprint.datatypes.decimal.electrical.power;
 
+import static javax.measure.unit.SI.KILO;
+import static javax.measure.unit.SI.MEGA;
+import static javax.measure.unit.SI.WATT;
+
+import javax.measure.quantity.Power;
+import javax.measure.unit.Unit;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
-import mise.marssa.footprint.datatypes.decimal.MFloat;
+import mise.marssa.footprint.datatypes.decimal.MDecimal;
+import mise.marssa.footprint.logger.MMarker;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author Warren Zahra
- *
+ * 
  */
 @XmlType(name = "APower", factoryClass = TypeFactory.class, factoryMethod = "getAPowerInstance")
-public abstract class APower extends MFloat {
-	public APower (float value) {
+public abstract class APower extends MDecimal {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4249306033520691147L;
+
+	private static Logger logger = (Logger) LoggerFactory
+			.getLogger(APower.class.getName());
+
+	private Unit<Power> currentUnit;
+
+	public APower(double value, Unit<Power> unit) {
 		super(value);
 	}
-	
-	abstract public float getWatts();
-	abstract public float getKWatts();
-	abstract public float getMWatts();
-	
+
+	public MDecimal getWatts() {
+		MDecimal result = new MDecimal(currentUnit.getConverterTo(WATT)
+				.convert(doubleValue()));
+		logger.trace(MMarker.GETTER, "Converting from {} to Watts : {}",
+				currentUnit, result);
+		return result;
+	}
+
+	public MDecimal getKWatts() {
+		MDecimal result = new MDecimal(currentUnit.getConverterTo(KILO(WATT))
+				.convert(doubleValue()));
+		logger.trace(MMarker.GETTER, "Converting from {} to Kilo Watts : {}",
+				currentUnit, result);
+		return result;
+	}
+
+	public MDecimal getMWatts() {
+		MDecimal result = new MDecimal(currentUnit.getConverterTo(MEGA(WATT))
+				.convert(doubleValue()));
+		logger.trace(MMarker.GETTER, "Converting from {} to Mega Watts : {}",
+				currentUnit, result);
+		return result;
+	}
+
 	@Override
 	public String toString() {
-		return "Power in " + this.getClass().getSimpleName() + " = " + value;
+		return "Power in " + this.getClass().getSimpleName() + " = "
+				+ super.toString();
 	}
 }

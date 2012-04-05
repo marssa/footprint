@@ -18,48 +18,28 @@
  */
 package mise.marssa.footprint.datatypes.decimal.electrical.impedance;
 
+import static javax.measure.unit.SI.KILO;
+import static javax.measure.unit.SI.OHM;
+
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
-import mise.marssa.footprint.logger.MMarker;
-
-import org.slf4j.LoggerFactory;
-
-import ch.qos.logback.classic.Logger;
 
 /**
  * @author Warren Zahra
- *
+ * 
  */
 @XmlType(name = "KOhms", factoryClass = TypeFactory.class, factoryMethod = "getKOhmsInstance")
 @Entity
-public class KOhms extends AImpedance{
+public class KOhms extends AImpedance {
 
-	private static Logger KOhms = (Logger) LoggerFactory.getLogger("KOhms");
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5887528892446436127L;
 
-	public KOhms(float value) {
-		super(value);
+	public KOhms(double value) {
+		super(value, KILO(OHM));
 	}
-
-	@Override
-	public float getOhms() {
-		KOhms.trace(MMarker.GETTER,"Converting from KOhms to Ohms : {}",value / 1000);
-		return value*1000;
-	}
-
-	@Override
-	public float getKOhms() {
-		KOhms.trace(MMarker.GETTER,"Getting KOhms: {}",value);
-		return value;
-	}
-
-	@Override
-	public float getMOhms() {
-		KOhms.trace(MMarker.GETTER,"Converting from KOhms to MOhms : {}",value / 1000);
-		return (value/1000);
-	}
-
-	
-
 }

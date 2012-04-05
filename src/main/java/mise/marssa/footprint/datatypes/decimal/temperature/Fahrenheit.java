@@ -15,15 +15,12 @@
  */
 package mise.marssa.footprint.datatypes.decimal.temperature;
 
+import static javax.measure.unit.NonSI.FAHRENHEIT;
+
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
-import mise.marssa.footprint.logger.MMarker;
-
-import org.slf4j.LoggerFactory;
-
-import ch.qos.logback.classic.Logger;
 
 /**
  * @author Alan Grech
@@ -34,31 +31,12 @@ import ch.qos.logback.classic.Logger;
 @Entity
 public class Fahrenheit extends ATemperature {
 
-	private static Logger Fahrenheit = (Logger) LoggerFactory.getLogger("Fahrenheit");
-
-	public Fahrenheit(float value) {
-		super(value);
-	}
-
-	@Override
-	public float getDegreesCelcius() {
-		Fahrenheit.trace(MMarker.GETTER,"Converting from Fahrenheit to DegreesCelcius : {}",(value - 32) * 5 / 9);
-		return (value - 32) * 5 / 9;
-	}
-
-	@Override
-	public float getFahrenheit() {
-		Fahrenheit.trace(MMarker.GETTER,"Getting Fahrenheit: {}",value);
-		return value;
-	}
-
 	/**
-	 * Kelvin is the SI Unit
+	 * 
 	 */
-	@Override
-	public float getKelvin() {
-		Fahrenheit.trace(MMarker.GETTER,"Converting from Fahrenheit to Kelvin : {}",(value - 32) * 5 / 9 + 273);
-		return (value - 32) * 5 / 9 + 273;
-	}
+	private static final long serialVersionUID = 3147375086611852458L;
 
+	public Fahrenheit(double value) {
+		super(value, FAHRENHEIT);
+	}
 }

@@ -15,10 +15,21 @@
  */
 package mise.marssa.footprint.datatypes.decimal.temperature;
 
+import static javax.measure.unit.NonSI.FAHRENHEIT;
+import static javax.measure.unit.SI.CELSIUS;
+import static javax.measure.unit.SI.KELVIN;
+
+import javax.measure.quantity.Temperature;
+import javax.measure.unit.Unit;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
-import mise.marssa.footprint.datatypes.decimal.MFloat;
+import mise.marssa.footprint.datatypes.decimal.MDecimal;
+import mise.marssa.footprint.logger.MMarker;
+
+import org.slf4j.LoggerFactory;
+
+import ch.qos.logback.classic.Logger;
 
 /**
  * @author Alan Grech
@@ -26,23 +37,54 @@ import mise.marssa.footprint.datatypes.decimal.MFloat;
  * @created 08-Jul-2011 09:53:23
  */
 @XmlType(name = "ATemperature", factoryClass = TypeFactory.class, factoryMethod = "getATemperatureInstance")
-public abstract class ATemperature extends MFloat {
+public abstract class ATemperature extends MDecimal {
 
-	public ATemperature(float value) {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2193594527442130594L;
+
+	private static Logger logger = (Logger) LoggerFactory
+			.getLogger(Kelvin.class.getName());
+
+	private Unit<Temperature> currentUnit;
+
+	public ATemperature(double value, Unit<Temperature> unit) {
 		super(value);
+		this.currentUnit = unit;
 	}
-	
-	abstract public float getDegreesCelcius();
 
-	abstract public float getFahrenheit();
+	public MDecimal getDegreesCelcius() {
+		MDecimal result = new MDecimal(currentUnit.getConverterTo(CELSIUS)
+				.convert(doubleValue()));
+		logger.trace(MMarker.GETTER,
+				"Converting from {} to DegreesCelcius : {}", currentUnit,
+				result);
+		return result;
+	}
+
+	public MDecimal getFahrenheit() {
+		MDecimal result = new MDecimal(currentUnit.getConverterTo(FAHRENHEIT)
+				.convert(doubleValue()));
+		logger.trace(MMarker.GETTER, "Converting from {} to Fahrenheit : {}",
+				currentUnit, result);
+		return result;
+	}
 
 	/**
 	 * Kelvin is the SI Unit
 	 */
-	abstract public float getKelvin();
-	
+	public MDecimal getKelvin() {
+		MDecimal result = new MDecimal(currentUnit.getConverterTo(KELVIN)
+				.convert(doubleValue()));
+		logger.trace(MMarker.GETTER, "Converting from {} to Fahrenheit : {}",
+				currentUnit, result);
+		return result;
+	}
+
 	@Override
 	public String toString() {
-		return "Temperature in " + this.getClass().getSimpleName() + " = " + value;
+		return "Temperature in " + this.getClass().getSimpleName() + " = "
+				+ super.toString();
 	}
 }

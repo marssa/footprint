@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlType;
 import mise.marssa.footprint.datatypes.MString;
 import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.datatypes.decimal.DegreesFloat;
-import mise.marssa.footprint.datatypes.decimal.MFloat;
+import mise.marssa.footprint.datatypes.decimal.MDecimal;
 import mise.marssa.footprint.datatypes.integer.DegreesInteger;
 import mise.marssa.footprint.datatypes.integer.MInteger;
 import mise.marssa.footprint.logger.MMarker;
@@ -54,11 +54,10 @@ public abstract class APosition {
 	private static Logger APosition = (Logger) LoggerFactory
 			.getLogger("APosition");
 	// TODO Remove one of the internal representations
-
-	public DegreesInteger deg;
-	public MInteger min;
-	public MFloat sec;
-	public DegreesFloat dms;
+	protected DegreesInteger deg;
+	protected MInteger min;
+	protected MDecimal sec;
+	protected DegreesFloat dms;
 
 	private Long id;
 
@@ -74,21 +73,22 @@ public abstract class APosition {
 		this.id = id;
 	}
 
-	public APosition(DegreesInteger degrees, MInteger minutes, MFloat seconds) {
+	public APosition(DegreesInteger degrees, MInteger minutes, MDecimal seconds) {
 		this.deg = degrees;
 		this.min = minutes;
 		this.sec = seconds;
-		Object[] aPosition = { degrees, minutes, seconds };
+		// TODO Removed unused and commented code in APosition
+		// Object[] aPosition = {degrees,minutes,seconds};
 		// APosition.trace(MMarker.CONSTRUCTOR,"Constructor created with  Degrees:\"{}\", Minutes:\"{}\",Seconds:\"{}\" ",
 		// aPosition);
 		// Do conversion
 		if (degrees.getValue() > 0) {
-			float convertedValue = (degrees.getValue() + (((minutes.getValue() * 60) + (seconds
-					.getValue())) / 3600));
+			double convertedValue = (degrees.getValue() + (((minutes.getValue() * 60) + (seconds
+					.doubleValue())) / 3600));
 			this.dms = new DegreesFloat(convertedValue);
 		} else if (degrees.getValue() < 0) {
-			float convertedValue = -(degrees.getValue() + (((minutes.getValue() * 60) + (seconds
-					.getValue())) / 3600));
+			double convertedValue = -(degrees.getValue() + (((minutes
+					.getValue() * 60) + (seconds.doubleValue())) / 3600));
 			this.dms = new DegreesFloat(-convertedValue);
 		}
 	}
@@ -96,20 +96,22 @@ public abstract class APosition {
 	public APosition(DegreesFloat degrees) {
 		// APosition.trace(MMarker.CONSTRUCTOR,"Constructor created with  Degrees:\"{}f\".",
 		// degrees);
-		float degFloat = degrees.getValue();
+
+		double degFloat = degrees.doubleValue();
 		this.dms = degrees;
 		this.deg = new DegreesInteger((int) java.lang.Math.floor(degFloat));
 
-		float minFloat = 60 * java.lang.Math
-				.abs(degFloat - this.deg.getValue());
+		double minFloat = 60 * java.lang.Math.abs(degFloat
+				- this.deg.getValue());
 		this.min = new MInteger((int) minFloat);
 
-		float secFloat = 60 * (minFloat - this.min.getValue());
+		double secFloat = 60 * (minFloat - this.min.getValue());
 		if (secFloat == 60) {
 			this.min = new MInteger(this.min.getValue() + 1);
 			secFloat = 0;
 		}
-		this.sec = new MFloat(secFloat);
+
+		this.sec = new MDecimal(secFloat);
 		if (this.min.getValue() == 60) {
 			this.deg = new DegreesInteger(this.deg.getValue() + 1);
 			this.min = new MInteger(0);
@@ -123,6 +125,7 @@ public abstract class APosition {
 	@ManyToOne
 	@Cascade({ CascadeType.SAVE_UPDATE })
 	public DegreesInteger getDegrees() {
+
 		APosition.trace(MMarker.GETTER, "Getting Degrees: {}", deg);
 		return deg;
 	}
@@ -144,12 +147,12 @@ public abstract class APosition {
 
 	@ManyToOne
 	@Cascade({ CascadeType.SAVE_UPDATE })
-	public MFloat getSeconds() {
+	public MDecimal getSeconds() {
 		APosition.trace(MMarker.GETTER, "Getting Seconds: {}", sec);
 		return sec;
 	}
 
-	public void setSeconds(MFloat seconds) {
+	public void setSeconds(MDecimal seconds) {
 		this.sec = seconds;
 	}
 

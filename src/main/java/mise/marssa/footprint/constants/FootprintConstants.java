@@ -22,7 +22,7 @@ import mise.marssa.footprint.datatypes.integer.MInteger;
 
 /**
  * @author Clayton Tabone
- *
+ * 
  */
 public final class FootprintConstants {
 	public final static MInteger RETRY_AMOUNT = new MInteger(5);

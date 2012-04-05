@@ -38,12 +38,14 @@ import flexjson.JSONSerializer;
  */
 @XmlType(name = "MInteger", factoryClass = TypeFactory.class, factoryMethod = "getMIntegerInstance")
 @Entity
-@Inheritance(strategy=javax.persistence.InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = javax.persistence.InheritanceType.TABLE_PER_CLASS)
 public class MInteger {
 
 	@XmlElement
 	protected int value;
-	public MInteger(){}
+
+	public MInteger() {
+	}
 
 	public MInteger(int value) {
 		this.value = value;
@@ -52,15 +54,16 @@ public class MInteger {
 	public void finalize() throws Throwable {
 
 	}
+
 	@JSON
 	public int getValue() {
 		return value;
 	}
-	
+
 	@Id
-	@Column(name = "id")	
-	@GeneratedValue(generator="increment")
-	@GenericGenerator(name="increment", strategy = "increment")
+	@Column(name = "id")
+	@GeneratedValue(generator = "increment")
+	@GenericGenerator(name = "increment", strategy = "increment")
 	Long id;
 
 	public Long getId() {
@@ -74,7 +77,8 @@ public class MInteger {
 	public java.lang.String toString() {
 		return java.lang.Integer.toString(value);
 	}
-	public MString toJSON(){
+
+	public MString toJSON() {
 		MString JSON = new MString(new JSONSerializer().deepSerialize(this));
 		return JSON;
 	}

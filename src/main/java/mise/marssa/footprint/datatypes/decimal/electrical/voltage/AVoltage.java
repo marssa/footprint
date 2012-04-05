@@ -18,27 +18,60 @@
  */
 package mise.marssa.footprint.datatypes.decimal.electrical.voltage;
 
+import static javax.measure.unit.SI.MILLI;
+import static javax.measure.unit.SI.VOLT;
+
+import javax.measure.quantity.ElectricPotential;
+import javax.measure.unit.Unit;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
-import mise.marssa.footprint.datatypes.decimal.MFloat;
+import mise.marssa.footprint.datatypes.decimal.MDecimal;
+import mise.marssa.footprint.logger.MMarker;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author Lifebook
- *
+ * 
  */
 @XmlType(name = "AVoltage", factoryClass = TypeFactory.class, factoryMethod = "getAVoltageInstance")
-public abstract class AVoltage extends MFloat {
-	public AVoltage (float value) {
+public abstract class AVoltage extends MDecimal {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8379610960475509245L;
+
+	private static Logger logger = (Logger) LoggerFactory
+			.getLogger(AVoltage.class.getName());
+
+	private Unit<ElectricPotential> currentUnit;
+
+	public AVoltage(double value, Unit<ElectricPotential> unit) {
 		super(value);
+		this.currentUnit = unit;
 	}
-	
-	abstract public float getVolts();
-	abstract public float getMilliVolts();
-	
+
+	public MDecimal getVolts() {
+		MDecimal result = new MDecimal(currentUnit.getConverterTo(VOLT)
+				.convert(doubleValue()));
+		logger.trace(MMarker.GETTER, "Converting from {} to Volts : {}",
+				currentUnit, result);
+		return result;
+	}
+
+	public MDecimal getMilliVolts() {
+		MDecimal result = new MDecimal(currentUnit.getConverterTo(MILLI(VOLT))
+				.convert(doubleValue()));
+		logger.trace(MMarker.GETTER, "Converting from {} to milli Volts : {}",
+				currentUnit, result);
+		return result;
+	}
+
 	@Override
 	public String toString() {
-		return "Voltage in " + this.getClass().getSimpleName() + " = " + value;
+		return "Voltage in " + this.getClass().getSimpleName() + " = "
+				+ super.toString();
 	}
 }
-

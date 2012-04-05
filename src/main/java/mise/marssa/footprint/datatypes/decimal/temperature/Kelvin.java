@@ -15,15 +15,12 @@
  */
 package mise.marssa.footprint.datatypes.decimal.temperature;
 
+import static javax.measure.unit.SI.KELVIN;
+
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
-import mise.marssa.footprint.logger.MMarker;
-
-import org.slf4j.LoggerFactory;
-
-import ch.qos.logback.classic.Logger;
 
 /**
  * @author Alan Grech
@@ -34,30 +31,12 @@ import ch.qos.logback.classic.Logger;
 @Entity
 public class Kelvin extends ATemperature {
 
-	private static Logger Kelvin = (Logger) LoggerFactory.getLogger("Kelvin");
-
-	public Kelvin(float value) {
-		super(value);
-	}
-
-	@Override
-	public float getDegreesCelcius() {
-		Kelvin.trace(MMarker.GETTER,"Converting from Kelvin to DegreesCelcius : {}",value - 273);
-		return value - 273;
-	}
-
-	@Override
-	public float getFahrenheit() {
-		Kelvin.trace(MMarker.GETTER,"Converting from Kelvin to Fahrenheit : {}",((value - 273) * 9 / 5) + 32);
-		return ((value - 273) * 9 / 5) + 32;
-	}
-
 	/**
-	 * Kelvin is the SI Unit
+	 * 
 	 */
-	@Override
-	public float getKelvin() {
-		Kelvin.trace(MMarker.GETTER,"Getting Kelvin: {}",value);
-		return value;
+	private static final long serialVersionUID = -8052575397695552031L;
+
+	public Kelvin(double value) {
+		super(value, KELVIN);
 	}
 }

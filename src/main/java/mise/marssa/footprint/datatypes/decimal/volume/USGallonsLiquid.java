@@ -13,33 +13,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package mise.marssa.footprint.datatypes.decimal;
+package mise.marssa.footprint.datatypes.decimal.volume;
+
+import static javax.measure.unit.NonSI.GALLON_LIQUID_US;
 
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
-import mise.marssa.footprint.logger.MMarker;
 
-import org.slf4j.LoggerFactory;
-
-import ch.qos.logback.classic.Logger;
-
-/**
- * @author Alan Grech
- * @version 1.0
- * @created 08-Jul-2011 09:53:29
- */
-@XmlType(name = "UnsignedFloat", factoryClass = TypeFactory.class, factoryMethod = "getUnsignedFloatInstance")
+@XmlType(name = "USGallonsLiquid", factoryClass = TypeFactory.class, factoryMethod = "getUSGallonsLiquidInstance")
 @Entity
-public class UnsignedFloat extends MFloat {
+public class USGallonsLiquid extends AVolume {
 
-	private static Logger UnsignedFloat = (Logger) LoggerFactory.getLogger("UnsignedFloat");
-	public UnsignedFloat(float value) throws OutOfRange {
-		super(value);
-		if(value < 0f)
-			UnsignedFloat.debug(MMarker.EXCEPTION,"Value received is out of range",new OutOfRange());
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1974583948747922715L;
+
+	public USGallonsLiquid(double value) throws OutOfRange {
+		super(value, GALLON_LIQUID_US);
 	}
-	
 }

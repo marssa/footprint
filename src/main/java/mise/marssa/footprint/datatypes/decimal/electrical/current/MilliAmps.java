@@ -18,38 +18,28 @@
  */
 package mise.marssa.footprint.datatypes.decimal.electrical.current;
 
+import static javax.measure.unit.SI.AMPERE;
+import static javax.measure.unit.SI.MILLI;
+
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
-import mise.marssa.footprint.logger.MMarker;
-
-import org.slf4j.LoggerFactory;
-
-import ch.qos.logback.classic.Logger;
 
 /**
  * @author Alan Grech
- *
+ * 
  */
 @XmlType(name = "MilliAmps", factoryClass = TypeFactory.class, factoryMethod = "getMilliAmpsInstance")
 @Entity
 public class MilliAmps extends ACurrent {
-	private static Logger MilliAmps = (Logger) LoggerFactory.getLogger("MilliAmps");
 
-	public MilliAmps(float value) {
-		super(value);
-	}
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8965172127884811534L;
 
-	@Override
-	public float getAmps() {
-		MilliAmps.trace(MMarker.GETTER,"Converting from MilliAmps to Amps : {}",value / 1000);
-		return value / 1000;
-	}
-
-	@Override
-	public float getMilliAmps() {
-		MilliAmps.trace(MMarker.GETTER,"Getting MilliAmps: {}",value);
-		return value;
+	public MilliAmps(double value) {
+		super(value, MILLI(AMPERE));
 	}
 }

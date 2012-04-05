@@ -35,15 +35,20 @@ import flexjson.JSONSerializer;
  */
 @XmlType(name = "PercentageFloat", factoryClass = TypeFactory.class, factoryMethod = "getPercentageFloatInstance")
 @Entity
-public class PercentageFloat extends MFloat {
-	private static Logger PercentageFloat = (Logger) LoggerFactory.getLogger("PercentageFloat");
+public class PercentageFloat extends MDecimal {
+	private static Logger PercentageFloat = (Logger) LoggerFactory
+			.getLogger("PercentageFloat");
+
 	public PercentageFloat(float value) throws OutOfRange {
 		super(value);
-		if((value < -100f) || (value > 100f))
-			PercentageFloat.debug(MMarker.EXCEPTION,"Value received is out of range",new OutOfRange());
+		if ((value < -100f) || (value > 100f))
+			PercentageFloat.debug(MMarker.EXCEPTION,
+					"Value received is out of range", new OutOfRange());
 	}
-	public MString toJSON(){
-		MString JSON = new MString(new JSONSerializer().exclude("value").deepSerialize(this));
+
+	public MString toJSON() {
+		MString JSON = new MString(new JSONSerializer().exclude("value")
+				.deepSerialize(this));
 		return JSON;
 	}
 }

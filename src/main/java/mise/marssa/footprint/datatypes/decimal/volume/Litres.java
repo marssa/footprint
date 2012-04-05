@@ -15,42 +15,24 @@
  */
 package mise.marssa.footprint.datatypes.decimal.volume;
 
+import static javax.measure.unit.NonSI.LITRE;
+
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
-import mise.marssa.footprint.logger.MMarker;
-
-import org.slf4j.LoggerFactory;
-
-import ch.qos.logback.classic.Logger;
 
 @XmlType(name = "Litres", factoryClass = TypeFactory.class, factoryMethod = "getLitresInstance")
 @Entity
 public class Litres extends AVolume {
 
-	private static Logger Litres = (Logger) LoggerFactory.getLogger("Litres");
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7698732720745652902L;
 
-	public Litres(float value) throws OutOfRange {
-		super(value);
-	}
-
-	@Override
-	public float getLiters() {
-		Litres.trace(MMarker.GETTER,"Getting Litres: {}",value);
-		return value;
-	}
-
-	@Override
-	public float getGallon() {
-		Litres.trace(MMarker.GETTER,"Converting from Litres to Gallon : {}",value * 0.264172052f );
-		return value * 0.264172052f;
-	}
-
-	@Override
-	public float getImpGallon() {
-		Litres.trace(MMarker.GETTER,"Converting from Litres to ImpGallon : {}",value * 0.219969157f);
-		return value * 0.219969157f;
+	public Litres(double value) throws OutOfRange {
+		super(value, LITRE);
 	}
 }

@@ -24,17 +24,19 @@ import mise.marssa.footprint.datatypes.decimal.speed.ASpeed;
 import mise.marssa.footprint.datatypes.decimal.temperature.ATemperature;
 import mise.marssa.footprint.exceptions.OutOfRange;
 
-
-
 /**
  * @author Warren Zahra
- *
+ * 
  */
 public interface ISpeedSensor {
 	public ASpeed getSpeedKnots() throws OutOfRange;
-	public ADistance getDepthMetres() throws OutOfRange;
+
+	public ADistance getDepthMeters() throws OutOfRange;
+
 	public ATemperature getTemperature();
+
 	public DegreesFloat getDegreesMagnetic() throws OutOfRange;
+
 	public DegreesFloat getDegreesTrue() throws OutOfRange;
 
 }

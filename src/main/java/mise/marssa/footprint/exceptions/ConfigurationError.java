@@ -20,7 +20,7 @@ package mise.marssa.footprint.exceptions;
 
 /**
  * @author Clayton Tabone
- *
+ * 
  */
 public class ConfigurationError extends Exception {
 

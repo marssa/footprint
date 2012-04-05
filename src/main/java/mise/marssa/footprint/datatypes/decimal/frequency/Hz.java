@@ -15,16 +15,13 @@
  */
 package mise.marssa.footprint.datatypes.decimal.frequency;
 
+import static javax.measure.unit.SI.HERTZ;
+
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
-import mise.marssa.footprint.logger.MMarker;
-
-import org.slf4j.LoggerFactory;
-
-import ch.qos.logback.classic.Logger;
 
 /**
  * @author Alan Grech
@@ -35,24 +32,12 @@ import ch.qos.logback.classic.Logger;
 @Entity
 public class Hz extends AFrequency {
 
-	private static Logger Hz = (Logger) LoggerFactory.getLogger("Hz");
-	
-	public Hz(float value) throws OutOfRange {
-		super(value);
-	}
-
 	/**
-	 * Hz is the SI unit
+	 * 
 	 */
-	@Override
-	public float getHz() {
-		Hz.trace(MMarker.GETTER,"Getting Hz: {}",value);
-		return value;
-	}
+	private static final long serialVersionUID = 3711408958469426590L;
 
-	@Override
-	public float getKHz() {
-		Hz.trace(MMarker.GETTER,"Converting from Hz to KHz : {}",value / 1000);
-		return value / 1000;
+	public Hz(double value) throws OutOfRange {
+		super(value, HERTZ);
 	}
 }

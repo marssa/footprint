@@ -18,48 +18,28 @@
  */
 package mise.marssa.footprint.datatypes.decimal.electrical.power;
 
+import static javax.measure.unit.SI.KILO;
+import static javax.measure.unit.SI.WATT;
+
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
-import mise.marssa.footprint.logger.MMarker;
-
-import org.slf4j.LoggerFactory;
-
-import ch.qos.logback.classic.Logger;
 
 /**
  * @author Warren Zahra
- *
+ * 
  */
 @XmlType(name = "KWatts", factoryClass = TypeFactory.class, factoryMethod = "getKWattsInstance")
 @Entity
-public class KWatts extends APower{
+public class KWatts extends APower {
 
-	private static Logger KWatts = (Logger) LoggerFactory.getLogger("KWatts");
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4803340047969866158L;
 
-	public KWatts(float value) {
-		super(value);
+	public KWatts(double value) {
+		super(value, KILO(WATT));
 	}
-
-	@Override
-	public float getWatts() {
-		KWatts.trace(MMarker.GETTER,"Converting from KWatts to Watts : {}",value * 1000);
-		return value*1000;
-	}
-
-	@Override
-	public float getKWatts() {
-		KWatts.trace(MMarker.GETTER,"Getting KWatts: {}",value);
-		return value;
-	}
-
-	@Override
-	public float getMWatts() {
-		KWatts.trace(MMarker.GETTER,"Converting from KWatts to MWatts : {}",value / 1000);
-		return (value/1000);
-	}
-
-	
-
 }

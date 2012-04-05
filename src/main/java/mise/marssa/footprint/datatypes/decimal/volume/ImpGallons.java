@@ -15,41 +15,24 @@
  */
 package mise.marssa.footprint.datatypes.decimal.volume;
 
+import static javax.measure.unit.NonSI.GALLON_UK;
+
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
-import mise.marssa.footprint.logger.MMarker;
-
-import org.slf4j.LoggerFactory;
-
-import ch.qos.logback.classic.Logger;
 
 @XmlType(name = "ImpGallons", factoryClass = TypeFactory.class, factoryMethod = "getImpGallonsInstance")
 @Entity
 public class ImpGallons extends AVolume {
-	private static Logger ImpGallons = (Logger) LoggerFactory.getLogger("ImpGallons");
 
-	public ImpGallons(float value) throws OutOfRange {
-		super(value);
-	}
-	
-	@Override
-	public float getLiters() {
-		ImpGallons.trace(MMarker.GETTER,"Converting from ImpGallons to Litres : {}",value *(float)4.54609188);
-		return value *(float)4.54609188;
-	}
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8149229694688209238L;
 
-	@Override
-	public float getGallon() {
-		ImpGallons.trace(MMarker.GETTER,"Converting from ImpGallons to Gallons : {}",value *(float)1.20095042);
-		return value *(float)1.20095042;
-	}
-
-	@Override
-	public float getImpGallon() {
-		ImpGallons.trace(MMarker.GETTER,"Getting ImpGallons: {}",value);
-		return value;
+	public ImpGallons(double value) throws OutOfRange {
+		super(value, GALLON_UK);
 	}
 }
