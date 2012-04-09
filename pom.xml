@@ -26,7 +26,7 @@
 	</properties>
 
 	<organization>
-		<name>MI-SE@MALTA Foundation</name>
+		<name>MARSEC-XL International Limited</name>
 		<url>http://www.marsec-xl.org/</url>
 	</organization>
 
@@ -199,7 +199,7 @@
 				<artifactId>maven-deploy-plugin</artifactId>
 				<version>2.5</version>
 				<configuration>
-					<altDeploymentRepository>footprint::default::file:../../git/marssa-mvn-repo/snapshots</altDeploymentRepository>
+					<altDeploymentRepository>footprint::default::file:../marssa-mvn-repo/snapshots</altDeploymentRepository>
 				</configuration>
 			</plugin>
 
