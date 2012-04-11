@@ -49,7 +49,7 @@ public abstract class APower extends MDecimal {
 
 	private Unit<Power> currentUnit;
 
-	public APower(double value, Unit<Power> unit) {
+	protected APower(double value, Unit<Power> unit) {
 		super(value);
 	}
 
@@ -77,9 +77,5 @@ public abstract class APower extends MDecimal {
 		return result;
 	}
 
-	@Override
-	public String toString() {
-		return "Power in " + this.getClass().getSimpleName() + " = "
-				+ super.toString();
-	}
+	
 }

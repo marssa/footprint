@@ -21,8 +21,11 @@ package mise.marssa.footprint.datatypes.decimal.electrical.power;
 import static javax.measure.unit.SI.MEGA;
 import static javax.measure.unit.SI.WATT;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
+
+import org.hibernate.annotations.AccessType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
 
@@ -33,6 +36,7 @@ import mise.marssa.footprint.datatypes.TypeFactory;
  */
 @XmlType(name = "MWatts", factoryClass = TypeFactory.class, factoryMethod = "getMWattsInstance")
 @Entity
+@AccessType("property")
 public class MWatts extends APower {
 
 	/**
@@ -42,5 +46,9 @@ public class MWatts extends APower {
 
 	public MWatts(double value) {
 		super(value, MEGA(WATT));
+	}
+	@Column(name = "MWatts")
+	public double getValue(){
+		return super.doubleValue();
 	}
 }

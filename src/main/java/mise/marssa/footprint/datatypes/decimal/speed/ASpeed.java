@@ -20,6 +20,9 @@ import static javax.measure.unit.NonSI.KNOT;
 import static javax.measure.unit.NonSI.MILES_PER_HOUR;
 import static javax.measure.unit.SI.METERS_PER_SECOND;
 
+import java.math.MathContext;
+
+import javax.measure.quantity.Length;
 import javax.measure.quantity.Velocity;
 import javax.measure.unit.Unit;
 import javax.xml.bind.annotation.XmlType;
@@ -57,7 +60,10 @@ public abstract class ASpeed extends UnsignedDecimal {
 		super(value);
 		this.currentUnit = unit;
 	}
-
+	protected ASpeed(double value, Unit<Velocity> unit, MathContext mc) throws OutOfRange {
+		super(value,mc);
+		this.currentUnit = unit;
+	}
 	/**
 	 * 
 	 * @return
@@ -142,9 +148,5 @@ public abstract class ASpeed extends UnsignedDecimal {
 			return 0; // need to be changed to an exception
 	}
 
-	@Override
-	public String toString() {
-		return "Speed in " + this.getClass().getSimpleName() + " = "
-				+ super.toString();
-	}
+
 }

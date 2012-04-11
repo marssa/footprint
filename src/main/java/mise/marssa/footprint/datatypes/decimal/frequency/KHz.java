@@ -18,8 +18,11 @@ package mise.marssa.footprint.datatypes.decimal.frequency;
 import static javax.measure.unit.SI.HERTZ;
 import static javax.measure.unit.SI.KILO;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
+
+import org.hibernate.annotations.AccessType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
@@ -31,6 +34,7 @@ import mise.marssa.footprint.exceptions.OutOfRange;
  */
 @XmlType(name = "KHz", factoryClass = TypeFactory.class, factoryMethod = "getKHzInstance")
 @Entity
+@AccessType("property")
 public class KHz extends AFrequency {
 
 	/**
@@ -40,5 +44,9 @@ public class KHz extends AFrequency {
 
 	public KHz(double value) throws OutOfRange {
 		super(value, KILO(HERTZ));
+	}
+	@Column(name = "kHz")
+	public double getValue(){
+		return super.doubleValue();
 	}
 }

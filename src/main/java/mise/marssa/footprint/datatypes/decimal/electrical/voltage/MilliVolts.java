@@ -21,8 +21,11 @@ package mise.marssa.footprint.datatypes.decimal.electrical.voltage;
 import static javax.measure.unit.SI.MILLI;
 import static javax.measure.unit.SI.VOLT;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
+
+import org.hibernate.annotations.AccessType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
 
@@ -32,6 +35,7 @@ import mise.marssa.footprint.datatypes.TypeFactory;
  */
 @XmlType(name = "MilliVolts", factoryClass = TypeFactory.class, factoryMethod = "getMilliVoltsInstance")
 @Entity
+@AccessType("property")
 public class MilliVolts extends AVoltage {
 
 	/**
@@ -41,5 +45,9 @@ public class MilliVolts extends AVoltage {
 
 	public MilliVolts(double value) {
 		super(value, MILLI(VOLT));
+	}
+	@Column(name = "MilliVolts")
+	public double getValue(){
+		return super.doubleValue();
 	}
 }

@@ -18,14 +18,18 @@ package mise.marssa.footprint.datatypes.decimal.pressure;
 import static javax.measure.unit.SI.KILO;
 import static javax.measure.unit.SI.PASCAL;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
+
+import org.hibernate.annotations.AccessType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
 
 @XmlType(name = "KPa", factoryClass = TypeFactory.class, factoryMethod = "getKPaInstance")
 @Entity
+@AccessType("property")
 public class KPa extends APressure {
 
 	/**
@@ -35,5 +39,9 @@ public class KPa extends APressure {
 
 	public KPa(double value) throws OutOfRange {
 		super(value, KILO(PASCAL));
+	}
+	@Column(name = "Kpa")
+	public double getValue(){
+		return super.doubleValue();
 	}
 }

@@ -16,6 +16,7 @@
 package mise.marssa.footprint.datatypes.decimal;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -41,6 +42,7 @@ import flexjson.JSONSerializer;
 @Inheritance(strategy = javax.persistence.InheritanceType.TABLE_PER_CLASS)
 public class MDecimal extends BigDecimal {
 
+	
 	/**
 	 * 
 	 */
@@ -53,13 +55,16 @@ public class MDecimal extends BigDecimal {
 	public MDecimal(double value) {
 		super(value);
 	}
-
+	public MDecimal(double value, MathContext mc) {
+		super(value, mc);
+	}
+	
 	@Id
-	@Column(name = "id")
+    @Column(name = "id")
 	@GeneratedValue(generator = "increment")
 	@GenericGenerator(name = "increment", strategy = "increment")
 	Long id;
-
+	
 	public Long getId() {
 		return id;
 	}
@@ -79,4 +84,5 @@ public class MDecimal extends BigDecimal {
 	public MString toJSON() {
 		return new MString(new JSONSerializer().deepSerialize(this));
 	}
+
 }

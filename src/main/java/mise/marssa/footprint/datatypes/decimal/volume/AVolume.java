@@ -51,7 +51,7 @@ public abstract class AVolume extends UnsignedDecimal {
 
 	private Unit<Volume> currentUnit;
 
-	public AVolume(double value, Unit<Volume> unit) throws OutOfRange {
+	protected AVolume(double value, Unit<Volume> unit) throws OutOfRange {
 		super(value);
 	}
 
@@ -95,9 +95,5 @@ public abstract class AVolume extends UnsignedDecimal {
 		return result;
 	}
 
-	@Override
-	public String toString() {
-		return "Volume in " + this.getClass().getSimpleName() + " = "
-				+ super.toString();
-	}
+	
 }

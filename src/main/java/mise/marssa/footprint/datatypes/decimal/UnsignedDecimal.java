@@ -15,6 +15,8 @@
  */
 package mise.marssa.footprint.datatypes.decimal;
 
+import java.math.MathContext;
+
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
@@ -49,5 +51,10 @@ public class UnsignedDecimal extends MDecimal {
 			logger.debug(MMarker.EXCEPTION, "Value received is out of range",
 					new OutOfRange());
 	}
-
+	public UnsignedDecimal(double value, MathContext mc) throws OutOfRange {
+		super(value,mc);
+		if (value < 0)
+			logger.debug(MMarker.EXCEPTION, "Value received is out of range",
+					new OutOfRange());
+	}
 }

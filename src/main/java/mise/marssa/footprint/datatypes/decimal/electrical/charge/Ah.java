@@ -18,8 +18,11 @@
  */
 package mise.marssa.footprint.datatypes.decimal.electrical.charge;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
+
+import org.hibernate.annotations.AccessType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
 
@@ -29,6 +32,7 @@ import mise.marssa.footprint.datatypes.TypeFactory;
  */
 @XmlType(name = "Ah", factoryClass = TypeFactory.class, factoryMethod = "getAhInstance")
 @Entity
+@AccessType("property")
 public class Ah extends ACharge {
 
 	/**
@@ -38,5 +42,9 @@ public class Ah extends ACharge {
 
 	public Ah(double value) {
 		super(value, AMPERE_HOUR);
+	}
+	@Column(name = "Ah")
+	public double getValue(){
+		return super.doubleValue();
 	}
 }

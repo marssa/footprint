@@ -18,8 +18,11 @@
  */
 package mise.marssa.footprint.datatypes.decimal.flow;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
+
+import org.hibernate.annotations.AccessType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
@@ -31,6 +34,7 @@ import mise.marssa.footprint.exceptions.OutOfRange;
  */
 @XmlType(name = "MCPM", factoryClass = TypeFactory.class, factoryMethod = "getMCPMInstance")
 @Entity
+@AccessType("property")
 public class MCPM extends AVolumeFlow {
 
 	/**
@@ -40,5 +44,9 @@ public class MCPM extends AVolumeFlow {
 
 	public MCPM(double value) throws OutOfRange {
 		super(value, CUBIC_METRE_PER_MINUTE);
+	}
+	@Column(name = "MCPM")
+	public double getValue(){
+		return super.doubleValue();
 	}
 }

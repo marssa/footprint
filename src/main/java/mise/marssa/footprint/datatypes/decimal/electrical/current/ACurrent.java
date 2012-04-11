@@ -48,7 +48,7 @@ public abstract class ACurrent extends MDecimal {
 
 	private Unit<ElectricCurrent> currentUnit;
 
-	public ACurrent(double value, Unit<ElectricCurrent> unit) {
+	protected ACurrent(double value, Unit<ElectricCurrent> unit) {
 		super(value);
 		this.currentUnit = unit;
 	}
@@ -69,9 +69,5 @@ public abstract class ACurrent extends MDecimal {
 		return result;
 	}
 
-	@Override
-	public String toString() {
-		return "Current in " + this.getClass().getSimpleName() + " = "
-				+ super.toString();
-	}
+	
 }

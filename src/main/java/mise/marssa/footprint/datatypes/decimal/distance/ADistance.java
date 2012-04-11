@@ -20,6 +20,8 @@ import static javax.measure.unit.NonSI.NAUTICAL_MILE;
 import static javax.measure.unit.SI.KILOMETRE;
 import static javax.measure.unit.SI.METRE;
 
+import java.math.MathContext;
+
 import javax.measure.converter.MultiplyConverter;
 import javax.measure.quantity.Length;
 import javax.measure.unit.Unit;
@@ -69,8 +71,12 @@ public abstract class ADistance extends UnsignedDecimal {
 	protected static final Unit<Length> FATHOM = METRE
 			.transform(metresToFathoms);
 
-	public ADistance(double value, Unit<Length> unit) throws OutOfRange {
+	protected ADistance(double value, Unit<Length> unit) throws OutOfRange {
 		super(value);
+		this.currentUnit = unit;
+	}
+	protected ADistance(double value, Unit<Length> unit, MathContext mc) throws OutOfRange {
+		super(value,mc);
 		this.currentUnit = unit;
 	}
 
@@ -82,7 +88,6 @@ public abstract class ADistance extends UnsignedDecimal {
 		return result;
 	}
 
-	@Column(name = "Metres")
 	public MDecimal getMetres() {
 		MDecimal result = new MDecimal(currentUnit.getConverterTo(METRE)
 				.convert(doubleValue()));
@@ -122,9 +127,5 @@ public abstract class ADistance extends UnsignedDecimal {
 		return result;
 	}
 
-	@Override
-	public String toString() {
-		return "Distance in " + this.getClass().getSimpleName() + " = "
-				+ super.toString();
-	}
+
 }

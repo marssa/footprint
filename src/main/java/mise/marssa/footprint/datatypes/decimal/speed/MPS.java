@@ -17,8 +17,11 @@ package mise.marssa.footprint.datatypes.decimal.speed;
 
 import static javax.measure.unit.SI.METERS_PER_SECOND;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
+
+import org.hibernate.annotations.AccessType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
@@ -35,6 +38,7 @@ import mise.marssa.footprint.exceptions.OutOfRange;
 
 @XmlType(name = "MPS", factoryClass = TypeFactory.class, factoryMethod = "getMPSInstance")
 @Entity
+@AccessType("property")
 public class MPS extends ASpeed {
 
 	/**
@@ -44,5 +48,9 @@ public class MPS extends ASpeed {
 
 	public MPS(double value) throws OutOfRange {
 		super(value, METERS_PER_SECOND);
+	}
+	@Column(name = "MPS")
+	public double getValue(){
+		return super.doubleValue();
 	}
 }

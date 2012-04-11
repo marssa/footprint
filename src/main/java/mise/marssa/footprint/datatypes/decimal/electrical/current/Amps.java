@@ -20,8 +20,11 @@ package mise.marssa.footprint.datatypes.decimal.electrical.current;
 
 import static javax.measure.unit.SI.AMPERE;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
+
+import org.hibernate.annotations.AccessType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
 
@@ -31,6 +34,7 @@ import mise.marssa.footprint.datatypes.TypeFactory;
  */
 @XmlType(name = "Amps", factoryClass = TypeFactory.class, factoryMethod = "getAmpsInstance")
 @Entity
+@AccessType("property")
 public class Amps extends ACurrent {
 
 	/**
@@ -40,5 +44,9 @@ public class Amps extends ACurrent {
 
 	public Amps(double value) {
 		super(value, AMPERE);
+	}
+	@Column(name = "Amps")
+	public double getValue(){
+		return super.doubleValue();
 	}
 }

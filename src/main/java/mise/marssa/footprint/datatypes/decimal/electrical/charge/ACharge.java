@@ -67,7 +67,7 @@ public abstract class ACharge extends MDecimal {
 	protected static final Unit<ElectricCharge> MILLI_AMPERE_HOUR = MILLI(
 			AMPERE).times(HOUR).asType(ElectricCharge.class);
 
-	public ACharge(double value, Unit<ElectricCharge> unit) {
+	protected ACharge(double value, Unit<ElectricCharge> unit) {
 		super(value);
 		this.currentUnit = unit;
 	}
@@ -107,9 +107,4 @@ public abstract class ACharge extends MDecimal {
 		return result;
 	}
 
-	@Override
-	public String toString() {
-		return "Charge in " + this.getClass().getSimpleName() + " = "
-				+ super.toString();
-	}
 }

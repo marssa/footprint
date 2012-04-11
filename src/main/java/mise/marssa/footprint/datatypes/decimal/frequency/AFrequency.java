@@ -49,7 +49,7 @@ public abstract class AFrequency extends UnsignedDecimal {
 
 	private Unit<Frequency> currentUnit;
 
-	public AFrequency(double value, Unit<Frequency> unit) throws OutOfRange {
+	protected AFrequency(double value, Unit<Frequency> unit) throws OutOfRange {
 		super(value);
 		this.currentUnit = unit;
 	}
@@ -74,9 +74,5 @@ public abstract class AFrequency extends UnsignedDecimal {
 
 	}
 
-	@Override
-	public String toString() {
-		return "Frequency in " + this.getClass().getSimpleName() + " = "
-				+ super.toString();
-	}
+	
 }

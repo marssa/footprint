@@ -17,8 +17,11 @@ package mise.marssa.footprint.datatypes.decimal.temperature;
 
 import static javax.measure.unit.SI.CELSIUS;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
+
+import org.hibernate.annotations.AccessType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
 
@@ -29,6 +32,7 @@ import mise.marssa.footprint.datatypes.TypeFactory;
  */
 @XmlType(name = "DegreesCelcius", factoryClass = TypeFactory.class, factoryMethod = "getDegreesCelciusInstance")
 @Entity
+@AccessType("property")
 public class DegreesCelcius extends ATemperature {
 
 	/**
@@ -38,5 +42,9 @@ public class DegreesCelcius extends ATemperature {
 
 	public DegreesCelcius(double value) {
 		super(value, CELSIUS);
+	}
+	@Column(name = "DegreesCelcius")
+	public double getValue(){
+		return super.doubleValue();
 	}
 }

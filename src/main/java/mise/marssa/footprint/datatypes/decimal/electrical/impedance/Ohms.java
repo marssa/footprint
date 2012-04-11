@@ -20,8 +20,11 @@ package mise.marssa.footprint.datatypes.decimal.electrical.impedance;
 
 import static javax.measure.unit.SI.OHM;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
+
+import org.hibernate.annotations.AccessType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
 
@@ -31,6 +34,7 @@ import mise.marssa.footprint.datatypes.TypeFactory;
  */
 @XmlType(name = "Ohms", factoryClass = TypeFactory.class, factoryMethod = "getOhmsInstance")
 @Entity
+@AccessType("property")
 public class Ohms extends AImpedance {
 
 	/**
@@ -40,5 +44,9 @@ public class Ohms extends AImpedance {
 
 	public Ohms(double value) {
 		super(value, OHM);
+	}
+	@Column(name = "Ohms")
+	public double getValue(){
+		return super.doubleValue();
 	}
 }

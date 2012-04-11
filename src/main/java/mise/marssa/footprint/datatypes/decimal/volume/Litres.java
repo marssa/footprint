@@ -17,14 +17,18 @@ package mise.marssa.footprint.datatypes.decimal.volume;
 
 import static javax.measure.unit.NonSI.LITRE;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
+
+import org.hibernate.annotations.AccessType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
 
 @XmlType(name = "Litres", factoryClass = TypeFactory.class, factoryMethod = "getLitresInstance")
 @Entity
+@AccessType("property")
 public class Litres extends AVolume {
 
 	/**
@@ -34,5 +38,9 @@ public class Litres extends AVolume {
 
 	public Litres(double value) throws OutOfRange {
 		super(value, LITRE);
+	}
+	@Column(name = "Litres")
+	public double getValue(){
+		return super.doubleValue();
 	}
 }

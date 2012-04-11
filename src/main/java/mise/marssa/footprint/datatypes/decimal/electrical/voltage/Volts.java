@@ -20,8 +20,11 @@ package mise.marssa.footprint.datatypes.decimal.electrical.voltage;
 
 import static javax.measure.unit.SI.VOLT;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
+
+import org.hibernate.annotations.AccessType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
 
@@ -31,6 +34,7 @@ import mise.marssa.footprint.datatypes.TypeFactory;
  */
 @XmlType(name = "Volts", factoryClass = TypeFactory.class, factoryMethod = "getVoltsInstance")
 @Entity
+@AccessType("property")
 public class Volts extends AVoltage {
 
 	/**
@@ -40,5 +44,9 @@ public class Volts extends AVoltage {
 
 	public Volts(double value) {
 		super(value, VOLT);
+	}
+	@Column(name = "Volts")
+	public double getValue(){
+		return super.doubleValue();
 	}
 }
