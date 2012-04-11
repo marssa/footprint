@@ -26,7 +26,7 @@
 	</properties>
 
 	<organization>
-		<name>MI-SE@MALTA Foundation</name>
+		<name>MARSEC-XL International Limited</name>
 		<url>http://www.marsec-xl.org/</url>
 	</organization>
 
@@ -199,7 +199,7 @@
 				<artifactId>maven-deploy-plugin</artifactId>
 				<version>2.5</version>
 				<configuration>
-					<altDeploymentRepository>footprint::default::file:../../git/marssa-mvn-repo/snapshots</altDeploymentRepository>
+					<altDeploymentRepository>footprint::default::file:../marssa-mvn-repo/snapshots</altDeploymentRepository>
 				</configuration>
 			</plugin>
 
@@ -305,6 +305,13 @@
 						<groupId>com.sun.xml.bind</groupId>
 						<artifactId>jaxb-impl</artifactId>
 						<version>2.2</version>
+					</dependency>
+					<dependency>
+						<groupId>com.sun</groupId>
+						<artifactId>tools</artifactId>
+						<version>${javaVersion}</version>
+						<scope>system</scope>
+						<systemPath>${java.home}/../lib/tools.jar</systemPath>
 					</dependency>
 				</dependencies>
 			</plugin>
