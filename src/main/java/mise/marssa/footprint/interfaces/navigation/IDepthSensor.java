@@ -18,9 +18,12 @@
  */
 package mise.marssa.footprint.interfaces.navigation;
 
+import javax.xml.bind.annotation.XmlType;
+
 import mise.marssa.footprint.datatypes.decimal.distance.ADistance;
 import mise.marssa.footprint.datatypes.decimal.temperature.ATemperature;
 import mise.marssa.footprint.exceptions.OutOfRange;
+import mise.marssa.footprint.interfaces.IQuantity;
 
 /**
  * @author Warren Zahra
@@ -31,5 +34,10 @@ public interface IDepthSensor {
 	public ADistance getDepthMeters() throws OutOfRange;
 
 	public ATemperature getTemperatureDegrees() throws OutOfRange;
+	
+	@XmlType(name="DepthSensorQuantities")
+	public enum CompassQuantity implements IQuantity {
+		DEPTH_METERS, TEMPERATURE;
+	}
 
 }

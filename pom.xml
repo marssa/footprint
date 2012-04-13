@@ -231,14 +231,17 @@
 					<destdir>${basedir}/src/main/resources/generated/schemas</destdir>
 					<srcdir>${project.build.sourceDirectory}</srcdir>
 					<includes>
-						<include>/mise/marssa/footprint/datatypes</include>
-						<include>/mise/marssa/footprint/interfaces/navigation/IGpsReceiver.java</include>
+						<include>**/*mise/marssa/footprint/datatypes/</include>
+						<include>**/*mise/marssa/footprint/interfaces/navigation/</include>
 					</includes>
+					<excludes>
+						<exclude>**/*mise/marssa/footprint/interfaces/control/</exclude>
+					</excludes>
 					<schemas>
-						<scshema>
-							<namespace>mise.marssa.footprint.interfaces</namespace>
-							<file>interfaces.xsd</file>
-						</scshema>
+						<schema>
+							<namespace>mise.marssa.footprint.quantities</namespace>
+							<file>quantities.xsd</file>
+						</schema>
 						<schema>
 							<namespace>mise.marssa.footprint.datatypes</namespace>
 							<file>datatypes.xsd</file>

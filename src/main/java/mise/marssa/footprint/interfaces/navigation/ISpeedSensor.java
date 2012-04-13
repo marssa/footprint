@@ -18,11 +18,12 @@
  */
 package mise.marssa.footprint.interfaces.navigation;
 
+import javax.xml.bind.annotation.XmlType;
+
 import mise.marssa.footprint.datatypes.decimal.DegreesFloat;
-import mise.marssa.footprint.datatypes.decimal.distance.ADistance;
 import mise.marssa.footprint.datatypes.decimal.speed.ASpeed;
-import mise.marssa.footprint.datatypes.decimal.temperature.ATemperature;
 import mise.marssa.footprint.exceptions.OutOfRange;
+import mise.marssa.footprint.interfaces.IQuantity;
 
 /**
  * @author Warren Zahra
@@ -31,12 +32,13 @@ import mise.marssa.footprint.exceptions.OutOfRange;
 public interface ISpeedSensor {
 	public ASpeed getSpeedKnots() throws OutOfRange;
 
-	public ADistance getDepthMeters() throws OutOfRange;
-
-	public ATemperature getTemperature();
-
 	public DegreesFloat getDegreesMagnetic() throws OutOfRange;
 
 	public DegreesFloat getDegreesTrue() throws OutOfRange;
+	
+	@XmlType(name="SpeedSensorQuantities")
+	public enum CompassQuantity implements IQuantity {
+		SPEED_KNOTS, MAGNETIC_NORTH, TRUE_NORTH;
+	}
 
 }
