@@ -24,7 +24,6 @@ import javax.xml.bind.annotation.XmlType;
 import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.logger.MMarker;
 
-import org.hibernate.annotations.AccessType;
 import org.slf4j.LoggerFactory;
 
 import ch.qos.logback.classic.Logger;
@@ -37,6 +36,7 @@ import ch.qos.logback.classic.Logger;
 @Entity
 public class Milliseconds extends ATime {
 
+	// TODO switch conversions to use JSCience
 	private static Logger MilliSeconds = (Logger) LoggerFactory
 			.getLogger("MilliSeconds");
 
