@@ -39,34 +39,32 @@ import ch.qos.logback.classic.Logger;
 @Entity
 public class Latitude extends APosition {
 
-	private APosition latitude;
-
-	private static Logger Latitude = (Logger) LoggerFactory
-			.getLogger("Latitude");
+	private static Logger logger = (Logger) LoggerFactory
+			.getLogger(Latitude.class.getName());
 
 	public Latitude(DegreesInteger degrees, MInteger minutes, MDecimal seconds)
 			throws OutOfRange {
 
 		super(degrees, minutes, seconds);
 
-		if (degrees.getValue() < -90 && degrees.getValue() > 90)
-			Latitude.debug(MMarker.EXCEPTION,
+		if (degrees.intValue() < -90 && degrees.intValue() > 90)
+			logger.debug(MMarker.EXCEPTION,
 					"Degrees value is out of range -90 < degrees < 90",
 					new OutOfRange());
-		if (minutes.getValue() < 0 && minutes.getValue() > 60)
-			Latitude.debug(MMarker.EXCEPTION,
+		if (minutes.intValue() < 0 && minutes.intValue() > 60)
+			logger.debug(MMarker.EXCEPTION,
 					"Minutes value is out of range 0 < minutes < 60",
 					new OutOfRange());
 		if (seconds.doubleValue() < 0 && seconds.doubleValue() > 60)
-			Latitude.debug(MMarker.EXCEPTION,
-					"Seconds value is out of range 60 < minutes < 60",
+			logger.debug(MMarker.EXCEPTION,
+					"Seconds value is out of range 60 < seconds < 60",
 					new OutOfRange());
 	}
 
 	public Latitude(DegreesFloat degrees) throws OutOfRange {
 		super(degrees);
 		if (degrees.doubleValue() < -90 && degrees.doubleValue() > 90)
-			Latitude.debug(MMarker.EXCEPTION,
+			logger.debug(MMarker.EXCEPTION,
 					"Degrees value is out of range -90 < minutes < 90",
 					new OutOfRange());
 	}
@@ -75,8 +73,8 @@ public class Latitude extends APosition {
 
 	}
 
-	public java.lang.String toString() {
-		return "DDMMSS.S: [" + deg + "\u00b0, " + min + "', " + sec + "\"]";
+	public String toString() {
+		return "DDMMSS.S: " + super.toString();
 	}
 
 }

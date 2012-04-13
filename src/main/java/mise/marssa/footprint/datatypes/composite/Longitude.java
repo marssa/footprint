@@ -38,34 +38,33 @@ import ch.qos.logback.classic.Logger;
 @XmlType(name = "Longitude", factoryClass = TypeFactory.class, factoryMethod = "getLongitudeInstance")
 @Entity
 public class Longitude extends APosition {
-	private APosition longitude;
 
-	private static Logger Longitude = (Logger) LoggerFactory
-			.getLogger("Longitude");
+	private static Logger logger = (Logger) LoggerFactory
+			.getLogger(Longitude.class.getName());
 
 	public Longitude(DegreesInteger degrees, MInteger minutes, MDecimal seconds)
 			throws OutOfRange {
 
 		super(degrees, minutes, seconds);
 
-		if (degrees.getValue() < -180 && degrees.getValue() > 180)
-			Longitude.debug(MMarker.EXCEPTION,
+		if (degrees.intValue() < -180 && degrees.intValue() > 180)
+			logger.debug(MMarker.EXCEPTION,
 					"Degrees value is out of range -180 < degrees < 180",
 					new OutOfRange());
-		if (minutes.getValue() < 0 && minutes.getValue() > 60)
-			Longitude.debug(MMarker.EXCEPTION,
-					"Degrees value is out of range 0 < degrees < 60",
+		if (minutes.intValue() < 0 && minutes.intValue() > 60)
+			logger.debug(MMarker.EXCEPTION,
+					"Minutes value is out of range 0 < minutes < 60",
 					new OutOfRange());
 		if (seconds.doubleValue() < 0 && seconds.doubleValue() > 60)
-			Longitude.debug(MMarker.EXCEPTION,
-					"Degrees value is out of range 60 < degrees < 60",
+			logger.debug(MMarker.EXCEPTION,
+					"Seconds value is out of range 60 < seconds < 60",
 					new OutOfRange());
 	}
 
 	public Longitude(DegreesFloat degrees) throws OutOfRange {
 		super(degrees);
 		if (degrees.doubleValue() < -180 && degrees.doubleValue() > 180)
-			Longitude.debug(MMarker.EXCEPTION,
+			logger.debug(MMarker.EXCEPTION,
 					"Degrees value is out of range -180 < degrees < 180",
 					new OutOfRange());
 	}
@@ -74,8 +73,8 @@ public class Longitude extends APosition {
 
 	}
 
-	public java.lang.String toString() {
-		return "DDDMMSS.S: " + longitude;
+	public String toString() {
+		return "DDDMMSS.S: " + super.toString();
 	}
 
 }

@@ -20,6 +20,7 @@ import mise.marssa.footprint.datatypes.MString;
 import mise.marssa.footprint.datatypes.composite.Coordinate;
 import mise.marssa.footprint.datatypes.decimal.DegreesFloat;
 import mise.marssa.footprint.datatypes.decimal.MDecimal;
+import mise.marssa.footprint.datatypes.decimal.distance.Metres;
 import mise.marssa.footprint.datatypes.decimal.speed.Knots;
 import mise.marssa.footprint.datatypes.integer.DegreesInteger;
 import mise.marssa.footprint.datatypes.integer.MInteger;
@@ -27,6 +28,7 @@ import mise.marssa.footprint.datatypes.time.ATime;
 import mise.marssa.footprint.exceptions.NoConnection;
 import mise.marssa.footprint.exceptions.NoValue;
 import mise.marssa.footprint.exceptions.OutOfRange;
+import mise.marssa.footprint.interfaces.IQuantity;
 
 /**
  * @author Alan Grech
@@ -49,7 +51,7 @@ public interface IGpsReceiver {
 
 	public MDate getDate() throws NoConnection, NoValue;
 
-	public DegreesFloat getElevation() throws NoConnection, NoValue;
+	public Metres getAltitude() throws NoConnection, NoValue,OutOfRange;
 
 	public ATime getLocalZoneTime() throws NoConnection, NoValue;
 
@@ -85,4 +87,11 @@ public interface IGpsReceiver {
 	public MDecimal getHDOP() throws NoConnection, NoValue;
 
 	public MDecimal getPDOP() throws NoConnection, NoValue;
+	
+	public enum GPSQuantity implements IQuantity {
+		ALTITUDE, SOG, COG, AZIMUTH, COORDINATE, DATE,
+		ELEVATION, LOCAL_ZONE_TIME, SATELLITE_ID, SATELLITE_IN_VIEW,
+		SATELLITES_IN_USE, SIGNAL_STRENGTH, SNR, EPT, STATUS, TIME,
+		VDOP, HDOP, PDOP;
+	}
 }

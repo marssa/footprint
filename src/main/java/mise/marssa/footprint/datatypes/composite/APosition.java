@@ -51,8 +51,8 @@ public abstract class APosition {
 	protected APosition() {
 	}
 
-	private static Logger APosition = (Logger) LoggerFactory
-			.getLogger("APosition");
+	private static Logger logger = (Logger) LoggerFactory
+			.getLogger(APosition.class.getName());
 	// TODO Remove one of the internal representations
 	protected DegreesInteger deg;
 	protected MInteger min;
@@ -82,13 +82,13 @@ public abstract class APosition {
 		// APosition.trace(MMarker.CONSTRUCTOR,"Constructor created with  Degrees:\"{}\", Minutes:\"{}\",Seconds:\"{}\" ",
 		// aPosition);
 		// Do conversion
-		if (degrees.getValue() > 0) {
-			double convertedValue = (degrees.getValue() + (((minutes.getValue() * 60) + (seconds
+		if (degrees.intValue() > 0) {
+			double convertedValue = (degrees.intValue() + (((minutes.intValue() * 60) + (seconds
 					.doubleValue())) / 3600));
 			this.dms = new DegreesFloat(convertedValue);
-		} else if (degrees.getValue() < 0) {
-			double convertedValue = -(degrees.getValue() + (((minutes
-					.getValue() * 60) + (seconds.doubleValue())) / 3600));
+		} else if (degrees.intValue() < 0) {
+			double convertedValue = -(degrees.intValue() + (((minutes
+					.intValue() * 60) + (seconds.doubleValue())) / 3600));
 			this.dms = new DegreesFloat(-convertedValue);
 		}
 	}
@@ -102,18 +102,18 @@ public abstract class APosition {
 		this.deg = new DegreesInteger((int) java.lang.Math.floor(degFloat));
 
 		double minFloat = 60 * java.lang.Math.abs(degFloat
-				- this.deg.getValue());
+				- this.deg.intValue());
 		this.min = new MInteger((int) minFloat);
 
-		double secFloat = 60 * (minFloat - this.min.getValue());
+		double secFloat = 60 * (minFloat - this.min.intValue());
 		if (secFloat == 60) {
-			this.min = new MInteger(this.min.getValue() + 1);
+			this.min = new MInteger(this.min.intValue() + 1);
 			secFloat = 0;
 		}
 
 		this.sec = new MDecimal(secFloat);
-		if (this.min.getValue() == 60) {
-			this.deg = new DegreesInteger(this.deg.getValue() + 1);
+		if (this.min.intValue() == 60) {
+			this.deg = new DegreesInteger(this.deg.intValue() + 1);
 			this.min = new MInteger(0);
 		}
 	}
@@ -126,7 +126,7 @@ public abstract class APosition {
 	@Cascade({ CascadeType.SAVE_UPDATE })
 	public DegreesInteger getDegrees() {
 
-		APosition.trace(MMarker.GETTER, "Getting Degrees: {}", deg);
+		logger.trace(MMarker.GETTER, "Getting Degrees: {}", deg);
 		return deg;
 	}
 
@@ -137,7 +137,7 @@ public abstract class APosition {
 	@ManyToOne
 	@Cascade({ CascadeType.SAVE_UPDATE })
 	public MInteger getMinutes() {
-		APosition.trace(MMarker.GETTER, "Getting Minutes: {}", min);
+		logger.trace(MMarker.GETTER, "Getting Minutes: {}", min);
 		return min;
 	}
 
@@ -148,7 +148,7 @@ public abstract class APosition {
 	@ManyToOne
 	@Cascade({ CascadeType.SAVE_UPDATE })
 	public MDecimal getSeconds() {
-		APosition.trace(MMarker.GETTER, "Getting Seconds: {}", sec);
+		logger.trace(MMarker.GETTER, "Getting Seconds: {}", sec);
 		return sec;
 	}
 
@@ -159,7 +159,7 @@ public abstract class APosition {
 	@ManyToOne
 	@Cascade({ CascadeType.SAVE_UPDATE })
 	public DegreesFloat getDMS() {
-		APosition.trace(MMarker.GETTER, "Getting DMS: {}", dms);
+		logger.trace(MMarker.GETTER, "Getting DMS: {}", dms);
 		return dms;
 	}
 
@@ -168,10 +168,12 @@ public abstract class APosition {
 	}
 
 	public MString toJSON() {
-		APosition
-				.trace(MMarker.JSONSERIALIZATION, "Getting JSON serialization");
+		logger.trace(MMarker.JSONSERIALIZATION, "Getting JSON serialization");
 		MString JSON = new MString(new JSONSerializer().deepSerialize(this));
 		return JSON;
 	}
 
+	public String toString() {
+		return "[" + deg + "\u00b0, " + min + "', " + sec + "\"]";
+	}
 }

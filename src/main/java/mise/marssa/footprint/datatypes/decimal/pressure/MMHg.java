@@ -17,14 +17,18 @@ package mise.marssa.footprint.datatypes.decimal.pressure;
 
 import static javax.measure.unit.NonSI.MILLIMETER_OF_MERCURY;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
+
+import org.hibernate.annotations.AccessType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
 
 @XmlType(name = "MMHg", factoryClass = TypeFactory.class, factoryMethod = "getMMHgInstance")
 @Entity
+@AccessType("property")
 public class MMHg extends APressure {
 
 	/**
@@ -34,5 +38,9 @@ public class MMHg extends APressure {
 
 	public MMHg(double value) throws OutOfRange {
 		super(value, MILLIMETER_OF_MERCURY);
+	}
+	@Column(name = "MMHg")
+	public double getValue(){
+		return super.doubleValue();
 	}
 }

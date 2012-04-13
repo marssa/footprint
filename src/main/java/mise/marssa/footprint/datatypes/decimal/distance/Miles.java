@@ -17,8 +17,11 @@ package mise.marssa.footprint.datatypes.decimal.distance;
 
 import static javax.measure.unit.NonSI.MILE;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
+
+import org.hibernate.annotations.AccessType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
@@ -30,6 +33,7 @@ import mise.marssa.footprint.exceptions.OutOfRange;
  */
 @XmlType(name = "Miles", factoryClass = TypeFactory.class, factoryMethod = "getMilesInstance")
 @Entity
+@AccessType("property")
 public class Miles extends ADistance {
 
 	/**
@@ -39,5 +43,9 @@ public class Miles extends ADistance {
 
 	public Miles(double value) throws OutOfRange {
 		super(value, MILE);
+	}
+	@Column(name = "Miles")
+	public double getValue(){
+		return super.doubleValue();
 	}
 }

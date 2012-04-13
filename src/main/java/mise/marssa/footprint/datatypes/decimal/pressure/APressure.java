@@ -63,7 +63,7 @@ public abstract class APressure extends UnsignedDecimal {
 	protected static final Unit<Pressure> PSI = POUND.divide(INCH.times(INCH))
 			.asType(Pressure.class);
 
-	public APressure(double value, Unit<Pressure> unit) throws OutOfRange {
+	protected APressure(double value, Unit<Pressure> unit) throws OutOfRange {
 		super(value);
 		this.currentUnit = unit;
 	}
@@ -132,9 +132,5 @@ public abstract class APressure extends UnsignedDecimal {
 		return result;
 	}
 
-	@Override
-	public String toString() {
-		return "Pressure in " + this.getClass().getSimpleName() + " = "
-				+ super.toString();
-	}
+	
 }

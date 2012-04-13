@@ -20,10 +20,11 @@ import static javax.measure.unit.NonSI.NAUTICAL_MILE;
 import static javax.measure.unit.SI.KILOMETRE;
 import static javax.measure.unit.SI.METRE;
 
+import java.math.MathContext;
+
 import javax.measure.converter.MultiplyConverter;
 import javax.measure.quantity.Length;
 import javax.measure.unit.Unit;
-import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 import javax.xml.bind.annotation.XmlType;
 
@@ -59,7 +60,7 @@ public abstract class ADistance extends UnsignedDecimal {
 	 * Scale required to convert from Coulombs to milli Ampere hours
 	 */
 	private static final MultiplyConverter metresToFathoms = new MultiplyConverter(
-			0.5468);
+			1.8288);
 
 	/**
 	 * Fathom unit
@@ -69,8 +70,14 @@ public abstract class ADistance extends UnsignedDecimal {
 	protected static final Unit<Length> FATHOM = METRE
 			.transform(metresToFathoms);
 
-	public ADistance(double value, Unit<Length> unit) throws OutOfRange {
+	protected ADistance(double value, Unit<Length> unit) throws OutOfRange {
 		super(value);
+		this.currentUnit = unit;
+	}
+
+	protected ADistance(double value, Unit<Length> unit, MathContext mc)
+			throws OutOfRange {
+		super(value, mc);
 		this.currentUnit = unit;
 	}
 
@@ -82,7 +89,6 @@ public abstract class ADistance extends UnsignedDecimal {
 		return result;
 	}
 
-	@Column(name = "Metres")
 	public MDecimal getMetres() {
 		MDecimal result = new MDecimal(currentUnit.getConverterTo(METRE)
 				.convert(doubleValue()));
@@ -120,11 +126,5 @@ public abstract class ADistance extends UnsignedDecimal {
 		logger.trace(MMarker.GETTER, "Converting from {} to Fathoms : {}",
 				currentUnit, result);
 		return result;
-	}
-
-	@Override
-	public String toString() {
-		return "Distance in " + this.getClass().getSimpleName() + " = "
-				+ super.toString();
 	}
 }

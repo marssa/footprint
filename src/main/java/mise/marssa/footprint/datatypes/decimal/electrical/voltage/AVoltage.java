@@ -48,7 +48,7 @@ public abstract class AVoltage extends MDecimal {
 
 	private Unit<ElectricPotential> currentUnit;
 
-	public AVoltage(double value, Unit<ElectricPotential> unit) {
+	protected AVoltage(double value, Unit<ElectricPotential> unit) {
 		super(value);
 		this.currentUnit = unit;
 	}
@@ -69,9 +69,5 @@ public abstract class AVoltage extends MDecimal {
 		return result;
 	}
 
-	@Override
-	public String toString() {
-		return "Voltage in " + this.getClass().getSimpleName() + " = "
-				+ super.toString();
-	}
+	
 }

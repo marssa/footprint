@@ -50,7 +50,7 @@ public abstract class AImpedance extends MDecimal {
 
 	private Unit<ElectricResistance> currentUnit;
 
-	public AImpedance(double value, Unit<ElectricResistance> unit) {
+	protected AImpedance(double value, Unit<ElectricResistance> unit) {
 		super(value);
 		this.currentUnit = unit;
 	}
@@ -79,9 +79,5 @@ public abstract class AImpedance extends MDecimal {
 		return result;
 	}
 
-	@Override
-	public String toString() {
-		return "Impedance in " + this.getClass().getSimpleName() + " = "
-				+ super.toString();
-	}
+
 }

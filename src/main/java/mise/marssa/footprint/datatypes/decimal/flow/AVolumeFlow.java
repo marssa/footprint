@@ -133,7 +133,7 @@ public abstract class AVolumeFlow extends UnsignedDecimal {
 	/**
 	 * 
 	 */
-	public AVolumeFlow(double value, Unit<VolumetricFlowRate> unit)
+	protected AVolumeFlow(double value, Unit<VolumetricFlowRate> unit)
 			throws OutOfRange {
 		super(value);
 		this.currentUnit = unit;
@@ -267,9 +267,5 @@ public abstract class AVolumeFlow extends UnsignedDecimal {
 
 	// TODO US & UK gallons
 
-	@Override
-	public String toString() {
-		return "Volume Flow in " + this.getClass().getSimpleName() + " = "
-				+ super.toString();
-	}
+	
 }

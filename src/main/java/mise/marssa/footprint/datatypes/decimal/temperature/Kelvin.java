@@ -17,8 +17,11 @@ package mise.marssa.footprint.datatypes.decimal.temperature;
 
 import static javax.measure.unit.SI.KELVIN;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
+
+import org.hibernate.annotations.AccessType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
 
@@ -29,6 +32,7 @@ import mise.marssa.footprint.datatypes.TypeFactory;
  */
 @XmlType(name = "Kelvin", factoryClass = TypeFactory.class, factoryMethod = "getKelvinInstance")
 @Entity
+@AccessType("property")
 public class Kelvin extends ATemperature {
 
 	/**
@@ -38,5 +42,9 @@ public class Kelvin extends ATemperature {
 
 	public Kelvin(double value) {
 		super(value, KELVIN);
+	}
+	@Column(name = "Kelvin")
+	public double getValue(){
+		return super.doubleValue();
 	}
 }

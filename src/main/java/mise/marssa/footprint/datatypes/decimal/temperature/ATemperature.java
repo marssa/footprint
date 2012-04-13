@@ -49,7 +49,7 @@ public abstract class ATemperature extends MDecimal {
 
 	private Unit<Temperature> currentUnit;
 
-	public ATemperature(double value, Unit<Temperature> unit) {
+	protected ATemperature(double value, Unit<Temperature> unit) {
 		super(value);
 		this.currentUnit = unit;
 	}
@@ -82,9 +82,5 @@ public abstract class ATemperature extends MDecimal {
 		return result;
 	}
 
-	@Override
-	public String toString() {
-		return "Temperature in " + this.getClass().getSimpleName() + " = "
-				+ super.toString();
-	}
+	
 }

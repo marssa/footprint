@@ -15,6 +15,8 @@
  */
 package mise.marssa.footprint.datatypes.decimal;
 
+import java.math.MathContext;
+
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
@@ -41,7 +43,7 @@ public class UnsignedDecimal extends MDecimal {
 	private static final long serialVersionUID = -2643170038537925526L;
 
 	private static Logger logger = (Logger) LoggerFactory
-			.getLogger("UnsignedFloat");
+			.getLogger(UnsignedDecimal.class.getName());
 
 	public UnsignedDecimal(double value) throws OutOfRange {
 		super(value);
@@ -50,4 +52,10 @@ public class UnsignedDecimal extends MDecimal {
 					new OutOfRange());
 	}
 
+	public UnsignedDecimal(double value, MathContext mc) throws OutOfRange {
+		super(value, mc);
+		if (value < 0)
+			logger.debug(MMarker.EXCEPTION, "Value received is out of range",
+					new OutOfRange());
+	}
 }

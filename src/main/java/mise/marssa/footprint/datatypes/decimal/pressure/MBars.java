@@ -18,8 +18,11 @@ package mise.marssa.footprint.datatypes.decimal.pressure;
 import static javax.measure.unit.NonSI.BAR;
 import static javax.measure.unit.SI.MILLI;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
+
+import org.hibernate.annotations.AccessType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
@@ -33,6 +36,7 @@ import mise.marssa.footprint.exceptions.OutOfRange;
  */
 @XmlType(name = "MBars", factoryClass = TypeFactory.class, factoryMethod = "getMBarsInstance")
 @Entity
+@AccessType("property")
 public class MBars extends APressure {
 
 	/**
@@ -42,5 +46,9 @@ public class MBars extends APressure {
 
 	public MBars(double value) throws OutOfRange {
 		super(value, MILLI(BAR));
+	}
+	@Column(name = "Mbars")
+	public double getValue(){
+		return super.doubleValue();
 	}
 }

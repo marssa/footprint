@@ -17,8 +17,11 @@ package mise.marssa.footprint.datatypes.decimal.temperature;
 
 import static javax.measure.unit.NonSI.FAHRENHEIT;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
+
+import org.hibernate.annotations.AccessType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
 
@@ -29,6 +32,7 @@ import mise.marssa.footprint.datatypes.TypeFactory;
  */
 @XmlType(name = "Fahrenheit", factoryClass = TypeFactory.class, factoryMethod = "getFahrenheitInstance")
 @Entity
+@AccessType("property")
 public class Fahrenheit extends ATemperature {
 
 	/**
@@ -38,5 +42,9 @@ public class Fahrenheit extends ATemperature {
 
 	public Fahrenheit(double value) {
 		super(value, FAHRENHEIT);
+	}
+	@Column(name = "Fahrenheit")
+	public double getValue(){
+		return super.doubleValue();
 	}
 }

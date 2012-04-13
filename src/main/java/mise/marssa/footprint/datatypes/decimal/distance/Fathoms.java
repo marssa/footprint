@@ -15,6 +15,7 @@
  */
 package mise.marssa.footprint.datatypes.decimal.distance;
 
+import javax.persistence.Column;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
@@ -38,5 +39,10 @@ public class Fathoms extends ADistance {
 	 */
 	public Fathoms(double value) throws OutOfRange {
 		super(value, FATHOM);
+	}
+
+	@Column(name = "Fathoms")
+	public double getValue() {
+		return super.doubleValue();
 	}
 }

@@ -18,8 +18,11 @@
  */
 package mise.marssa.footprint.datatypes.decimal.flow;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
+
+import org.hibernate.annotations.AccessType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
@@ -31,6 +34,7 @@ import mise.marssa.footprint.exceptions.OutOfRange;
  */
 @XmlType(name = "CFPS", factoryClass = TypeFactory.class, factoryMethod = "getCFPSInstance")
 @Entity
+@AccessType("property")
 public class CFPS extends AVolumeFlow {
 
 	/**
@@ -40,5 +44,9 @@ public class CFPS extends AVolumeFlow {
 
 	public CFPS(double value) throws OutOfRange {
 		super(value, CUBIC_FEET_PER_SECOND);
+	}
+	@Column(name = "CFPS")
+	public double getValue(){
+		return super.doubleValue();
 	}
 }
