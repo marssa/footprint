@@ -24,6 +24,7 @@ import javax.xml.bind.annotation.XmlType;
 import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.logger.MMarker;
 
+import org.hibernate.annotations.AccessType;
 import org.slf4j.LoggerFactory;
 
 import ch.qos.logback.classic.Logger;

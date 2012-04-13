@@ -127,4 +127,5 @@ public abstract class ADistance extends UnsignedDecimal {
 				currentUnit, result);
 		return result;
 	}
+	}
 }

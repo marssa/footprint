@@ -306,6 +306,13 @@
 						<artifactId>jaxb-impl</artifactId>
 						<version>2.2</version>
 					</dependency>
+					<dependency>
+						<groupId>com.sun</groupId>
+						<artifactId>tools</artifactId>
+						<version>${javaVersion}</version>
+						<scope>system</scope>
+						<systemPath>${java.home}/../lib/tools.jar</systemPath>
+					</dependency>
 				</dependencies>
 			</plugin>
 

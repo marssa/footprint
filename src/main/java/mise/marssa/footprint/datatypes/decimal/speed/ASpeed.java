@@ -150,5 +150,4 @@ public abstract class ASpeed extends UnsignedDecimal {
 		else
 			return 0; // need to be changed to an exception
 	}
-
 }

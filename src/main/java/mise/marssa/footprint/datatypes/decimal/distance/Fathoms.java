@@ -40,9 +40,8 @@ public class Fathoms extends ADistance {
 	public Fathoms(double value) throws OutOfRange {
 		super(value, FATHOM);
 	}
-
 	@Column(name = "Fathoms")
-	public double getValue() {
+	public double getValue(){
 		return super.doubleValue();
 	}
 }
