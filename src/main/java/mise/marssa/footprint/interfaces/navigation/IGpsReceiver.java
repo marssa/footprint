@@ -15,6 +15,8 @@
  */
 package mise.marssa.footprint.interfaces.navigation;
 
+import javax.xml.bind.annotation.XmlType;
+
 import mise.marssa.footprint.datatypes.MDate;
 import mise.marssa.footprint.datatypes.MString;
 import mise.marssa.footprint.datatypes.composite.Coordinate;
@@ -88,6 +90,7 @@ public interface IGpsReceiver {
 
 	public MDecimal getPDOP() throws NoConnection, NoValue;
 	
+	@XmlType(name="GpsQuantities")
 	public enum GPSQuantity implements IQuantity {
 		ALTITUDE, SOG, COG, AZIMUTH, COORDINATE, DATE,
 		ELEVATION, LOCAL_ZONE_TIME, SATELLITE_ID, SATELLITE_IN_VIEW,

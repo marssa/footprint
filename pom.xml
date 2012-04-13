@@ -92,13 +92,6 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.8.1</version>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
 			<groupId>org.apache.felix</groupId>
 			<artifactId>org.osgi.core</artifactId>
 			<version>1.4.0</version>
@@ -229,8 +222,16 @@
 						${project}
 					</project>
 					<destdir>${basedir}/src/main/resources/generated/schemas</destdir>
-					<srcdir>${project.build.sourceDirectory}/mise/marssa/footprint/datatypes/</srcdir>
+					<srcdir>${project.build.sourceDirectory}</srcdir>
+					<includes>
+						<include>/mise/marssa/footprint/datatypes</include>
+						<include>/mise/marssa/footprint/interfaces/navigation/IGpsReceiver.java</include>
+					</includes>
 					<schemas>
+						<scshema>
+							<namespace>mise.marssa.footprint.interfaces</namespace>
+							<file>interfaces.xsd</file>
+						</scshema>
 						<schema>
 							<namespace>mise.marssa.footprint.datatypes</namespace>
 							<file>datatypes.xsd</file>
