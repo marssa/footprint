@@ -27,6 +27,7 @@ import static javax.measure.unit.NonSI.LITRE;
 
 import javax.measure.quantity.Volume;
 import javax.measure.unit.Unit;
+import javax.persistence.MappedSuperclass;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
@@ -39,6 +40,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @XmlType(name = "AVolume", factoryClass = TypeFactory.class, factoryMethod = "getAVolumeInstance")
+@MappedSuperclass
 public abstract class AVolume extends UnsignedDecimal {
 
 	/**

@@ -23,6 +23,7 @@ import static javax.measure.unit.SI.AMPERE;
 
 import javax.measure.quantity.ElectricCurrent;
 import javax.measure.unit.Unit;
+import javax.persistence.MappedSuperclass;
 import javax.xml.bind.annotation.XmlType;
 
 import org.slf4j.Logger;
@@ -37,6 +38,7 @@ import mise.marssa.footprint.logger.MMarker;
  * 
  */
 @XmlType(name = "ACurrent", factoryClass = TypeFactory.class, factoryMethod = "getACurrentInstance")
+@MappedSuperclass
 public abstract class ACurrent extends MDecimal {
 	/**
 	 * 

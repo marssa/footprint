@@ -25,6 +25,7 @@ import static javax.measure.unit.SI.PASCAL;
 
 import javax.measure.quantity.Pressure;
 import javax.measure.unit.Unit;
+import javax.persistence.MappedSuperclass;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
@@ -43,6 +44,7 @@ import org.slf4j.LoggerFactory;
  */
 
 @XmlType(name = "APressure", factoryClass = TypeFactory.class, factoryMethod = "getAPressureInstance")
+@MappedSuperclass
 public abstract class APressure extends UnsignedDecimal {
 
 	/**

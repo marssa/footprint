@@ -263,6 +263,14 @@
 							<file>datatypes.decimal.electrical.charge.xsd</file>
 						</schema>
 						<schema>
+							<namespace>mise.marssa.footprint.datatypes.decimal.electrical.current</namespace>
+							<file>datatypes.decimal.electrical.current.xsd</file>
+						</schema>
+						<schema>
+							<namespace>mise.marssa.footprint.datatypes.decimal.electrical.energy</namespace>
+							<file>datatypes.decimal.electrical.energy.xsd</file>
+						</schema>
+						<schema>
 							<namespace>mise.marssa.footprint.datatypes.decimal.electrical.impedance</namespace>
 							<file>datatypes.decimal.electrical.impedance.xsd</file>
 						</schema>
@@ -273,10 +281,6 @@
 						<schema>
 							<namespace>mise.marssa.footprint.datatypes.decimal.electrical.voltage</namespace>
 							<file>datatypes.decimal.electrical.voltage.xsd</file>
-						</schema>
-						<schema>
-							<namespace>mise.marssa.footprint.datatypes.decimal.electrical.current</namespace>
-							<file>datatypes.decimal.electrical.current.xsd</file>
 						</schema>
 						<schema>
 							<namespace>mise.marssa.footprint.datatypes.decimal.flow</namespace>

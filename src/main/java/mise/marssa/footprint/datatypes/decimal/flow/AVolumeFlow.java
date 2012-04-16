@@ -27,6 +27,7 @@ import static javax.measure.unit.SI.SECOND;
 
 import javax.measure.quantity.VolumetricFlowRate;
 import javax.measure.unit.Unit;
+import javax.persistence.MappedSuperclass;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
@@ -43,6 +44,7 @@ import org.slf4j.LoggerFactory;
  * 
  */
 @XmlType(name = "AVolumeFlow", factoryClass = TypeFactory.class, factoryMethod = "getAVolumeFlowInstance")
+@MappedSuperclass
 public abstract class AVolumeFlow extends UnsignedDecimal {
 
 	/**

@@ -23,6 +23,7 @@ import static javax.measure.unit.SI.VOLT;
 
 import javax.measure.quantity.ElectricPotential;
 import javax.measure.unit.Unit;
+import javax.persistence.MappedSuperclass;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
@@ -37,6 +38,7 @@ import org.slf4j.LoggerFactory;
  * 
  */
 @XmlType(name = "AVoltage", factoryClass = TypeFactory.class, factoryMethod = "getAVoltageInstance")
+@MappedSuperclass
 public abstract class AVoltage extends MDecimal {
 	/**
 	 * 

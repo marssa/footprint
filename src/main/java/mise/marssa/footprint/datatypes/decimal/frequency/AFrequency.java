@@ -20,6 +20,7 @@ import static javax.measure.unit.SI.KILO;
 
 import javax.measure.quantity.Frequency;
 import javax.measure.unit.Unit;
+import javax.persistence.MappedSuperclass;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
@@ -37,6 +38,7 @@ import org.slf4j.LoggerFactory;
  * @created 08-Jul-2011 09:53:23
  */
 @XmlType(name = "AFrequency", factoryClass = TypeFactory.class, factoryMethod = "getAFrequencyInstance")
+@MappedSuperclass
 public abstract class AFrequency extends UnsignedDecimal {
 
 	/**

@@ -45,8 +45,8 @@ import flexjson.JSONSerializer;
  * @version 1.0
  * @created 08-Jul-2011 09:53:29
  */
-@MappedSuperclass
 @XmlType(name = "APosition", factoryClass = TypeFactory.class, factoryMethod = "getAPositionInstance")
+@MappedSuperclass
 public abstract class APosition {
 	protected APosition() {
 	}

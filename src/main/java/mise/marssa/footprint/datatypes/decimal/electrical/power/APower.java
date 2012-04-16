@@ -24,6 +24,7 @@ import static javax.measure.unit.SI.WATT;
 
 import javax.measure.quantity.Power;
 import javax.measure.unit.Unit;
+import javax.persistence.MappedSuperclass;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
@@ -38,6 +39,7 @@ import org.slf4j.LoggerFactory;
  * 
  */
 @XmlType(name = "APower", factoryClass = TypeFactory.class, factoryMethod = "getAPowerInstance")
+@MappedSuperclass
 public abstract class APower extends MDecimal {
 	/**
 	 * 
