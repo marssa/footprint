@@ -23,6 +23,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.XmlValue;
 
 import mise.marssa.footprint.datatypes.MString;
 import mise.marssa.footprint.datatypes.TypeFactory;
@@ -45,6 +46,10 @@ public class MInteger extends BigInteger {
 	 * 
 	 */
 	private static final long serialVersionUID = 2838329160994833031L;
+	
+	@SuppressWarnings("unused")
+	@XmlValue
+	private BigInteger unused;
 
 	private MInteger() {
 		super(Integer.toString(0));

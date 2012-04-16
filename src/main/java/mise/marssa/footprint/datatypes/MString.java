@@ -15,8 +15,8 @@
  */
 package mise.marssa.footprint.datatypes;
 
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.XmlValue;
 
 import flexjson.JSONSerializer;
 
@@ -28,7 +28,8 @@ import flexjson.JSONSerializer;
 @XmlType(name = "MString", factoryClass = TypeFactory.class, factoryMethod = "getMStringInstance")
 public class MString {
 	// static Logger MString = (Logger) LoggerFactory.getLogger("MString");
-	@XmlElement
+
+	@XmlValue
 	private String contents;
 
 	public MString() {

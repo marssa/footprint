@@ -16,6 +16,7 @@
 package mise.marssa.footprint.datatypes;
 
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.XmlValue;
 
 import org.slf4j.LoggerFactory;
 
@@ -33,6 +34,10 @@ public class MDate extends java.util.Date {
 	private static Logger MDate = (Logger) LoggerFactory.getLogger("MDate");
 
 	private static final long serialVersionUID = 1L;
+	
+	@SuppressWarnings("unused")
+	@XmlValue
+	private java.util.Date unused;
 
 	// TODO See how an XML element can be added for the date
 	public MDate(long date) {
