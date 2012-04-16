@@ -51,8 +51,8 @@ public class Knots extends ASpeed {
 	public Knots(double value, MathContext mc) throws OutOfRange {
 		super(value, KNOT,mc);
 	}
-	@Column(name = "Knots")
-	public double getValue(){
-		return super.doubleValue();
-	}
+//	@Column(name = "Knots")
+//	public double getValue(){
+//		return super.doubleValue();
+//	}
 }

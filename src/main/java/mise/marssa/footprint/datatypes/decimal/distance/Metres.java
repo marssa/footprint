@@ -53,9 +53,9 @@ public class Metres extends ADistance {
 		super(value, METRE);
 	}
 	
-	@Column(name = "Metres")
-	public double getValue(){
-		return super.doubleValue();
-	}
+//	@Column(name = "Metres")
+//	public double getValue(){
+//		return super.doubleValue();
+//	}
 	
 }
