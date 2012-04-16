@@ -21,6 +21,7 @@ import static javax.measure.unit.SI.KELVIN;
 
 import javax.measure.quantity.Temperature;
 import javax.measure.unit.Unit;
+import javax.persistence.MappedSuperclass;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
@@ -37,6 +38,7 @@ import ch.qos.logback.classic.Logger;
  * @created 08-Jul-2011 09:53:23
  */
 @XmlType(name = "ATemperature", factoryClass = TypeFactory.class, factoryMethod = "getATemperatureInstance")
+@MappedSuperclass
 public abstract class ATemperature extends MDecimal {
 
 	/**

@@ -26,6 +26,7 @@ import static javax.measure.unit.SI.MEGA;
 import javax.measure.quantity.ElectricCurrent;
 import javax.measure.quantity.Energy;
 import javax.measure.unit.Unit;
+import javax.persistence.MappedSuperclass;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
@@ -37,11 +38,16 @@ import org.slf4j.LoggerFactory;
 
 /**
  * @author Warren Zahra
- *
+ * 
  */
 @XmlType(name = "AEnergy", factoryClass = TypeFactory.class, factoryMethod = "getAEnergyInstance")
+@MappedSuperclass
 public abstract class AEnergy extends MDecimal {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3759688687362547165L;
 
 	private static Logger logger = (Logger) LoggerFactory
 			.getLogger(AEnergy.class.getName());
@@ -62,20 +68,19 @@ public abstract class AEnergy extends MDecimal {
 	}
 
 	public MDecimal getKJoules() {
-		MDecimal result = new MDecimal(energyUnit.getConverterTo(KILO(JOULE)).convert(doubleValue()));
-		logger.trace(MMarker.GETTER, "Converting from {} to milli Amps : {}",
-				energyUnit, result);
-		return result;
-	}
-	
-	
-	
-	public MDecimal getMJoules() {
-		MDecimal result = new MDecimal(energyUnit.getConverterTo(MEGA(JOULE)).convert(doubleValue()));
+		MDecimal result = new MDecimal(energyUnit.getConverterTo(KILO(JOULE))
+				.convert(doubleValue()));
 		logger.trace(MMarker.GETTER, "Converting from {} to milli Amps : {}",
 				energyUnit, result);
 		return result;
 	}
 
-	
+	public MDecimal getMJoules() {
+		MDecimal result = new MDecimal(energyUnit.getConverterTo(MEGA(JOULE))
+				.convert(doubleValue()));
+		logger.trace(MMarker.GETTER, "Converting from {} to milli Amps : {}",
+				energyUnit, result);
+		return result;
+	}
+
 }

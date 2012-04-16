@@ -24,6 +24,7 @@ import static javax.measure.unit.SI.OHM;
 
 import javax.measure.quantity.ElectricResistance;
 import javax.measure.unit.Unit;
+import javax.persistence.MappedSuperclass;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
@@ -38,6 +39,7 @@ import org.slf4j.LoggerFactory;
  * 
  */
 @XmlType(name = "AImpedance", factoryClass = TypeFactory.class, factoryMethod = "getAImpedanceInstance")
+@MappedSuperclass
 public abstract class AImpedance extends MDecimal {
 
 	/**

@@ -25,6 +25,7 @@ import static javax.measure.unit.SI.MILLI;
 
 import javax.measure.quantity.ElectricCharge;
 import javax.measure.unit.Unit;
+import javax.persistence.MappedSuperclass;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
@@ -39,6 +40,7 @@ import org.slf4j.LoggerFactory;
  * 
  */
 @XmlType(name = "ACharge", factoryClass = TypeFactory.class, factoryMethod = "getAChargeInstance")
+@MappedSuperclass
 public abstract class ACharge extends MDecimal {
 
 	/**
