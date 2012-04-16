@@ -56,14 +56,17 @@ public abstract class ASpeed extends UnsignedDecimal {
 
 	private Unit<Velocity> currentUnit;
 
-	public ASpeed(double value, Unit<Velocity> unit) throws OutOfRange {
+	protected ASpeed(double value, Unit<Velocity> unit) throws OutOfRange {
 		super(value);
 		this.currentUnit = unit;
 	}
-	protected ASpeed(double value, Unit<Velocity> unit, MathContext mc) throws OutOfRange {
-		super(value,mc);
+
+	protected ASpeed(double value, Unit<Velocity> unit, MathContext mc)
+			throws OutOfRange {
+		super(value, mc);
 		this.currentUnit = unit;
 	}
+
 	/**
 	 * 
 	 * @return
@@ -147,6 +150,4 @@ public abstract class ASpeed extends UnsignedDecimal {
 		else
 			return 0; // need to be changed to an exception
 	}
-
-
 }

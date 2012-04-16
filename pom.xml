@@ -92,6 +92,13 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.1</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
 			<groupId>org.apache.felix</groupId>
 			<artifactId>org.osgi.core</artifactId>
 			<version>1.4.0</version>
@@ -222,8 +229,19 @@
 						${project}
 					</project>
 					<destdir>${basedir}/src/main/resources/generated/schemas</destdir>
-					<srcdir>${project.build.sourceDirectory}/mise/marssa/footprint/datatypes/</srcdir>
+					<srcdir>${project.build.sourceDirectory}</srcdir>
+					<includes>
+						<include>**/*mise/marssa/footprint/datatypes/</include>
+						<include>**/*mise/marssa/footprint/interfaces/navigation/</include>
+					</includes>
+					<excludes>
+						<exclude>**/*mise/marssa/footprint/interfaces/control/</exclude>
+					</excludes>
 					<schemas>
+						<schema>
+							<namespace>mise.marssa.footprint.quantities</namespace>
+							<file>quantities.xsd</file>
+						</schema>
 						<schema>
 							<namespace>mise.marssa.footprint.datatypes</namespace>
 							<file>datatypes.xsd</file>

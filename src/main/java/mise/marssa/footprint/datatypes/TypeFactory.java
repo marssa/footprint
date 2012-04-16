@@ -94,7 +94,6 @@ import mise.marssa.footprint.datatypes.decimal.volume.USGallonsDry;
 import mise.marssa.footprint.datatypes.decimal.volume.USGallonsLiquid;
 import mise.marssa.footprint.datatypes.integer.DegreesInteger;
 import mise.marssa.footprint.datatypes.integer.MInteger;
-import mise.marssa.footprint.datatypes.integer.MLong;
 import mise.marssa.footprint.datatypes.integer.PercentageInteger;
 import mise.marssa.footprint.datatypes.time.ATime;
 import mise.marssa.footprint.datatypes.time.Hours;
@@ -102,6 +101,7 @@ import mise.marssa.footprint.datatypes.time.Milliseconds;
 import mise.marssa.footprint.datatypes.time.Minutes;
 import mise.marssa.footprint.datatypes.time.Seconds;
 import mise.marssa.footprint.exceptions.OutOfRange;
+import mise.marssa.footprint.interfaces.navigation.IGpsReceiver.GPSQuantity;
 
 /**
  * @author Clayton Tabone
@@ -492,10 +492,6 @@ public class TypeFactory {
 
 	public static MInteger getMIntegerInstance() throws OutOfRange {
 		return new MInteger(0);
-	}
-
-	public static MLong getMLongInstance() throws OutOfRange {
-		return new MLong(0);
 	}
 
 	public static PercentageInteger getPercentageIntegerInstance()

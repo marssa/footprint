@@ -19,6 +19,10 @@ import mise.marssa.footprint.datatypes.composite.Attitude;
 import mise.marssa.footprint.datatypes.decimal.DegreesFloat;
 import mise.marssa.footprint.datatypes.decimal.MDecimal;
 
+import javax.xml.bind.annotation.XmlType;
+
+import mise.marssa.footprint.interfaces.IQuantity;
+
 /**
  * @author Alan Grech
  * @version 1.0
@@ -45,5 +49,10 @@ public interface ICompass {
 	 * Difference between True North & Magnetic North
 	 */
 	public DegreesFloat getVariation();
+	
+	@XmlType(name="CompassQuantities")
+	public enum CompassQuantity implements IQuantity {
+		ATTITUDE, DEVIATION, HEADING, MAGNETIC_HEADING, RATE_OF_TURN, TRUE_HEADING;
+	}
 
 }

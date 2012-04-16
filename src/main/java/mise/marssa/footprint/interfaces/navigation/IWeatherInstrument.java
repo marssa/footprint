@@ -15,9 +15,12 @@
  */
 package mise.marssa.footprint.interfaces.navigation;
 
+import javax.xml.bind.annotation.XmlType;
+
 import mise.marssa.footprint.datatypes.decimal.PercentageFloat;
 import mise.marssa.footprint.datatypes.decimal.speed.Knots;
 import mise.marssa.footprint.datatypes.integer.DegreesInteger;
+import mise.marssa.footprint.interfaces.IQuantity;
 
 /**
  * @author Alan Grech
@@ -41,5 +44,10 @@ public interface IWeatherInstrument {
 	public DegreesInteger getWindDirection();
 
 	public Knots getWindSpeed();
+	
+	@XmlType(name="WeatherInstrumentQuantities")
+	public enum CompassQuantity implements IQuantity {
+		AIR_TEMPERATURE, DEW_POINT, GUST_SPEED, HUMIDITY, AIR_PRESSURE, SOLAR_RADIATION, WIND_DIRECTION, WIND_SPEED;
+	}
 
 }

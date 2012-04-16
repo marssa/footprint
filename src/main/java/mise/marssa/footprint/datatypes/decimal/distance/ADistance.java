@@ -25,7 +25,6 @@ import java.math.MathContext;
 import javax.measure.converter.MultiplyConverter;
 import javax.measure.quantity.Length;
 import javax.measure.unit.Unit;
-import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 import javax.xml.bind.annotation.XmlType;
 
@@ -61,7 +60,7 @@ public abstract class ADistance extends UnsignedDecimal {
 	 * Scale required to convert from Coulombs to milli Ampere hours
 	 */
 	private static final MultiplyConverter metresToFathoms = new MultiplyConverter(
-			0.5468);
+			1.8288);
 
 	/**
 	 * Fathom unit
@@ -75,8 +74,10 @@ public abstract class ADistance extends UnsignedDecimal {
 		super(value);
 		this.currentUnit = unit;
 	}
-	protected ADistance(double value, Unit<Length> unit, MathContext mc) throws OutOfRange {
-		super(value,mc);
+
+	protected ADistance(double value, Unit<Length> unit, MathContext mc)
+			throws OutOfRange {
+		super(value, mc);
 		this.currentUnit = unit;
 	}
 
@@ -126,6 +127,4 @@ public abstract class ADistance extends UnsignedDecimal {
 				currentUnit, result);
 		return result;
 	}
-
-
 }

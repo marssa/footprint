@@ -77,10 +77,6 @@ public class MDecimal extends BigDecimal {
 
 	}
 
-	public double setValue(double value) {
-		return value;
-	}
-
 	public MString toJSON() {
 		return new MString(new JSONSerializer().deepSerialize(this));
 	}

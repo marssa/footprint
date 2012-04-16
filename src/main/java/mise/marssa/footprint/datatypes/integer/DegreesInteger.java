@@ -28,8 +28,11 @@ import mise.marssa.footprint.datatypes.TypeFactory;
 @XmlType(name = "DegreesInteger", factoryClass = TypeFactory.class, factoryMethod = "getDegreesIntegerInstance")
 @Entity
 public class DegreesInteger extends MInteger {
-	protected DegreesInteger() {
-	}
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -679169479083287349L;
 
 	public DegreesInteger(int value) {
 		super(value);

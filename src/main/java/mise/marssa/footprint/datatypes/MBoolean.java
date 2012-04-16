@@ -17,6 +17,7 @@ package mise.marssa.footprint.datatypes;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.XmlValue;
 
 import mise.marssa.footprint.logger.MMarker;
 
@@ -35,7 +36,8 @@ import flexjson.JSONSerializer;
 public class MBoolean {
 	private static Logger MBoolean = (Logger) LoggerFactory
 			.getLogger("MBoolean");
-	protected boolean value;
+	
+	private boolean value;
 
 	public MBoolean(boolean value) {
 		MBoolean.trace(MMarker.CONSTRUCTOR,
@@ -55,7 +57,7 @@ public class MBoolean {
 	}
 
 	@JSON
-	@XmlElement
+	@XmlValue
 	public boolean getValue() {
 		MBoolean.trace(MMarker.GETTER, "Getting value: \"{}\"", value);
 		return value;

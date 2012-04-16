@@ -37,6 +37,7 @@ import ch.qos.logback.classic.Logger;
 @Entity
 public class Milliseconds extends ATime {
 
+	// TODO switch conversions to use JSCience
 	private static Logger MilliSeconds = (Logger) LoggerFactory
 			.getLogger("MilliSeconds");
 
