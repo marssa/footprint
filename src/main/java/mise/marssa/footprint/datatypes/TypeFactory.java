@@ -43,6 +43,10 @@ import mise.marssa.footprint.datatypes.decimal.electrical.charge.mAh;
 import mise.marssa.footprint.datatypes.decimal.electrical.current.ACurrent;
 import mise.marssa.footprint.datatypes.decimal.electrical.current.Amps;
 import mise.marssa.footprint.datatypes.decimal.electrical.current.MilliAmps;
+import mise.marssa.footprint.datatypes.decimal.electrical.energy.AEnergy;
+import mise.marssa.footprint.datatypes.decimal.electrical.energy.Joules;
+import mise.marssa.footprint.datatypes.decimal.electrical.energy.KJoules;
+import mise.marssa.footprint.datatypes.decimal.electrical.energy.MJoules;
 import mise.marssa.footprint.datatypes.decimal.electrical.impedance.AImpedance;
 import mise.marssa.footprint.datatypes.decimal.electrical.impedance.KOhms;
 import mise.marssa.footprint.datatypes.decimal.electrical.impedance.MOhms;
@@ -498,5 +502,24 @@ public class TypeFactory {
 			throws OutOfRange {
 		return new PercentageInteger(0);
 	}
+	
+	/**
+	 * Electrical Energy DataTypes
+	 */
 
+	public static AEnergy getAEnergyInstance() throws OutOfRange {
+		return new Joules(0);
+	}
+
+	public static Joules getJoulesInstance() throws OutOfRange {
+		return new Joules(0);
+	}
+
+	public static KJoules getKJoulesInstance() throws OutOfRange {
+		return new KJoules(0);
+	}
+	public static MJoules getMJoulesInstance() throws OutOfRange {
+		return new MJoules(0);
+	}
+	
 }
