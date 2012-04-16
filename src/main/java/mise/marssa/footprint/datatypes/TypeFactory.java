@@ -101,7 +101,6 @@ import mise.marssa.footprint.datatypes.time.Milliseconds;
 import mise.marssa.footprint.datatypes.time.Minutes;
 import mise.marssa.footprint.datatypes.time.Seconds;
 import mise.marssa.footprint.exceptions.OutOfRange;
-import mise.marssa.footprint.interfaces.navigation.IGpsReceiver.GPSQuantity;
 
 /**
  * @author Clayton Tabone
