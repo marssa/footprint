@@ -21,13 +21,15 @@ package mise.marssa.footprint.datatypes.decimal.electrical.voltage;
 import static javax.measure.unit.SI.MILLI;
 import static javax.measure.unit.SI.VOLT;
 
-import javax.persistence.Column;
+import java.math.MathContext;
+
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
-import org.hibernate.annotations.AccessType;
-
 import mise.marssa.footprint.datatypes.TypeFactory;
+import mise.marssa.footprint.exceptions.OutOfRange;
+
+import org.hibernate.annotations.ForeignKey;
 
 /**
  * @author Alan Grech
@@ -35,7 +37,7 @@ import mise.marssa.footprint.datatypes.TypeFactory;
  */
 @XmlType(name = "MilliVolts", factoryClass = TypeFactory.class, factoryMethod = "getMilliVoltsInstance")
 @Entity
-@AccessType("property")
+@ForeignKey(name = "FK_MilliVolts_MDecimal")
 public class MilliVolts extends AVoltage {
 
 	/**
@@ -46,8 +48,7 @@ public class MilliVolts extends AVoltage {
 	public MilliVolts(double value) {
 		super(value, MILLI(VOLT));
 	}
-	@Column(name = "MilliVolts")
-	public double getValue(){
-		return super.doubleValue();
+	public MilliVolts(double value, MathContext mc) throws OutOfRange {
+		super(value, MILLI(VOLT), mc);
 	}
 }

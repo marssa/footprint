@@ -21,13 +21,15 @@ package mise.marssa.footprint.datatypes.decimal.electrical.power;
 import static javax.measure.unit.SI.KILO;
 import static javax.measure.unit.SI.WATT;
 
-import javax.persistence.Column;
+import java.math.MathContext;
+
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
-import org.hibernate.annotations.AccessType;
-
 import mise.marssa.footprint.datatypes.TypeFactory;
+import mise.marssa.footprint.exceptions.OutOfRange;
+
+import org.hibernate.annotations.ForeignKey;
 
 /**
  * @author Warren Zahra
@@ -35,7 +37,7 @@ import mise.marssa.footprint.datatypes.TypeFactory;
  */
 @XmlType(name = "KWatts", factoryClass = TypeFactory.class, factoryMethod = "getKWattsInstance")
 @Entity
-@AccessType("property")
+@ForeignKey(name = "FK_KWatts_MDecimal")
 public class KWatts extends APower {
 
 	/**
@@ -46,8 +48,7 @@ public class KWatts extends APower {
 	public KWatts(double value) {
 		super(value, KILO(WATT));
 	}
-	@Column(name = "KWatts")
-	public double getValue(){
-		return super.doubleValue();
+	public KWatts(double value, MathContext mc) throws OutOfRange {
+		super(value, KILO(WATT), mc);
 	}
 }

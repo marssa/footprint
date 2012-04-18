@@ -17,18 +17,19 @@ package mise.marssa.footprint.datatypes.decimal.volume;
 
 import static javax.measure.unit.NonSI.GALLON_LIQUID_US;
 
-import javax.persistence.Column;
+import java.math.MathContext;
+
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
-
-import org.hibernate.annotations.AccessType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
 
+import org.hibernate.annotations.ForeignKey;
+
 @XmlType(name = "USGallonsLiquid", factoryClass = TypeFactory.class, factoryMethod = "getUSGallonsLiquidInstance")
 @Entity
-@AccessType("property")
+@ForeignKey(name = "FK_USGallonsLiquid_MDecimal")
 public class USGallonsLiquid extends AVolume {
 
 	/**
@@ -39,8 +40,7 @@ public class USGallonsLiquid extends AVolume {
 	public USGallonsLiquid(double value) throws OutOfRange {
 		super(value, GALLON_LIQUID_US);
 	}
-	@Column(name = "USGallonsLiquid")
-	public double getValue(){
-		return super.doubleValue();
+	public USGallonsLiquid(double value, MathContext mc) throws OutOfRange {
+		super(value, GALLON_LIQUID_US, mc);
 	}
 }

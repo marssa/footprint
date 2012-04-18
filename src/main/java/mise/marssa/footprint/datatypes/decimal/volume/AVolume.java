@@ -25,9 +25,10 @@ import static javax.measure.unit.NonSI.GALLON_LIQUID_US;
 import static javax.measure.unit.NonSI.GALLON_UK;
 import static javax.measure.unit.NonSI.LITRE;
 
+import java.math.MathContext;
+
 import javax.measure.quantity.Volume;
 import javax.measure.unit.Unit;
-import javax.persistence.MappedSuperclass;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
@@ -40,7 +41,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @XmlType(name = "AVolume", factoryClass = TypeFactory.class, factoryMethod = "getAVolumeInstance")
-@MappedSuperclass
+
 public abstract class AVolume extends UnsignedDecimal {
 
 	/**
@@ -57,6 +58,11 @@ public abstract class AVolume extends UnsignedDecimal {
 		super(value);
 	}
 
+	protected AVolume(double value, Unit<Volume> unit, MathContext mc)
+			throws OutOfRange {
+		super(value, mc);
+		this.currentUnit = unit;
+	}
 	public MDecimal getLitres() {
 		MDecimal result = new MDecimal(currentUnit.getConverterTo(LITRE)
 				.convert(doubleValue()));

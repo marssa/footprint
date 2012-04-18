@@ -16,18 +16,16 @@
 package mise.marssa.footprint.datatypes.decimal.speed;
 
 import static javax.measure.unit.NonSI.KNOT;
-import static javax.measure.unit.SI.METRE;
 
 import java.math.MathContext;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
-import org.hibernate.annotations.AccessType;
-
 import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
+
+import org.hibernate.annotations.ForeignKey;
 
 /**
  * @author Alan Grech
@@ -37,7 +35,7 @@ import mise.marssa.footprint.exceptions.OutOfRange;
 
 @XmlType(name = "Knots", factoryClass = TypeFactory.class, factoryMethod = "getKnotsInstance")
 @Entity
-@AccessType("property")
+@ForeignKey(name = "FK_Knots_MDecimal")
 public class Knots extends ASpeed {
 
 	/**
@@ -51,8 +49,5 @@ public class Knots extends ASpeed {
 	public Knots(double value, MathContext mc) throws OutOfRange {
 		super(value, KNOT,mc);
 	}
-//	@Column(name = "Knots")
-//	public double getValue(){
-//		return super.doubleValue();
-//	}
+
 }

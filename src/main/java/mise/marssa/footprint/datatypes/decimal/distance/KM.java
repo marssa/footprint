@@ -17,14 +17,15 @@ package mise.marssa.footprint.datatypes.decimal.distance;
 
 import static javax.measure.unit.SI.KILOMETRE;
 
-import javax.persistence.Column;
+import java.math.MathContext;
+
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
-import org.hibernate.annotations.AccessType;
-
 import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
+
+import org.hibernate.annotations.ForeignKey;
 
 /**
  * Kilometres
@@ -35,7 +36,7 @@ import mise.marssa.footprint.exceptions.OutOfRange;
  */
 @XmlType(name = "KM", factoryClass = TypeFactory.class, factoryMethod = "getKMInstance")
 @Entity
-@AccessType("property")
+@ForeignKey(name = "FK_KM_MDecimal")
 public class KM extends ADistance {
 
 	/**
@@ -46,8 +47,7 @@ public class KM extends ADistance {
 	public KM(double value) throws OutOfRange {
 		super(value, KILOMETRE);
 	}
-	@Column(name = "Km")
-	public double getValue(){
-		return super.doubleValue();
+	public KM(double value, MathContext mc) throws OutOfRange {
+		super(value, KILOMETRE, mc);
 	}
 }

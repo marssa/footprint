@@ -15,18 +15,19 @@
  */
 package mise.marssa.footprint.datatypes.decimal.pressure;
 
-import javax.persistence.Column;
+import java.math.MathContext;
+
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
-
-import org.hibernate.annotations.AccessType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
 
+import org.hibernate.annotations.ForeignKey;
+
 @XmlType(name = "PSI", factoryClass = TypeFactory.class, factoryMethod = "getPSIInstance")
 @Entity
-@AccessType("property")
+@ForeignKey(name = "FK_PSI_MDecimal")
 public class PSI extends APressure {
 
 	/**
@@ -37,8 +38,7 @@ public class PSI extends APressure {
 	public PSI(double value) throws OutOfRange {
 		super(value, PSI);
 	}
-	@Column(name = "PSI")
-	public double getValue(){
-		return super.doubleValue();
+	public PSI(double value, MathContext mc) throws OutOfRange {
+		super(value, PSI, mc);
 	}
 }

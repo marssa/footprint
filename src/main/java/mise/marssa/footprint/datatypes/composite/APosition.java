@@ -16,15 +16,15 @@
 package mise.marssa.footprint.datatypes.composite;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.MappedSuperclass;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.MString;
 import mise.marssa.footprint.datatypes.TypeFactory;
-import mise.marssa.footprint.datatypes.decimal.DegreesFloat;
+import mise.marssa.footprint.datatypes.decimal.DegreesDecimal;
 import mise.marssa.footprint.datatypes.decimal.MDecimal;
 import mise.marssa.footprint.datatypes.integer.DegreesInteger;
 import mise.marssa.footprint.datatypes.integer.MInteger;
@@ -46,7 +46,8 @@ import flexjson.JSONSerializer;
  * @created 08-Jul-2011 09:53:29
  */
 @XmlType(name = "APosition", factoryClass = TypeFactory.class, factoryMethod = "getAPositionInstance")
-@MappedSuperclass
+//@MappedSuperclass
+@Entity
 public abstract class APosition {
 	protected APosition() {
 	}
@@ -57,7 +58,7 @@ public abstract class APosition {
 	protected DegreesInteger deg;
 	protected MInteger min;
 	protected MDecimal sec;
-	protected DegreesFloat dms;
+	protected DegreesDecimal dms;
 
 	private Long id;
 
@@ -85,15 +86,15 @@ public abstract class APosition {
 		if (degrees.intValue() > 0) {
 			double convertedValue = (degrees.intValue() + (((minutes.intValue() * 60) + (seconds
 					.doubleValue())) / 3600));
-			this.dms = new DegreesFloat(convertedValue);
+			this.dms = new DegreesDecimal(convertedValue);
 		} else if (degrees.intValue() < 0) {
 			double convertedValue = -(degrees.intValue() + (((minutes
 					.intValue() * 60) + (seconds.doubleValue())) / 3600));
-			this.dms = new DegreesFloat(-convertedValue);
+			this.dms = new DegreesDecimal(-convertedValue);
 		}
 	}
 
-	public APosition(DegreesFloat degrees) {
+	public APosition(DegreesDecimal degrees) {
 		// APosition.trace(MMarker.CONSTRUCTOR,"Constructor created with  Degrees:\"{}f\".",
 		// degrees);
 
@@ -125,7 +126,6 @@ public abstract class APosition {
 	@ManyToOne
 	@Cascade({ CascadeType.SAVE_UPDATE })
 	public DegreesInteger getDegrees() {
-
 		logger.trace(MMarker.GETTER, "Getting Degrees: {}", deg);
 		return deg;
 	}
@@ -158,12 +158,12 @@ public abstract class APosition {
 
 	@ManyToOne
 	@Cascade({ CascadeType.SAVE_UPDATE })
-	public DegreesFloat getDMS() {
+	public DegreesDecimal getDMS() {
 		logger.trace(MMarker.GETTER, "Getting DMS: {}", dms);
 		return dms;
 	}
 
-	public void setDMS(DegreesFloat dms) {
+	public void setDMS(DegreesDecimal dms) {
 		this.dms = dms;
 	}
 

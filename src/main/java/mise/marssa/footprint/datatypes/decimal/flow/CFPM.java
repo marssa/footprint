@@ -18,14 +18,15 @@
  */
 package mise.marssa.footprint.datatypes.decimal.flow;
 
-import javax.persistence.Column;
+import java.math.MathContext;
+
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
-import org.hibernate.annotations.AccessType;
-
 import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
+
+import org.hibernate.annotations.ForeignKey;
 
 /**
  * Cubic feet per minute
@@ -34,7 +35,7 @@ import mise.marssa.footprint.exceptions.OutOfRange;
  */
 @XmlType(name = "CFPM", factoryClass = TypeFactory.class, factoryMethod = "getCFPMInstance")
 @Entity
-@AccessType("property")
+@ForeignKey(name = "FK_CFPM_MDecimal")
 public class CFPM extends AVolumeFlow {
 
 	/**
@@ -45,8 +46,7 @@ public class CFPM extends AVolumeFlow {
 	public CFPM(double value) throws OutOfRange {
 		super(value, CUBIC_FEET_PER_MINUTE);
 	}
-	@Column(name = "CFPM")
-	public double getValue(){
-		return super.doubleValue();
+	public CFPM(double value, MathContext mc) throws OutOfRange {
+		super(value, CUBIC_FEET_PER_MINUTE, mc);
 	}
 }

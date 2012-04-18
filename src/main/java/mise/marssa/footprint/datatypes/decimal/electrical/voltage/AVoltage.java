@@ -21,13 +21,15 @@ package mise.marssa.footprint.datatypes.decimal.electrical.voltage;
 import static javax.measure.unit.SI.MILLI;
 import static javax.measure.unit.SI.VOLT;
 
+import java.math.MathContext;
+
 import javax.measure.quantity.ElectricPotential;
 import javax.measure.unit.Unit;
-import javax.persistence.MappedSuperclass;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.datatypes.decimal.MDecimal;
+import mise.marssa.footprint.exceptions.OutOfRange;
 import mise.marssa.footprint.logger.MMarker;
 
 import org.slf4j.Logger;
@@ -38,7 +40,7 @@ import org.slf4j.LoggerFactory;
  * 
  */
 @XmlType(name = "AVoltage", factoryClass = TypeFactory.class, factoryMethod = "getAVoltageInstance")
-@MappedSuperclass
+
 public abstract class AVoltage extends MDecimal {
 	/**
 	 * 
@@ -55,6 +57,11 @@ public abstract class AVoltage extends MDecimal {
 		this.currentUnit = unit;
 	}
 
+	protected AVoltage(double value, Unit<ElectricPotential> unit, MathContext mc)
+			throws OutOfRange {
+		super(value, mc);
+		this.currentUnit = unit;
+	}
 	public MDecimal getVolts() {
 		MDecimal result = new MDecimal(currentUnit.getConverterTo(VOLT)
 				.convert(doubleValue()));

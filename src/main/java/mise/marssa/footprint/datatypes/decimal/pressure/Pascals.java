@@ -17,14 +17,15 @@ package mise.marssa.footprint.datatypes.decimal.pressure;
 
 import static javax.measure.unit.SI.PASCAL;
 
-import javax.persistence.Column;
+import java.math.MathContext;
+
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
-import org.hibernate.annotations.AccessType;
-
 import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
+
+import org.hibernate.annotations.ForeignKey;
 
 /**
  * @author Alan Grech
@@ -33,7 +34,7 @@ import mise.marssa.footprint.exceptions.OutOfRange;
  */
 @XmlType(name = "Pascals", factoryClass = TypeFactory.class, factoryMethod = "getPascalsInstance")
 @Entity
-@AccessType("property")
+@ForeignKey(name = "FK_Pascals_MDecimal")
 public class Pascals extends APressure {
 
 	/**
@@ -44,8 +45,7 @@ public class Pascals extends APressure {
 	public Pascals(double value) throws OutOfRange {
 		super(value, PASCAL);
 	}
-	@Column(name = "Pascals")
-	public double getValue(){
-		return super.doubleValue();
+	public Pascals(double value, MathContext mc) throws OutOfRange {
+		super(value, PASCAL, mc);
 	}
 }

@@ -22,13 +22,15 @@ import static javax.measure.unit.SI.KILO;
 import static javax.measure.unit.SI.MEGA;
 import static javax.measure.unit.SI.WATT;
 
+import java.math.MathContext;
+
 import javax.measure.quantity.Power;
 import javax.measure.unit.Unit;
-import javax.persistence.MappedSuperclass;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.datatypes.decimal.MDecimal;
+import mise.marssa.footprint.exceptions.OutOfRange;
 import mise.marssa.footprint.logger.MMarker;
 
 import org.slf4j.Logger;
@@ -39,7 +41,7 @@ import org.slf4j.LoggerFactory;
  * 
  */
 @XmlType(name = "APower", factoryClass = TypeFactory.class, factoryMethod = "getAPowerInstance")
-@MappedSuperclass
+
 public abstract class APower extends MDecimal {
 	/**
 	 * 
@@ -55,6 +57,12 @@ public abstract class APower extends MDecimal {
 		super(value);
 	}
 
+	protected APower(double value, Unit<Power> unit, MathContext mc)
+			throws OutOfRange {
+		super(value, mc);
+		this.currentUnit = unit;
+	}
+	
 	public MDecimal getWatts() {
 		MDecimal result = new MDecimal(currentUnit.getConverterTo(WATT)
 				.convert(doubleValue()));

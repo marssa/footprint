@@ -21,13 +21,15 @@ package mise.marssa.footprint.datatypes.decimal.electrical.impedance;
 import static javax.measure.unit.SI.KILO;
 import static javax.measure.unit.SI.OHM;
 
-import javax.persistence.Column;
+import java.math.MathContext;
+
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
-import org.hibernate.annotations.AccessType;
-
 import mise.marssa.footprint.datatypes.TypeFactory;
+import mise.marssa.footprint.exceptions.OutOfRange;
+
+import org.hibernate.annotations.ForeignKey;
 
 /**
  * @author Warren Zahra
@@ -35,7 +37,7 @@ import mise.marssa.footprint.datatypes.TypeFactory;
  */
 @XmlType(name = "KOhms", factoryClass = TypeFactory.class, factoryMethod = "getKOhmsInstance")
 @Entity
-@AccessType("property")
+@ForeignKey(name = "FK_KOhms_MDecimal")
 public class KOhms extends AImpedance {
 
 	/**
@@ -46,8 +48,7 @@ public class KOhms extends AImpedance {
 	public KOhms(double value) {
 		super(value, KILO(OHM));
 	}
-	@Column(name = "KOhms")
-	public double getValue(){
-		return super.doubleValue();
+	public KOhms(double value, MathContext mc) throws OutOfRange {
+		super(value, KILO(OHM), mc);
 	}
 }

@@ -19,8 +19,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlElement;
@@ -28,7 +26,6 @@ import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.MString;
 import mise.marssa.footprint.datatypes.TypeFactory;
-import mise.marssa.footprint.datatypes.time.MTimeStamp;
 import mise.marssa.footprint.logger.MMarker;
 
 import org.hibernate.annotations.Cascade;
@@ -47,7 +44,6 @@ import flexjson.JSONSerializer;
  */
 @XmlType(name = "Coordinate", factoryClass = TypeFactory.class, factoryMethod = "getCoordinateInstance")
 @Entity
-@Table(name = "Coordinate")
 public class Coordinate {
 
 	private static Logger Coordinate = (Logger) LoggerFactory
@@ -60,10 +56,6 @@ public class Coordinate {
 	@ManyToOne
 	@Cascade({ CascadeType.SAVE_UPDATE })
 	private Longitude longitude;
-
-	@ManyToOne
-	@Cascade({ CascadeType.SAVE_UPDATE })
-	MTimeStamp time;
 
 	public Coordinate(Latitude latitude, Longitude longitude) {
 		this.latitude = latitude;
@@ -105,14 +97,6 @@ public class Coordinate {
 
 	private void setId(Long id) {
 		this.id = id;
-	}
-
-	public MTimeStamp getTimeStamp() {
-		return this.time;
-	}
-
-	public void setTimeStamp(MTimeStamp time) {
-		this.time = time;
 	}
 
 	public java.lang.String toString() {

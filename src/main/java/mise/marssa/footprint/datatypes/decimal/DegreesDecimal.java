@@ -29,18 +29,18 @@ import flexjson.JSONSerializer;
  */
 @XmlType(name = "DegreesFloat", factoryClass = TypeFactory.class, factoryMethod = "getDegreesFloatInstance")
 @Entity
-public class DegreesFloat extends MDecimal {
+public class DegreesDecimal extends MDecimal {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -6725449434062082433L;
 
-	private DegreesFloat() {
+	private DegreesDecimal() {
 		super(0);
 	}
 
-	public DegreesFloat(double value) {
+	public DegreesDecimal(double value) {
 		super(value);
 	}
 

@@ -26,7 +26,7 @@ import mise.marssa.footprint.datatypes.composite.Longitude;
 import mise.marssa.footprint.datatypes.composite.Pitch;
 import mise.marssa.footprint.datatypes.composite.Roll;
 import mise.marssa.footprint.datatypes.composite.Yaw;
-import mise.marssa.footprint.datatypes.decimal.DegreesFloat;
+import mise.marssa.footprint.datatypes.decimal.DegreesDecimal;
 import mise.marssa.footprint.datatypes.decimal.MDecimal;
 import mise.marssa.footprint.datatypes.decimal.PercentageFloat;
 import mise.marssa.footprint.datatypes.decimal.UnsignedDecimal;
@@ -359,8 +359,8 @@ public class TypeFactory {
 	 * DataTypes
 	 */
 
-	public static DegreesFloat getDegreesFloatInstance() throws OutOfRange {
-		return new DegreesFloat(0);
+	public static DegreesDecimal getDegreesFloatInstance() throws OutOfRange {
+		return new DegreesDecimal(0);
 	}
 
 	public static MDecimal getMDecimalInstance() throws OutOfRange {

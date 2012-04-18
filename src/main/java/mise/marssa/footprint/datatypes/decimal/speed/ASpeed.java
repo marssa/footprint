@@ -22,10 +22,8 @@ import static javax.measure.unit.SI.METERS_PER_SECOND;
 
 import java.math.MathContext;
 
-import javax.measure.quantity.Length;
 import javax.measure.quantity.Velocity;
 import javax.measure.unit.Unit;
-import javax.persistence.MappedSuperclass;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
@@ -45,7 +43,7 @@ import ch.qos.logback.classic.Logger;
  */
 
 @XmlType(name = "ASpeed", factoryClass = TypeFactory.class, factoryMethod = "getASpeedInstance")
-@MappedSuperclass
+
 public abstract class ASpeed extends UnsignedDecimal {
 
 	/**

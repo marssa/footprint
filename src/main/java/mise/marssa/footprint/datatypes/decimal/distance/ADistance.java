@@ -25,7 +25,6 @@ import java.math.MathContext;
 import javax.measure.converter.MultiplyConverter;
 import javax.measure.quantity.Length;
 import javax.measure.unit.Unit;
-import javax.persistence.MappedSuperclass;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
@@ -43,7 +42,6 @@ import org.slf4j.LoggerFactory;
  * @created 08-Jul-2011 09:53:23
  */
 @XmlType(name = "ADistance", factoryClass = TypeFactory.class, factoryMethod = "getADistanceInstance")
-@MappedSuperclass
 public abstract class ADistance extends UnsignedDecimal {
 
 	/**
@@ -53,7 +51,7 @@ public abstract class ADistance extends UnsignedDecimal {
 
 	private static Logger logger = (Logger) LoggerFactory
 			.getLogger(ADistance.class.getName());
-
+	
 	private Unit<Length> currentUnit;
 
 	/**

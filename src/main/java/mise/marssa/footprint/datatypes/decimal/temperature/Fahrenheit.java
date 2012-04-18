@@ -17,13 +17,15 @@ package mise.marssa.footprint.datatypes.decimal.temperature;
 
 import static javax.measure.unit.NonSI.FAHRENHEIT;
 
-import javax.persistence.Column;
+import java.math.MathContext;
+
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
-import org.hibernate.annotations.AccessType;
-
 import mise.marssa.footprint.datatypes.TypeFactory;
+import mise.marssa.footprint.exceptions.OutOfRange;
+
+import org.hibernate.annotations.ForeignKey;
 
 /**
  * @author Alan Grech
@@ -32,7 +34,7 @@ import mise.marssa.footprint.datatypes.TypeFactory;
  */
 @XmlType(name = "Fahrenheit", factoryClass = TypeFactory.class, factoryMethod = "getFahrenheitInstance")
 @Entity
-@AccessType("property")
+@ForeignKey(name = "FK_Fahrenheit_MDecimal")
 public class Fahrenheit extends ATemperature {
 
 	/**
@@ -43,8 +45,7 @@ public class Fahrenheit extends ATemperature {
 	public Fahrenheit(double value) {
 		super(value, FAHRENHEIT);
 	}
-	@Column(name = "Fahrenheit")
-	public double getValue(){
-		return super.doubleValue();
+	public Fahrenheit(double value, MathContext mc) throws OutOfRange {
+		super(value, FAHRENHEIT, mc);
 	}
 }

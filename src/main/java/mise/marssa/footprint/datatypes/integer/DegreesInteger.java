@@ -42,4 +42,6 @@ public class DegreesInteger extends MInteger {
 		super.finalize();
 	}
 
+	
+	
 }

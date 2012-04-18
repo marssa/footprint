@@ -39,32 +39,36 @@ import flexjson.JSONSerializer;
  */
 @XmlType(name = "MDecimal", factoryClass = TypeFactory.class, factoryMethod = "getMDecimalInstance")
 @Entity
-@Inheritance(strategy = javax.persistence.InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = javax.persistence.InheritanceType.JOINED)
 public class MDecimal extends BigDecimal {
 
-	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 241201800992014889L;
+	private BigDecimal value;
 
 	private MDecimal() {
 		super(0);
+		this.value = new BigDecimal(0);
 	}
 
 	public MDecimal(double value) {
 		super(value);
+		this.value = new BigDecimal(value);
 	}
+
 	public MDecimal(double value, MathContext mc) {
 		super(value, mc);
+		this.value = new BigDecimal(value, mc);
 	}
-	
+
 	@Id
-    @Column(name = "id")
+	@Column(name = "id")
 	@GeneratedValue(generator = "increment")
 	@GenericGenerator(name = "increment", strategy = "increment")
 	Long id;
-	
+
 	public Long getId() {
 		return id;
 	}

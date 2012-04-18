@@ -20,17 +20,17 @@ package mise.marssa.footprint.datatypes.decimal.electrical.energy;
 
 import static javax.measure.unit.SI.JOULE;
 import static javax.measure.unit.SI.KILO;
-import static javax.measure.unit.SI.MILLI;
 import static javax.measure.unit.SI.MEGA;
 
-import javax.measure.quantity.ElectricCurrent;
+import java.math.MathContext;
+
 import javax.measure.quantity.Energy;
 import javax.measure.unit.Unit;
-import javax.persistence.MappedSuperclass;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.datatypes.decimal.MDecimal;
+import mise.marssa.footprint.exceptions.OutOfRange;
 import mise.marssa.footprint.logger.MMarker;
 
 import org.slf4j.Logger;
@@ -41,7 +41,7 @@ import org.slf4j.LoggerFactory;
  * 
  */
 @XmlType(name = "AEnergy", factoryClass = TypeFactory.class, factoryMethod = "getAEnergyInstance")
-@MappedSuperclass
+
 public abstract class AEnergy extends MDecimal {
 
 	/**
@@ -52,34 +52,40 @@ public abstract class AEnergy extends MDecimal {
 	private static Logger logger = (Logger) LoggerFactory
 			.getLogger(AEnergy.class.getName());
 
-	private Unit<Energy> energyUnit;
+	private Unit<Energy> currentUnit;
 
 	protected AEnergy(double value, Unit<Energy> unit) {
 		super(value);
-		this.energyUnit = unit;
+		this.currentUnit = unit;
+	}
+	
+	protected AEnergy(double value, Unit<Energy> unit, MathContext mc)
+			throws OutOfRange {
+		super(value, mc);
+		this.currentUnit = unit;
 	}
 
 	public MDecimal getJoules() {
-		MDecimal result = new MDecimal(energyUnit.getConverterTo(JOULE)
+		MDecimal result = new MDecimal(currentUnit.getConverterTo(JOULE)
 				.convert(doubleValue()));
 		logger.trace(MMarker.GETTER, "Converting from {} to Amps : {}",
-				energyUnit, result);
+				currentUnit, result);
 		return result;
 	}
 
 	public MDecimal getKJoules() {
-		MDecimal result = new MDecimal(energyUnit.getConverterTo(KILO(JOULE))
+		MDecimal result = new MDecimal(currentUnit.getConverterTo(KILO(JOULE))
 				.convert(doubleValue()));
 		logger.trace(MMarker.GETTER, "Converting from {} to milli Amps : {}",
-				energyUnit, result);
+				currentUnit, result);
 		return result;
 	}
 
 	public MDecimal getMJoules() {
-		MDecimal result = new MDecimal(energyUnit.getConverterTo(MEGA(JOULE))
+		MDecimal result = new MDecimal(currentUnit.getConverterTo(MEGA(JOULE))
 				.convert(doubleValue()));
 		logger.trace(MMarker.GETTER, "Converting from {} to milli Amps : {}",
-				energyUnit, result);
+				currentUnit, result);
 		return result;
 	}
 

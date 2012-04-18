@@ -20,13 +20,15 @@ package mise.marssa.footprint.datatypes.decimal.electrical.charge;
 
 import static javax.measure.unit.SI.COULOMB;
 
-import javax.persistence.Column;
+import java.math.MathContext;
+
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
-import org.hibernate.annotations.AccessType;
-
 import mise.marssa.footprint.datatypes.TypeFactory;
+import mise.marssa.footprint.exceptions.OutOfRange;
+
+import org.hibernate.annotations.ForeignKey;
 
 /**
  * @author Alan Grech
@@ -34,7 +36,7 @@ import mise.marssa.footprint.datatypes.TypeFactory;
  */
 @XmlType(name = "Coulombs", factoryClass = TypeFactory.class, factoryMethod = "getCoulombsInstance")
 @Entity
-@AccessType("property")
+@ForeignKey(name = "FK_Coulombs_MDecimal")
 public class Coulombs extends ACharge {
 
 	/**
@@ -45,8 +47,8 @@ public class Coulombs extends ACharge {
 	public Coulombs(double value) {
 		super(value, COULOMB);
 	}
-	@Column(name = "Coulombs")
-	public double getValue(){
-		return super.doubleValue();
+	
+	public Coulombs(double value, MathContext mc) throws OutOfRange {
+		super(value, COULOMB, mc);
 	}
 }

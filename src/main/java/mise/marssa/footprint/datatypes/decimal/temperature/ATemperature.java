@@ -19,13 +19,15 @@ import static javax.measure.unit.NonSI.FAHRENHEIT;
 import static javax.measure.unit.SI.CELSIUS;
 import static javax.measure.unit.SI.KELVIN;
 
+import java.math.MathContext;
+
 import javax.measure.quantity.Temperature;
 import javax.measure.unit.Unit;
-import javax.persistence.MappedSuperclass;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.datatypes.decimal.MDecimal;
+import mise.marssa.footprint.exceptions.OutOfRange;
 import mise.marssa.footprint.logger.MMarker;
 
 import org.slf4j.LoggerFactory;
@@ -38,7 +40,7 @@ import ch.qos.logback.classic.Logger;
  * @created 08-Jul-2011 09:53:23
  */
 @XmlType(name = "ATemperature", factoryClass = TypeFactory.class, factoryMethod = "getATemperatureInstance")
-@MappedSuperclass
+
 public abstract class ATemperature extends MDecimal {
 
 	/**
@@ -56,6 +58,11 @@ public abstract class ATemperature extends MDecimal {
 		this.currentUnit = unit;
 	}
 
+	protected ATemperature(double value, Unit<Temperature> unit, MathContext mc)
+			throws OutOfRange {
+		super(value, mc);
+		this.currentUnit = unit;
+	}
 	public MDecimal getDegreesCelcius() {
 		MDecimal result = new MDecimal(currentUnit.getConverterTo(CELSIUS)
 				.convert(doubleValue()));

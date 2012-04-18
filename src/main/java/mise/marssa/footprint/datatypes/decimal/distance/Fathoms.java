@@ -15,17 +15,23 @@
  */
 package mise.marssa.footprint.datatypes.decimal.distance;
 
-import javax.persistence.Column;
+import java.math.MathContext;
+
+import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
+
+import org.hibernate.annotations.ForeignKey;
 
 /**
  * @author Clayton Tabone
  * 
  */
 @XmlType(name = "Fathoms", factoryClass = TypeFactory.class, factoryMethod = "getFathomsInstance")
+@Entity
+@ForeignKey(name = "FK_Fathoms_MDecimal")
 public class Fathoms extends ADistance {
 
 	/**
@@ -40,8 +46,7 @@ public class Fathoms extends ADistance {
 	public Fathoms(double value) throws OutOfRange {
 		super(value, FATHOM);
 	}
-	@Column(name = "Fathoms")
-	public double getValue(){
-		return super.doubleValue();
+	public Fathoms(double value, MathContext mc) throws OutOfRange {
+		super(value, FATHOM, mc);
 	}
 }

@@ -23,9 +23,10 @@ import static javax.measure.unit.SI.KILO;
 import static javax.measure.unit.SI.MILLI;
 import static javax.measure.unit.SI.PASCAL;
 
+import java.math.MathContext;
+
 import javax.measure.quantity.Pressure;
 import javax.measure.unit.Unit;
-import javax.persistence.MappedSuperclass;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
@@ -44,7 +45,7 @@ import org.slf4j.LoggerFactory;
  */
 
 @XmlType(name = "APressure", factoryClass = TypeFactory.class, factoryMethod = "getAPressureInstance")
-@MappedSuperclass
+
 public abstract class APressure extends UnsignedDecimal {
 
 	/**
@@ -70,6 +71,11 @@ public abstract class APressure extends UnsignedDecimal {
 		this.currentUnit = unit;
 	}
 
+	protected APressure(double value, Unit<Pressure> unit, MathContext mc)
+			throws OutOfRange {
+		super(value, mc);
+		this.currentUnit = unit;
+	}
 	public MDecimal getBars() {
 		MDecimal result = new MDecimal(currentUnit.getConverterTo(BAR).convert(
 				doubleValue()));

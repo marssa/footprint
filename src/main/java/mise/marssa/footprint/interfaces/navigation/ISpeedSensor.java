@@ -20,7 +20,7 @@ package mise.marssa.footprint.interfaces.navigation;
 
 import javax.xml.bind.annotation.XmlType;
 
-import mise.marssa.footprint.datatypes.decimal.DegreesFloat;
+import mise.marssa.footprint.datatypes.decimal.DegreesDecimal;
 import mise.marssa.footprint.datatypes.decimal.speed.ASpeed;
 import mise.marssa.footprint.exceptions.OutOfRange;
 import mise.marssa.footprint.interfaces.IQuantity;
@@ -32,9 +32,9 @@ import mise.marssa.footprint.interfaces.IQuantity;
 public interface ISpeedSensor {
 	public ASpeed getSpeedKnots() throws OutOfRange;
 
-	public DegreesFloat getDegreesMagnetic() throws OutOfRange;
+	public DegreesDecimal getDegreesMagnetic() throws OutOfRange;
 
-	public DegreesFloat getDegreesTrue() throws OutOfRange;
+	public DegreesDecimal getDegreesTrue() throws OutOfRange;
 	
 	@XmlType(name="SpeedSensorQuantities")
 	public enum CompassQuantity implements IQuantity {

@@ -17,14 +17,15 @@ package mise.marssa.footprint.datatypes.decimal.speed;
 
 import static javax.measure.unit.NonSI.MILES_PER_HOUR;
 
-import javax.persistence.Column;
+import java.math.MathContext;
+
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
-import org.hibernate.annotations.AccessType;
-
 import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
+
+import org.hibernate.annotations.ForeignKey;
 
 /**
  * @author Alan Grech
@@ -34,7 +35,7 @@ import mise.marssa.footprint.exceptions.OutOfRange;
 
 @XmlType(name = "MPH", factoryClass = TypeFactory.class, factoryMethod = "getMPHInstance")
 @Entity
-@AccessType("property")
+@ForeignKey(name = "FK_MPH_MDecimal")
 public class MPH extends ASpeed {
 
 	/**
@@ -45,8 +46,7 @@ public class MPH extends ASpeed {
 	public MPH(double value) throws OutOfRange {
 		super(value, MILES_PER_HOUR);
 	}
-	@Column(name = "MPH")
-	public double getValue(){
-		return super.doubleValue();
+	public MPH(double value, MathContext mc) throws OutOfRange {
+		super(value, MILES_PER_HOUR, mc);
 	}
 }

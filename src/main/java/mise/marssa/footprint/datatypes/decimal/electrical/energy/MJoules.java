@@ -20,13 +20,16 @@ package mise.marssa.footprint.datatypes.decimal.electrical.energy;
 
 import static javax.measure.unit.SI.JOULE;
 import static javax.measure.unit.SI.MEGA;
-import javax.persistence.Column;
+
+import java.math.MathContext;
+
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
+import mise.marssa.footprint.exceptions.OutOfRange;
 
-import org.hibernate.annotations.AccessType;
+import org.hibernate.annotations.ForeignKey;
 
 /**
  * @author Warren Zahra
@@ -34,7 +37,7 @@ import org.hibernate.annotations.AccessType;
  */
 @XmlType(name = "MJoules", factoryClass = TypeFactory.class, factoryMethod = "getMJoulesInstance")
 @Entity
-@AccessType("property")
+@ForeignKey(name = "FK_Metres_MDecimal")
 public class MJoules extends AEnergy {
 
 	/**
@@ -46,8 +49,7 @@ public class MJoules extends AEnergy {
 		super(value, MEGA(JOULE));
 	}
 	
-	@Column(name = "MJoules")
-	public double getValue(){
-		return super.doubleValue();
+	public MJoules(double value, MathContext mc) throws OutOfRange {
+		super(value, MEGA(JOULE), mc);
 	}
 }

@@ -17,14 +17,15 @@ package mise.marssa.footprint.datatypes.decimal.distance;
 
 import static javax.measure.unit.NonSI.MILE;
 
-import javax.persistence.Column;
+import java.math.MathContext;
+
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
-import org.hibernate.annotations.AccessType;
-
 import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
+
+import org.hibernate.annotations.ForeignKey;
 
 /**
  * @author Alan Grech.grech
@@ -33,7 +34,7 @@ import mise.marssa.footprint.exceptions.OutOfRange;
  */
 @XmlType(name = "Miles", factoryClass = TypeFactory.class, factoryMethod = "getMilesInstance")
 @Entity
-@AccessType("property")
+@ForeignKey(name = "FK_Miles_MDecimal")
 public class Miles extends ADistance {
 
 	/**
@@ -41,11 +42,11 @@ public class Miles extends ADistance {
 	 */
 	private static final long serialVersionUID = -6577413341481435469L;
 
+	public Miles(double value, MathContext mc) throws OutOfRange {
+		super(value, MILE, mc);
+	}
 	public Miles(double value) throws OutOfRange {
 		super(value, MILE);
 	}
-	@Column(name = "Miles")
-	public double getValue(){
-		return super.doubleValue();
-	}
+	
 }

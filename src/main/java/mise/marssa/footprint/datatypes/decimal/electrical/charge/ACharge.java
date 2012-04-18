@@ -23,13 +23,15 @@ import static javax.measure.unit.SI.AMPERE;
 import static javax.measure.unit.SI.COULOMB;
 import static javax.measure.unit.SI.MILLI;
 
+import java.math.MathContext;
+
 import javax.measure.quantity.ElectricCharge;
 import javax.measure.unit.Unit;
-import javax.persistence.MappedSuperclass;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.datatypes.decimal.MDecimal;
+import mise.marssa.footprint.exceptions.OutOfRange;
 import mise.marssa.footprint.logger.MMarker;
 
 import org.slf4j.Logger;
@@ -40,7 +42,6 @@ import org.slf4j.LoggerFactory;
  * 
  */
 @XmlType(name = "ACharge", factoryClass = TypeFactory.class, factoryMethod = "getAChargeInstance")
-@MappedSuperclass
 public abstract class ACharge extends MDecimal {
 
 	/**
@@ -74,6 +75,11 @@ public abstract class ACharge extends MDecimal {
 		this.currentUnit = unit;
 	}
 
+	protected ACharge(double value, Unit<ElectricCharge> unit, MathContext mc)
+			throws OutOfRange {
+		super(value, mc);
+		this.currentUnit = unit;
+	}
 	/**
 	 * Ampere-hours
 	 * 

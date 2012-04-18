@@ -17,13 +17,15 @@ package mise.marssa.footprint.datatypes.decimal.temperature;
 
 import static javax.measure.unit.SI.CELSIUS;
 
-import javax.persistence.Column;
+import java.math.MathContext;
+
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
-import org.hibernate.annotations.AccessType;
-
 import mise.marssa.footprint.datatypes.TypeFactory;
+import mise.marssa.footprint.exceptions.OutOfRange;
+
+import org.hibernate.annotations.ForeignKey;
 
 /**
  * @author Alan Grech
@@ -32,7 +34,7 @@ import mise.marssa.footprint.datatypes.TypeFactory;
  */
 @XmlType(name = "DegreesCelcius", factoryClass = TypeFactory.class, factoryMethod = "getDegreesCelciusInstance")
 @Entity
-@AccessType("property")
+@ForeignKey(name = "FK_DegreesCelcius_MDecimal")
 public class DegreesCelcius extends ATemperature {
 
 	/**
@@ -43,8 +45,7 @@ public class DegreesCelcius extends ATemperature {
 	public DegreesCelcius(double value) {
 		super(value, CELSIUS);
 	}
-	@Column(name = "DegreesCelcius")
-	public double getValue(){
-		return super.doubleValue();
+	public DegreesCelcius(double value, MathContext mc) throws OutOfRange {
+		super(value, CELSIUS, mc);
 	}
 }

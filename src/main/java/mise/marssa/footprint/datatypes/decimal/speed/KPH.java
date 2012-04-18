@@ -17,14 +17,15 @@ package mise.marssa.footprint.datatypes.decimal.speed;
 
 import static javax.measure.unit.NonSI.KILOMETERS_PER_HOUR;
 
-import javax.persistence.Column;
+import java.math.MathContext;
+
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
-import org.hibernate.annotations.AccessType;
-
 import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
+
+import org.hibernate.annotations.ForeignKey;
 
 /**
  * Kilometres per hour
@@ -36,7 +37,7 @@ import mise.marssa.footprint.exceptions.OutOfRange;
 
 @XmlType(name = "KPH", factoryClass = TypeFactory.class, factoryMethod = "getKPHInstance")
 @Entity
-@AccessType("property")
+@ForeignKey(name = "FK_KPH_MDecimal")
 public class KPH extends ASpeed {
 
 	/**
@@ -47,8 +48,7 @@ public class KPH extends ASpeed {
 	public KPH(double value) throws OutOfRange {
 		super(value, KILOMETERS_PER_HOUR);
 	}
-	@Column(name = "KPH")
-	public double getValue(){
-		return super.doubleValue();
+	public KPH(double value, MathContext mc) throws OutOfRange {
+		super(value, KILOMETERS_PER_HOUR, mc);
 	}
 }

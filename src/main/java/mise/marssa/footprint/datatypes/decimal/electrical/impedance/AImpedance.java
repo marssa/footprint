@@ -22,13 +22,15 @@ import static javax.measure.unit.SI.KILO;
 import static javax.measure.unit.SI.MEGA;
 import static javax.measure.unit.SI.OHM;
 
+import java.math.MathContext;
+
 import javax.measure.quantity.ElectricResistance;
 import javax.measure.unit.Unit;
-import javax.persistence.MappedSuperclass;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.datatypes.decimal.MDecimal;
+import mise.marssa.footprint.exceptions.OutOfRange;
 import mise.marssa.footprint.logger.MMarker;
 
 import org.slf4j.Logger;
@@ -39,7 +41,7 @@ import org.slf4j.LoggerFactory;
  * 
  */
 @XmlType(name = "AImpedance", factoryClass = TypeFactory.class, factoryMethod = "getAImpedanceInstance")
-@MappedSuperclass
+
 public abstract class AImpedance extends MDecimal {
 
 	/**
@@ -57,6 +59,12 @@ public abstract class AImpedance extends MDecimal {
 		this.currentUnit = unit;
 	}
 
+	protected AImpedance(double value, Unit<ElectricResistance> unit, MathContext mc)
+			throws OutOfRange {
+		super(value, mc);
+		this.currentUnit = unit;
+	}
+	
 	public MDecimal getOhms() {
 		MDecimal result = new MDecimal(currentUnit.getConverterTo(OHM).convert(
 				doubleValue()));

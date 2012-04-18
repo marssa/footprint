@@ -20,7 +20,7 @@ import javax.xml.bind.annotation.XmlType;
 import mise.marssa.footprint.datatypes.MDate;
 import mise.marssa.footprint.datatypes.MString;
 import mise.marssa.footprint.datatypes.composite.Coordinate;
-import mise.marssa.footprint.datatypes.decimal.DegreesFloat;
+import mise.marssa.footprint.datatypes.decimal.DegreesDecimal;
 import mise.marssa.footprint.datatypes.decimal.MDecimal;
 import mise.marssa.footprint.datatypes.decimal.distance.Metres;
 import mise.marssa.footprint.datatypes.decimal.speed.Knots;
@@ -47,7 +47,7 @@ public interface IGpsReceiver {
 	 * @throws NoConnection
 	 * @throws NoValue
 	 */
-	public DegreesFloat getCOG() throws NoConnection, NoValue;
+	public DegreesDecimal getCOG() throws NoConnection, NoValue;
 
 	public Coordinate getCoordinate() throws NoConnection, NoValue, OutOfRange;
 

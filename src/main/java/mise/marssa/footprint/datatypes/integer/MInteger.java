@@ -15,7 +15,9 @@
  */
 package mise.marssa.footprint.datatypes.integer;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.math.MathContext;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -46,22 +48,21 @@ public class MInteger extends BigInteger {
 	 * 
 	 */
 	private static final long serialVersionUID = 2838329160994833031L;
-	
+	private BigInteger value;
 	@SuppressWarnings("unused")
 	@XmlValue
-	private BigInteger unused;
+	private int unused;
 
 	private MInteger() {
 		super(Integer.toString(0));
+		this.value = new BigInteger(Integer.toString(0));
 	}
 	
 	public MInteger(int value) {
 		super(Integer.toString(value));
+		this.value = new BigInteger(Integer.toString(value));
 	}
 	
-	public MInteger(long value) {
-		super(Long.toString(value));
-	}
 
 	public void finalize() throws Throwable {
 

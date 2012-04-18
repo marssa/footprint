@@ -15,12 +15,11 @@
  */
 package mise.marssa.footprint.interfaces.navigation;
 
-import mise.marssa.footprint.datatypes.composite.Attitude;
-import mise.marssa.footprint.datatypes.decimal.DegreesFloat;
-import mise.marssa.footprint.datatypes.decimal.MDecimal;
-
 import javax.xml.bind.annotation.XmlType;
 
+import mise.marssa.footprint.datatypes.composite.Attitude;
+import mise.marssa.footprint.datatypes.decimal.DegreesDecimal;
+import mise.marssa.footprint.datatypes.decimal.MDecimal;
 import mise.marssa.footprint.interfaces.IQuantity;
 
 /**
@@ -35,20 +34,20 @@ public interface ICompass {
 	 */
 	public Attitude getAttitude();
 
-	public DegreesFloat getDeviation();
+	public DegreesDecimal getDeviation();
 
-	public DegreesFloat getHeading();
+	public DegreesDecimal getHeading();
 
-	public DegreesFloat getMagneticHeading();
+	public DegreesDecimal getMagneticHeading();
 
 	public MDecimal getRateOfTurn();
 
-	public DegreesFloat getTrueHeading();
+	public DegreesDecimal getTrueHeading();
 
 	/**
 	 * Difference between True North & Magnetic North
 	 */
-	public DegreesFloat getVariation();
+	public DegreesDecimal getVariation();
 	
 	@XmlType(name="CompassQuantities")
 	public enum CompassQuantity implements IQuantity {

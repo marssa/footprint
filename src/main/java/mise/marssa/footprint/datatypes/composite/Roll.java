@@ -20,7 +20,7 @@ import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.MString;
 import mise.marssa.footprint.datatypes.TypeFactory;
-import mise.marssa.footprint.datatypes.decimal.DegreesFloat;
+import mise.marssa.footprint.datatypes.decimal.DegreesDecimal;
 import flexjson.JSONSerializer;
 
 /**
@@ -31,9 +31,9 @@ import flexjson.JSONSerializer;
 @XmlType(name = "Roll", factoryClass = TypeFactory.class, factoryMethod = "getRollInstance")
 public class Roll {
 
-	private DegreesFloat Roll;
+	private DegreesDecimal Roll;
 
-	public Roll(DegreesFloat roll) {
+	public Roll(DegreesDecimal roll) {
 		this.Roll = roll;
 	}
 
@@ -42,7 +42,7 @@ public class Roll {
 	}
 
 	@XmlElement
-	public DegreesFloat getRoll() {
+	public DegreesDecimal getRoll() {
 		return Roll;
 	}
 

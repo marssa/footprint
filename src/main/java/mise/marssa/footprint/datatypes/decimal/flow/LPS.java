@@ -15,14 +15,15 @@
  */
 package mise.marssa.footprint.datatypes.decimal.flow;
 
-import javax.persistence.Column;
+import java.math.MathContext;
+
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
-import org.hibernate.annotations.AccessType;
-
 import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
+
+import org.hibernate.annotations.ForeignKey;
 
 /**
  * Litres per second
@@ -32,7 +33,7 @@ import mise.marssa.footprint.exceptions.OutOfRange;
 
 @XmlType(name = "LPS", factoryClass = TypeFactory.class, factoryMethod = "getLPSInstance")
 @Entity
-@AccessType("property")
+@ForeignKey(name = "FK_LPS_MDecimal")
 public class LPS extends AVolumeFlow {
 
 	/**
@@ -43,8 +44,7 @@ public class LPS extends AVolumeFlow {
 	public LPS(double value) throws OutOfRange {
 		super(value, LITRES_PER_SECOND);
 	}
-	@Column(name = "LPS")
-	public double getValue(){
-		return super.doubleValue();
+	public LPS(double value, MathContext mc) throws OutOfRange {
+		super(value, LITRES_PER_SECOND, mc);
 	}
 }

@@ -21,13 +21,15 @@ package mise.marssa.footprint.datatypes.decimal.electrical.current;
 import static javax.measure.unit.SI.AMPERE;
 import static javax.measure.unit.SI.MILLI;
 
-import javax.persistence.Column;
+import java.math.MathContext;
+
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
-import org.hibernate.annotations.AccessType;
-
 import mise.marssa.footprint.datatypes.TypeFactory;
+import mise.marssa.footprint.exceptions.OutOfRange;
+
+import org.hibernate.annotations.ForeignKey;
 
 /**
  * @author Alan Grech
@@ -35,7 +37,7 @@ import mise.marssa.footprint.datatypes.TypeFactory;
  */
 @XmlType(name = "MilliAmps", factoryClass = TypeFactory.class, factoryMethod = "getMilliAmpsInstance")
 @Entity
-@AccessType("property")
+@ForeignKey(name = "FK_MilliAmps_MDecimal")
 public class MilliAmps extends ACurrent {
 
 	/**
@@ -46,8 +48,8 @@ public class MilliAmps extends ACurrent {
 	public MilliAmps(double value) {
 		super(value, MILLI(AMPERE));
 	}
-	@Column(name = "MilliAmps")
-	public double getValue(){
-		return super.doubleValue();
+
+	public MilliAmps(double value, MathContext mc) throws OutOfRange {
+		super(value,  MILLI(AMPERE), mc);
 	}
 }

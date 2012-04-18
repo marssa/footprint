@@ -34,7 +34,6 @@ import ch.qos.logback.classic.Logger;
  * @created 08-Jul-2011 09:53:29
  */
 @XmlType(name = "UnsignedDecimal", factoryClass = TypeFactory.class, factoryMethod = "getUnsignedDecimalInstance")
-@Entity
 public class UnsignedDecimal extends MDecimal {
 
 	/**

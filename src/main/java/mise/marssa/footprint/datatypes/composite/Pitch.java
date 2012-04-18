@@ -20,7 +20,7 @@ import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.MString;
 import mise.marssa.footprint.datatypes.TypeFactory;
-import mise.marssa.footprint.datatypes.decimal.DegreesFloat;
+import mise.marssa.footprint.datatypes.decimal.DegreesDecimal;
 import flexjson.JSONSerializer;
 
 /**
@@ -31,9 +31,9 @@ import flexjson.JSONSerializer;
 @XmlType(name = "Pitch", factoryClass = TypeFactory.class, factoryMethod = "getPitchInstance")
 public class Pitch {
 
-	private DegreesFloat Pitch;
+	private DegreesDecimal Pitch;
 
-	public Pitch(DegreesFloat pitch) {
+	public Pitch(DegreesDecimal pitch) {
 		this.Pitch = pitch;
 
 	}
@@ -43,7 +43,7 @@ public class Pitch {
 	}
 
 	@XmlElement
-	public DegreesFloat getPitch() {
+	public DegreesDecimal getPitch() {
 		return Pitch;
 	}
 

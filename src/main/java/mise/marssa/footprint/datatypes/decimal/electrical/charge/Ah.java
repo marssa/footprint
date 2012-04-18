@@ -18,13 +18,15 @@
  */
 package mise.marssa.footprint.datatypes.decimal.electrical.charge;
 
-import javax.persistence.Column;
+import java.math.MathContext;
+
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
-import org.hibernate.annotations.AccessType;
-
 import mise.marssa.footprint.datatypes.TypeFactory;
+import mise.marssa.footprint.exceptions.OutOfRange;
+
+import org.hibernate.annotations.ForeignKey;
 
 /**
  * @author Alan Grech
@@ -32,7 +34,7 @@ import mise.marssa.footprint.datatypes.TypeFactory;
  */
 @XmlType(name = "Ah", factoryClass = TypeFactory.class, factoryMethod = "getAhInstance")
 @Entity
-@AccessType("property")
+@ForeignKey(name = "FK_Ah_MDecimal")
 public class Ah extends ACharge {
 
 	/**
@@ -43,8 +45,7 @@ public class Ah extends ACharge {
 	public Ah(double value) {
 		super(value, AMPERE_HOUR);
 	}
-	@Column(name = "Ah")
-	public double getValue(){
-		return super.doubleValue();
+	public Ah(double value, MathContext mc) throws OutOfRange {
+		super(value, AMPERE_HOUR, mc);
 	}
 }

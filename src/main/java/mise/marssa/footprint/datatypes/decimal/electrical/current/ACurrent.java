@@ -18,27 +18,29 @@
  */
 package mise.marssa.footprint.datatypes.decimal.electrical.current;
 
-import static javax.measure.unit.SI.MILLI;
 import static javax.measure.unit.SI.AMPERE;
+import static javax.measure.unit.SI.MILLI;
+
+import java.math.MathContext;
 
 import javax.measure.quantity.ElectricCurrent;
 import javax.measure.unit.Unit;
-import javax.persistence.MappedSuperclass;
 import javax.xml.bind.annotation.XmlType;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.datatypes.decimal.MDecimal;
+import mise.marssa.footprint.exceptions.OutOfRange;
 import mise.marssa.footprint.logger.MMarker;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author Alan Grech
  * 
  */
 @XmlType(name = "ACurrent", factoryClass = TypeFactory.class, factoryMethod = "getACurrentInstance")
-@MappedSuperclass
+
 public abstract class ACurrent extends MDecimal {
 	/**
 	 * 
@@ -55,6 +57,11 @@ public abstract class ACurrent extends MDecimal {
 		this.currentUnit = unit;
 	}
 
+	protected ACurrent(double value, Unit<ElectricCurrent> unit, MathContext mc)
+			throws OutOfRange {
+		super(value, mc);
+		this.currentUnit = unit;
+	}
 	public MDecimal getAmps() {
 		MDecimal result = new MDecimal(currentUnit.getConverterTo(AMPERE)
 				.convert(doubleValue()));

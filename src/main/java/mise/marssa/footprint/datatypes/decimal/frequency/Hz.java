@@ -17,14 +17,15 @@ package mise.marssa.footprint.datatypes.decimal.frequency;
 
 import static javax.measure.unit.SI.HERTZ;
 
-import javax.persistence.Column;
+import java.math.MathContext;
+
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
-import org.hibernate.annotations.AccessType;
-
 import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
+
+import org.hibernate.annotations.ForeignKey;
 
 /**
  * @author Alan Grech
@@ -33,7 +34,7 @@ import mise.marssa.footprint.exceptions.OutOfRange;
  */
 @XmlType(name = "Hz", factoryClass = TypeFactory.class, factoryMethod = "getHzInstance")
 @Entity
-@AccessType("property")
+@ForeignKey(name = "FK_Hz_MDecimal")
 public class Hz extends AFrequency {
 
 	/**
@@ -44,8 +45,7 @@ public class Hz extends AFrequency {
 	public Hz(double value) throws OutOfRange {
 		super(value, HERTZ);
 	}
-	@Column(name = "Hz")
-	public double getValue(){
-		return super.doubleValue();
+	public Hz(double value, MathContext mc) throws OutOfRange {
+		super(value, HERTZ, mc);
 	}
 }

@@ -19,7 +19,7 @@ import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
-import mise.marssa.footprint.datatypes.decimal.DegreesFloat;
+import mise.marssa.footprint.datatypes.decimal.DegreesDecimal;
 import mise.marssa.footprint.datatypes.decimal.MDecimal;
 import mise.marssa.footprint.datatypes.integer.DegreesInteger;
 import mise.marssa.footprint.datatypes.integer.MInteger;
@@ -61,7 +61,7 @@ public class Longitude extends APosition {
 					new OutOfRange());
 	}
 
-	public Longitude(DegreesFloat degrees) throws OutOfRange {
+	public Longitude(DegreesDecimal degrees) throws OutOfRange {
 		super(degrees);
 		if (degrees.doubleValue() < -180 && degrees.doubleValue() > 180)
 			logger.debug(MMarker.EXCEPTION,

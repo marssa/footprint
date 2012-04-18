@@ -15,7 +15,6 @@
  */
 package mise.marssa.footprint.datatypes;
 
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlValue;
 

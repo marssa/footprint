@@ -19,14 +19,13 @@ import static javax.measure.unit.SI.METRE;
 
 import java.math.MathContext;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
-import org.hibernate.annotations.AccessType;
-
 import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
+
+import org.hibernate.annotations.ForeignKey;
 
 /**
  * Meters is the SI Unit
@@ -37,7 +36,7 @@ import mise.marssa.footprint.exceptions.OutOfRange;
  */
 @XmlType(name = "Metres", factoryClass = TypeFactory.class, factoryMethod = "getMetresInstance")
 @Entity
-@AccessType("property")
+@ForeignKey(name = "FK_Metres_MDecimal")
 public class Metres extends ADistance {
 
 	/**
@@ -46,16 +45,12 @@ public class Metres extends ADistance {
 	private static final long serialVersionUID = 665365156720252593L;
 
 	public Metres(double value, MathContext mc) throws OutOfRange {
-		super(value, METRE,mc);
+		super(value, METRE, mc);
 	}
-	
+
 	public Metres(double value) throws OutOfRange {
 		super(value, METRE);
 	}
-	
-//	@Column(name = "Metres")
-//	public double getValue(){
-//		return super.doubleValue();
-//	}
-	
+
+
 }

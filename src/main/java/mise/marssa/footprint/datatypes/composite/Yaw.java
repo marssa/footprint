@@ -20,7 +20,7 @@ import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.MString;
 import mise.marssa.footprint.datatypes.TypeFactory;
-import mise.marssa.footprint.datatypes.decimal.DegreesFloat;
+import mise.marssa.footprint.datatypes.decimal.DegreesDecimal;
 import flexjson.JSONSerializer;
 
 /**
@@ -31,9 +31,9 @@ import flexjson.JSONSerializer;
 @XmlType(name = "Yaw", factoryClass = TypeFactory.class, factoryMethod = "getYawInstance")
 public class Yaw {
 
-	private DegreesFloat Yaw;
+	private DegreesDecimal Yaw;
 
-	public Yaw(DegreesFloat yaw) {
+	public Yaw(DegreesDecimal yaw) {
 		this.Yaw = yaw;
 	}
 
@@ -42,7 +42,7 @@ public class Yaw {
 	}
 
 	@XmlElement
-	public DegreesFloat getYaw() {
+	public DegreesDecimal getYaw() {
 		return Yaw;
 	}
 

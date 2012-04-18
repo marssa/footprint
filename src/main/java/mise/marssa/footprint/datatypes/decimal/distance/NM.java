@@ -16,15 +16,17 @@
 package mise.marssa.footprint.datatypes.decimal.distance;
 
 import static javax.measure.unit.NonSI.NAUTICAL_MILE;
+import static javax.measure.unit.SI.METRE;
 
-import javax.persistence.Column;
+import java.math.MathContext;
+
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
-import org.hibernate.annotations.AccessType;
-
 import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
+
+import org.hibernate.annotations.ForeignKey;
 
 /**
  * Nautical Miles - most widely used as distance measurement in nautical terms
@@ -36,7 +38,7 @@ import mise.marssa.footprint.exceptions.OutOfRange;
  */
 @XmlType(name = "Nm", factoryClass = TypeFactory.class, factoryMethod = "getNmInstance")
 @Entity
-@AccessType("property")
+@ForeignKey(name = "FK_NM_MDecimal")
 public class NM extends ADistance {
 
 	/**
@@ -47,8 +49,7 @@ public class NM extends ADistance {
 	public NM(double value) throws OutOfRange {
 		super(value, NAUTICAL_MILE);
 	}
-	@Column(name = "NM")
-	public double getValue(){
-		return super.doubleValue();
+	public NM(double value, MathContext mc) throws OutOfRange {
+		super(value, METRE, mc);
 	}
 }
