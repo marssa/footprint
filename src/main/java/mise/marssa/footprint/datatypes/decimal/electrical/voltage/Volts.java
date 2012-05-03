@@ -47,6 +47,7 @@ public class Volts extends AVoltage {
 	public Volts(double value) {
 		super(value, VOLT);
 	}
+
 	public Volts(double value, MathContext mc) throws OutOfRange {
 		super(value, VOLT, mc);
 	}

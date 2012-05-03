@@ -44,6 +44,10 @@ public class UnsignedDecimal extends MDecimal {
 	private static Logger logger = (Logger) LoggerFactory
 			.getLogger(UnsignedDecimal.class.getName());
 
+	public UnsignedDecimal() {
+		super(0);
+	}
+	
 	public UnsignedDecimal(double value) throws OutOfRange {
 		super(value);
 		if (value < 0)

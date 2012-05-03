@@ -15,9 +15,7 @@
  */
 package mise.marssa.footprint.datatypes.integer;
 
-import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.math.MathContext;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -28,7 +26,6 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlValue;
 
 import mise.marssa.footprint.datatypes.MString;
-import mise.marssa.footprint.datatypes.TypeFactory;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -39,40 +36,37 @@ import flexjson.JSONSerializer;
  * @version 1.0
  * @created 08-Jul-2011 09:53:24
  */
-@XmlType(name = "MInteger", factoryClass = TypeFactory.class, factoryMethod = "getMIntegerInstance")
+@XmlType(name = "MInteger")
 @Entity
 @Inheritance(strategy = javax.persistence.InheritanceType.TABLE_PER_CLASS)
 public class MInteger extends BigInteger {
-	
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 2838329160994833031L;
-	private BigInteger value;
-	@SuppressWarnings("unused")
 	@XmlValue
-	private int unused;
+	private BigInteger value;
 
 	private MInteger() {
 		super(Integer.toString(0));
 		this.value = new BigInteger(Integer.toString(0));
 	}
-	
+
 	public MInteger(int value) {
 		super(Integer.toString(value));
 		this.value = new BigInteger(Integer.toString(value));
 	}
-	
 
 	public void finalize() throws Throwable {
 
 	}
 
 	// TODO check if JSON serialization still works
-//	@JSON
-//	public int getValue() {
-//		return value;
-//	}
+	// @JSON
+	// public int getValue() {
+	// return value;
+	// }
 
 	@Id
 	@Column(name = "id")

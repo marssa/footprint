@@ -41,7 +41,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @XmlType(name = "AVolume", factoryClass = TypeFactory.class, factoryMethod = "getAVolumeInstance")
-
 public abstract class AVolume extends UnsignedDecimal {
 
 	/**
@@ -49,7 +48,7 @@ public abstract class AVolume extends UnsignedDecimal {
 	 */
 	private static final long serialVersionUID = 5927631230519898723L;
 
-	private static Logger logger = (Logger) LoggerFactory
+	private static final Logger logger = (Logger) LoggerFactory
 			.getLogger(AVolume.class.getName());
 
 	private Unit<Volume> currentUnit;
@@ -63,6 +62,7 @@ public abstract class AVolume extends UnsignedDecimal {
 		super(value, mc);
 		this.currentUnit = unit;
 	}
+
 	public MDecimal getLitres() {
 		MDecimal result = new MDecimal(currentUnit.getConverterTo(LITRE)
 				.convert(doubleValue()));
@@ -103,5 +103,4 @@ public abstract class AVolume extends UnsignedDecimal {
 		return result;
 	}
 
-	
 }

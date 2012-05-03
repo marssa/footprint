@@ -24,9 +24,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.XmlValue;
 
 import mise.marssa.footprint.datatypes.MString;
-import mise.marssa.footprint.datatypes.TypeFactory;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -37,7 +37,7 @@ import flexjson.JSONSerializer;
  * @version 1.0
  * @created 08-Jul-2011 09:53:24
  */
-@XmlType(name = "MDecimal", factoryClass = TypeFactory.class, factoryMethod = "getMDecimalInstance")
+@XmlType(name = "MDecimal")
 @Entity
 @Inheritance(strategy = javax.persistence.InheritanceType.JOINED)
 public class MDecimal extends BigDecimal {
@@ -46,6 +46,7 @@ public class MDecimal extends BigDecimal {
 	 * 
 	 */
 	private static final long serialVersionUID = 241201800992014889L;
+	@XmlValue
 	private BigDecimal value;
 
 	private MDecimal() {
@@ -84,5 +85,4 @@ public class MDecimal extends BigDecimal {
 	public MString toJSON() {
 		return new MString(new JSONSerializer().deepSerialize(this));
 	}
-
 }
