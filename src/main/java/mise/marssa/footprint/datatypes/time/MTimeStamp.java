@@ -33,7 +33,7 @@ import org.hibernate.annotations.GenericGenerator;
  * @author Warren Zahra
  * 
  */
-@Entity
+@Entity(name="TimeLog")
 public class MTimeStamp {
 
 	private Date timeStamp = new Date(System.currentTimeMillis());

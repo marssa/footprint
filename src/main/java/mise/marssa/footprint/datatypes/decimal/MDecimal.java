@@ -39,7 +39,7 @@ import flexjson.JSONSerializer;
  */
 @XmlType(name = "MDecimal", factoryClass = TypeFactory.class, factoryMethod = "getMDecimalInstance")
 @Entity
-@Inheritance(strategy = javax.persistence.InheritanceType.JOINED)
+@Inheritance(strategy = javax.persistence.InheritanceType.TABLE_PER_CLASS)
 public class MDecimal extends BigDecimal {
 
 	/**
