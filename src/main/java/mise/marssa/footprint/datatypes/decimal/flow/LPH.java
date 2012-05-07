@@ -43,9 +43,14 @@ public class LPH extends AVolumeFlow {
 	 */
 	private static final long serialVersionUID = 4461824473313039994L;
 
+	protected LPH() {
+		super(LITRES_PER_HOUR);
+	}
+
 	public LPH(double value) throws OutOfRange {
 		super(value, LITRES_PER_HOUR);
 	}
+
 	public LPH(double value, MathContext mc) throws OutOfRange {
 		super(value, LITRES_PER_HOUR, mc);
 	}

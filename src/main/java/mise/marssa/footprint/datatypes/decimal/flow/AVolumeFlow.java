@@ -45,7 +45,6 @@ import org.slf4j.LoggerFactory;
  * 
  */
 @XmlType(name = "AVolumeFlow", factoryClass = TypeFactory.class, factoryMethod = "getAVolumeFlowInstance")
-
 public abstract class AVolumeFlow extends UnsignedDecimal {
 
 	/**
@@ -53,7 +52,7 @@ public abstract class AVolumeFlow extends UnsignedDecimal {
 	 */
 	private static final long serialVersionUID = 3235041450565348369L;
 
-	private static Logger logger = (Logger) LoggerFactory
+	private static final Logger logger = (Logger) LoggerFactory
 			.getLogger(AVolumeFlow.class.getName());
 
 	private Unit<VolumetricFlowRate> currentUnit;
@@ -133,20 +132,23 @@ public abstract class AVolumeFlow extends UnsignedDecimal {
 			.times(FOOT).times(FOOT)).divide(HOUR).asType(
 			VolumetricFlowRate.class);
 
-	/**
-	 * 
-	 */
+	protected AVolumeFlow(Unit<VolumetricFlowRate> unit) {
+		super();
+		this.currentUnit = unit;
+	}
+
 	protected AVolumeFlow(double value, Unit<VolumetricFlowRate> unit)
 			throws OutOfRange {
 		super(value);
 		this.currentUnit = unit;
 	}
 
-	protected AVolumeFlow(double value, Unit<VolumetricFlowRate> unit, MathContext mc)
-			throws OutOfRange {
+	protected AVolumeFlow(double value, Unit<VolumetricFlowRate> unit,
+			MathContext mc) throws OutOfRange {
 		super(value, mc);
 		this.currentUnit = unit;
 	}
+
 	/**
 	 * Litres per hour
 	 * 
@@ -275,5 +277,4 @@ public abstract class AVolumeFlow extends UnsignedDecimal {
 
 	// TODO US & UK gallons
 
-	
 }

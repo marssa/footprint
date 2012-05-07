@@ -20,7 +20,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -57,6 +56,12 @@ public class Coordinate {
 	@Cascade({ CascadeType.SAVE_UPDATE })
 	private Longitude longitude;
 
+	@Id
+	@Column(name = "id")
+	@GeneratedValue(generator = "increment")
+	@GenericGenerator(name = "increment", strategy = "increment")
+	Long id;
+
 	public Coordinate(Latitude latitude, Longitude longitude) {
 		this.latitude = latitude;
 		this.longitude = longitude;
@@ -83,20 +88,6 @@ public class Coordinate {
 		Coordinate.trace(MMarker.GETTER, "Getting Longitude: {}.",
 				longitude.toString());
 		return longitude;
-	}
-
-	@Id
-	@Column(name = "id")
-	@GeneratedValue(generator = "increment")
-	@GenericGenerator(name = "increment", strategy = "increment")
-	Long id;
-
-	public Long getId() {
-		return id;
-	}
-
-	private void setId(Long id) {
-		this.id = id;
 	}
 
 	public java.lang.String toString() {

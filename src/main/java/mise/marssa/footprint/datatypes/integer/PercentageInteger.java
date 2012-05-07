@@ -35,7 +35,11 @@ import ch.qos.logback.classic.Logger;
 @Entity
 public class PercentageInteger extends MInteger {
 
-	private static Logger PercentageInteger = (Logger) LoggerFactory
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2903603593008083403L;
+	private static final Logger PercentageInteger = (Logger) LoggerFactory
 			.getLogger("PercentageInteger");
 
 	public PercentageInteger(int value) throws OutOfRange {

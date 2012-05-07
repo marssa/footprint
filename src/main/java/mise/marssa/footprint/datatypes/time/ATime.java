@@ -43,6 +43,12 @@ public abstract class ATime {
 	@XmlElement
 	protected long time;
 
+	@Id
+	@Column(name = "id")
+	@GeneratedValue(generator = "increment")
+	@GenericGenerator(name = "increment", strategy = "increment")
+	Long id;
+
 	protected ATime() {
 	}
 
@@ -57,20 +63,6 @@ public abstract class ATime {
 	abstract public long getMinutes();
 
 	abstract public long getHour();
-
-	@Id
-	@Column(name = "id")
-	@GeneratedValue(generator = "increment")
-	@GenericGenerator(name = "increment", strategy = "increment")
-	Long id;
-
-	public Long getId() {
-		return id;
-	}
-
-	private void setId(Long id) {
-		this.id = id;
-	}
 
 	@Override
 	public java.lang.String toString() {

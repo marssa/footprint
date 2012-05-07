@@ -36,6 +36,10 @@ import flexjson.JSONSerializer;
 @XmlType(name = "PercentageFloat", factoryClass = TypeFactory.class, factoryMethod = "getPercentageFloatInstance")
 @Entity
 public class PercentageFloat extends MDecimal {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5638098133108829681L;
 	private static Logger PercentageFloat = (Logger) LoggerFactory
 			.getLogger("PercentageFloat");
 

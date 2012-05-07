@@ -24,9 +24,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.XmlValue;
 
 import mise.marssa.footprint.datatypes.MString;
-import mise.marssa.footprint.datatypes.TypeFactory;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -37,7 +37,7 @@ import flexjson.JSONSerializer;
  * @version 1.0
  * @created 08-Jul-2011 09:53:24
  */
-@XmlType(name = "MDecimal", factoryClass = TypeFactory.class, factoryMethod = "getMDecimalInstance")
+@XmlType(name = "MDecimal")
 @Entity
 @Inheritance(strategy = javax.persistence.InheritanceType.TABLE_PER_CLASS)
 public class MDecimal extends BigDecimal {
@@ -46,7 +46,15 @@ public class MDecimal extends BigDecimal {
 	 * 
 	 */
 	private static final long serialVersionUID = 241201800992014889L;
+	@SuppressWarnings("unused")
+	@XmlValue
 	private BigDecimal value;
+
+	@Id
+	@Column(name = "id")
+	@GeneratedValue(generator = "increment")
+	@GenericGenerator(name = "increment", strategy = "increment")
+	Long id;
 
 	private MDecimal() {
 		super(0);
@@ -63,20 +71,6 @@ public class MDecimal extends BigDecimal {
 		this.value = new BigDecimal(value, mc);
 	}
 
-	@Id
-	@Column(name = "id")
-	@GeneratedValue(generator = "increment")
-	@GenericGenerator(name = "increment", strategy = "increment")
-	Long id;
-
-	public Long getId() {
-		return id;
-	}
-
-	private void setId(Long id) {
-		this.id = id;
-	}
-
 	public void finalize() throws Throwable {
 
 	}
@@ -84,5 +78,4 @@ public class MDecimal extends BigDecimal {
 	public MString toJSON() {
 		return new MString(new JSONSerializer().deepSerialize(this));
 	}
-
 }
