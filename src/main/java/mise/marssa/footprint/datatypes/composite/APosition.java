@@ -46,7 +46,6 @@ import flexjson.JSONSerializer;
  * @created 08-Jul-2011 09:53:29
  */
 @XmlType(name = "APosition", factoryClass = TypeFactory.class, factoryMethod = "getAPositionInstance")
-//@MappedSuperclass
 @Entity
 public abstract class APosition {
 	protected APosition() {
@@ -60,28 +59,21 @@ public abstract class APosition {
 	protected MDecimal sec;
 	protected DegreesDecimal dms;
 
-	private Long id;
-
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(generator = "increment")
 	@GenericGenerator(name = "increment", strategy = "increment")
-	public Long getId() {
-		return id;
-	}
-
-	private void setId(Long id) {
-		this.id = id;
-	}
+	private Long id;
 
 	public APosition(DegreesInteger degrees, MInteger minutes, MDecimal seconds) {
 		this.deg = degrees;
 		this.min = minutes;
 		this.sec = seconds;
-		// TODO Removed unused and commented code in APosition
-		// Object[] aPosition = {degrees,minutes,seconds};
-		// APosition.trace(MMarker.CONSTRUCTOR,"Constructor created with  Degrees:\"{}\", Minutes:\"{}\",Seconds:\"{}\" ",
-		// aPosition);
+		Object[] aPosition = { degrees, minutes, seconds };
+		logger.trace(
+				MMarker.CONSTRUCTOR,
+				"Constructor created with  Degrees:\"{}\", Minutes:\"{}\",Seconds:\"{}\" ",
+				aPosition);
 		// Do conversion
 		if (degrees.intValue() > 0) {
 			double convertedValue = (degrees.intValue() + (((minutes.intValue() * 60) + (seconds
@@ -95,8 +87,8 @@ public abstract class APosition {
 	}
 
 	public APosition(DegreesDecimal degrees) {
-		// APosition.trace(MMarker.CONSTRUCTOR,"Constructor created with  Degrees:\"{}f\".",
-		// degrees);
+		logger.trace(MMarker.CONSTRUCTOR,
+				"Constructor created with  Degrees:\"{}f\".", degrees);
 
 		double degFloat = degrees.doubleValue();
 		this.dms = degrees;

@@ -45,8 +45,16 @@ public class MInteger extends BigInteger {
 	 * 
 	 */
 	private static final long serialVersionUID = 2838329160994833031L;
+
+	@SuppressWarnings("unused")
 	@XmlValue
 	private BigInteger value;
+
+	@Id
+	@Column(name = "id")
+	@GeneratedValue(generator = "increment")
+	@GenericGenerator(name = "increment", strategy = "increment")
+	Long id;
 
 	private MInteger() {
 		super(Integer.toString(0));
@@ -67,20 +75,6 @@ public class MInteger extends BigInteger {
 	// public int getValue() {
 	// return value;
 	// }
-
-	@Id
-	@Column(name = "id")
-	@GeneratedValue(generator = "increment")
-	@GenericGenerator(name = "increment", strategy = "increment")
-	Long id;
-
-	public Long getId() {
-		return id;
-	}
-
-	private void setId(Long id) {
-		this.id = id;
-	}
 
 	public MString toJSON() {
 		MString JSON = new MString(new JSONSerializer().deepSerialize(this));

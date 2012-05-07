@@ -17,7 +17,6 @@ package mise.marssa.footprint.datatypes.decimal;
 
 import java.math.MathContext;
 
-import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.TypeFactory;
@@ -47,7 +46,7 @@ public class UnsignedDecimal extends MDecimal {
 	public UnsignedDecimal() {
 		super(0);
 	}
-	
+
 	public UnsignedDecimal(double value) throws OutOfRange {
 		super(value);
 		if (value < 0)

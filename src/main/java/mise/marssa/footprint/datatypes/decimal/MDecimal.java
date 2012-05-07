@@ -46,8 +46,15 @@ public class MDecimal extends BigDecimal {
 	 * 
 	 */
 	private static final long serialVersionUID = 241201800992014889L;
+	@SuppressWarnings("unused")
 	@XmlValue
 	private BigDecimal value;
+
+	@Id
+	@Column(name = "id")
+	@GeneratedValue(generator = "increment")
+	@GenericGenerator(name = "increment", strategy = "increment")
+	Long id;
 
 	private MDecimal() {
 		super(0);
@@ -62,20 +69,6 @@ public class MDecimal extends BigDecimal {
 	public MDecimal(double value, MathContext mc) {
 		super(value, mc);
 		this.value = new BigDecimal(value, mc);
-	}
-
-	@Id
-	@Column(name = "id")
-	@GeneratedValue(generator = "increment")
-	@GenericGenerator(name = "increment", strategy = "increment")
-	Long id;
-
-	public Long getId() {
-		return id;
-	}
-
-	private void setId(Long id) {
-		this.id = id;
 	}
 
 	public void finalize() throws Throwable {

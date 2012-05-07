@@ -36,6 +36,12 @@ import org.hibernate.annotations.GenericGenerator;
 @Entity
 public class MTimeStamp {
 
+	@Id
+	@Column(name = "id")
+	@GeneratedValue(generator = "increment")
+	@GenericGenerator(name = "increment", strategy = "increment")
+	Long id;
+
 	private Date timeStamp = new Date(System.currentTimeMillis());
 
 	public MTimeStamp() {
@@ -55,19 +61,4 @@ public class MTimeStamp {
 	public void setTimestamp(Date timeStamp) {
 		this.timeStamp = timeStamp;
 	}
-
-	Long id;
-
-	@Id
-	@Column(name = "id")
-	@GeneratedValue(generator = "increment")
-	@GenericGenerator(name = "increment", strategy = "increment")
-	public Long getId() {
-		return id;
-	}
-
-	private void setId(Long id) {
-		this.id = id;
-	}
-
 }
