@@ -35,7 +35,7 @@ import org.hibernate.annotations.ForeignKey;
  * @author Warren Zahra
  * 
  */
-@XmlType(name = "KWatts", factoryClass = TypeFactory.class, factoryMethod = "getKWattsInstance")
+@XmlType(name = "KWatts")
 @Entity
 @ForeignKey(name = "FK_KWatts_MDecimal")
 public class KWatts extends APower {
@@ -45,9 +45,14 @@ public class KWatts extends APower {
 	 */
 	private static final long serialVersionUID = -4803340047969866158L;
 
+	private KWatts() {
+		super(0.0, KILO(WATT));
+	}
+
 	public KWatts(double value) {
 		super(value, KILO(WATT));
 	}
+
 	public KWatts(double value, MathContext mc) throws OutOfRange {
 		super(value, KILO(WATT), mc);
 	}

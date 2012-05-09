@@ -34,7 +34,7 @@ import org.hibernate.annotations.ForeignKey;
  * @author Warren Zahra
  * 
  */
-@XmlType(name = "Ohms", factoryClass = TypeFactory.class, factoryMethod = "getOhmsInstance")
+@XmlType(name = "Ohms")
 @Entity
 @ForeignKey(name = "FK_Ohms_MDecimal")
 public class Ohms extends AImpedance {
@@ -44,9 +44,14 @@ public class Ohms extends AImpedance {
 	 */
 	private static final long serialVersionUID = -6931184410205642153L;
 
+	private Ohms() {
+		super(0.0, OHM);
+	}
+
 	public Ohms(double value) {
 		super(value, OHM);
 	}
+
 	public Ohms(double value, MathContext mc) throws OutOfRange {
 		super(value, OHM, mc);
 	}

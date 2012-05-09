@@ -25,7 +25,6 @@ import java.math.MathContext;
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
-import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
 
 import org.hibernate.annotations.ForeignKey;
@@ -34,7 +33,7 @@ import org.hibernate.annotations.ForeignKey;
  * @author Alan Grech
  * 
  */
-@XmlType(name = "Volts", factoryClass = TypeFactory.class, factoryMethod = "getVoltsInstance")
+@XmlType(name = "Volts")
 @Entity
 @ForeignKey(name = "FK_Metres_MDecimal")
 public class Volts extends AVoltage {
@@ -43,6 +42,10 @@ public class Volts extends AVoltage {
 	 * 
 	 */
 	private static final long serialVersionUID = -8894596403864032413L;
+
+	private Volts() {
+		super(0.0, VOLT);
+	}
 
 	public Volts(double value) {
 		super(value, VOLT);

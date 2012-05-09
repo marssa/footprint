@@ -23,7 +23,6 @@ import java.math.MathContext;
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
-import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
 
 import org.hibernate.annotations.ForeignKey;
@@ -32,7 +31,7 @@ import org.hibernate.annotations.ForeignKey;
  * @author Alan Grech
  * 
  */
-@XmlType(name = "Ah", factoryClass = TypeFactory.class, factoryMethod = "getAhInstance")
+@XmlType(name = "Ah")
 @Entity
 @ForeignKey(name = "FK_Ah_MDecimal")
 public class Ah extends ACharge {
@@ -42,9 +41,14 @@ public class Ah extends ACharge {
 	 */
 	private static final long serialVersionUID = -2429740367288761749L;
 
+	private Ah() {
+		super(0.0, AMPERE_HOUR);
+	}
+
 	public Ah(double value) {
 		super(value, AMPERE_HOUR);
 	}
+
 	public Ah(double value, MathContext mc) throws OutOfRange {
 		super(value, AMPERE_HOUR, mc);
 	}

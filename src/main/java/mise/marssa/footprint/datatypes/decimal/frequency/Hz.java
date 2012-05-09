@@ -22,7 +22,6 @@ import java.math.MathContext;
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
-import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
 
 import org.hibernate.annotations.ForeignKey;
@@ -32,7 +31,7 @@ import org.hibernate.annotations.ForeignKey;
  * @version 1.0
  * @created 08-Jul-2011 09:53:24
  */
-@XmlType(name = "Hz", factoryClass = TypeFactory.class, factoryMethod = "getHzInstance")
+@XmlType(name = "Hz")
 @Entity
 @ForeignKey(name = "FK_Hz_MDecimal")
 public class Hz extends AFrequency {
@@ -42,9 +41,14 @@ public class Hz extends AFrequency {
 	 */
 	private static final long serialVersionUID = 3711408958469426590L;
 
+	private Hz() throws OutOfRange {
+		super(0.0, HERTZ);
+	}
+
 	public Hz(double value) throws OutOfRange {
 		super(value, HERTZ);
 	}
+
 	public Hz(double value, MathContext mc) throws OutOfRange {
 		super(value, HERTZ, mc);
 	}

@@ -137,18 +137,10 @@ public class TypeFactory {
 		return new MilliVolts(100l);
 	}
 
-	public static Volts getVoltsInstance() {
-		return new Volts(100l);
-	}
-
 	/**
 	 * Frequency
 	 */
 	public static AFrequency getAFrequencyInstance() throws OutOfRange {
-		return new Hz(100l);
-	}
-
-	public static Hz getHzInstance() throws OutOfRange {
 		return new Hz(100l);
 	}
 
@@ -266,10 +258,6 @@ public class TypeFactory {
 		return new DegreesCelcius(100l);
 	}
 
-	public static DegreesCelcius getDegreesCelciusInstance() throws OutOfRange {
-		return new DegreesCelcius(100l);
-	}
-
 	public static Fahrenheit getFahrenheitInstance() throws OutOfRange {
 		return new Fahrenheit(100l);
 	}
@@ -323,7 +311,7 @@ public class TypeFactory {
 	 */
 
 	public static APosition getAPositionInstance() throws OutOfRange {
-		return new Latitude(getDegreesFloatInstance());
+		return new Latitude(getDegreesDecimalInstance());
 	}
 
 	public static Attitude getAttitudeInstance() throws OutOfRange {
@@ -336,40 +324,35 @@ public class TypeFactory {
 	}
 
 	public static Latitude getLatitudeInstance() throws OutOfRange {
-		return new Latitude(getDegreesFloatInstance());
+		return new Latitude(getDegreesDecimalInstance());
 	}
 
 	public static Longitude getLongitudeInstance() throws OutOfRange {
-		return new Longitude(getDegreesFloatInstance());
+		return new Longitude(getDegreesDecimalInstance());
 	}
 
 	public static Pitch getPitchInstance() throws OutOfRange {
-		return new Pitch(getDegreesFloatInstance());
+		return new Pitch(getDegreesDecimalInstance());
 	}
 
 	public static Roll getRollInstance() throws OutOfRange {
-		return new Roll(getDegreesFloatInstance());
+		return new Roll(getDegreesDecimalInstance());
 	}
 
 	public static Yaw getYawInstance() throws OutOfRange {
-		return new Yaw(getDegreesFloatInstance());
+		return new Yaw(getDegreesDecimalInstance());
 	}
 
 	/**
 	 * DataTypes
 	 */
 
-	public static DegreesDecimal getDegreesFloatInstance() throws OutOfRange {
+	public static DegreesDecimal getDegreesDecimalInstance() throws OutOfRange {
 		return new DegreesDecimal(0);
 	}
 
 	public static MDecimal getMDecimalInstance() throws OutOfRange {
 		return new MDecimal(0);
-	}
-
-	public static PercentageFloat getPercentageFloatInstance()
-			throws OutOfRange {
-		return new PercentageFloat(0);
 	}
 
 	public static UnsignedDecimal getUnsignedDecimalInstance()
@@ -413,10 +396,6 @@ public class TypeFactory {
 		return new Ah(0);
 	}
 
-	public static Ah getAhInstance() throws OutOfRange {
-		return new Ah(0);
-	}
-
 	public static Coulombs getCoulombsInstance() throws OutOfRange {
 		return new Coulombs(0);
 	}
@@ -430,10 +409,6 @@ public class TypeFactory {
 	 */
 
 	public static ACurrent getACurrentInstance() throws OutOfRange {
-		return new Amps(0);
-	}
-
-	public static Amps getAmpsInstance() throws OutOfRange {
 		return new Amps(0);
 	}
 
@@ -457,10 +432,6 @@ public class TypeFactory {
 		return new MOhms(0);
 	}
 
-	public static Ohms getOhmsInstance() throws OutOfRange {
-		return new Ohms(0);
-	}
-
 	/**
 	 * Power
 	 */
@@ -469,16 +440,8 @@ public class TypeFactory {
 		return new KWatts(0);
 	}
 
-	public static KWatts getKWattsInstance() throws OutOfRange {
-		return new KWatts(0);
-	}
-
 	public static MWatts getMWattsInstance() throws OutOfRange {
 		return new MWatts(0);
-	}
-
-	public static Watts getWattsInstance() throws OutOfRange {
-		return new Watts(0);
 	}
 
 	/**

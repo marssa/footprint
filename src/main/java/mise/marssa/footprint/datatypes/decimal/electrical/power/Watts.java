@@ -25,7 +25,6 @@ import java.math.MathContext;
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
-import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
 
 import org.hibernate.annotations.ForeignKey;
@@ -34,7 +33,7 @@ import org.hibernate.annotations.ForeignKey;
  * @author Warren Zahra
  * 
  */
-@XmlType(name = "Watts", factoryClass = TypeFactory.class, factoryMethod = "getWattsInstance")
+@XmlType(name = "Watts")
 @Entity
 @ForeignKey(name = "FK_Watts_MDecimal")
 public class Watts extends APower {
@@ -44,9 +43,14 @@ public class Watts extends APower {
 	 */
 	private static final long serialVersionUID = 1296377704515600204L;
 
+	private Watts() {
+		super(0.0, WATT);
+	}
+
 	public Watts(double value) {
 		super(value, WATT);
 	}
+
 	public Watts(double value, MathContext mc) throws OutOfRange {
 		super(value, WATT, mc);
 	}

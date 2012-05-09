@@ -22,7 +22,6 @@ import java.math.MathContext;
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
-import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
 
 import org.hibernate.annotations.ForeignKey;
@@ -32,7 +31,7 @@ import org.hibernate.annotations.ForeignKey;
  * @version 1.0
  * @created 08-Jul-2011 09:53:24
  */
-@XmlType(name = "DegreesCelcius", factoryClass = TypeFactory.class, factoryMethod = "getDegreesCelciusInstance")
+@XmlType(name = "DegreesCelcius")
 @Entity
 @ForeignKey(name = "FK_DegreesCelcius_MDecimal")
 public class DegreesCelcius extends ATemperature {
@@ -42,9 +41,14 @@ public class DegreesCelcius extends ATemperature {
 	 */
 	private static final long serialVersionUID = -6389649969115417896L;
 
+	private DegreesCelcius() {
+		super(0.0, CELSIUS);
+	}
+
 	public DegreesCelcius(double value) {
 		super(value, CELSIUS);
 	}
+
 	public DegreesCelcius(double value, MathContext mc) throws OutOfRange {
 		super(value, CELSIUS, mc);
 	}

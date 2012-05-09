@@ -19,7 +19,6 @@ import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.MString;
-import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
 import mise.marssa.footprint.logger.MMarker;
 
@@ -33,7 +32,7 @@ import flexjson.JSONSerializer;
  * @version 1.0
  * @created 08-Jul-2011 09:53:29
  */
-@XmlType(name = "PercentageFloat", factoryClass = TypeFactory.class, factoryMethod = "getPercentageFloatInstance")
+@XmlType(name = "PercentageFloat")
 @Entity
 public class PercentageFloat extends MDecimal {
 	/**
@@ -42,6 +41,10 @@ public class PercentageFloat extends MDecimal {
 	private static final long serialVersionUID = 5638098133108829681L;
 	private static Logger PercentageFloat = (Logger) LoggerFactory
 			.getLogger("PercentageFloat");
+
+	private PercentageFloat() {
+		super(0.0);
+	}
 
 	public PercentageFloat(float value) throws OutOfRange {
 		super(value);
