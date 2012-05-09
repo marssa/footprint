@@ -20,9 +20,14 @@ package mise.marssa.footprint.exceptions;
 
 /**
  * @author Warren Zahra
- *
+ * 
  */
 public class UndefinedQuantity extends Exception {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5166682503686850027L;
 
 	/**
 	 * 

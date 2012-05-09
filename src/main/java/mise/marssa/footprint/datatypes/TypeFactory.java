@@ -28,7 +28,6 @@ import mise.marssa.footprint.datatypes.composite.Roll;
 import mise.marssa.footprint.datatypes.composite.Yaw;
 import mise.marssa.footprint.datatypes.decimal.DegreesDecimal;
 import mise.marssa.footprint.datatypes.decimal.MDecimal;
-import mise.marssa.footprint.datatypes.decimal.PercentageFloat;
 import mise.marssa.footprint.datatypes.decimal.UnsignedDecimal;
 import mise.marssa.footprint.datatypes.decimal.distance.ADistance;
 import mise.marssa.footprint.datatypes.decimal.distance.Fathoms;
@@ -54,7 +53,6 @@ import mise.marssa.footprint.datatypes.decimal.electrical.impedance.Ohms;
 import mise.marssa.footprint.datatypes.decimal.electrical.power.APower;
 import mise.marssa.footprint.datatypes.decimal.electrical.power.KWatts;
 import mise.marssa.footprint.datatypes.decimal.electrical.power.MWatts;
-import mise.marssa.footprint.datatypes.decimal.electrical.power.Watts;
 import mise.marssa.footprint.datatypes.decimal.electrical.voltage.AVoltage;
 import mise.marssa.footprint.datatypes.decimal.electrical.voltage.MilliVolts;
 import mise.marssa.footprint.datatypes.decimal.electrical.voltage.Volts;
@@ -460,7 +458,7 @@ public class TypeFactory {
 			throws OutOfRange {
 		return new PercentageInteger(0);
 	}
-	
+
 	/**
 	 * Electrical Energy DataTypes
 	 */
@@ -469,15 +467,12 @@ public class TypeFactory {
 		return new Joules(0);
 	}
 
-	public static Joules getJoulesInstance() throws OutOfRange {
-		return new Joules(0);
-	}
-
 	public static KJoules getKJoulesInstance() throws OutOfRange {
 		return new KJoules(0);
 	}
+
 	public static MJoules getMJoulesInstance() throws OutOfRange {
 		return new MJoules(0);
 	}
-	
+
 }

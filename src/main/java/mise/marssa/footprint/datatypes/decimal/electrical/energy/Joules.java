@@ -32,19 +32,27 @@ import org.hibernate.annotations.ForeignKey;
 
 /**
  * @author Warren Zahra
- *
+ * 
  */
 @XmlType(name = "Joules", factoryClass = TypeFactory.class, factoryMethod = "getJoulesInstance")
 @Entity
 @ForeignKey(name = "FK_Joules_MDecimal")
 public class Joules extends AEnergy {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3877832712821844379L;
+
+	private Joules() {
+		super(0, JOULE);
+	}
+
 	public Joules(double value) {
 		super(value, JOULE);
 	}
-	
+
 	public Joules(double value, MathContext mc) throws OutOfRange {
 		super(value, JOULE, mc);
 	}
 }
-

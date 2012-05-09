@@ -25,7 +25,6 @@ import java.math.MathContext;
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
-import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
 
 import org.hibernate.annotations.ForeignKey;

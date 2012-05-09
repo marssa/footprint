@@ -59,6 +59,7 @@ public abstract class APosition {
 	protected MDecimal sec;
 	protected DegreesDecimal dms;
 
+	@SuppressWarnings("unused")
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(generator = "increment")
