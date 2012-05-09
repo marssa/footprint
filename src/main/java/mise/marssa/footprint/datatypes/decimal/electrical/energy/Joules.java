@@ -25,7 +25,6 @@ import java.math.MathContext;
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
-import mise.marssa.footprint.datatypes.TypeFactory;
 import mise.marssa.footprint.exceptions.OutOfRange;
 
 import org.hibernate.annotations.ForeignKey;
@@ -34,7 +33,7 @@ import org.hibernate.annotations.ForeignKey;
  * @author Warren Zahra
  * 
  */
-@XmlType(name = "Joules", factoryClass = TypeFactory.class, factoryMethod = "getJoulesInstance")
+@XmlType(name = "Joules")
 @Entity
 @ForeignKey(name = "FK_Joules_MDecimal")
 public class Joules extends AEnergy {
