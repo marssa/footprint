@@ -15,10 +15,15 @@
  */
 package mise.marssa.footprint.datatypes.decimal;
 
+import static javax.measure.unit.NonSI.MILE;
+
+import java.math.MathContext;
+
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
 import mise.marssa.footprint.datatypes.MString;
+import mise.marssa.footprint.exceptions.OutOfRange;
 import flexjson.JSONSerializer;
 
 /**
@@ -43,6 +48,10 @@ public class DegreesDecimal extends MDecimal {
 		super(value);
 	}
 
+	public DegreesDecimal(double value,MathContext mc) {
+		super(value,mc);
+	}
+	
 	public MString toJSON() {
 		MString JSON = new MString(new JSONSerializer().exclude("value")
 				.deepSerialize(this));
