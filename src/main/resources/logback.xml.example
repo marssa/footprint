@@ -19,7 +19,7 @@
 <!-- Rename this file to logback.xml -->
 <configuration>
 
-	<appender name="DB" class="mise.marssa.footprint.logger.MDBAppender">
+	<appender name="DB" class="org.marssa.footprint.logger.MDBAppender">
 		<connectionSource class="ch.qos.logback.core.db.DataSourceConnectionSource">
 			<dataSource class="com.mchange.v2.c3p0.ComboPooledDataSource">
 				<driverClass>com.mysql.jdbc.Driver</driverClass>
@@ -34,7 +34,7 @@
 		<file>target/logging.log</file>
 		<append>true</append>
 		<encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
-			<layout class="mise.marssa.footprint.logger.MySampleLayout" />
+			<layout class="org.marssa.footprint.logger.MySampleLayout" />
 		</encoder>
 	</appender>
 
