@@ -129,8 +129,7 @@
 			<version>5.1.18</version>
 		</dependency>
 
-		<!-- Library for connection Pooling for less execution time for logging 
-			in database -->
+		<!-- Connection pooling for JDBC -->
 		<dependency>
 			<groupId>c3p0</groupId>
 			<artifactId>c3p0</artifactId>
@@ -186,16 +185,6 @@
 						<goals>
 							<goal>install</goal>
 						</goals>
-					</execution>
-					<execution>
-						<id>index-repository</id>
-						<phase>install</phase>
-						<goals>
-							<goal>index</goal>
-						</goals>
-						<configuration>
-							<urlTemplate>maven</urlTemplate>
-						</configuration>
 					</execution>
 				</executions>
 			</plugin>
@@ -381,7 +370,36 @@
 						</goals>
 					</execution>
 				</executions>
+			</plugin>
 
+			<!-- Generate jar file with Javadoc documentation for this artifact -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.8.1</version>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- Generate jar file with Java sources for this aartifact -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.1.2</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 
@@ -389,30 +407,6 @@
 			<plugins>
 				<!--This plugin's configuration is used to store Eclipse m2e settings 
 					only. It has no influence on the Maven build itself. -->
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-javadoc-plugin</artifactId>
-					<executions>
-						<execution>
-							<id>attach-javadocs</id>
-							<goals>
-								<goal>jar</goal>
-							</goals>
-						</execution>
-					</executions>
-				</plugin>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-source-plugin</artifactId>
-					<executions>
-						<execution>
-							<id>attach-sources</id>
-							<goals>
-								<goal>jar</goal>
-							</goals>
-						</execution>
-					</executions>
-				</plugin>
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
 					<artifactId>lifecycle-mapping</artifactId>

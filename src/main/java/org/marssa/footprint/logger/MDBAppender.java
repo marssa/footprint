@@ -225,14 +225,14 @@ public class MDBAppender extends DBAppenderBase<ILoggingEvent> {
 
 	protected void insertProperties(Map<String, String> mergedMap,
 			Connection connection, long eventId) throws SQLException {
-		Set propertiesKeys = mergedMap.keySet();
+		Set<String> propertiesKeys = mergedMap.keySet();
 		if (propertiesKeys.size() > 0) {
 			PreparedStatement insertPropertiesStatement = connection
 					.prepareStatement(insertPropertiesSQL);
 
-			for (Iterator i = propertiesKeys.iterator(); i.hasNext();) {
-				String key = (String) i.next();
-				String value = (String) mergedMap.get(key);
+			for (Iterator<String> i = propertiesKeys.iterator(); i.hasNext();) {
+				String key = i.next();
+				String value = mergedMap.get(key);
 
 				insertPropertiesStatement.setLong(1, eventId);
 				insertPropertiesStatement.setString(2, key);

@@ -116,7 +116,7 @@ public abstract class ADistance extends UnsignedDecimal {
 	 * A fathom (abbreviation: ftm) is a unit of length in the imperial and the
 	 * U.S. customary systems, used especially for measuring the depth of water.
 	 * 
-	 * @return
+	 * @return The value converted from the current unit to Fathoms
 	 */
 	public MDecimal getFathoms() {
 		MDecimal result = new MDecimal(currentUnit.getConverterTo(FATHOM)
