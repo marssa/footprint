@@ -68,18 +68,6 @@
 		<url>http://www.marsec-xl-projects.org/projects/footprint</url>
 	</issueManagement>
 
-	<!-- This stub section is only needed in older versions of Maven -->
-	<distributionManagement>
-		<repository>
-			<id>repo</id>
-			<url>https://raw.github.com/marssa/marssa-mvn-repo/master/releases</url>
-		</repository>
-		<snapshotRepository>
-			<id>snapshot-repo</id>
-			<url>https://raw.github.com/marssa/marssa-mvn-repo/master/snapshots</url>
-		</snapshotRepository>
-	</distributionManagement>
-
 	<!-- No additional repositories are required yet -->
 	<repositories>
 		<!-- Repository containing JScience artifacts -->
@@ -89,6 +77,12 @@
 			<url>http://maven.obiba.org/maven2/</url>
 		</repository>
 	</repositories>
+
+	<parent>
+		<groupId>org.sonatype.oss</groupId>
+		<artifactId>oss-parent</artifactId>
+		<version>7</version>
+	</parent>
 
 	<dependencies>
 		<dependency>
@@ -189,15 +183,6 @@
 				</executions>
 			</plugin>
 
-			<!-- Deploy to alternate repository for github -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-deploy-plugin</artifactId>
-				<version>2.5</version>
-				<configuration>
-					<altDeploymentRepository>footprint::default::file:../marssa-mvn-repo/snapshots</altDeploymentRepository>
-				</configuration>
-			</plugin>
 
 			<!-- Generate XML Schema from MARSSA datatypes Java classes -->
 			<plugin>
@@ -372,6 +357,18 @@
 				</executions>
 			</plugin>
 
+			<plugin>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>2.5</version>
+				<dependencies>
+					<dependency>
+						<groupId>org.apache.maven.wagon</groupId>
+						<artifactId>wagon-ssh</artifactId>
+						<version>1.0-beta-7</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+
 			<!-- Generate jar file with Javadoc documentation for this artifact -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -477,6 +474,21 @@
 		</pluginManagement>
 	</build>
 
+	<distributionManagement>
+		<repository>
+			<id>sonatype-nexus-staging</id>
+			<name>Sonatype Staging Repository</name>
+			<url>http://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+		</repository>
+
+		<snapshotRepository>
+			<id>sonatype-nexus-snapshots</id>
+			<name>Sonatype Nexus Snapshots</name>
+			<url>http://oss.sonatype.org/content/repositories/snapshots</url>
+
+		</snapshotRepository>
+
+	</distributionManagement>
 	<profiles>
 		<profile>
 			<id>build-for-felix</id>
