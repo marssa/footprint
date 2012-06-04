@@ -33,7 +33,7 @@
 	<scm>
 		<url>https://github.com/marssa/footprint</url>
 		<connection>git://github.com/marssa/footprint.git</connection>
-		<developerConnection>scm:git:git@github.com:marssa/footprint.git</developerConnection>
+		<developerConnection>scm:git:https://github.com/marssa/footprint.git</developerConnection>
 	</scm>
 
 	<developers>
