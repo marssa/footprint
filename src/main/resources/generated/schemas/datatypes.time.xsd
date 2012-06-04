@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="org.marssa.footprint.datatypes.time" xmlns:tns="org.marssa.footprint.datatypes.time" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:complexType name="ATime" abstract="true">
+    <xs:sequence>
+      <xs:element name="time" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Hours">
+    <xs:complexContent>
+      <xs:extension base="tns:ATime">
+        <xs:sequence>
+          <xs:element name="seconds" type="xs:long"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mTimeStamp">
+    <xs:sequence>
+      <xs:element name="timestamp" type="xs:dateTime" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Milliseconds">
+    <xs:complexContent>
+      <xs:extension base="tns:ATime">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="Minutes">
+    <xs:complexContent>
+      <xs:extension base="tns:ATime">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="Seconds">
+    <xs:complexContent>
+      <xs:extension base="tns:ATime">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

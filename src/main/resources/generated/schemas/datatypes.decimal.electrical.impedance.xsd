@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="org.marssa.footprint.datatypes.decimal.electrical.impedance" xmlns:ns1="org.marssa.footprint.datatypes.decimal" xmlns:tns="org.marssa.footprint.datatypes.decimal.electrical.impedance" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="org.marssa.footprint.datatypes.decimal" schemaLocation="datatypes.decimal.xsd"/>
+
+  <xs:complexType name="AImpedance" abstract="true">
+    <xs:simpleContent>
+      <xs:extension base="ns1:MDecimal"/>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="KOhms">
+    <xs:simpleContent>
+      <xs:extension base="tns:AImpedance"/>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="MOhms">
+    <xs:simpleContent>
+      <xs:extension base="tns:AImpedance"/>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="Ohms">
+    <xs:simpleContent>
+      <xs:extension base="tns:AImpedance"/>
+    </xs:simpleContent>
+  </xs:complexType>
+</xs:schema>
+

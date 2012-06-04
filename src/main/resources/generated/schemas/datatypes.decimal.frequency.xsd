@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="org.marssa.footprint.datatypes.decimal.frequency" xmlns:ns1="org.marssa.footprint.datatypes.decimal" xmlns:tns="org.marssa.footprint.datatypes.decimal.frequency" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="org.marssa.footprint.datatypes.decimal" schemaLocation="datatypes.decimal.xsd"/>
+
+  <xs:complexType name="AFrequency" abstract="true">
+    <xs:simpleContent>
+      <xs:extension base="ns1:UnsignedDecimal"/>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="Hz">
+    <xs:simpleContent>
+      <xs:extension base="tns:AFrequency"/>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="KHz">
+    <xs:simpleContent>
+      <xs:extension base="tns:AFrequency"/>
+    </xs:simpleContent>
+  </xs:complexType>
+</xs:schema>
+

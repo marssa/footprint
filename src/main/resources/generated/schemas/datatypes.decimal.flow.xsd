@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="org.marssa.footprint.datatypes.decimal.flow" xmlns:ns1="org.marssa.footprint.datatypes.decimal" xmlns:tns="org.marssa.footprint.datatypes.decimal.flow" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="org.marssa.footprint.datatypes.decimal" schemaLocation="datatypes.decimal.xsd"/>
+
+  <xs:complexType name="AVolumeFlow" abstract="true">
+    <xs:simpleContent>
+      <xs:extension base="ns1:UnsignedDecimal"/>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="CFPH">
+    <xs:simpleContent>
+      <xs:extension base="tns:AVolumeFlow"/>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="CFPM">
+    <xs:simpleContent>
+      <xs:extension base="tns:AVolumeFlow"/>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="CFPS">
+    <xs:simpleContent>
+      <xs:extension base="tns:AVolumeFlow"/>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="LPH">
+    <xs:simpleContent>
+      <xs:extension base="tns:AVolumeFlow"/>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="LPM">
+    <xs:simpleContent>
+      <xs:extension base="tns:AVolumeFlow"/>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="LPS">
+    <xs:simpleContent>
+      <xs:extension base="tns:AVolumeFlow"/>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="MCPH">
+    <xs:simpleContent>
+      <xs:extension base="tns:AVolumeFlow"/>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="MCPM">
+    <xs:simpleContent>
+      <xs:extension base="tns:AVolumeFlow"/>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="MCPS">
+    <xs:simpleContent>
+      <xs:extension base="tns:AVolumeFlow"/>
+    </xs:simpleContent>
+  </xs:complexType>
+</xs:schema>
+

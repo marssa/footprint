@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="org.marssa.footprint.datatypes.decimal.pressure" xmlns:ns1="org.marssa.footprint.datatypes.decimal" xmlns:tns="org.marssa.footprint.datatypes.decimal.pressure" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="org.marssa.footprint.datatypes.decimal" schemaLocation="datatypes.decimal.xsd"/>
+
+  <xs:complexType name="APressure" abstract="true">
+    <xs:simpleContent>
+      <xs:extension base="ns1:UnsignedDecimal"/>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="Bar">
+    <xs:simpleContent>
+      <xs:extension base="tns:APressure"/>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="KPa">
+    <xs:simpleContent>
+      <xs:extension base="tns:APressure"/>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="MBars">
+    <xs:simpleContent>
+      <xs:extension base="tns:APressure"/>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="MMHg">
+    <xs:simpleContent>
+      <xs:extension base="tns:APressure"/>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="PSI">
+    <xs:simpleContent>
+      <xs:extension base="tns:APressure"/>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="Pascals">
+    <xs:simpleContent>
+      <xs:extension base="tns:APressure"/>
+    </xs:simpleContent>
+  </xs:complexType>
+</xs:schema>
+

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="org.marssa.footprint.datatypes.decimal.volume" xmlns:ns1="org.marssa.footprint.datatypes.decimal" xmlns:tns="org.marssa.footprint.datatypes.decimal.volume" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="org.marssa.footprint.datatypes.decimal" schemaLocation="datatypes.decimal.xsd"/>
+
+  <xs:complexType name="AVolume" abstract="true">
+    <xs:simpleContent>
+      <xs:extension base="ns1:UnsignedDecimal"/>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="ImpGallons">
+    <xs:simpleContent>
+      <xs:extension base="tns:AVolume"/>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="Litres">
+    <xs:simpleContent>
+      <xs:extension base="tns:AVolume"/>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="USGallonsDry">
+    <xs:simpleContent>
+      <xs:extension base="tns:AVolume"/>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="USGallonsLiquid">
+    <xs:simpleContent>
+      <xs:extension base="tns:AVolume"/>
+    </xs:simpleContent>
+  </xs:complexType>
+</xs:schema>
+

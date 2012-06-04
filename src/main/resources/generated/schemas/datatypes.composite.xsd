@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="org.marssa.footprint.datatypes.composite" xmlns:ns2="org.marssa.footprint.datatypes.integer" xmlns:ns1="org.marssa.footprint.datatypes.decimal" xmlns:tns="org.marssa.footprint.datatypes.composite" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="org.marssa.footprint.datatypes.decimal" schemaLocation="datatypes.decimal.xsd"/>
+
+  <xs:import namespace="org.marssa.footprint.datatypes.integer" schemaLocation="datatypes.integer.xsd"/>
+
+  <xs:complexType name="APosition" abstract="true">
+    <xs:sequence>
+      <xs:element name="DMS" type="ns1:DegreesDecimal" minOccurs="0"/>
+      <xs:element name="degrees" type="ns2:DegreesInteger" minOccurs="0"/>
+      <xs:element name="minutes" type="ns2:MInteger" minOccurs="0"/>
+      <xs:element name="seconds" type="ns1:MDecimal" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Attitude">
+    <xs:sequence>
+      <xs:element name="pitch" type="tns:Pitch" minOccurs="0"/>
+      <xs:element name="roll" type="tns:Roll" minOccurs="0"/>
+      <xs:element name="yaw" type="tns:Yaw" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Pitch">
+    <xs:sequence>
+      <xs:element name="pitch" type="ns1:DegreesDecimal" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Roll">
+    <xs:sequence>
+      <xs:element name="roll" type="ns1:DegreesDecimal" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Yaw">
+    <xs:sequence>
+      <xs:element name="yaw" type="ns1:DegreesDecimal" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Coordinate">
+    <xs:sequence>
+      <xs:element name="latitude" type="tns:Latitude" minOccurs="0"/>
+      <xs:element name="longitude" type="tns:Longitude" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Latitude">
+    <xs:complexContent>
+      <xs:extension base="tns:APosition">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="Longitude">
+    <xs:complexContent>
+      <xs:extension base="tns:APosition">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+
