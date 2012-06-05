@@ -3,7 +3,7 @@
 
 	<groupId>org.marssa</groupId>
 	<artifactId>footprint</artifactId>
-	<version>0.1.0-beta-01</version>
+	<version>0.1.0-beta-02-SNAPSHOT</version>
 	<packaging>bundle</packaging>
 
 	<name>MARSSA Footprint OSGi Bundle</name>
