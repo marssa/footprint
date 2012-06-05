@@ -31,9 +31,9 @@
 	</organization>
 
 	<scm>
-		<url>https://github.com/marssa/footprint</url>
-		<connection>git://github.com/marssa/footprint.git</connection>
-		<developerConnection>scm:git:https://github.com/marssa/footprint.git</developerConnection>
+		<url>http://github.com/marssa/footprint</url>
+		<connection>scm:git:ssh://github.com/marssa/footprint.git</connection>
+		<developerConnection>scm:git:ssh://git@github.com/marssa/footprint.git</developerConnection>
 	</scm>
 
 	<developers>
