@@ -58,7 +58,7 @@ public abstract class AVolumeFlow extends UnsignedDecimal {
 	private Unit<VolumetricFlowRate> currentUnit;
 
 	/**
-	 * Cubic metres per second
+	 * Cubic metres per second (m&sup3;/s)
 	 * 
 	 * @see javax.measure.quantity.VolumetricFlowRate
 	 */
@@ -66,7 +66,7 @@ public abstract class AVolumeFlow extends UnsignedDecimal {
 			.divide(SECOND).asType(VolumetricFlowRate.class);
 
 	/**
-	 * Cubic metres per minute
+	 * Cubic metres per minute (m&sup3;/min)
 	 * 
 	 * @see javax.measure.quantity.VolumetricFlowRate
 	 */
@@ -74,7 +74,7 @@ public abstract class AVolumeFlow extends UnsignedDecimal {
 			.divide(MINUTE).asType(VolumetricFlowRate.class);
 
 	/**
-	 * Cubic metres per hour
+	 * Cubic metres per hour (m&sup3;/hr)
 	 * 
 	 * @see javax.measure.quantity.VolumetricFlowRate
 	 */
@@ -82,7 +82,7 @@ public abstract class AVolumeFlow extends UnsignedDecimal {
 			.divide(HOUR).asType(VolumetricFlowRate.class);
 
 	/**
-	 * Litres per second
+	 * Litres per second (lt/s)
 	 * 
 	 * @see javax.measure.quantity.VolumetricFlowRate
 	 */
@@ -90,7 +90,7 @@ public abstract class AVolumeFlow extends UnsignedDecimal {
 			.divide(SECOND).asType(VolumetricFlowRate.class);
 
 	/**
-	 * Litres per minute
+	 * Litres per minute (lt/min)
 	 * 
 	 * @see javax.measure.quantity.VolumetricFlowRate
 	 */
@@ -98,7 +98,7 @@ public abstract class AVolumeFlow extends UnsignedDecimal {
 			.divide(MINUTE).asType(VolumetricFlowRate.class);
 
 	/**
-	 * Litres per hour
+	 * Litres per hour (lt/hr)
 	 * 
 	 * @see javax.measure.quantity.VolumetricFlowRate
 	 */
@@ -106,7 +106,7 @@ public abstract class AVolumeFlow extends UnsignedDecimal {
 			.divide(HOUR).asType(VolumetricFlowRate.class);
 
 	/**
-	 * Cubic feet per second
+	 * Cubic feet per second (ft&sup3;/s)
 	 * 
 	 * @see javax.measure.quantity.VolumetricFlowRate
 	 */
@@ -115,7 +115,7 @@ public abstract class AVolumeFlow extends UnsignedDecimal {
 			VolumetricFlowRate.class);
 
 	/**
-	 * Cubic feet per minute
+	 * Cubic feet per minute (ft&sup3;/min)
 	 * 
 	 * @see javax.measure.quantity.VolumetricFlowRate
 	 */
@@ -124,7 +124,7 @@ public abstract class AVolumeFlow extends UnsignedDecimal {
 			VolumetricFlowRate.class);
 
 	/**
-	 * Cubic feet per second
+	 * Cubic feet per hour (ft&sup3;/hr)
 	 * 
 	 * @see javax.measure.quantity.VolumetricFlowRate
 	 */
@@ -150,7 +150,7 @@ public abstract class AVolumeFlow extends UnsignedDecimal {
 	}
 
 	/**
-	 * Litres per hour
+	 * Litres per hour (lt/hr)
 	 * 
 	 * @return
 	 */
@@ -164,7 +164,7 @@ public abstract class AVolumeFlow extends UnsignedDecimal {
 	}
 
 	/**
-	 * Litres per minute
+	 * Litres per minute (lt/min)
 	 * 
 	 * @return
 	 */
@@ -178,7 +178,7 @@ public abstract class AVolumeFlow extends UnsignedDecimal {
 	}
 
 	/**
-	 * Litres per second
+	 * Litres per second (lt/s)
 	 * 
 	 * @return
 	 */
@@ -192,7 +192,7 @@ public abstract class AVolumeFlow extends UnsignedDecimal {
 	}
 
 	/**
-	 * Meters cubed per second (m^3/s)
+	 * Meters cubed per second (m&sup3;/s)
 	 * 
 	 * @return
 	 */
@@ -206,7 +206,7 @@ public abstract class AVolumeFlow extends UnsignedDecimal {
 	}
 
 	/**
-	 * Meters cubed per minute
+	 * Meters cubed per minute (m&sup3;/min)
 	 * 
 	 * @return
 	 */
@@ -220,7 +220,7 @@ public abstract class AVolumeFlow extends UnsignedDecimal {
 	}
 
 	/**
-	 * Meters cuber per hour
+	 * Meters cuber per hour (m&sup3;/hr)
 	 * 
 	 * @return
 	 */
@@ -234,7 +234,7 @@ public abstract class AVolumeFlow extends UnsignedDecimal {
 	}
 
 	/**
-	 * Cubic foot per second
+	 * Cubic foot per second (ft&sup3;/s)
 	 * 
 	 * @return
 	 */
@@ -248,7 +248,7 @@ public abstract class AVolumeFlow extends UnsignedDecimal {
 	}
 
 	/**
-	 * Cubic foot per minute
+	 * Cubic foot per minute (ft&sup3;/min)
 	 * 
 	 * @return
 	 */
@@ -262,7 +262,7 @@ public abstract class AVolumeFlow extends UnsignedDecimal {
 	}
 
 	/**
-	 * Cubic foot per hour
+	 * Cubic foot per hour (ft&sup3;/hr)
 	 * 
 	 * @return
 	 */
