@@ -24,4 +24,11 @@ import org.marssa.footprint.interfaces.control.IController;
  */
 public interface IMotorController extends IController {
 
+	public void stop();
+	
+	public void increase();
+	
+	public void decrease();
+	
+	
 }

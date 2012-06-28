@@ -20,6 +20,7 @@ package org.marssa.footprint.interfaces.control.rudder;
 
 import org.marssa.footprint.datatypes.MBoolean;
 import org.marssa.footprint.datatypes.decimal.MDecimal;
+import org.marssa.footprint.datatypes.integer.MInteger;
 import org.marssa.footprint.exceptions.NoConnection;
 
 /**
@@ -27,8 +28,18 @@ import org.marssa.footprint.exceptions.NoConnection;
  * 
  */
 public interface IRudderController {
+	
 	public void rotate(MBoolean direction) throws InterruptedException,
 			NoConnection;
 
 	public MDecimal getAngle() throws NoConnection;
+
+	public void rotateToCentre() throws NoConnection, InterruptedException;
+
+	void rotateExtreme(MBoolean direction) throws InterruptedException,
+			NoConnection;
+
+	void rotateMultiple(MInteger multiple, MBoolean direction)
+			throws InterruptedException, NoConnection;
+
 }
