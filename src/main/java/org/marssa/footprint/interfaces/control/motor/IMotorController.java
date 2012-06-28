@@ -15,6 +15,9 @@
  */
 package org.marssa.footprint.interfaces.control.motor;
 
+import org.marssa.footprint.exceptions.ConfigurationError;
+import org.marssa.footprint.exceptions.NoConnection;
+import org.marssa.footprint.exceptions.OutOfRange;
 import org.marssa.footprint.interfaces.control.IController;
 
 /**
@@ -24,11 +27,11 @@ import org.marssa.footprint.interfaces.control.IController;
  */
 public interface IMotorController extends IController {
 
-	public void stop();
+	public void stop() throws NoConnection;
 	
-	public void increase();
+	public void increase() throws InterruptedException, ConfigurationError, OutOfRange, NoConnection;
 	
-	public void decrease();
+	public void decrease() throws InterruptedException, ConfigurationError, OutOfRange, NoConnection;
 	
 	
 }
