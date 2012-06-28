@@ -405,13 +405,6 @@
 				</dependencies>
 			</plugin>
 
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-release-plugin</artifactId>
-				<version>2.0</version>
-			</plugin>
-
-
 			<!-- Generate jar file with Javadoc documentation for this artifact -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -598,7 +591,7 @@
 				</plugins>
 			</build>
 		</profile>
-		
+
 		<profile>
 			<id>build-for-felix</id>
 			<dependencies>
