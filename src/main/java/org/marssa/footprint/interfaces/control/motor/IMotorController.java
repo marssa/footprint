@@ -15,6 +15,7 @@
  */
 package org.marssa.footprint.interfaces.control.motor;
 
+import org.marssa.footprint.datatypes.decimal.MDecimal;
 import org.marssa.footprint.exceptions.ConfigurationError;
 import org.marssa.footprint.exceptions.NoConnection;
 import org.marssa.footprint.exceptions.OutOfRange;
@@ -25,7 +26,7 @@ import org.marssa.footprint.interfaces.control.IController;
  * @version 1.0
  * @created 08-Jul-2011 09:53:24
  */
-public interface IMotorController extends IController {
+public interface IMotorController {
 
 	public void stop() throws NoConnection;
 	
@@ -33,5 +34,6 @@ public interface IMotorController extends IController {
 	
 	public void decrease() throws InterruptedException, ConfigurationError, OutOfRange, NoConnection;
 	
+	public MDecimal getSpeed();
 	
 }
