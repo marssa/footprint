@@ -18,9 +18,9 @@ package org.marssa.footprint.datatypes;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlValue;
 
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import ch.qos.logback.classic.Logger;
 import flexjson.JSONSerializer;
 
 /**
@@ -31,10 +31,10 @@ import flexjson.JSONSerializer;
 @XmlType(name = "MDate", factoryClass = TypeFactory.class, factoryMethod = "getMDateInstance")
 public class MDate extends java.util.Date {
 
-	private static Logger MDate = (Logger) LoggerFactory.getLogger("MDate");
+	private static Logger MDate = LoggerFactory.getLogger("MDate");
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@SuppressWarnings("unused")
 	@XmlValue
 	private java.util.Date unused;

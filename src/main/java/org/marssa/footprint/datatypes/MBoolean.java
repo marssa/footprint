@@ -18,11 +18,10 @@ package org.marssa.footprint.datatypes;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlValue;
 
-
 import org.marssa.footprint.logger.MMarker;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import ch.qos.logback.classic.Logger;
 import flexjson.JSON;
 import flexjson.JSONSerializer;
 
@@ -33,9 +32,8 @@ import flexjson.JSONSerializer;
  */
 @XmlType(name = "MBoolean", factoryClass = TypeFactory.class, factoryMethod = "getMBooleanInstance")
 public class MBoolean {
-	private static Logger MBoolean = (Logger) LoggerFactory
-			.getLogger("MBoolean");
-	
+	private static Logger MBoolean = LoggerFactory.getLogger("MBoolean");
+
 	private boolean value;
 
 	public MBoolean(boolean value) {
@@ -62,6 +60,7 @@ public class MBoolean {
 		return value;
 	}
 
+	@Override
 	public String toString() {
 		MBoolean.trace(MMarker.GETTER, "Getting value as a String: \"{}\"",
 				value);

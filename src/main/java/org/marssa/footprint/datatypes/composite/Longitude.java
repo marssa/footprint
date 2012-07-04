@@ -18,7 +18,6 @@ package org.marssa.footprint.datatypes.composite;
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
-
 import org.marssa.footprint.datatypes.TypeFactory;
 import org.marssa.footprint.datatypes.decimal.DegreesDecimal;
 import org.marssa.footprint.datatypes.decimal.MDecimal;
@@ -26,9 +25,8 @@ import org.marssa.footprint.datatypes.integer.DegreesInteger;
 import org.marssa.footprint.datatypes.integer.MInteger;
 import org.marssa.footprint.exceptions.OutOfRange;
 import org.marssa.footprint.logger.MMarker;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import ch.qos.logback.classic.Logger;
 
 /**
  * @author Alan Grech
@@ -39,8 +37,8 @@ import ch.qos.logback.classic.Logger;
 @Entity
 public class Longitude extends APosition {
 
-	private static Logger logger = (Logger) LoggerFactory
-			.getLogger(Longitude.class.getName());
+	private static Logger logger = LoggerFactory.getLogger(Longitude.class
+			.getName());
 
 	public Longitude(DegreesInteger degrees, MInteger minutes, MDecimal seconds)
 			throws OutOfRange {
@@ -69,10 +67,12 @@ public class Longitude extends APosition {
 					new OutOfRange());
 	}
 
+	@Override
 	public void finalize() throws Throwable {
 
 	}
 
+	@Override
 	public String toString() {
 		return "DDDMMSS.S: " + super.toString();
 	}

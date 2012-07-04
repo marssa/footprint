@@ -18,12 +18,10 @@ package org.marssa.footprint.datatypes.time;
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
-
 import org.marssa.footprint.datatypes.TypeFactory;
 import org.marssa.footprint.logger.MMarker;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import ch.qos.logback.classic.Logger;
 
 /**
  * @author Alan Grech
@@ -33,7 +31,7 @@ import ch.qos.logback.classic.Logger;
 @Entity
 public class Seconds extends ATime {
 
-	private static Logger Seconds = (Logger) LoggerFactory.getLogger("Seconds");
+	private static Logger Seconds = LoggerFactory.getLogger("Seconds");
 
 	protected Seconds() {
 	}

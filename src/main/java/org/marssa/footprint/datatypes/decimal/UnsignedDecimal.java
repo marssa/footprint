@@ -19,13 +19,11 @@ import java.math.MathContext;
 
 import javax.xml.bind.annotation.XmlType;
 
-
 import org.marssa.footprint.datatypes.TypeFactory;
 import org.marssa.footprint.exceptions.OutOfRange;
 import org.marssa.footprint.logger.MMarker;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import ch.qos.logback.classic.Logger;
 
 /**
  * @author Alan Grech
@@ -40,7 +38,7 @@ public class UnsignedDecimal extends MDecimal {
 	 */
 	private static final long serialVersionUID = -2643170038537925526L;
 
-	private static Logger logger = (Logger) LoggerFactory
+	private static Logger logger = LoggerFactory
 			.getLogger(UnsignedDecimal.class.getName());
 
 	public UnsignedDecimal() {

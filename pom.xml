@@ -110,12 +110,6 @@
 			<version>1.0.0</version>
 		</dependency>
 
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-core</artifactId>
-			<version>1.0.0</version>
-		</dependency>
-
 		<!-- MySQL connector -->
 		<dependency>
 			<groupId>mysql</groupId>
@@ -133,7 +127,7 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<version>4.0.1.Final</version>
+			<version>4.1.0.Final</version>
 		</dependency>
 
 		<dependency>

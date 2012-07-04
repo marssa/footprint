@@ -21,12 +21,10 @@ package org.marssa.footprint.datatypes.time;
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
-
 import org.marssa.footprint.datatypes.TypeFactory;
 import org.marssa.footprint.logger.MMarker;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import ch.qos.logback.classic.Logger;
 
 /**
  * @author Lifebook
@@ -37,7 +35,7 @@ import ch.qos.logback.classic.Logger;
 public class Milliseconds extends ATime {
 
 	// TODO switch conversions to use JSCience
-	private static Logger MilliSeconds = (Logger) LoggerFactory
+	private static Logger MilliSeconds = LoggerFactory
 			.getLogger("MilliSeconds");
 
 	public Milliseconds(long time) {

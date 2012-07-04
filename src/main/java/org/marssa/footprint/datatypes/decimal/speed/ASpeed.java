@@ -26,15 +26,13 @@ import javax.measure.quantity.Velocity;
 import javax.measure.unit.Unit;
 import javax.xml.bind.annotation.XmlType;
 
-
 import org.marssa.footprint.datatypes.TypeFactory;
 import org.marssa.footprint.datatypes.decimal.MDecimal;
 import org.marssa.footprint.datatypes.decimal.UnsignedDecimal;
 import org.marssa.footprint.exceptions.OutOfRange;
 import org.marssa.footprint.logger.MMarker;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import ch.qos.logback.classic.Logger;
 
 /**
  * @author Alan Grech
@@ -43,7 +41,6 @@ import ch.qos.logback.classic.Logger;
  */
 
 @XmlType(name = "ASpeed", factoryClass = TypeFactory.class, factoryMethod = "getASpeedInstance")
-
 public abstract class ASpeed extends UnsignedDecimal {
 
 	/**
@@ -51,10 +48,10 @@ public abstract class ASpeed extends UnsignedDecimal {
 	 */
 	private static final long serialVersionUID = 36379412351121498L;
 
-	private static Logger logger = (Logger) LoggerFactory
-			.getLogger(ASpeed.class.getName());
+	private static Logger logger = LoggerFactory.getLogger(ASpeed.class
+			.getName());
 
-	private Unit<Velocity> currentUnit;
+	private final Unit<Velocity> currentUnit;
 
 	protected ASpeed(double value, Unit<Velocity> unit) throws OutOfRange {
 		super(value);

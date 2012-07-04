@@ -22,7 +22,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.xml.bind.annotation.XmlType;
 
-
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.GenericGenerator;
@@ -33,9 +32,9 @@ import org.marssa.footprint.datatypes.decimal.MDecimal;
 import org.marssa.footprint.datatypes.integer.DegreesInteger;
 import org.marssa.footprint.datatypes.integer.MInteger;
 import org.marssa.footprint.logger.MMarker;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import ch.qos.logback.classic.Logger;
 import flexjson.JSONSerializer;
 
 /**
@@ -51,8 +50,8 @@ public abstract class APosition {
 	protected APosition() {
 	}
 
-	private static Logger logger = (Logger) LoggerFactory
-			.getLogger(APosition.class.getName());
+	private static Logger logger = LoggerFactory.getLogger(APosition.class
+			.getName());
 	// TODO Remove one of the internal representations
 	protected DegreesInteger deg;
 	protected MInteger min;
@@ -112,6 +111,7 @@ public abstract class APosition {
 		}
 	}
 
+	@Override
 	public void finalize() throws Throwable {
 
 	}
@@ -166,6 +166,7 @@ public abstract class APosition {
 		return JSON;
 	}
 
+	@Override
 	public String toString() {
 		return "[" + deg + "\u00b0, " + min + "', " + sec + "\"]";
 	}

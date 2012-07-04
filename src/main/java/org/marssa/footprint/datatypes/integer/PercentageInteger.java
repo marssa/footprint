@@ -18,13 +18,11 @@ package org.marssa.footprint.datatypes.integer;
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
-
 import org.marssa.footprint.datatypes.TypeFactory;
 import org.marssa.footprint.exceptions.OutOfRange;
 import org.marssa.footprint.logger.MMarker;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import ch.qos.logback.classic.Logger;
 
 /**
  * @author Alan Grech
@@ -39,7 +37,7 @@ public class PercentageInteger extends MInteger {
 	 * 
 	 */
 	private static final long serialVersionUID = 2903603593008083403L;
-	private static final Logger PercentageInteger = (Logger) LoggerFactory
+	private static final Logger PercentageInteger = LoggerFactory
 			.getLogger("PercentageInteger");
 
 	public PercentageInteger(int value) throws OutOfRange {
@@ -49,6 +47,7 @@ public class PercentageInteger extends MInteger {
 					"Value received is out of range", new OutOfRange());
 	}
 
+	@Override
 	public void finalize() throws Throwable {
 		super.finalize();
 	}

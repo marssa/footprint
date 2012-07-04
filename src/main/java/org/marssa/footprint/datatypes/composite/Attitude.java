@@ -18,13 +18,12 @@ package org.marssa.footprint.datatypes.composite;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 import org.marssa.footprint.datatypes.MString;
 import org.marssa.footprint.datatypes.TypeFactory;
 import org.marssa.footprint.logger.MMarker;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import ch.qos.logback.classic.Logger;
 import flexjson.JSONSerializer;
 
 /**
@@ -34,11 +33,10 @@ import flexjson.JSONSerializer;
  */
 @XmlType(name = "Attitude", factoryClass = TypeFactory.class, factoryMethod = "getAttitudeInstance")
 public class Attitude {
-	private static Logger Attitude = (Logger) LoggerFactory
-			.getLogger("Attitude");
-	private Pitch pitch;
-	private Roll roll;
-	private Yaw yaw;
+	private static Logger Attitude = LoggerFactory.getLogger("Attitude");
+	private final Pitch pitch;
+	private final Roll roll;
+	private final Yaw yaw;
 
 	public Attitude(Pitch pitch, Roll roll, Yaw yaw) {
 		this.pitch = pitch;
@@ -51,6 +49,7 @@ public class Attitude {
 				attitude);
 	}
 
+	@Override
 	public void finalize() throws Throwable {
 
 	}
@@ -73,6 +72,7 @@ public class Attitude {
 		return yaw;
 	}
 
+	@Override
 	public java.lang.String toString() {
 		Attitude.trace(MMarker.GETTER, "Getting attitude as a String.");
 		return "[" + pitch.toString() + ", " + roll.toString() + ", "

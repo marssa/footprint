@@ -18,13 +18,12 @@ package org.marssa.footprint.datatypes.decimal;
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
-
 import org.marssa.footprint.datatypes.MString;
 import org.marssa.footprint.exceptions.OutOfRange;
 import org.marssa.footprint.logger.MMarker;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import ch.qos.logback.classic.Logger;
 import flexjson.JSONSerializer;
 
 /**
@@ -39,7 +38,7 @@ public class PercentageFloat extends MDecimal {
 	 * 
 	 */
 	private static final long serialVersionUID = 5638098133108829681L;
-	private static Logger PercentageFloat = (Logger) LoggerFactory
+	private static Logger PercentageFloat = LoggerFactory
 			.getLogger("PercentageFloat");
 
 	private PercentageFloat() {
@@ -53,6 +52,7 @@ public class PercentageFloat extends MDecimal {
 					"Value received is out of range", new OutOfRange());
 	}
 
+	@Override
 	public MString toJSON() {
 		MString JSON = new MString(new JSONSerializer().exclude("value")
 				.deepSerialize(this));

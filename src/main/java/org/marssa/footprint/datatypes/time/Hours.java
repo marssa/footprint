@@ -21,12 +21,10 @@ package org.marssa.footprint.datatypes.time;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 import org.marssa.footprint.datatypes.TypeFactory;
 import org.marssa.footprint.logger.MMarker;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import ch.qos.logback.classic.Logger;
 
 /**
  * @author Alan Grech
@@ -35,7 +33,7 @@ import ch.qos.logback.classic.Logger;
 @XmlType(name = "Hours", factoryClass = TypeFactory.class, factoryMethod = "getHoursInstance")
 public class Hours extends ATime {
 
-	private static Logger Hours = (Logger) LoggerFactory.getLogger("Hours");
+	private static Logger Hours = LoggerFactory.getLogger("Hours");
 
 	public Hours(long time) {
 		super(time);

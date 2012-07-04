@@ -25,14 +25,12 @@ import javax.measure.quantity.Temperature;
 import javax.measure.unit.Unit;
 import javax.xml.bind.annotation.XmlType;
 
-
 import org.marssa.footprint.datatypes.TypeFactory;
 import org.marssa.footprint.datatypes.decimal.MDecimal;
 import org.marssa.footprint.exceptions.OutOfRange;
 import org.marssa.footprint.logger.MMarker;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import ch.qos.logback.classic.Logger;
 
 /**
  * @author Alan Grech
@@ -40,7 +38,6 @@ import ch.qos.logback.classic.Logger;
  * @created 08-Jul-2011 09:53:23
  */
 @XmlType(name = "ATemperature", factoryClass = TypeFactory.class, factoryMethod = "getATemperatureInstance")
-
 public abstract class ATemperature extends MDecimal {
 
 	/**
@@ -48,10 +45,10 @@ public abstract class ATemperature extends MDecimal {
 	 */
 	private static final long serialVersionUID = 2193594527442130594L;
 
-	private static Logger logger = (Logger) LoggerFactory
-			.getLogger(Kelvin.class.getName());
+	private static Logger logger = LoggerFactory.getLogger(Kelvin.class
+			.getName());
 
-	private Unit<Temperature> currentUnit;
+	private final Unit<Temperature> currentUnit;
 
 	protected ATemperature(double value, Unit<Temperature> unit) {
 		super(value);
@@ -63,6 +60,7 @@ public abstract class ATemperature extends MDecimal {
 		super(value, mc);
 		this.currentUnit = unit;
 	}
+
 	public MDecimal getDegreesCelcius() {
 		MDecimal result = new MDecimal(currentUnit.getConverterTo(CELSIUS)
 				.convert(doubleValue()));
@@ -91,5 +89,4 @@ public abstract class ATemperature extends MDecimal {
 		return result;
 	}
 
-	
 }

@@ -23,16 +23,15 @@ import javax.persistence.ManyToOne;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.GenericGenerator;
 import org.marssa.footprint.datatypes.MString;
 import org.marssa.footprint.datatypes.TypeFactory;
 import org.marssa.footprint.logger.MMarker;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import ch.qos.logback.classic.Logger;
 import flexjson.JSON;
 import flexjson.JSONSerializer;
 
@@ -45,16 +44,15 @@ import flexjson.JSONSerializer;
 @Entity
 public class Coordinate {
 
-	private static Logger Coordinate = (Logger) LoggerFactory
-			.getLogger("Coordinate");
+	private static Logger Coordinate = LoggerFactory.getLogger("Coordinate");
 
 	@ManyToOne
 	@Cascade({ CascadeType.SAVE_UPDATE })
-	private Latitude latitude;
+	private final Latitude latitude;
 
 	@ManyToOne
 	@Cascade({ CascadeType.SAVE_UPDATE })
-	private Longitude longitude;
+	private final Longitude longitude;
 
 	@Id
 	@Column(name = "id")
@@ -70,6 +68,7 @@ public class Coordinate {
 				latitude.toString(), longitude.toString());
 	}
 
+	@Override
 	public void finalize() throws Throwable {
 
 	}
@@ -90,6 +89,7 @@ public class Coordinate {
 		return longitude;
 	}
 
+	@Override
 	public java.lang.String toString() {
 		Coordinate.trace(MMarker.GETTER, "Getting Coordinate as a String");
 		return "[" + latitude.toString() + ", " + longitude.toString() + "]";
