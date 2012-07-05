@@ -24,7 +24,6 @@ import javax.measure.quantity.Frequency;
 import javax.measure.unit.Unit;
 import javax.xml.bind.annotation.XmlType;
 
-
 import org.marssa.footprint.datatypes.TypeFactory;
 import org.marssa.footprint.datatypes.decimal.MDecimal;
 import org.marssa.footprint.datatypes.decimal.UnsignedDecimal;
@@ -39,7 +38,6 @@ import org.slf4j.LoggerFactory;
  * @created 08-Jul-2011 09:53:23
  */
 @XmlType(name = "AFrequency", factoryClass = TypeFactory.class, factoryMethod = "getAFrequencyInstance")
-
 public abstract class AFrequency extends UnsignedDecimal {
 
 	/**
@@ -47,20 +45,22 @@ public abstract class AFrequency extends UnsignedDecimal {
 	 */
 	private static final long serialVersionUID = -8282804797176048249L;
 
-	private static Logger logger = (Logger) LoggerFactory
-			.getLogger(AFrequency.class.getName());
+	private static Logger logger = LoggerFactory.getLogger(AFrequency.class
+			.getName());
 
-	private Unit<Frequency> currentUnit;
+	private final Unit<Frequency> currentUnit;
 
 	protected AFrequency(double value, Unit<Frequency> unit) throws OutOfRange {
 		super(value);
 		this.currentUnit = unit;
 	}
+
 	protected AFrequency(double value, Unit<Frequency> unit, MathContext mc)
 			throws OutOfRange {
 		super(value, mc);
 		this.currentUnit = unit;
 	}
+
 	/**
 	 * Hz is the SI unit
 	 */
@@ -81,5 +81,4 @@ public abstract class AFrequency extends UnsignedDecimal {
 
 	}
 
-	
 }

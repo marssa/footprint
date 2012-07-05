@@ -48,7 +48,7 @@ public abstract class APower extends MDecimal {
 	 */
 	private static final long serialVersionUID = 4249306033520691147L;
 
-	private static Logger logger = (Logger) LoggerFactory
+	private static Logger logger =  LoggerFactory
 			.getLogger(APower.class.getName());
 
 	private Unit<Power> currentUnit;

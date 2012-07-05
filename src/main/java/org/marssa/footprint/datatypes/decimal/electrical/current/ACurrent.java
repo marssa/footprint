@@ -47,7 +47,7 @@ public abstract class ACurrent extends MDecimal {
 	 */
 	private static final long serialVersionUID = -8993349717007960067L;
 
-	private static Logger logger = (Logger) LoggerFactory
+	private static Logger logger =  LoggerFactory
 			.getLogger(ACurrent.class.getName());
 
 	private Unit<ElectricCurrent> currentUnit;

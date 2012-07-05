@@ -53,7 +53,7 @@ public abstract class APressure extends UnsignedDecimal {
 	 */
 	private static final long serialVersionUID = 3126239243549374073L;
 
-	private static Logger logger = (Logger) LoggerFactory
+	private static Logger logger =  LoggerFactory
 			.getLogger(APressure.class.getName());
 
 	private Unit<Pressure> currentUnit;

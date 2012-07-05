@@ -27,7 +27,7 @@ import flexjson.JSONSerializer;
  */
 @XmlType(name = "MString", factoryClass = TypeFactory.class, factoryMethod = "getMStringInstance")
 public class MString {
-	// static Logger MString = (Logger) LoggerFactory.getLogger("MString");
+	// static Logger MString =  LoggerFactory.getLogger("MString");
 
 	@XmlValue
 	private String contents;

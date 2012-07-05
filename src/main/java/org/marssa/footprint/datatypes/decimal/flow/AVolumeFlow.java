@@ -52,7 +52,7 @@ public abstract class AVolumeFlow extends UnsignedDecimal {
 	 */
 	private static final long serialVersionUID = 3235041450565348369L;
 
-	private static final Logger logger = (Logger) LoggerFactory
+	private static final Logger logger =  LoggerFactory
 			.getLogger(AVolumeFlow.class.getName());
 
 	private Unit<VolumetricFlowRate> currentUnit;

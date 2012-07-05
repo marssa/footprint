@@ -48,7 +48,7 @@ public abstract class AVolume extends UnsignedDecimal {
 	 */
 	private static final long serialVersionUID = 5927631230519898723L;
 
-	private static final Logger logger = (Logger) LoggerFactory
+	private static final Logger logger =  LoggerFactory
 			.getLogger(AVolume.class.getName());
 
 	private Unit<Volume> currentUnit;

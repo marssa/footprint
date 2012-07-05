@@ -49,7 +49,7 @@ public abstract class AImpedance extends MDecimal {
 	 */
 	private static final long serialVersionUID = -1953431603172098092L;
 
-	private static Logger logger = (Logger) LoggerFactory
+	private static Logger logger =  LoggerFactory
 			.getLogger(AImpedance.class.getName());
 
 	private Unit<ElectricResistance> currentUnit;

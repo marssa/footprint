@@ -49,7 +49,7 @@ public abstract class AEnergy extends MDecimal {
 	 */
 	private static final long serialVersionUID = 3759688687362547165L;
 
-	private static Logger logger = (Logger) LoggerFactory
+	private static Logger logger =  LoggerFactory
 			.getLogger(AEnergy.class.getName());
 
 	private Unit<Energy> currentUnit;

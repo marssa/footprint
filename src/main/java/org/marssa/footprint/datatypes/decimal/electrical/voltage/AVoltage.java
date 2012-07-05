@@ -27,7 +27,6 @@ import javax.measure.quantity.ElectricPotential;
 import javax.measure.unit.Unit;
 import javax.xml.bind.annotation.XmlType;
 
-
 import org.marssa.footprint.datatypes.TypeFactory;
 import org.marssa.footprint.datatypes.decimal.MDecimal;
 import org.marssa.footprint.exceptions.OutOfRange;
@@ -40,28 +39,28 @@ import org.slf4j.LoggerFactory;
  * 
  */
 @XmlType(name = "AVoltage", factoryClass = TypeFactory.class, factoryMethod = "getAVoltageInstance")
-
 public abstract class AVoltage extends MDecimal {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 8379610960475509245L;
 
-	private static Logger logger = (Logger) LoggerFactory
-			.getLogger(AVoltage.class.getName());
+	private static Logger logger = LoggerFactory.getLogger(AVoltage.class
+			.getName());
 
-	private Unit<ElectricPotential> currentUnit;
+	private final Unit<ElectricPotential> currentUnit;
 
 	protected AVoltage(double value, Unit<ElectricPotential> unit) {
 		super(value);
 		this.currentUnit = unit;
 	}
 
-	protected AVoltage(double value, Unit<ElectricPotential> unit, MathContext mc)
-			throws OutOfRange {
+	protected AVoltage(double value, Unit<ElectricPotential> unit,
+			MathContext mc) throws OutOfRange {
 		super(value, mc);
 		this.currentUnit = unit;
 	}
+
 	public MDecimal getVolts() {
 		MDecimal result = new MDecimal(currentUnit.getConverterTo(VOLT)
 				.convert(doubleValue()));
@@ -78,5 +77,4 @@ public abstract class AVoltage extends MDecimal {
 		return result;
 	}
 
-	
 }

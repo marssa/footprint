@@ -29,7 +29,6 @@ import javax.measure.quantity.ElectricCharge;
 import javax.measure.unit.Unit;
 import javax.xml.bind.annotation.XmlType;
 
-
 import org.marssa.footprint.datatypes.TypeFactory;
 import org.marssa.footprint.datatypes.decimal.MDecimal;
 import org.marssa.footprint.exceptions.OutOfRange;
@@ -49,10 +48,10 @@ public abstract class ACharge extends MDecimal {
 	 */
 	private static final long serialVersionUID = -750203926399246080L;
 
-	private static Logger logger = (Logger) LoggerFactory
-			.getLogger(ACharge.class.getName());
+	private static Logger logger = LoggerFactory.getLogger(ACharge.class
+			.getName());
 
-	private Unit<ElectricCharge> currentUnit;
+	private final Unit<ElectricCharge> currentUnit;
 
 	/**
 	 * Ampere-hour unit
@@ -80,6 +79,7 @@ public abstract class ACharge extends MDecimal {
 		super(value, mc);
 		this.currentUnit = unit;
 	}
+
 	/**
 	 * Ampere-hours
 	 * 

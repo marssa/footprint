@@ -27,7 +27,6 @@ import javax.measure.quantity.Length;
 import javax.measure.unit.Unit;
 import javax.xml.bind.annotation.XmlType;
 
-
 import org.marssa.footprint.datatypes.TypeFactory;
 import org.marssa.footprint.datatypes.decimal.MDecimal;
 import org.marssa.footprint.datatypes.decimal.UnsignedDecimal;
@@ -49,10 +48,10 @@ public abstract class ADistance extends UnsignedDecimal {
 	 */
 	private static final long serialVersionUID = -4513355674275769229L;
 
-	private static Logger logger = (Logger) LoggerFactory
-			.getLogger(ADistance.class.getName());
-	
-	private Unit<Length> currentUnit;
+	private static Logger logger = LoggerFactory.getLogger(ADistance.class
+			.getName());
+
+	private final Unit<Length> currentUnit;
 
 	/**
 	 * Scale required to convert from Coulombs to milli Ampere hours
