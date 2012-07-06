@@ -22,7 +22,6 @@ import org.marssa.footprint.datatypes.decimal.speed.Knots;
 import org.marssa.footprint.datatypes.integer.DegreesInteger;
 import org.marssa.footprint.interfaces.IQuantity;
 
-
 /**
  * @author Alan Grech
  * @version 1.0
@@ -45,8 +44,8 @@ public interface IWeatherInstrument {
 	public DegreesInteger getWindDirection();
 
 	public Knots getWindSpeed();
-	
-	@XmlType(name="WeatherInstrumentQuantities")
+
+	@XmlType(name = "WeatherInstrumentQuantities")
 	public enum CompassQuantity implements IQuantity {
 		AIR_TEMPERATURE, DEW_POINT, GUST_SPEED, HUMIDITY, AIR_PRESSURE, SOLAR_RADIATION, WIND_DIRECTION, WIND_SPEED;
 	}

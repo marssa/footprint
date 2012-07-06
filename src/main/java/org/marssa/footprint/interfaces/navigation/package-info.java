@@ -20,6 +20,6 @@
 // Generated on: 2012.01.04 at 01:53:55 PM CET 
 //
 
-@javax.xml.bind.annotation.XmlSchema(namespace = "org.marssa.footprint.quantities")
+@javax.xml.bind.annotation.XmlSchema(namespace = "quantities.footprint.marssa.org")
 package org.marssa.footprint.interfaces.navigation;
 

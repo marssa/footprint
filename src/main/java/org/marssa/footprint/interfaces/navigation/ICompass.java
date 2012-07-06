@@ -22,7 +22,6 @@ import org.marssa.footprint.datatypes.decimal.DegreesDecimal;
 import org.marssa.footprint.datatypes.decimal.MDecimal;
 import org.marssa.footprint.interfaces.IQuantity;
 
-
 /**
  * @author Alan Grech
  * @version 1.0
@@ -49,8 +48,8 @@ public interface ICompass {
 	 * Difference between True North & Magnetic North
 	 */
 	public DegreesDecimal getVariation();
-	
-	@XmlType(name="CompassQuantities")
+
+	@XmlType(name = "CompassQuantities")
 	public enum CompassQuantity implements IQuantity {
 		ATTITUDE, DEVIATION, HEADING, MAGNETIC_HEADING, RATE_OF_TURN, TRUE_HEADING;
 	}

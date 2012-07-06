@@ -25,7 +25,6 @@ import org.marssa.footprint.datatypes.decimal.temperature.ATemperature;
 import org.marssa.footprint.exceptions.OutOfRange;
 import org.marssa.footprint.interfaces.IQuantity;
 
-
 /**
  * @author Warren Zahra
  * 
@@ -35,8 +34,8 @@ public interface IDepthSensor {
 	public ADistance getDepthMeters() throws OutOfRange;
 
 	public ATemperature getTemperatureDegrees() throws OutOfRange;
-	
-	@XmlType(name="DepthSensorQuantities")
+
+	@XmlType(name = "DepthSensorQuantities")
 	public enum CompassQuantity implements IQuantity {
 		DEPTH_METERS, TEMPERATURE;
 	}

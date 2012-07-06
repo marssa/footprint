@@ -25,7 +25,6 @@ import org.marssa.footprint.datatypes.decimal.speed.ASpeed;
 import org.marssa.footprint.exceptions.OutOfRange;
 import org.marssa.footprint.interfaces.IQuantity;
 
-
 /**
  * @author Warren Zahra
  * 
@@ -36,8 +35,8 @@ public interface ISpeedSensor {
 	public DegreesDecimal getDegreesMagnetic() throws OutOfRange;
 
 	public DegreesDecimal getDegreesTrue() throws OutOfRange;
-	
-	@XmlType(name="SpeedSensorQuantities")
+
+	@XmlType(name = "SpeedSensorQuantities")
 	public enum CompassQuantity implements IQuantity {
 		SPEED_KNOTS, MAGNETIC_NORTH, TRUE_NORTH;
 	}

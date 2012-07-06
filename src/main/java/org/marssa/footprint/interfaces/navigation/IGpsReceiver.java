@@ -32,7 +32,6 @@ import org.marssa.footprint.exceptions.NoValue;
 import org.marssa.footprint.exceptions.OutOfRange;
 import org.marssa.footprint.interfaces.IQuantity;
 
-
 /**
  * @author Alan Grech
  * @version 1.0
@@ -54,7 +53,7 @@ public interface IGpsReceiver {
 
 	public MDate getDate() throws NoConnection, NoValue;
 
-	public Metres getAltitude() throws NoConnection, NoValue,OutOfRange;
+	public Metres getAltitude() throws NoConnection, NoValue, OutOfRange;
 
 	public ATime getLocalZoneTime() throws NoConnection, NoValue;
 
@@ -90,12 +89,9 @@ public interface IGpsReceiver {
 	public MDecimal getHDOP() throws NoConnection, NoValue;
 
 	public MDecimal getPDOP() throws NoConnection, NoValue;
-	
-	@XmlType(name="GpsQuantities")
+
+	@XmlType(name = "GpsQuantities")
 	public enum GPSQuantity implements IQuantity {
-		ALTITUDE, SOG, COG, AZIMUTH, COORDINATE, DATE,
-		ELEVATION, LOCAL_ZONE_TIME, SATELLITE_ID, SATELLITE_IN_VIEW,
-		SATELLITES_IN_USE, SIGNAL_STRENGTH, SNR, EPT, STATUS, TIME,
-		VDOP, HDOP, PDOP;
+		ALTITUDE, SOG, COG, AZIMUTH, COORDINATE, DATE, ELEVATION, LOCAL_ZONE_TIME, SATELLITE_ID, SATELLITE_IN_VIEW, SATELLITES_IN_USE, SIGNAL_STRENGTH, SNR, EPT, STATUS, TIME, VDOP, HDOP, PDOP;
 	}
 }
