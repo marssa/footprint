@@ -25,7 +25,6 @@ import javax.persistence.Inheritance;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlValue;
 
-
 import org.hibernate.annotations.GenericGenerator;
 import org.marssa.footprint.datatypes.MString;
 
@@ -46,9 +45,8 @@ public class MInteger extends BigInteger {
 	 */
 	private static final long serialVersionUID = 2838329160994833031L;
 
-	@SuppressWarnings("unused")
 	@XmlValue
-	private BigInteger value;
+	private final BigInteger value;
 
 	@Id
 	@Column(name = "id")
@@ -66,6 +64,7 @@ public class MInteger extends BigInteger {
 		this.value = new BigInteger(Integer.toString(value));
 	}
 
+	@Override
 	public void finalize() throws Throwable {
 
 	}
@@ -79,5 +78,10 @@ public class MInteger extends BigInteger {
 	public MString toJSON() {
 		MString JSON = new MString(new JSONSerializer().deepSerialize(this));
 		return JSON;
+	}
+
+	@Override
+	public String toString() {
+		return value.toString();
 	}
 }

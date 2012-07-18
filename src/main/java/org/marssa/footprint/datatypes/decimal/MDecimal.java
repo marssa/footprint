@@ -26,7 +26,6 @@ import javax.persistence.Inheritance;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlValue;
 
-
 import org.hibernate.annotations.GenericGenerator;
 import org.marssa.footprint.datatypes.MString;
 
@@ -46,9 +45,9 @@ public class MDecimal extends BigDecimal {
 	 * 
 	 */
 	private static final long serialVersionUID = 241201800992014889L;
-	@SuppressWarnings("unused")
+
 	@XmlValue
-	private BigDecimal value;
+	private final BigDecimal value;
 
 	@Id
 	@Column(name = "id")
@@ -71,11 +70,17 @@ public class MDecimal extends BigDecimal {
 		this.value = new BigDecimal(value, mc);
 	}
 
+	@Override
 	public void finalize() throws Throwable {
 
 	}
 
 	public MString toJSON() {
 		return new MString(new JSONSerializer().deepSerialize(this));
+	}
+
+	@Override
+	public String toString() {
+		return value.toPlainString();
 	}
 }

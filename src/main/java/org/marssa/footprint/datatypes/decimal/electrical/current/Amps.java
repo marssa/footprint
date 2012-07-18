@@ -25,7 +25,6 @@ import java.math.MathContext;
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlType;
 
-
 import org.hibernate.annotations.ForeignKey;
 import org.marssa.footprint.exceptions.OutOfRange;
 
@@ -35,7 +34,7 @@ import org.marssa.footprint.exceptions.OutOfRange;
  */
 @XmlType(name = "Amps")
 @Entity
-@ForeignKey(name = "FK_Metres_MDecimal")
+@ForeignKey(name = "FK_Amps_MDecimal")
 public class Amps extends ACurrent {
 
 	/**
@@ -53,5 +52,7 @@ public class Amps extends ACurrent {
 
 	public Amps(double value, MathContext mc) throws OutOfRange {
 		super(value, AMPERE, mc);
+
 	}
+
 }
