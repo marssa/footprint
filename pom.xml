@@ -141,6 +141,24 @@
 
 	<build>
 		<plugins>
+			<!-- Add src/main/resources/generated to the cleaned folders list -->
+			<plugin>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>2.5</version>
+				<configuration>
+					<filesets>
+						<fileset>
+							<directory>src/main/resources/generated</directory>
+							<excludes>
+								<exclude>**/README</exclude>
+								<exclude>**/.gitignore</exclude>
+								<exclude>**/.gitkeep</exclude>
+							</excludes>
+							<followSymlinks>false</followSymlinks>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -175,7 +193,6 @@
 					</reportPlugins>
 				</configuration>
 			</plugin>
-
 
 			<!-- Specify Java compiler version -->
 			<plugin>
@@ -215,7 +232,6 @@
 				</executions>
 			</plugin>
 
-
 			<!-- Generate XML Schema from MARSSA datatypes Java classes -->
 			<plugin>
 				<groupId>com.sun.tools.jxc.maven2</groupId>
@@ -243,7 +259,7 @@
 					<excludes>
 						<exclude>**/*org/marssa/footprint/interfaces/control/</exclude>
 					</excludes>
-				 	<schemas>
+					<schemas>
 						<schema>
 							<namespace>quantities.footprint.marssa.org</namespace>
 							<file>quantities.xsd</file>
@@ -400,8 +416,6 @@
 					</dependency>
 				</dependencies>
 			</plugin>
-
-		
 		</plugins>
 
 		<pluginManagement>
@@ -539,6 +553,6 @@
 			</build>
 		</profile>
 
-		
+
 	</profiles>
 </project>
