@@ -63,6 +63,11 @@ public class MInteger extends BigInteger {
 		super(Integer.toString(value));
 		this.value = new BigInteger(Integer.toString(value));
 	}
+	
+	public MInteger(BigInteger value) {
+		super(value.toString());
+		this.value = value;
+	}
 
 	@Override
 	public void finalize() throws Throwable {

@@ -70,6 +70,16 @@ public class MDecimal extends BigDecimal {
 		this.value = new BigDecimal(value, mc);
 	}
 
+	public MDecimal(BigDecimal value) {
+		super(value.toString());
+		this.value = value;
+	}
+	
+	public MDecimal(BigDecimal value, MathContext mc) {
+		super(value.toString(), mc);
+		this.value = new BigDecimal(value.toString(), mc);
+	}
+	
 	@Override
 	public void finalize() throws Throwable {
 
