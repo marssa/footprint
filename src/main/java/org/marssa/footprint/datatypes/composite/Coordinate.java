@@ -60,9 +60,6 @@ public class Coordinate {
 	@GenericGenerator(name = "increment", strategy = "increment")
 	Long id;
 
-	private Coordinate() {
-	}
-	
 	public Coordinate(Latitude latitude, Longitude longitude) {
 		this.latitude = latitude;
 		this.longitude = longitude;
